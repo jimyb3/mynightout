@@ -11,16 +11,11 @@ import mynightout.model.Reservation;
 
 
 /**
- *  Εδώ έχουμε τις λειτουργίες της βάσης, ο καθένας αναλογα με το ποια λειτουργία
- * θέλει να κάνει η βάση για αυτόν θα αφήσει εκεινη την εντολή ενεργεί και θα κάνει
- * τις υπόλοιπες σχόλια.
- * 
+ *  Εδώ είναι σαν να έχουμε μια εντολή για βάση και βλέπουμε το αποτελεσμα. Πρόκειται 
+ * για επιλογή reservation από την βάση.
  * @author Dimitris
  */
 public interface IReservationDao {
-    Reservation cancelReservation(String customerName, int reservationId) throws DaoException;
-    //Reservation createReservation(String customerName, int reservationId) throws DaoException;
-    //Reservation updateReservation(String customerName, int reservationId) throws DaoException;
-    //Reservation deleteReservation(String customerName, int reservationId) throws DaoException;
-    //Reservation selectReservation(String customerName, int reservationId) throws DaoException;
+    Reservation selectReservation(String customerName, int reservationId) throws DaoException;
+    
 }
