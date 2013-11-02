@@ -11,7 +11,7 @@ import mynightout.exceptions.DaoException;
 import mynightout.model.Reservation;
 
 /**
- *  *****test******
+ *  *****test2******
  * @author Dimitris
  */
 public class CancelBookController {
