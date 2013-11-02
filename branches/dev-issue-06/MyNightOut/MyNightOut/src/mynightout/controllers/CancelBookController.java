@@ -50,7 +50,7 @@ public class CancelBookController {
         }
         
         try{
-            return cancelBookDao.cancelReservation(customerName, reservationId);
+            return cancelBookDao.selectReservation(customerName, reservationId);
         } catch(DaoException e){
             throw e;
         }
