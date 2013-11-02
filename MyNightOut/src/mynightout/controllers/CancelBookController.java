@@ -11,7 +11,7 @@ import mynightout.exceptions.DaoException;
 import mynightout.model.Reservation;
 
 /**
- *  
+ *  *****test2******
  * @author Dimitris
  */
 public class CancelBookController {
@@ -50,7 +50,7 @@ public class CancelBookController {
         }
         
         try{
-            return cancelBookDao.cancelReservation(customerName, reservationId);
+            return cancelBookDao.selectReservation(customerName, reservationId);
         } catch(DaoException e){
             throw e;
         }

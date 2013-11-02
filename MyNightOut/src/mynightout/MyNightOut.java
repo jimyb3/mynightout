@@ -10,7 +10,8 @@ import javax.swing.JFrame;
 import mynightout.ui.MainFrame;
 
 /**
- *
+ *  Εδώ είναι η main του προγράμματος, που φτιάχνει το αρχικό 
+ * παράθυρο του προγράμματος
  * @author Dimitris
  */
 public class MyNightOut {
