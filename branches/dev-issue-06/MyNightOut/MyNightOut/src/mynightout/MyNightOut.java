@@ -6,6 +6,9 @@
 
 package mynightout;
 
+import javax.swing.JFrame;
+import mynightout.ui.MainFrame;
+
 /**
  *
  * @author Dimitris
@@ -17,6 +20,8 @@ public class MyNightOut {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        JFrame mainFrame=new MainFrame();
+        mainFrame.setVisible(true);
     }
     
 }
