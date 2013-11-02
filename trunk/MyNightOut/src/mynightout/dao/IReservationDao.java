@@ -14,6 +14,7 @@ import mynightout.model.Reservation;
  *  Εδώ έχουμε τις λειτουργίες της βάσης, ο καθένας αναλογα με το ποια λειτουργία
  * θέλει να κάνει η βάση για αυτόν θα αφήσει εκεινη την εντολή ενεργεί και θα κάνει
  * τις υπόλοιπες σχόλια.
+ * 
  * @author Dimitris
  */
 public interface IReservationDao {
