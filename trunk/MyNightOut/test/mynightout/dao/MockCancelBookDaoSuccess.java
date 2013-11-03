@@ -18,6 +18,7 @@ import mynightout.model.Reservation;
  */
 public class MockCancelBookDaoSuccess implements IReservationDao{
     /**
+     * 
      * Προσποιήσου ότι διέγραψες μια κράτηση και επέστρεψε το 1 σαν κωδικό 
      * επιτυχημένης διαγραφής.
      * @param customerName το όνομα του πελάτη
@@ -27,7 +28,7 @@ public class MockCancelBookDaoSuccess implements IReservationDao{
      */
     
     @Override
-    public Reservation cancelReservation(String customerName, int reservationId) throws DaoException{
+    public Reservation selectReservation(String customerName, int reservationId) throws DaoException{
         Reservation reservation= new Reservation();
         
         reservation.setCustomerName(customerName);
