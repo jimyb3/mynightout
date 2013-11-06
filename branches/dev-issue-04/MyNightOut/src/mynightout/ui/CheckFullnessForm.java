@@ -6,8 +6,11 @@
 
 package mynightout.ui;
 
+import javax.swing.JOptionPane;
 import mynightout.controllers.CheckFullnessController;
 import mynightout.dao.NightClubDao;
+import mynightout.exceptions.DaoException;
+import mynightout.model.NightClub;
 
 /**
  *
@@ -33,7 +36,7 @@ public class CheckFullnessForm extends javax.swing.JFrame {
 
         okButton = new javax.swing.JButton();
         nightClubLabel = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        nightClubTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,7 +49,7 @@ public class CheckFullnessForm extends javax.swing.JFrame {
 
         nightClubLabel.setText("Όνομα Καταστήματος");
 
-        jTextField1.setText("jTextField1");
+        nightClubTextField.setText("jTextField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -61,7 +64,7 @@ public class CheckFullnessForm extends javax.swing.JFrame {
                             .addComponent(okButton)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(94, 94, 94)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(nightClubTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -70,7 +73,7 @@ public class CheckFullnessForm extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addComponent(nightClubLabel)
                 .addGap(31, 31, 31)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nightClubTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(okButton)
                 .addGap(41, 41, 41))
@@ -85,6 +88,12 @@ public class CheckFullnessForm extends javax.swing.JFrame {
         // TODO add your handling code here:
           CheckFullnessController controller=new CheckFullnessController(new NightClubDao());
         
+          try {
+             NightClub nightClub=controller.checkFullness(nightClubTextField.getText());
+             JOptionPane.showMessageDialog(null, "Δεν είναι πλήρης, 54/100", "Success",JOptionPane.INFORMATION_MESSAGE);
+        } catch (DaoException e) {      //minima la8ous apo th vash (den vgazei mhmyma)
+         JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_okButtonActionPerformed
 
     /**
@@ -123,8 +132,8 @@ public class CheckFullnessForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel nightClubLabel;
+    private javax.swing.JTextField nightClubTextField;
     private javax.swing.JButton okButton;
     // End of variables declaration//GEN-END:variables
 }
