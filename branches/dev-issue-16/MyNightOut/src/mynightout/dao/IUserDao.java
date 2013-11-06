@@ -6,10 +6,13 @@
 
 package mynightout.dao;
 
+import mynightout.exceptions.DaoException;
+import mynightout.model.User;
+
 /**
  *
  * @author ioanna
  */
 public interface IUserDao {
-    
+    User makeLogin(String userName, String passWord) throws DaoException ;
 }

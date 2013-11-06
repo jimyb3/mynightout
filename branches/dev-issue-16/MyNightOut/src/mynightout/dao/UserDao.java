@@ -6,10 +6,17 @@
 
 package mynightout.dao;
 
+import mynightout.exceptions.DaoException;
+import mynightout.model.User;
+
 /**
  *
  * @author ioanna
  */
-public class UserDao {
+public class UserDao implements IUserDao{
+    @Override
+    public User makeLogin(String userName, String passWord) throws DaoException {
+        return new User();
+    }
     
 }
