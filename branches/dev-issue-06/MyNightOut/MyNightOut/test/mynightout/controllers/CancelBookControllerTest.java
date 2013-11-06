@@ -13,7 +13,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import mynightout.dao.MockCancelBookDaoSuccess;
+import mynightout.dao.MockCancelBookDaoSucceeded;
 import org.junit.Assert;
 
 /**
@@ -46,16 +46,16 @@ public class CancelBookControllerTest {
  cancel book.
      */
     @Test
-    public void testCancelReservationNewSuccess() throws Exception {
+    public void testCancelReservationSucceeded() throws Exception {
         System.out.println("CancelReservationNewSuccess");
         String customerName = "lalakis";
         int reservationId = 15;
-        CancelBookController instance = new CancelBookController(new MockCancelBookDaoSuccess());
+        CancelBookController instance = new CancelBookController(new MockCancelBookDaoSucceeded());
         
         Reservation result = instance.cancelReservationNew(customerName, reservationId);
         Assert.assertEquals(customerName, result.getCustomerName());
         Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(1, result.getSuccessCancel());
+        Assert.assertEquals(true, result.isCancelSuccessfull());
         // TODO review the generated test code and remove the default call to fail.
         
     }
@@ -65,7 +65,7 @@ public class CancelBookControllerTest {
  empty name for customer.
      */
     @Test
-    public void testCancelReservationNewFailed() throws Exception {
+    public void testCancelReservationFailed() throws Exception {
         System.out.println("CancelReservationNewEmptyName");
         String customerName = "lalakis";
         int reservationId = 15;
@@ -74,7 +74,7 @@ public class CancelBookControllerTest {
         Reservation result = instance.cancelReservationNew(customerName, reservationId);
         Assert.assertEquals(customerName, result.getCustomerName());
         Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(0, result.getSuccessCancel());
+        Assert.assertEquals(false, result.isCancelSuccessfull());
         // TODO review the generated test code and remove the default call to fail.
         
     }

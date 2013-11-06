@@ -30,7 +30,7 @@ public class MockCancelBookDaoFailed implements IReservationDao{
         
         reservation.setCustomerName(customerName);
         reservation.setReservationId(reservationId);
-        reservation.setSuccessCancel(0);
+        reservation.setCancelSuccessfull(false);
         return reservation;
     }
     
