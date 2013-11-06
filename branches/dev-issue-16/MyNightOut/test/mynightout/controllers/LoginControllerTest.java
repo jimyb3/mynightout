@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.controllers;
 
+import mynightout.dao.MockLoginDaoFailure;
+import mynightout.dao.MockLoginDaoSuccess;
 import mynightout.model.User;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -19,22 +21,22 @@ import static org.junit.Assert.*;
  * @author ioanna
  */
 public class LoginControllerTest {
-    
+
     public LoginControllerTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -44,29 +46,33 @@ public class LoginControllerTest {
      */
     @Test
     public void testLoginSuccess() throws Exception {
-        System.out.println("Login");
+        System.out.println("Login Succeeded!!");
         String userName = "loulou";
-        String passWord = "12345";
-        LoginController instance = null;
-        User expResult = null;
+        String passWord = "123456";
+        
+        
+         LoginController instance = new LoginController(new MockLoginDaoSuccess());
+
         User result = instance.Login(userName, passWord);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-       // fail("The test case is a prototype.");
+        Assert.assertEquals(userName, result.getUserName());
+        Assert.assertEquals(passWord, result.getPassWord());
+        Assert.assertEquals(true, result.isloginSuccessful());
+        
     }
-    
+
     @Test
     public void testLoginFailure() throws Exception {
-        System.out.println("Login");
-        String userName = "lou";
-        String passWord = "12345";
-        LoginController instance = null;
-        User expResult = null;
+        System.out.println("Login Failed");
+        String userName = "loulou";
+        String passWord = "123456";
+
+        LoginController instance = new LoginController(new MockLoginDaoFailure());
+
         User result = instance.Login(userName, passWord);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-       // fail("The test case is a prototype.");
+        Assert.assertEquals(userName, result.getUserName());
+        Assert.assertEquals(passWord, result.getPassWord());
+        Assert.assertEquals(false, result.isloginSuccessful());
+       
     }
-    
-    
+
 }
