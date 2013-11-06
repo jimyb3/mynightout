@@ -42,8 +42,7 @@ public class CancelBookControllerTest {
     }
 
     /**
-     * Test of selectReservationNew method, of class CancelBookController for Success
- cancel book.
+     * Τεστάρει την συμπεριφορά του Controller για επιτυχημένη διαγραφή.
      */
     @Test
     public void testCancelReservationSucceeded() throws Exception {
@@ -61,8 +60,7 @@ public class CancelBookControllerTest {
     }
    
     /**
-     * Test of selectReservationNew method, of class CancelBookController for 
- empty name for customer.
+     * Τεστάρει την συμπεριφορά του Controller για αποτυχημένη διαγραφή.
      */
     @Test
     public void testCancelReservationFailed() throws Exception {

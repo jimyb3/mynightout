@@ -16,8 +16,8 @@ import mynightout.model.Reservation;
  */
 public class MockCancelBookDaoFailed implements IReservationDao{
     /**
-     * Προσποιήσου ότι δεν διέγραψες μια κράτηση και επέστρεψε το 0 σαν κωδικό 
-     * αποτυχημένης διαγραφής.
+     * Προσποιήσου ότι δεν διέγραψες μια κράτηση και επέστρεψε το false για 
+     * αποτυχημένη διαγραφή.
      * @param customerName το όνομα του πελάτη
      * @param reservationId ο αριθμός της κράτησης
      * @return επιστρέφει διαγραφή κράτησης 
