@@ -8,7 +8,7 @@ package mynightout.ui;
 
 import javax.swing.JFrame;
 import mynightout.controllers.CancelBookController;
-import mynightout.dao.CancelBookDao;
+import mynightout.dao.ReservationDao;
 import mynightout.model.Reservation;
 import javax.swing.JOptionPane;
 
@@ -120,7 +120,7 @@ public class CancelBookForm extends javax.swing.JFrame {
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         // TODO add your handling code here:
-        CancelBookController controller=new CancelBookController(new CancelBookDao());
+        CancelBookController controller=new CancelBookController(new ReservationDao());
         int reservationId=Integer.parseInt(reservationIdTextField.getText());
         try{
             Reservation cancelReservation=controller.cancelReservationNew(customerNameTextField.getText(), reservationId);
