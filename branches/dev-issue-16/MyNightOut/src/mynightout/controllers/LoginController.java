@@ -25,7 +25,7 @@ public class LoginController {
             throws IllegalArgumentException, DaoException {
         //Check if customer name is at least three character's long
         if (userName.length() < 4) {
-            throw new IllegalArgumentException("Customer name should be at least four characters long");
+            throw new IllegalArgumentException("Username should be at least four characters long");
         }
         try {
             return userDao.makeLogin(userName, passWord);
@@ -35,4 +35,3 @@ public class LoginController {
     }
     }
     
-}
