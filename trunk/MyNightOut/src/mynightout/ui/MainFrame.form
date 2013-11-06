@@ -29,6 +29,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="cancelReservationButton" max="32767" attributes="0"/>
                   <Component id="ExitButton" max="32767" attributes="0"/>
+                  <Component id="loginButton" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
           </Group>
@@ -37,7 +38,9 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="213" max="32767" attributes="0"/>
+              <EmptySpace pref="179" max="32767" attributes="0"/>
+              <Component id="loginButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="cancelReservationButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="ExitButton" min="-2" max="-2" attributes="0"/>
@@ -61,6 +64,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExitButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="loginButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Login"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
