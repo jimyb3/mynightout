@@ -61,8 +61,7 @@ public class CancelBookControllerTest {
     }
    
     /**
-     * Test of selectReservationNew method, of class CancelBookController for 
- empty name for customer.
+     * Test of selectReservationNew method, of class CancelBookController for unSuccess cancel book.
      */
     @Test
     public void testCancelReservationNewFailed() throws Exception {
