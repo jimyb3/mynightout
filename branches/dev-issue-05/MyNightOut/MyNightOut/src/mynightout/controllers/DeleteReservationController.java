@@ -7,11 +7,11 @@ import mynightout.model.Reservation;
 
 
 public class DeleteReservationController {
-    private final IReservationDao DeleteReservationDao;
-    private IReservationDao DeleteReservation;
+    private final IReservationDao deleteReservationDao;
+    private IReservationDao deleteReservation;
     
     public  DeleteReservationController(IReservationDao  DeleteReservationDao){
-        this. DeleteReservationDao= DeleteReservation;
+        this.deleteReservationDao= deleteReservation;
      }
        
         public static void CountDigits(String ID) throws FileNotFoundException
