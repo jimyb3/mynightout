@@ -6,14 +6,14 @@
 
 package mynightout.controllers;
 
-import mynightout.dao.MockCancelBookDaoFailed;
+import mynightout.dao.MockCancelBookDaoFailure;
 import mynightout.model.Reservation;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import mynightout.dao.MockCancelBookDaoSucceeded;
+import mynightout.dao.MockCancelBookDaoSuccess;
 import org.junit.Assert;
 
 /**
@@ -49,12 +49,12 @@ public class CancelBookControllerTest {
         System.out.println("CancelReservationNewSuccess");
         String customerName = "lalakis";
         int reservationId = 15;
-        CancelBookController instance = new CancelBookController(new MockCancelBookDaoSucceeded());
+        CancelBookController instance = new CancelBookController(new MockCancelBookDaoSuccess());
         
-        Reservation result = instance.cancelReservationNew(customerName, reservationId);
+        Reservation result = instance.cancelReservation(customerName, reservationId);
         Assert.assertEquals(customerName, result.getCustomerName());
         Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(true, result.isCancelSuccessfull());
+        Assert.assertEquals(true, result.isCancelSuccessful());
         // TODO review the generated test code and remove the default call to fail.
         
     }
@@ -67,12 +67,12 @@ public class CancelBookControllerTest {
         System.out.println("CancelReservationNewEmptyName");
         String customerName = "lalakis";
         int reservationId = 15;
-        CancelBookController instance = new CancelBookController(new MockCancelBookDaoFailed());
+        CancelBookController instance = new CancelBookController(new MockCancelBookDaoFailure());
         
-        Reservation result = instance.cancelReservationNew(customerName, reservationId);
+        Reservation result = instance.cancelReservation(customerName, reservationId);
         Assert.assertEquals(customerName, result.getCustomerName());
         Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(false, result.isCancelSuccessfull());
+        Assert.assertEquals(false, result.isCancelSuccessful());
         // TODO review the generated test code and remove the default call to fail.
         
     }

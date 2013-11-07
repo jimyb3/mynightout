@@ -1,23 +1,25 @@
-package mynightout.dao;
-
-import mynightout.dao.IReservationDao;
-import mynightout.exceptions.DaoException;
-import mynightout.model.Reservation;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+package mynightout.dao;
+
+import mynightout.dao.IReservationDao;
+import mynightout.exceptions.DaoException;
+import mynightout.model.Reservation;
+
+
 /**
- *
- * @author MyPro
+ * Παράδειγμα κλάσης Mock. Κανονικά θα τη γράφαμε χρησιμοποιώντας
+ * ένα framework σαν το JMock ή το Mockito
+ * @author Dimitris
  */
-public class MockCancelBookDaoFailed implements IReservationDao{
+public class MockCancelBookDaoSuccess implements IReservationDao{
     /**
-     * Προσποιήσου ότι δεν διέγραψες μια κράτηση και επέστρεψε το false για 
-     * αποτυχημένη διαγραφή.
+     * Προσποιήσου ότι διέγραψες μια κράτηση και επέστρεψε το true για 
+     * επιτυχημένη διαγραφή.
      * @param customerName το όνομα του πελάτη
      * @param reservationId ο αριθμός της κράτησης
      * @return επιστρέφει διαγραφή κράτησης 
@@ -30,7 +32,7 @@ public class MockCancelBookDaoFailed implements IReservationDao{
         
         reservation.setCustomerName(customerName);
         reservation.setReservationId(reservationId);
-        reservation.setCancelSuccessfull(false);
+        reservation.setCancelSuccessful(true);
         return reservation;
     }
     
