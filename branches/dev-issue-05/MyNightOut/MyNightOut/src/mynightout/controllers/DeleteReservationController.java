@@ -10,7 +10,7 @@ public class DeleteReservationController {
     private final IReservationDao deleteReservationDao;
     private IReservationDao deleteReservation;
     
-    public  DeleteReservationController(IReservationDao  DeleteReservationDao){
+    public  DeleteReservationController(IReservationDao  deleteReservationDao){
         this.deleteReservationDao= deleteReservation;
      }
        
