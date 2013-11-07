@@ -11,12 +11,16 @@ import mynightout.exceptions.DaoException;
 import mynightout.model.Reservation;
 
 /**
- *  *****test2******
+ *  
  * @author Dimitris
  */
 public class CancelBookController {
     private IReservationDao cancelBookDao;
     
+    /** 
+     * Ένας contructor με ορισμα.
+    
+    */
     public CancelBookController(IReservationDao cancelBookDao){
         this.cancelBookDao=cancelBookDao;
     }
@@ -33,7 +37,7 @@ public class CancelBookController {
      * @throws IllegalArgumentException αν κάποια από τις παραμέτρους δεν ήταν σωστή
      *         DaoException αν απέτυχε η επικοινωνία με τη βάση
     */
-    public Reservation cancelReservationNew(String customerName, int reservationId)
+    public Reservation cancelReservation(String customerName, int reservationId)
                 throws IllegalArgumentException, DaoException{
         //Check if reservationID is valid
         if (reservationId>=100){
