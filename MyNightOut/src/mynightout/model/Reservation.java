@@ -13,7 +13,7 @@ package mynightout.model;
 public class Reservation {
     private String customerName;
     private int reservationId;
-    private boolean canceSuccessfulll;
+    private boolean cancelSuccessful;
     
     public String getCustomerName(){
         return customerName;
@@ -31,13 +31,15 @@ public class Reservation {
         this.reservationId=reservationId;
     }
 
-    public boolean isCancelSuccessfull() {
-        return canceSuccessfulll;
+    public boolean isCancelSuccessful() {
+        return cancelSuccessful;
     }
 
-    public void setCancelSuccessfull(boolean successCancel) {
-        this.canceSuccessfulll = successCancel;
+    public void setCancelSuccessful(boolean cancelSuccessful) {
+        this.cancelSuccessful = cancelSuccessful;
     }
+
+    
     
     
     
