@@ -16,7 +16,7 @@ import mynightout.model.Reservation;
  */
 public class ReservationDaoCreate implements IReservationDaoCreate{
     @Override
-    public Reservation createReservation(String customerName, int reservationId,
+    public Reservation createReservation(String customerName, /*int reservationId,*/
     Date reservationDate, int numberParty, String storeName )throws DaoException{
         return new Reservation();
     }

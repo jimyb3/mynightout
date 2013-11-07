@@ -17,7 +17,7 @@ import mynightout.model.Reservation;
 public class MockReservationDaoCreateSuccess implements IReservationDaoCreate {
 
         @Override
-        public Reservation createReservation (String customerName, int reservationId,
+        public Reservation createReservation (String customerName, /*int reservationId,*/
                 Date reservationDate, int numberParty, String storeName)
                 throws DaoException {
         Reservation r = new Reservation();
@@ -25,7 +25,8 @@ public class MockReservationDaoCreateSuccess implements IReservationDaoCreate {
         r.setStoreName(storeName);
         r.setCustomerName(customerName);
         r.setReservationDate(reservationDate);
-        r.setReservationId(123);
+        r.setReservationId(12345);
+        r.setNumberParty(numberParty);
         return r;
     }
 }

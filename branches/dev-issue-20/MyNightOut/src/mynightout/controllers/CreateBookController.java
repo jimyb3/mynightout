@@ -6,6 +6,8 @@
 
 package mynightout.controllers;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import mynightout.model.Reservation;
 import mynightout.exceptions.DaoException;
@@ -22,10 +24,22 @@ public class CreateBookController {
         this.createBookDao = createBookDao;
     }
     
-    public Reservation createReservationNew (String customerName, int reservationId,
-        Date reservationDate, int numberParty, String storeName) 
+    public Reservation createReservationNew (String customerName,/* int reservationId,*/
+        String dateString, int numberParty, String storeName) 
             throws IllegalArgumentException, DaoException{
-         
+        
+        
+        
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        String dtStr = dateString.trim();  // 01/01/2011
+        Date reservationDate;
+        try {
+             reservationDate = df.parse(dtStr);  // dt = Sun Jan 01 00:00:00 IST 2011
+        } catch (ParseException e) {
+            throw new IllegalArgumentException("Incorrect date format");
+        }
+        
+        
         if(customerName.length()<3){
             throw new IllegalArgumentException("Customer name should be at least three characters long");
         }
@@ -38,15 +52,8 @@ public class CreateBookController {
         // TODO elenxos gia imerominia opws to apo katw -.-
         
         
+
         /*
-        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        String dtStr = dateString.trim();  // 01/01/2011
-        Date date;
-        try {
-             date = df.parse(dtStr);  // dt = Sun Jan 01 00:00:00 IST 2011
-        } catch (ParseException e) {
-            throw new IllegalArgumentException("Incorrect date format");
-        }
 
         //Check if date is correct
 
@@ -72,7 +79,7 @@ public class CreateBookController {
                 throw new IllegalArgumentException("Megalos ari8mos kratisis");
             }*/
                 try{
-            return createBookDao.createReservation(customerName, reservationId, 
+                    return createBookDao.createReservation(customerName, /*reservationId,*/ 
                     reservationDate, numberParty, storeName);
         } catch(DaoException e){
             throw e;
