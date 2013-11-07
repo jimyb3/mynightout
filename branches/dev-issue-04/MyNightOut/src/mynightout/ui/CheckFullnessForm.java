@@ -91,7 +91,7 @@ public class CheckFullnessForm extends javax.swing.JFrame {
           try {
              NightClub nightClub=controller.checkFullness(nightClubTextField.getText());
              JOptionPane.showMessageDialog(null, "Δεν είναι πλήρης, 54/100", "Success",JOptionPane.INFORMATION_MESSAGE);
-        } catch (DaoException e) {      //minima la8ous apo th vash (den vgazei mhmyma)
+        } catch (Exception e) {      //minima la8ous apo th vash (den vgazei mhmyma)
          JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_okButtonActionPerformed

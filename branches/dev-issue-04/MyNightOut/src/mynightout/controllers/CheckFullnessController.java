@@ -17,7 +17,7 @@ public class CheckFullnessController {
 
     private INightClubDao nightClubDao;
 
-    public CheckFullnessController(INightClubDao NightClubDao) {
+    public CheckFullnessController(INightClubDao nightClubDao) {
         this.nightClubDao = nightClubDao;
     }
 
