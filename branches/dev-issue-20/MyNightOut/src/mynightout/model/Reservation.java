@@ -6,6 +6,8 @@
 
 package mynightout.model;
 
+import java.util.Date;
+
 /**
  * Μια απλή κλάση που αναπαριστά μια κράτηση.
  * @author Dimitris
@@ -14,9 +16,36 @@ public class Reservation {
     private String customerName;
     private int reservationId;
     private int successCancel;
+    private Date reservationDate;//ημερομηνια κρατησης
+    private int numberParty;//πληθος ατομων
+    private String storeName;
+
+    public String getStoreName() {
+        return storeName;
+    }
+
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
+    }
     
     public String getCustomerName(){
         return customerName;
+    }
+
+    public Date getReservationDate() {
+        return reservationDate;
+    }
+
+    public void setReservationDate(Date reservationDate) {
+        this.reservationDate = reservationDate;
+    }
+
+    public int getNumberParty() {
+        return numberParty;
+    }
+
+    public void setNumberParty(int numberParty) {
+        this.numberParty = numberParty;
     }
     
     public void setCustomerName(String customerName){
