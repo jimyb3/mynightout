@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import mynightout.controllers.CreateBookController;
 import mynightout.dao.ReservationDaoCreate;
@@ -21,7 +22,29 @@ public class CreateReservationForm extends javax.swing.JFrame {
      * Creates new form CreateReservationForm
      */
     public CreateReservationForm() {
+        //Calendar cal;
         initComponents();
+        /*//Tkke the current day
+        Calendar cal = Calendar.getInstance();
+
+        //Add one day
+        cal.add(Calendar.DAY_OF_MONTH, 0);
+
+        //Set the time to 00:00:00
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+
+        //Convert to Date object
+        Date date = cal.getTime();*/
+        //DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+	   //get current date time with Date()
+	   Date date = new Date();
+	   //System.out.println(dateFormat.format(date));
+
+   
+        this.reservationDateChooser.setDate(date);
     }
 
     /**
@@ -54,7 +77,7 @@ public class CreateReservationForm extends javax.swing.JFrame {
 
         reservationNightClubSelectionLabel.setText("Επιλογή Καταστήματος");
 
-        reservationNightClubSelection.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Μας πήραν είδηση..", "Ραντεβού", "13 Φεγγάρια", "Item 4", "Item 5" }));
+        reservationNightClubSelection.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Επιλέξτε Καταστημα...", "Μας πήραν είδηση..", "Ραντεβού", "13 Φεγγάρια", "Item 4", "Item 5" }));
 
         reservationCustomerNameLabel.setText("εδώ εμφανιζει το ονομα του πελατη");
 
@@ -62,9 +85,15 @@ public class CreateReservationForm extends javax.swing.JFrame {
 
         reservationDateLabel.setText("Επιλογή Ημερομηνίας");
 
+        reservationDateChooser.setToolTipText("");
         reservationDateChooser.setDateFormatString("dd/MM/yyyy");
 
         reservationButtonClose.setText("Άκυρο");
+        reservationButtonClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reservationButtonCloseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,26 +149,54 @@ public class CreateReservationForm extends javax.swing.JFrame {
 
     private void reservationOkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationOkButtonActionPerformed
         // TODO add your handling code here:
-        
+
         CreateBookController controller = new CreateBookController(new ReservationDaoCreate());
+
+        //to apo katw mou ekane to problima kai den ebgene to exeption epidi ekane conflict me to d ligo pio katw  
+        //int reservationPartyNumber = Integer.parseInt(reservationPartyNumberTextField.getText());
         
-        int reservationPartyNumber=Integer.parseInt(reservationPartyNumberTextField.getText());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date reservationDate = new Date();//reservationDateChooser.getDate();
+        String c = sdf.format(reservationDate);
+        
         
         try {
-            Reservation createReservation = controller.createReservationNew(
-                    this.reservationCustomerNameLabel.getText(),
-                    this.reservationDateChooser.getDateFormatString(),
-                    reservationPartyNumber,
-                    //sto epomeno mporei na min einai to .getToolTipText()
-                    this.reservationNightClubSelection.getToolTipText());
-            JOptionPane.showMessageDialog(null ,"Η καταχώρηση ήταν επιτυχής","Success",JOptionPane.INFORMATION_MESSAGE);
-            
-        } catch(Exception e){ 
-             JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",JOptionPane.INFORMATION_MESSAGE);
+            try {
+                int d = Integer.parseInt(reservationPartyNumberTextField.getText());
+
+                Reservation createReservation = controller.createReservationNew(
+                        this.reservationCustomerNameLabel.getText(),
+                        sdf.format(this.reservationDateChooser.getDate()),
+                        d,
+                        (String) this.reservationNightClubSelection.getSelectedItem());
+                JOptionPane.showMessageDialog(null, "Η καταχώρηση ήταν επιτυχής",
+                        "Success", JOptionPane.INFORMATION_MESSAGE);
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(),
+                    "Failure", JOptionPane.INFORMATION_MESSAGE);
         }
-        
-        
+
+
     }//GEN-LAST:event_reservationOkButtonActionPerformed
+
+    private void reservationButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationButtonCloseActionPerformed
+        // TODO add your handling code here:
+
+        dispose();
+        
+        //SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        //Date reservationDate = new Date();//reservationDateChooser.getDate();
+        //sdf.format(reservationDate);
+        
+        JOptionPane.showMessageDialog(null, this.reservationDateChooser.getDateEditor(),
+                "Failure", JOptionPane.INFORMATION_MESSAGE);
+
+    }//GEN-LAST:event_reservationButtonCloseActionPerformed
 
     /**
      * @param args the command line arguments
