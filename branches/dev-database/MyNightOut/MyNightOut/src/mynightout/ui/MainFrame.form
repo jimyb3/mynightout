@@ -26,10 +26,13 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="134" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="cancelReservationButton" max="32767" attributes="0"/>
-                  <Component id="ExitButton" max="32767" attributes="0"/>
-                  <Component id="loginButton" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="jLabel1" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="cancelReservationButton" max="32767" attributes="0"/>
+                      <Component id="ExitButton" max="32767" attributes="0"/>
+                      <Component id="loginButton" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
           </Group>
@@ -38,7 +41,9 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="179" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace pref="102" max="32767" attributes="0"/>
               <Component id="loginButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="cancelReservationButton" min="-2" max="-2" attributes="0"/>
@@ -73,6 +78,14 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginButtonActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x3c3;&#x3cd;&#x3bd;&#x3b4;&#x3b5;&#x3c3;&#x3b7; &#x3c3;&#x3c4;&#x3b7; &#x3b2;&#x3ac;&#x3c3;&#x3b7;..."/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
