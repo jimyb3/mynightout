@@ -14,6 +14,7 @@ import java.sql.SQLException;
 /**
  *
  * @author ioanna
+ * 
  */
 public class MysqlConnection {
     public Connection connection() throws SQLException{
