@@ -28,17 +28,19 @@ public class CreateReservationForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        okButton = new javax.swing.JButton();
+        reservationOkButton = new javax.swing.JButton();
         reservationNightClubSelectionLabel = new javax.swing.JLabel();
         reservationNightClubSelection = new javax.swing.JComboBox();
         reservationCustomerNameLabel = new javax.swing.JLabel();
         reservationPartyNumberLabel = new javax.swing.JLabel();
         reservationPartyNumberTextField = new javax.swing.JTextField();
         reservationDateLabel = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        reservationButtonClose = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        okButton.setText("Καταχώρηση Κράτησης");
+        reservationOkButton.setText("Καταχώρηση Κράτησης");
 
         reservationNightClubSelectionLabel.setText("Επιλογή Καταστήματος");
 
@@ -50,6 +52,8 @@ public class CreateReservationForm extends javax.swing.JFrame {
 
         reservationDateLabel.setText("Επιλογή Ημερομηνίας");
 
+        reservationButtonClose.setText("Άκυρο");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -58,25 +62,29 @@ public class CreateReservationForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(124, 124, 124)
-                        .addComponent(okButton))
+                        .addComponent(reservationOkButton))
                     .addComponent(reservationCustomerNameLabel)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
+                        .addGap(62, 62, 62)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(reservationNightClubSelectionLabel)
                             .addComponent(reservationPartyNumberLabel)
                             .addComponent(reservationDateLabel))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(reservationNightClubSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(reservationPartyNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(96, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(reservationPartyNumberTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(reservationNightClubSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(163, 163, 163)
+                        .addComponent(reservationButtonClose)))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(reservationCustomerNameLabel)
-                .addGap(58, 58, 58)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(reservationNightClubSelectionLabel)
                     .addComponent(reservationNightClubSelection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -85,10 +93,16 @@ public class CreateReservationForm extends javax.swing.JFrame {
                     .addComponent(reservationPartyNumberLabel)
                     .addComponent(reservationPartyNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(reservationDateLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(okButton)
-                .addGap(65, 65, 65))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(reservationDateLabel)
+                        .addGap(6, 6, 6))
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50)
+                .addComponent(reservationOkButton)
+                .addGap(18, 18, 18)
+                .addComponent(reservationButtonClose)
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -130,11 +144,13 @@ public class CreateReservationForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton okButton;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JButton reservationButtonClose;
     private javax.swing.JLabel reservationCustomerNameLabel;
     private javax.swing.JLabel reservationDateLabel;
     private javax.swing.JComboBox reservationNightClubSelection;
     private javax.swing.JLabel reservationNightClubSelectionLabel;
+    private javax.swing.JButton reservationOkButton;
     private javax.swing.JLabel reservationPartyNumberLabel;
     private javax.swing.JTextField reservationPartyNumberTextField;
     // End of variables declaration//GEN-END:variables
