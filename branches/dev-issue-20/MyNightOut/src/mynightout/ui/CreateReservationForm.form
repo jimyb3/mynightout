@@ -40,7 +40,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="reservationPartyNumberTextField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jDateChooser1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="reservationDateChooser" alignment="0" max="32767" attributes="0"/>
                           <Component id="reservationNightClubSelection" min="-2" pref="150" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -69,11 +69,8 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="reservationDateLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jDateChooser1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="reservationDateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="reservationDateChooser" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Component id="reservationOkButton" min="-2" max="-2" attributes="0"/>
@@ -89,6 +86,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x39a;&#x3b1;&#x3c4;&#x3b1;&#x3c7;&#x3ce;&#x3c1;&#x3b7;&#x3c3;&#x3b7; &#x39a;&#x3c1;&#x3ac;&#x3c4;&#x3b7;&#x3c3;&#x3b7;&#x3c2;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reservationOkButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="reservationNightClubSelectionLabel">
       <Properties>
@@ -125,7 +125,10 @@
         <Property name="text" type="java.lang.String" value="&#x395;&#x3c0;&#x3b9;&#x3bb;&#x3bf;&#x3b3;&#x3ae; &#x397;&#x3bc;&#x3b5;&#x3c1;&#x3bf;&#x3bc;&#x3b7;&#x3bd;&#x3af;&#x3b1;&#x3c2;"/>
       </Properties>
     </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+    <Component class="com.toedter.calendar.JDateChooser" name="reservationDateChooser">
+      <Properties>
+        <Property name="dateFormatString" type="java.lang.String" value="dd/MM/yyyy"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="reservationButtonClose">
       <Properties>

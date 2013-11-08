@@ -6,6 +6,11 @@
 
 package mynightout.ui;
 
+import javax.swing.JOptionPane;
+import mynightout.controllers.CreateBookController;
+import mynightout.dao.ReservationDaoCreate;
+import mynightout.model.Reservation;
+
 /**
  *
  * @author Miltos
@@ -35,12 +40,17 @@ public class CreateReservationForm extends javax.swing.JFrame {
         reservationPartyNumberLabel = new javax.swing.JLabel();
         reservationPartyNumberTextField = new javax.swing.JTextField();
         reservationDateLabel = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        reservationDateChooser = new com.toedter.calendar.JDateChooser();
         reservationButtonClose = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         reservationOkButton.setText("Καταχώρηση Κράτησης");
+        reservationOkButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reservationOkButtonActionPerformed(evt);
+            }
+        });
 
         reservationNightClubSelectionLabel.setText("Επιλογή Καταστήματος");
 
@@ -51,6 +61,8 @@ public class CreateReservationForm extends javax.swing.JFrame {
         reservationPartyNumberLabel.setText("Αριθμός Ατόμων");
 
         reservationDateLabel.setText("Επιλογή Ημερομηνίας");
+
+        reservationDateChooser.setDateFormatString("dd/MM/yyyy");
 
         reservationButtonClose.setText("Άκυρο");
 
@@ -73,7 +85,7 @@ public class CreateReservationForm extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(reservationPartyNumberTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(reservationDateChooser, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(reservationNightClubSelection, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(163, 163, 163)
@@ -94,10 +106,8 @@ public class CreateReservationForm extends javax.swing.JFrame {
                     .addComponent(reservationPartyNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(reservationDateLabel)
-                        .addGap(6, 6, 6))
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(reservationDateLabel)
+                    .addComponent(reservationDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addComponent(reservationOkButton)
                 .addGap(18, 18, 18)
@@ -107,6 +117,29 @@ public class CreateReservationForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void reservationOkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationOkButtonActionPerformed
+        // TODO add your handling code here:
+        
+        CreateBookController controller = new CreateBookController(new ReservationDaoCreate());
+        
+        int reservationPartyNumber=Integer.parseInt(reservationPartyNumberTextField.getText());
+        
+        try {
+            Reservation createReservation = controller.createReservationNew(
+                    this.reservationCustomerNameLabel.getText(),
+                    this.reservationDateChooser.getDateFormatString(),
+                    reservationPartyNumber,
+                    //sto epomeno mporei na min einai to .getToolTipText()
+                    this.reservationNightClubSelection.getToolTipText());
+            JOptionPane.showMessageDialog(null ,"Η καταχώρηση ήταν επιτυχής","Success",JOptionPane.INFORMATION_MESSAGE);
+            
+        } catch(Exception e){ 
+             JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+        
+    }//GEN-LAST:event_reservationOkButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,9 +177,9 @@ public class CreateReservationForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JButton reservationButtonClose;
     private javax.swing.JLabel reservationCustomerNameLabel;
+    private com.toedter.calendar.JDateChooser reservationDateChooser;
     private javax.swing.JLabel reservationDateLabel;
     private javax.swing.JComboBox reservationNightClubSelection;
     private javax.swing.JLabel reservationNightClubSelectionLabel;
