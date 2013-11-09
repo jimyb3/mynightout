@@ -6,9 +6,7 @@
 
 package mynightout.ui;
 
-import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
-import static javax.xml.ws.soap.MTOMFeature.ID;
 import mynightout.controllers.DeleteReservationController;
 import mynightout.dao.ReservationDaoDelete;
 import mynightout.model.Reservation;
@@ -51,6 +49,12 @@ public class DeleteReservationForm extends javax.swing.JFrame {
 
         jLabel1.setText("ID");
 
+        IDInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IDInputActionPerformed(evt);
+            }
+        });
+
         Cancel.setText("Cancel");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -91,8 +95,8 @@ public class DeleteReservationForm extends javax.swing.JFrame {
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
        DeleteReservationController controller=new DeleteReservationController(new ReservationDaoDelete());
        try{
-           Reservation DeleteReservation=controller.DeleteReservation(ID);
-           JOptionPane.showMessageDialog(null,"the Deleted reservation's ID id is:" +ID,
+           Reservation DeleteReservation=controller.DeleteReservation(IDInput.getText(),Id);
+           JOptionPane.showMessageDialog(null,"the Deleted reservation's ID id is:" +Id,
                    "Success",JOptionPane.INFORMATION_MESSAGE);
        }
        catch (Exception e)
@@ -105,6 +109,10 @@ public class DeleteReservationForm extends javax.swing.JFrame {
 
 // TODO add your handling code here:
     }//GEN-LAST:event_DeleteActionPerformed
+
+    private void IDInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IDInputActionPerformed
 
     /**
      * @param args the command line arguments
