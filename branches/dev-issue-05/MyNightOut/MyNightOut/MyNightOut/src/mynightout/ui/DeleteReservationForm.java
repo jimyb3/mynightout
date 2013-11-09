@@ -35,7 +35,7 @@ public class DeleteReservationForm extends javax.swing.JFrame {
 
         Delete = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        IDInput = new javax.swing.JTextField();
+        GivenId = new javax.swing.JTextField();
         Cancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,9 +49,9 @@ public class DeleteReservationForm extends javax.swing.JFrame {
 
         jLabel1.setText("ID");
 
-        IDInput.addActionListener(new java.awt.event.ActionListener() {
+        GivenId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IDInputActionPerformed(evt);
+                GivenIdActionPerformed(evt);
             }
         });
 
@@ -67,7 +67,7 @@ public class DeleteReservationForm extends javax.swing.JFrame {
                         .addGap(110, 110, 110)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(IDInput, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(GivenId, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(135, 135, 135)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -81,7 +81,7 @@ public class DeleteReservationForm extends javax.swing.JFrame {
                 .addContainerGap(97, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(IDInput, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(GivenId, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addComponent(Delete)
                 .addGap(18, 18, 18)
@@ -95,7 +95,7 @@ public class DeleteReservationForm extends javax.swing.JFrame {
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
        DeleteReservationController controller=new DeleteReservationController(new ReservationDaoDelete());
        try{
-           Reservation deleteReservation=controller.deleteReservation(IDInput.getText());
+           Reservation deleteReservation=controller.deleteReservation(GivenId.getText());
            JOptionPane.showMessageDialog(null,"the Deleted reservation's ID id is:" +Id,
                    "Success",JOptionPane.INFORMATION_MESSAGE);
        }
@@ -104,15 +104,14 @@ public class DeleteReservationForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,e.getMessage(),
             "Failure",JOptionPane.INFORMATION_MESSAGE);
        }
-       }
+    
 
 
-// TODO add your handling code here:
     }//GEN-LAST:event_DeleteActionPerformed
 
-    private void IDInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDInputActionPerformed
+    private void GivenIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GivenIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_IDInputActionPerformed
+    }//GEN-LAST:event_GivenIdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,7 +151,7 @@ public class DeleteReservationForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancel;
     private javax.swing.JButton Delete;
-    private javax.swing.JTextField IDInput;
+    private javax.swing.JTextField GivenId;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
