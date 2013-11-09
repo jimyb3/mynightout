@@ -13,6 +13,7 @@ package mynightout.model;
 public class Reservation {
     private String customerName;
     private int reservationId;
+    
     private boolean cancelSuccessful;
     
     public String getCustomerName(){

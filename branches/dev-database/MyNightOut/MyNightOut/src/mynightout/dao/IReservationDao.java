@@ -11,8 +11,7 @@ import mynightout.model.Reservation;
 
 
 /**
- *  Εδώ είναι σαν να έχουμε μια εντολή για βάση και βλέπουμε το αποτελεσμα. Πρόκειται 
- * για επιλογή reservation από την βάση.
+ *  Εδώ μια συνάρτηση χωρίς σώμα.
  * @author Dimitris
  */
 public interface IReservationDao {

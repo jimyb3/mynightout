@@ -54,7 +54,7 @@ public class CancelBookControllerTest {
         Reservation result = instance.cancelReservation(customerName, reservationId);
         Assert.assertEquals(customerName, result.getCustomerName());
         Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(true, result.isCancelSuccessful());
+        Assert.assertEquals("Πέτυχε η ακυρωση", true, result.isCancelSuccessful());
         // TODO review the generated test code and remove the default call to fail.
         
     }

@@ -33,13 +33,15 @@ public class MyNightOut{
         mainFrame.setVisible(true);
         try{
             conn.connection();
-            MainFrame.jLabel1.setText("egine h sundesh");
+            MainFrame.jLabel1.setText("Έγινε η σύνδεση.");
+            mainFrame.setTitle("MyNightOut: Εγινε η συνδεση");
             
             
         } catch (SQLException ex) {
             Logger lgr = Logger.getLogger("nope");
             lgr.log(Level.WARNING, ex.getMessage(), ex);
-            MainFrame.jLabel1.setText("den subde8hke");
+            MainFrame.jLabel1.setText("Δεν συνδέθηκε.");
+            mainFrame.setTitle("MyNightOut: Δεν συνδέθηκε");
         }
         
         //SelectReservation res1 = new SelectReservation();
