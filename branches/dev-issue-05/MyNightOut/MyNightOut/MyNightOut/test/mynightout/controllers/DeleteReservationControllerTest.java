@@ -10,6 +10,7 @@ import mynightout.dao.MockDeleteDaoSuccess;
 import mynightout.model.Reservation;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -51,9 +52,9 @@ public class DeleteReservationControllerTest {
         System.out.println("deleteReservation");
         String ID = "";
         DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoSuccess());
-        Reservation expResult = null;
         Reservation result = instance.deleteReservation(ID);
-        assertEquals(expResult, result);
+        Assert.assertEquals(ID, result.getReservationId());
+        Assert.assertEquals(true, result.isCancelSuccessful());
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
