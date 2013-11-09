@@ -39,6 +39,18 @@ public class Reservation {
         this.cancelSuccessful = cancelSuccessful;
     }
 
+    public void setReservationId(String Id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setReservationId(String reservationId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setReservationId(String reservationId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
     
     
