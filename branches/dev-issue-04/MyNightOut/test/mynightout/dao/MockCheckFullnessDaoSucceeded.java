@@ -13,11 +13,10 @@ import mynightout.model.NightClub;
  *
  * @author Mustaine
  */
-public class MockCheckFullnessDaoSucceeded {
+public class MockCheckFullnessDaoSucceeded implements INightClubDao{
     
-    //@Override
+    @Override
     public NightClub selectNightClub(String storeName) throws DaoException{
-        
         NightClub nightclub = new NightClub();
         
         nightclub.setStoreName(storeName);            
