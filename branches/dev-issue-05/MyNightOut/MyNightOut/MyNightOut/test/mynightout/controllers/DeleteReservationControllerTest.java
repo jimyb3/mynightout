@@ -23,7 +23,7 @@ import static org.junit.Assert.*;
 public class DeleteReservationControllerTest {
     
     public DeleteReservationControllerTest() {
-     String Id="44444";
+    
     
     }
     
@@ -50,13 +50,13 @@ public class DeleteReservationControllerTest {
     @Test
     public void testDeleteReservation_1args_1() throws Exception {
         System.out.println("deleteReservation");
-        String ID = "";
+        String ID = "44444";
         DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoSuccess());
         Reservation result = instance.deleteReservation(ID);
-        Assert.assertEquals(ID, result.getReservationId());
+        Assert.assertEquals(Integer.parseInt(ID),result.getReservationId());//metatroph toy string se int
         Assert.assertEquals(true, result.isCancelSuccessful());
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
