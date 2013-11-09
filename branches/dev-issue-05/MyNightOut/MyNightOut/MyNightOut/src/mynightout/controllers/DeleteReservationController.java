@@ -7,6 +7,7 @@
 package mynightout.controllers;
 
 import mynightout.dao.IReservationDao;
+import mynightout.exceptions.DaoException;
 import mynightout.model.Reservation;
 
 /**
@@ -22,7 +23,7 @@ public class DeleteReservationController {
    this.reservationDao=reservationDao;
       
   }
-  Reservation deleteReservation(String ID)
+  Reservation deleteReservation(String ID) throws IllegalArgumentException,DaoException
   {
       
       
