@@ -24,10 +24,22 @@ public class DeleteReservationController {
   }
   public Reservation deleteReservation(String ID) throws IllegalArgumentException,DaoException
   {
-                if (ID.length()!=5)
-            {
-                throw new IllegalArgumentException("to ID pou dwsate den einai egkuro");
-             }
+           if (ID.length()!=5)
+           {
+               throw new IllegalArgumentException("Το ID που δώσατε δεν είναι έγκυρο");
+           }
+          try 
+          {      
+                 return reservationDao.selectReservation(ID);
+           } 
+         catch (DaoException e)
+         {
+            throw e;
+         }
   }
+
+   // public Reservation DeleteReservation(String ID) {
+  //      throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  //  }
  
 }
