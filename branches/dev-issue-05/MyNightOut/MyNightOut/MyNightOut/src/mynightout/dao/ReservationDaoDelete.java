@@ -14,7 +14,7 @@ import mynightout.model.Reservation;
  */
 public class ReservationDaoDelete implements IReservationDaoDelete{
 @Override
-public Reservation selectReservation(String ID);
+public Reservation selectReservation(String ID){
 
 return new Reservation();
 }
