@@ -13,8 +13,6 @@ import mynightout.model.Reservation;
  *
  * @author Maria
  */
-public class IReservationDaoDelete {
-    Reservation selectReservation(String ID) throws DaoException;
-    
-    
+public interface IReservationDaoDelete {
+    Reservation selectReservation(String ID)throws DaoException;
 }
