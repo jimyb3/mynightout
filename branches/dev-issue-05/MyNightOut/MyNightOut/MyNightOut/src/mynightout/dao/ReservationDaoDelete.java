@@ -16,5 +16,5 @@ public class ReservationDaoDelete implements IReservationDaoDelete{
 @Override
 public Reservation selectReservation(String ID);
 
-return Reservation();
+return new Reservation();
 }
