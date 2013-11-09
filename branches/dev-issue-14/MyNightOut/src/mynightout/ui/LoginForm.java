@@ -40,6 +40,7 @@ public class LoginForm extends javax.swing.JFrame {
         passWordLabel = new javax.swing.JLabel();
         userNameField = new javax.swing.JTextField();
         passWordField = new javax.swing.JTextField();
+        GoBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -66,27 +67,39 @@ public class LoginForm extends javax.swing.JFrame {
 
         passWordField.setToolTipText("password");
 
+        GoBack.setText("GoBack");
+        GoBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GoBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(enterButton)
-                        .addGap(36, 36, 36)
-                        .addComponent(resetButton))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(passWordLabel)
-                            .addGap(30, 30, 30)
-                            .addComponent(passWordField))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(userNameLabel)
-                            .addGap(28, 28, 28)
-                            .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(62, 62, 62)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(enterButton)
+                                .addGap(36, 36, 36)
+                                .addComponent(resetButton))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(passWordLabel)
+                                    .addGap(30, 30, 30)
+                                    .addComponent(passWordField))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(userNameLabel)
+                                    .addGap(28, 28, 28)
+                                    .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(GoBack)))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -104,7 +117,8 @@ public class LoginForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(enterButton)
                     .addComponent(resetButton))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(GoBack))
         );
 
         pack();
@@ -125,9 +139,16 @@ public class LoginForm extends javax.swing.JFrame {
         passWordField.setText("");
     }//GEN-LAST:event_resetButtonActionPerformed
 
+    private void GoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GoBackActionPerformed
+        JFrame mainFrame=new MainFrame();
+        mainFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_GoBackActionPerformed
+
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton GoBack;
     private javax.swing.JButton enterButton;
     private javax.swing.JTextField passWordField;
     private javax.swing.JLabel passWordLabel;
