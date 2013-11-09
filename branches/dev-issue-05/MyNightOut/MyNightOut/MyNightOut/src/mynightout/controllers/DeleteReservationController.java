@@ -6,6 +6,7 @@
 
 package mynightout.controllers;
 
+import java.io.FileNotFoundException;
 import mynightout.dao.IReservationDao;
 import mynightout.exceptions.DaoException;
 import mynightout.model.Reservation;
@@ -25,7 +26,14 @@ public class DeleteReservationController {
   }
   Reservation deleteReservation(String ID) throws IllegalArgumentException,DaoException
   {
-      
+    public static void CountDigits(String ID) throws FileNotFoundException
+        {
+           
+            if (ID.length()!=5)
+            {
+                System.out.printf("to ID pou dwsate den einai egkuro");
+             }
+         }  
       
   }
  
