@@ -95,7 +95,7 @@ public class DeleteReservationForm extends javax.swing.JFrame {
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
        DeleteReservationController controller=new DeleteReservationController(new ReservationDaoDelete());
        try{
-           Reservation DeleteReservation=controller.DeleteReservation(IDInput.getText(),Id);
+           Reservation deleteReservation=controller.deleteReservation(IDInput.getText());
            JOptionPane.showMessageDialog(null,"the Deleted reservation's ID id is:" +Id,
                    "Success",JOptionPane.INFORMATION_MESSAGE);
        }
