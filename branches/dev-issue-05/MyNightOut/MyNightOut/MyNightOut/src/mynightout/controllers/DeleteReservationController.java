@@ -6,10 +6,20 @@
 
 package mynightout.controllers;
 
+import mynightout.dao.IReservationDao;
+
 /**
  *
  * @author Maria
  */
 public class DeleteReservationController {
+    private
+    IReservationDao reservationDao;
     
+  public  DeleteReservationController (IReservationDao reservationDao ) 
+  {
+      
+      
+  }
+  }
 }
