@@ -7,6 +7,7 @@
 package mynightout.controllers;
 
 import mynightout.dao.IReservationDao;
+import mynightout.model.Reservation;
 
 /**
  *
@@ -18,8 +19,13 @@ public class DeleteReservationController {
     
   public  DeleteReservationController (IReservationDao reservationDao ) 
   {
+   this.reservationDao=reservationDao;
+      
+  }
+  Reservation deleteReservation(String ID)
+  {
       
       
   }
-  }
+ 
 }
