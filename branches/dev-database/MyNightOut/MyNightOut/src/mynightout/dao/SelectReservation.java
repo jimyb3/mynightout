@@ -18,7 +18,7 @@ import java.sql.Statement;
  */
 public class SelectReservation {
 
-    public void selectReservation(String userName, MysqlConnection conn) {
+    public void selectReservation(String userName, ConnectionToMysql conn) {
         PreparedStatement stmt = null;
 
         try {

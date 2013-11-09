@@ -16,7 +16,7 @@ import java.sql.SQLException;
  * @author ioanna
  * 
  */
-public class MysqlConnection {
+public class ConnectionToMysql {
     public Connection connection() throws SQLException{
         String url = "jdbc:mysql://79.103.252.134:3306/mynightout";
         String user = "root";

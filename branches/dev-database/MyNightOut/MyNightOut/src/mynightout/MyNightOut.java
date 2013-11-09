@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import mynightout.dao.InsertReservationData;
-import mynightout.dao.MysqlConnection;
+import mynightout.dao.ConnectionToMysql;
 import mynightout.dao.SelectReservation;
 import mynightout.ui.MainFrame;
 
@@ -28,7 +28,7 @@ public class MyNightOut{
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        MysqlConnection conn = new MysqlConnection();
+        ConnectionToMysql conn = new ConnectionToMysql();
         JFrame mainFrame = new MainFrame();
         mainFrame.setVisible(true);
         try{

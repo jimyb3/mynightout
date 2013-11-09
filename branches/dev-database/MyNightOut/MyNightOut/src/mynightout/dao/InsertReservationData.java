@@ -16,7 +16,7 @@ import java.sql.SQLException;
  */
 public class InsertReservationData {
 
-    public void insertReservationData(String userName, String nightClubName, String reservationDate, int seatNumber, MysqlConnection conn) {
+    public void insertReservationData(String userName, String nightClubName, String reservationDate, int seatNumber, ConnectionToMysql conn) {
         PreparedStatement pst = null;
         PreparedStatement stmt = null;
 
