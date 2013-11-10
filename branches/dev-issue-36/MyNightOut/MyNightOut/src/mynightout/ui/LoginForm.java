@@ -87,7 +87,7 @@ public class LoginForm extends javax.swing.JFrame {
                             .addComponent(userNameLabel)
                             .addGap(28, 28, 28)
                             .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
