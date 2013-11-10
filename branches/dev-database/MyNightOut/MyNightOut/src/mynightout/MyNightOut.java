@@ -10,9 +10,9 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
-import mynightout.dao.InsertReservationData;
+import mynightout.dao.InsertToDB;
 import mynightout.dao.ConnectionToMysql;
-import mynightout.dao.SelectReservation;
+import mynightout.dao.SelectFromDB;
 import mynightout.ui.MainFrame;
 
 /**
@@ -44,11 +44,15 @@ public class MyNightOut{
             mainFrame.setTitle("MyNightOut: Δεν συνδέθηκε");
         }
         
-        //SelectReservation res1 = new SelectReservation();
+        //SelectFromDB res1 = new SelectFromDB();
         //res1.selectReservation("USER2", conn);
+        //res1.selectNightClubs(conn);
         
-        InsertReservationData res2 = new InsertReservationData();
-        res2.insertReservationData("user1", "Club1", "2015-03-20", 4, conn);
+        
+        //InsertToDB res2 = new InsertToDB();
+        //res2.insertReservationData("user1", "Club1", "2015-03-20", 4, conn);
+        //res2.insertNewUserData("noula", "kodikos123", "Ioanna", "Koufaki", "6908743750", conn);
+        
         
     }
 
