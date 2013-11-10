@@ -19,7 +19,7 @@ import java.sql.SQLException;
 public class ConnectionToMysql {
     public Connection connection() throws SQLException{
         
-        String url = "jdbc:mysql://79.103.252.134:3306/mynightout";
+        String url = "jdbc:mysql://mynightout.no-ip.biz:3306/mynightout";
         String user = "root";
         String password = "";
         return DriverManager.getConnection(url, user, password);

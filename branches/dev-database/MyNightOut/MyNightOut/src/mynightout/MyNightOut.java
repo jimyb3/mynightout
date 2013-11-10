@@ -48,7 +48,7 @@ public class MyNightOut{
         //res1.selectReservation("USER2", conn);
         
         InsertReservationData res2 = new InsertReservationData();
-        res2.insertReservationData("user1", "Club1", "2014-01-01", 4, conn);
+        res2.insertReservationData("user1", "Club1", "2015-03-20", 4, conn);
         
     }
 
