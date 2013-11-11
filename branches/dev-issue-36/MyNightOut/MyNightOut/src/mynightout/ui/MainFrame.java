@@ -36,6 +36,7 @@ public class MainFrame extends javax.swing.JFrame {
         loginButton = new javax.swing.JButton();
         checkFullnessButton = new javax.swing.JButton();
         selectTable = new javax.swing.JToggleButton();
+        changeViewButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyNightOut");
@@ -75,6 +76,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        changeViewButton.setText("Αλλαγή στην κάτοψη");
+        changeViewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeViewButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,17 +91,20 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(checkFullnessButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cancelReservationButton))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(139, 139, 139))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(changeViewButton)
+                .addGap(60, 60, 60))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(selectTable, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(selectTable, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,7 +119,9 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(checkFullnessButton)
                         .addGap(1, 1, 1)))
-                .addComponent(ExitButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ExitButton)
+                    .addComponent(changeViewButton))
                 .addGap(7, 7, 7)
                 .addComponent(selectTable))
         );
@@ -148,8 +161,16 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
         SelectTablePresenter prs=new SelectTablePresenter();
-        prs.createSelectTable(new SelectTableForm());
+        prs.createSelectTable(new SelectTableForm(),4,5,2,1);
     }//GEN-LAST:event_selectTableActionPerformed
+
+    private void changeViewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeViewButtonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        CreateTableView ctv=new CreateTableView();
+        ctv.setLocationRelativeTo(this);
+        ctv.setVisible(true);
+    }//GEN-LAST:event_changeViewButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,6 +210,7 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ExitButton;
     private javax.swing.JButton cancelReservationButton;
+    private javax.swing.JButton changeViewButton;
     private javax.swing.JButton checkFullnessButton;
     private javax.swing.JButton loginButton;
     private javax.swing.JToggleButton selectTable;
