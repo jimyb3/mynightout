@@ -42,19 +42,7 @@ public class MyNightOut{
             lgr.log(Level.WARNING, ex.getMessage(), ex);
             MainFrame.jLabel1.setText("Δεν συνδέθηκε.");
             mainFrame.setTitle("MyNightOut: Δεν συνδέθηκε");
-        }
-        
-        //SelectFromDB res1 = new SelectFromDB();
-        //res1.selectReservation("user1", conn);
-       
-        //res1.selectNightClubs(conn);
-        
-        
-        //InsertToDB res2 = new InsertToDB();
-        //res2.insertReservationData("user1", "Club1", "2015-03-20", 4, conn);
-        //res2.insertNewUserData("noula", "kodikos123", "Ioanna", "Koufaki", "6908743750", conn);
-        
-        
+        }        
     }
 
 }

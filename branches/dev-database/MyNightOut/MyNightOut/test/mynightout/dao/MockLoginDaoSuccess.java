@@ -19,7 +19,7 @@ public class MockLoginDaoSuccess implements IUserDao {
         User user = new User();
         user.setUserName(userName);
         user.setPassWord(passWord);
-        user.setloginSuccessful(true);
+        //user.setloginSuccessful(true);
         return user;
     }
 }
