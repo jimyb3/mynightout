@@ -13,7 +13,16 @@ package mynightout.model;
 public class User {
     private String userName;
     private String passWord;
-    private boolean loginSuccessful;
+
+    //private boolean loginSuccessful;
+    public User() {
+        
+    }
+
+    public User(String userName, String passWord) {
+        this.userName = userName;
+        this.passWord = passWord;
+    }
 
     public String getUserName() {
         return userName;
@@ -31,15 +40,15 @@ public class User {
         this.passWord = passWord;
     }
 
-    public boolean isloginSuccessful() {
+   /* public boolean isloginSuccessful() {
         return loginSuccessful;
     }
 
     public void setloginSuccessful(boolean isloginSuccessful) {
-        this.loginSuccessful = isloginSuccessful;
+        this.loginSuccessful = isloginSuccessful;*/
     }
 
     
     
     
-}
+
