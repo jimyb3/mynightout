@@ -26,27 +26,38 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="RegisterTitle" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="RegisterStory" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="RegisterClues" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="RegisterCompanyIssues" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="RegisterName" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegisterPass" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegisterCompanyName" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegisterAddress" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegisterPost" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegisterTel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegisterTel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegisterFax" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegisterMobile" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegisterEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="RegisterStory" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="RegisterClues" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegisterTitle" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
+                          <Component id="RegisterCompanyIssues" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace pref="27" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="RegisterAddress" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegisterName" min="-2" pref="156" max="-2" attributes="0"/>
+                          <Component id="RegisterCompanyName" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
+                          <Component id="RegisterFax" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="RegisterEmail" alignment="0" max="32767" attributes="0"/>
+                              <Component id="RegisterMobile" alignment="0" pref="53" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="RegisterTel1" alignment="0" pref="83" max="32767" attributes="0"/>
+                              <Component id="RegisterTel2" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="RegisterPost" alignment="0" max="32767" attributes="0"/>
+                              <Component id="RegisterPass" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="DesUserTextField" alignment="0" max="32767" attributes="0"/>
                           <Component id="DesPassTextField" alignment="0" max="32767" attributes="0"/>
@@ -59,11 +70,11 @@
                           <Component id="MobileTextField" alignment="0" max="32767" attributes="0"/>
                           <Component id="EmailTextField" alignment="0" pref="80" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                      <Component id="RegisterButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="RegisterButton" min="-2" pref="197" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -89,27 +100,34 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="RegisterCompanyIssues" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="RegisterCompanyName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="CompanyTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RegisterCompanyName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="CompanyTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RegisterAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="AdressTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RegisterPost" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="PostcodeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RegisterTel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Tel1TextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="RegisterButton" min="-2" pref="75" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="RegisterAddress" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="AdressTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="RegisterButton" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="RegisterPost" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="PostcodeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="RegisterTel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Tel1TextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="RegisterTel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Tel2TextField" alignment="3" min="-2" max="-2" attributes="0"/>
