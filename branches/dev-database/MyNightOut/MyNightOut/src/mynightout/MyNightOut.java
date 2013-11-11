@@ -45,7 +45,8 @@ public class MyNightOut{
         }
         
         //SelectFromDB res1 = new SelectFromDB();
-        //res1.selectReservation("USER2", conn);
+        //res1.selectReservation("user1", conn);
+       
         //res1.selectNightClubs(conn);
         
         
