@@ -7,6 +7,7 @@
 package mynightout.ui;
 
 import javax.swing.JFrame;
+import mynightout.presenters.SelectTablePresenter;
 
 /**
  *
@@ -34,6 +35,7 @@ public class MainFrame extends javax.swing.JFrame {
         ExitButton = new javax.swing.JButton();
         loginButton = new javax.swing.JButton();
         checkFullnessButton = new javax.swing.JButton();
+        selectTable = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyNightOut");
@@ -66,22 +68,32 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        selectTable.setText("Διάλεξε τραπέζι");
+        selectTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectTableActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(checkFullnessButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addComponent(cancelReservationButton))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(checkFullnessButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                        .addComponent(cancelReservationButton)))
+                            .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(139, 139, 139))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(selectTable, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,7 +109,8 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(checkFullnessButton)
                         .addGap(1, 1, 1)))
                 .addComponent(ExitButton)
-                .addGap(30, 30, 30))
+                .addGap(7, 7, 7)
+                .addComponent(selectTable))
         );
 
         pack();
@@ -130,6 +143,13 @@ public class MainFrame extends javax.swing.JFrame {
         checkFullnessFrame.setLocationRelativeTo(this);
        checkFullnessFrame.setVisible(true);
     }//GEN-LAST:event_checkFullnessButtonActionPerformed
+
+    private void selectTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectTableActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        SelectTablePresenter prs=new SelectTablePresenter();
+        prs.createSelectTable(new SelectTableForm());
+    }//GEN-LAST:event_selectTableActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,5 +191,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton cancelReservationButton;
     private javax.swing.JButton checkFullnessButton;
     private javax.swing.JButton loginButton;
+    private javax.swing.JToggleButton selectTable;
     // End of variables declaration//GEN-END:variables
 }

@@ -179,7 +179,7 @@ public class CancelBookForm extends javax.swing.JFrame {
     private javax.swing.JButton cancelButton;
     private javax.swing.JLabel customerNameLabel;
     private javax.swing.JTextField customerNameTextField;
-    private javax.swing.JLabel mesageLabel;
+    public javax.swing.JLabel mesageLabel;
     private javax.swing.JButton okButton;
     private javax.swing.JLabel reservationIdLabel;
     private javax.swing.JTextField reservationIdTextField;
