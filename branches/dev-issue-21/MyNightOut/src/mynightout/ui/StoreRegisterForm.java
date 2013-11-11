@@ -35,20 +35,20 @@ public class StoreRegisterForm extends javax.swing.JFrame implements IStoreRegis
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        RegisterTitle = new javax.swing.JLabel();
+        RegisterStory = new javax.swing.JLabel();
+        RegisterClues = new javax.swing.JLabel();
+        RegisterName = new javax.swing.JLabel();
+        RegisterPass = new javax.swing.JLabel();
+        RegisterCompanyIssues = new javax.swing.JLabel();
+        RegisterCompanyName = new javax.swing.JLabel();
+        RegisterAddress = new javax.swing.JLabel();
+        RegisterPost = new javax.swing.JLabel();
+        RegisterTel1 = new javax.swing.JLabel();
+        RegisterTel2 = new javax.swing.JLabel();
+        RegisterFax = new javax.swing.JLabel();
+        RegisterMobile = new javax.swing.JLabel();
+        RegisterEmail = new javax.swing.JLabel();
         DesUserTextField = new javax.swing.JTextField();
         DesPassTextField = new javax.swing.JTextField();
         CompanyTextField = new javax.swing.JTextField();
@@ -59,53 +59,53 @@ public class StoreRegisterForm extends javax.swing.JFrame implements IStoreRegis
         FaxTextField = new javax.swing.JTextField();
         MobileTextField = new javax.swing.JTextField();
         EmailTextField = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        RegisterButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        jLabel1.setText("Εγγραφή εμπόρου");
+        RegisterTitle.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        RegisterTitle.setText("Εγγραφή εμπόρου");
 
-        jLabel2.setText("Αυτή η φόρμα είναι μόνο για τους καταστηματάρχες.\nΈχετε 2 μήνες δωρεάν δοκιμής και δεν είσαστε υποχρεωμένοι\n να συνεχίσετε μετά την δοκιμαστική περίοδο.");
+        RegisterStory.setText("Αυτή η φόρμα είναι μόνο για τους καταστηματάρχες.\nΈχετε 2 μήνες δωρεάν δοκιμής και δεν είσαστε υποχρεωμένοι\n να συνεχίσετε μετά την δοκιμαστική περίοδο.");
 
-        jLabel3.setText("Στοιχεία Λογαριασμού");
+        RegisterClues.setText("Στοιχεία Λογαριασμού");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        jLabel4.setText("Επιθυμητό όνομα χρήστη:");
+        RegisterName.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        RegisterName.setText("Επιθυμητό όνομα χρήστη:");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        jLabel5.setText("Επιθυμητός κωδικός");
+        RegisterPass.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        RegisterPass.setText("Επιθυμητός κωδικός");
 
-        jLabel6.setText("Στοιχεία Εταιρείας");
+        RegisterCompanyIssues.setText("Στοιχεία Εταιρείας");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        jLabel7.setText("Επωνυμία");
+        RegisterCompanyName.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        RegisterCompanyName.setText("Επωνυμία");
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        jLabel9.setText("Διεύθυνση");
+        RegisterAddress.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        RegisterAddress.setText("Διεύθυνση");
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        jLabel10.setText(" Ταχυδρομικός Κώδικας ");
+        RegisterPost.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        RegisterPost.setText(" Ταχυδρομικός Κώδικας ");
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        jLabel11.setText("Τηλέφωνο 1");
+        RegisterTel1.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        RegisterTel1.setText("Τηλέφωνο 1");
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        jLabel8.setText("Τηλέφωνο 2");
+        RegisterTel2.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        RegisterTel2.setText("Τηλέφωνο 2");
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        jLabel12.setText("Fax");
+        RegisterFax.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        RegisterFax.setText("Fax");
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        jLabel13.setText("Κινητό");
+        RegisterMobile.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        RegisterMobile.setText("Κινητό");
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
-        jLabel14.setText("Email");
+        RegisterEmail.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        RegisterEmail.setText("Email");
 
-        jButton1.setText("Αποστολή Αίτησης");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        RegisterButton.setText("Αποστολή Αίτησης");
+        RegisterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                RegisterButtonActionPerformed(evt);
             }
         });
 
@@ -116,24 +116,24 @@ public class StoreRegisterForm extends javax.swing.JFrame implements IStoreRegis
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(RegisterTitle)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(jLabel2))
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel6)
+                        .addComponent(RegisterStory))
+                    .addComponent(RegisterClues)
+                    .addComponent(RegisterCompanyIssues)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel14))
+                            .addComponent(RegisterName)
+                            .addComponent(RegisterPass)
+                            .addComponent(RegisterCompanyName)
+                            .addComponent(RegisterAddress)
+                            .addComponent(RegisterPost)
+                            .addComponent(RegisterTel1)
+                            .addComponent(RegisterTel2)
+                            .addComponent(RegisterFax)
+                            .addComponent(RegisterMobile)
+                            .addComponent(RegisterEmail))
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(DesUserTextField)
@@ -147,60 +147,60 @@ public class StoreRegisterForm extends javax.swing.JFrame implements IStoreRegis
                             .addComponent(MobileTextField)
                             .addComponent(EmailTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
                         .addGap(48, 48, 48)
-                        .addComponent(jButton1)))
+                        .addComponent(RegisterButton)))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(RegisterTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
+                .addComponent(RegisterStory)
                 .addGap(12, 12, 12)
-                .addComponent(jLabel3)
+                .addComponent(RegisterClues)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(RegisterName)
                     .addComponent(DesUserTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(RegisterPass)
                     .addComponent(DesPassTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
+                .addComponent(RegisterCompanyIssues)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
+                    .addComponent(RegisterCompanyName)
                     .addComponent(CompanyTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
+                    .addComponent(RegisterAddress)
                     .addComponent(AdressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(RegisterButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
+                    .addComponent(RegisterPost)
                     .addComponent(PostcodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
+                    .addComponent(RegisterTel1)
                     .addComponent(Tel1TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
+                    .addComponent(RegisterTel2)
                     .addComponent(Tel2TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
+                    .addComponent(RegisterFax)
                     .addComponent(FaxTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
+                    .addComponent(RegisterMobile)
                     .addComponent(MobileTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
+                    .addComponent(RegisterEmail)
                     .addComponent(EmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -208,14 +208,14 @@ public class StoreRegisterForm extends javax.swing.JFrame implements IStoreRegis
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
         // TODO add your handling code here:
         Presenter prsreg=new Presenter();
         
         prsreg.storeregister(this, AdressTextField.getText(), CompanyTextField.getText(), DesPassTextField.getText(), DesUserTextField.getText(),
                 EmailTextField.getText(), FaxTextField.getText(), MobileTextField.getText(), PostcodeTextField.getText(), Tel1TextField.getText(), 
                 Tel2TextField.getText());
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_RegisterButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,22 +261,22 @@ public class StoreRegisterForm extends javax.swing.JFrame implements IStoreRegis
     private javax.swing.JTextField FaxTextField;
     private javax.swing.JTextField MobileTextField;
     private javax.swing.JTextField PostcodeTextField;
+    private javax.swing.JLabel RegisterAddress;
+    private javax.swing.JButton RegisterButton;
+    private javax.swing.JLabel RegisterClues;
+    private javax.swing.JLabel RegisterCompanyIssues;
+    private javax.swing.JLabel RegisterCompanyName;
+    private javax.swing.JLabel RegisterEmail;
+    private javax.swing.JLabel RegisterFax;
+    private javax.swing.JLabel RegisterMobile;
+    private javax.swing.JLabel RegisterName;
+    private javax.swing.JLabel RegisterPass;
+    private javax.swing.JLabel RegisterPost;
+    private javax.swing.JLabel RegisterStory;
+    private javax.swing.JLabel RegisterTel1;
+    private javax.swing.JLabel RegisterTel2;
+    private javax.swing.JLabel RegisterTitle;
     private javax.swing.JTextField Tel1TextField;
     private javax.swing.JTextField Tel2TextField;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
