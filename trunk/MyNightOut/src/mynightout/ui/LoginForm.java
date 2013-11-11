@@ -63,11 +63,6 @@ public class LoginForm extends javax.swing.JFrame {
         passWordLabel.setText("Password");
 
         userNameField.setToolTipText("username");
-        userNameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userNameFieldActionPerformed(evt);
-            }
-        });
 
         passWordField.setToolTipText("password");
 
@@ -116,7 +111,7 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
-        LoginController controller = new LoginController(new UserDao());
+        LoginController controller = new LoginController();
         try {
             User user = controller.Login(userNameField.getText(),passWordField.getText());
             JOptionPane.showMessageDialog(null,"welcome", "Success",JOptionPane.INFORMATION_MESSAGE);
@@ -129,10 +124,6 @@ public class LoginForm extends javax.swing.JFrame {
         userNameField.setText("");
         passWordField.setText("");
     }//GEN-LAST:event_resetButtonActionPerformed
-
-    private void userNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_userNameFieldActionPerformed
 
  
 
