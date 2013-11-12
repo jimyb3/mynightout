@@ -6,15 +6,13 @@
 
 package mynightout.controllers;
 
-import mynightout.dao.MockCancelBookDaoFailure;
 import mynightout.model.Reservation;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import mynightout.dao.MockCancelBookDaoSuccess;
-import org.junit.Assert;
 
 /**
  *
@@ -42,39 +40,31 @@ public class CancelBookControllerTest {
     }
 
     /**
-     * Τεστάρει την συμπεριφορά του Controller για επιτυχημένη διαγραφή.
+     * Test of cancelReservation method, of class CancelBookController.
      */
     @Test
-    public void testCancelReservationSucceeded() throws Exception {
-        System.out.println("CancelReservationNewSuccess");
-        String customerName = "lalakis";
-        int reservationId = 15;
-        CancelBookController instance = new CancelBookController(new MockCancelBookDaoSuccess());
-        
-        Reservation result = instance.cancelReservation(customerName, reservationId);
-        Assert.assertEquals(customerName, result.getCustomerName());
-        Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(true, result.isCancelSuccessful());
-        // TODO review the generated test code and remove the default call to fail.
-        
-    }
-   
-    /**
-     * Τεστάρει την συμπεριφορά του Controller για αποτυχημένη διαγραφή.
-     */
-    @Test
-    public void testCancelReservationFailed() throws Exception {
-        System.out.println("CancelReservationNewEmptyName");
-        String customerName = "lalakis";
-        int reservationId = 15;
-        CancelBookController instance = new CancelBookController(new MockCancelBookDaoFailure());
-        
-        Reservation result = instance.cancelReservation(customerName, reservationId);
-        Assert.assertEquals(customerName, result.getCustomerName());
-        Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(false, result.isCancelSuccessful());
-        // TODO review the generated test code and remove the default call to fail.
+    public void testSuccessfulCancel() {
+        System.out.println("cancelSuccessfulReservation");
+        String userName = "user1";
+        int reservationId = 5;
+        CancelBookController instance = new CancelBookController();
+        Reservation expResult = new Reservation("user1",5);
+        Reservation result = instance.cancelReservation(userName, reservationId);
+        Assert.assertEquals(expResult.getUserName(), result.getUserName());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
         
     }
     
+    @Test (expected=IllegalArgumentException.class)
+    public void testFailedCancel() {
+        System.out.println("cancelReservation");
+        String userName = " ";
+        int reservationId = 0;
+        CancelBookController instance = new CancelBookController();
+        Reservation expResult = new Reservation("user1",5);
+        Reservation result = instance.cancelReservation(userName, reservationId);
+        Assert.assertEquals(expResult.getUserName(), result.getUserName());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
+        
+    }
 }
