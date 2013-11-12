@@ -45,10 +45,10 @@ public class Reservation {
         this.cancelSuccessful = cancelSuccessful;
     }
 
-    public void setReservationId(String Id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+ public Reservation(String customerName, int reservationId) {
+        this.userName = customerName;
+        this.reservationId = reservationId;
     }
-
  public Reservation(String customerName,
  Date reservationDate, int numberOfPeople, String storeName) {
  this.userName = customerName;
@@ -88,6 +88,9 @@ public class Reservation {
 
     public void setNumOfPeople(int numOfPeople) {
         this.numOfPeople = numOfPeople;
+    }
+    public Reservation(String ID){
+        
     }
   }  
  
