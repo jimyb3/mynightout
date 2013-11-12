@@ -30,7 +30,23 @@ public class EditReservationController {
    public Reservation editReservation(String customerName,String dateString,int numOfPeople,String storeName,String ID)
         throws IllegalArgumentException,DaoException
     {
-
+        
+        
+       /* 
+       
+       
+        oldStore=storeName.getText();
+        oldDate=reservationDate.getText();
+        oldNumOfPeopleString=numOfPeople.getText();
+        
+        String newNumOfPeopleString=Integer.toString(numOfPeopleNew);
+        newName=customerNameNew.getText(); 
+      
+      
+        newNumOfPeopleString=numberOfPeopleNew.getText();
+        */
+      // numberOfPeopleNewActionPerformed();
+      
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         String dtStr = dateString.trim();  // 01/01/2011
         Date reservationDate;
