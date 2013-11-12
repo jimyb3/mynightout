@@ -26,27 +26,12 @@ public class EditReservationController {
    
 
   }
+ 
  @SuppressWarnings("empty-statement")
    public Reservation editReservation(String customerName,String dateString,int numOfPeople,String storeName,String ID)
         throws IllegalArgumentException,DaoException
     {
-        
-        
-       /* 
-       
-       
-        oldStore=storeName.getText();
-        oldDate=reservationDate.getText();
-        oldNumOfPeopleString=numOfPeople.getText();
-        
-        String newNumOfPeopleString=Integer.toString(numOfPeopleNew);
-        newName=customerNameNew.getText(); 
-      
-      
-        newNumOfPeopleString=numberOfPeopleNew.getText();
-        */
-      // numberOfPeopleNewActionPerformed();
-      
+          
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         String dtStr = dateString.trim();  // 01/01/2011
         Date reservationDate;
@@ -70,7 +55,7 @@ public class EditReservationController {
         }
         try
         {
-                    return reservationDao.selectReservation(customerName,dateString,numOfPeople,storeName,ID);
+                    return reservationDao.selectReservation(customerName,dateString,numOfPeople,storeName);
         } 
         catch(DaoException e)
         {
@@ -80,4 +65,14 @@ public class EditReservationController {
         
 
       }
-}
+  /* public void getChangedData(int numberOfPeopleNew,String customerNameNew,String storeNameNew){
+    String  newStoreName,newName; 
+     int newNumber=0;
+       
+       String newNumberString=Integer.toString(numberOfPeopleNew);
+       newNumberString =numberOfPeopleNew;
+       newName=customerNameNew;
+    
+    newStoreName=storeNameNew;
+*/
+ }
