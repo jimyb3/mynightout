@@ -63,6 +63,11 @@ public class LoginForm extends javax.swing.JFrame {
         passWordLabel.setText("Password");
 
         userNameField.setToolTipText("username");
+        userNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userNameFieldActionPerformed(evt);
+            }
+        });
 
         passWordField.setToolTipText("password");
 
@@ -124,6 +129,10 @@ public class LoginForm extends javax.swing.JFrame {
         userNameField.setText("");
         passWordField.setText("");
     }//GEN-LAST:event_resetButtonActionPerformed
+
+    private void userNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userNameFieldActionPerformed
 
  
 
