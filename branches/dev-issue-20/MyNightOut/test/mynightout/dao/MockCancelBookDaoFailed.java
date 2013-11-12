@@ -28,7 +28,7 @@ public class MockCancelBookDaoFailed implements IReservationDao{
     public Reservation cancelReservation(String customerName, int reservationId) throws DaoException{
         Reservation reservation= new Reservation();
         
-        reservation.setCustomerName(customerName);
+        reservation.setUserName(customerName);
         reservation.setReservationId(reservationId);
         reservation.setSuccessCancel(0);
         return reservation;

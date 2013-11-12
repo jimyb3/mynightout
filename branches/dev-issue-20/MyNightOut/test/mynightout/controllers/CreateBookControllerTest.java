@@ -81,10 +81,10 @@ public class CreateBookControllerTest {
 
         Reservation result = instance.createReservationNew(customerName,
                 dateString, numberParty, storeName);
-        Assert.assertEquals(customerName, result.getCustomerName());
+        Assert.assertEquals(customerName, result.getUserName());
         Assert.assertEquals(storeName, result.getStoreName());
         Assert.assertEquals(reservationDate, result.getReservationDate());
-        Assert.assertEquals(numberParty, result.getNumberParty());
+        Assert.assertEquals(numberParty, result.getSeatNumber());
         Assert.assertEquals(12345, result.getReservationId());
         Assert.assertEquals(true, result.isSuccessCreate());
 
@@ -125,10 +125,10 @@ public class CreateBookControllerTest {
         try {
             Reservation result = instance.createReservationNew(customerName,
                     dateString, numberParty, storeName);
-            Assert.assertEquals(customerName, result.getCustomerName());
+            Assert.assertEquals(customerName, result.getUserName());
             Assert.assertEquals(storeName, result.getStoreName());
             Assert.assertEquals(reservationDate, result.getReservationDate());
-            Assert.assertEquals(numberParty, result.getNumberParty());
+            Assert.assertEquals(numberParty, result.getSeatNumber());
             Assert.assertEquals(12345, result.getReservationId());
             Assert.assertEquals(false, result.isSuccessCreate());
         } catch (Exception e) {

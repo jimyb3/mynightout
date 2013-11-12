@@ -14,13 +14,21 @@ import java.util.Date;
  */
 public class Reservation {
 
-    private String customerName;
+    private String userName;
     private int reservationId;
     private int successCancel;
     private Date reservationDate;
-    private int numberParty;//πληθος ατομων
+    private int seatNumber;//πληθος ατομων
     private String storeName;
     private boolean successCreate;
+
+    public int getSeatNumber() {
+        return seatNumber;
+    }
+
+    public void setSeatNumber(int seatNumber) {
+        this.seatNumber = seatNumber;
+    }
 
     public boolean isSuccessCreate() {
         return successCreate;
@@ -28,6 +36,14 @@ public class Reservation {
 
     public void setSuccessCreate(boolean successCreate) {
         this.successCreate = successCreate;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getStoreName() {
@@ -38,28 +54,12 @@ public class Reservation {
         this.storeName = storeName;
     }
 
-    public String getCustomerName() {
-        return customerName;
-    }
-
     public Date getReservationDate() {
         return reservationDate;
     }
 
     public void setReservationDate(Date reservationDate) {
         this.reservationDate = reservationDate;
-    }
-
-    public int getNumberParty() {
-        return numberParty;
-    }
-
-    public void setNumberParty(int numberParty) {
-        this.numberParty = numberParty;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
     }
 
     public int getReservationId() {

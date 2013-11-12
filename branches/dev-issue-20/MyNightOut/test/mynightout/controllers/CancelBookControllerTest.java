@@ -53,7 +53,7 @@ public class CancelBookControllerTest {
         CancelBookController instance = new CancelBookController(new MockCancelBookDaoSuccess());
         
         Reservation result = instance.cancelReservationNew(customerName, reservationId);
-        Assert.assertEquals(customerName, result.getCustomerName());
+        Assert.assertEquals(customerName, result.getUserName());
         Assert.assertEquals(reservationId, result.getReservationId());
         Assert.assertEquals(1, result.getSuccessCancel());
         // TODO review the generated test code and remove the default call to fail.
@@ -72,7 +72,7 @@ public class CancelBookControllerTest {
         CancelBookController instance = new CancelBookController(new MockCancelBookDaoFailed());
         
         Reservation result = instance.cancelReservationNew(customerName, reservationId);
-        Assert.assertEquals(customerName, result.getCustomerName());
+        Assert.assertEquals(customerName, result.getUserName());
         Assert.assertEquals(reservationId, result.getReservationId());
         Assert.assertEquals(0, result.getSuccessCancel());
         // TODO review the generated test code and remove the default call to fail.

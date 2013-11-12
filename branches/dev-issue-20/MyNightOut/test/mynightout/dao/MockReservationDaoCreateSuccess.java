@@ -22,10 +22,10 @@ public class MockReservationDaoCreateSuccess implements IReservationDaoCreate {
         Reservation r = new Reservation();
 
         r.setStoreName(storeName);
-        r.setCustomerName(customerName);
+        r.setUserName(customerName);
         r.setReservationDate(reservationDate);
         r.setReservationId(12345);
-        r.setNumberParty(numberParty);
+        r.setSeatNumber(numberParty);
         r.setSuccessCreate(true);
         return r;
     }
