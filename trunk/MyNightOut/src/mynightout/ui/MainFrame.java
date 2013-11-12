@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import javax.swing.JFrame;
@@ -35,6 +34,7 @@ public class MainFrame extends javax.swing.JFrame {
         loginButton = new javax.swing.JButton();
         checkFullnessButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        createReservationButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyNightOut");
@@ -74,6 +74,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        createReservationButton.setText("Δημιουργία Κράτησης");
+        createReservationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createReservationButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -90,22 +97,28 @@ public class MainFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cancelReservationButton)))
                 .addGap(34, 34, 34)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(createReservationButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(165, Short.MAX_VALUE)
+                .addContainerGap(157, Short.MAX_VALUE)
                 .addComponent(loginButton)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cancelReservationButton)
-                        .addGap(18, 18, 18))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(cancelReservationButton)
+                            .addGap(18, 18, 18))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(checkFullnessButton)
+                            .addGap(1, 1, 1)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(checkFullnessButton)
-                        .addGap(1, 1, 1)))
+                        .addComponent(createReservationButton)
+                        .addGap(26, 26, 26)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ExitButton)
                     .addComponent(jButton1))
@@ -117,7 +130,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void cancelReservationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelReservationButtonActionPerformed
         // TODO add your handling code here:
-        JFrame cancelBookFrame=new CancelBookForm();
+        JFrame cancelBookFrame = new CancelBookForm();
         this.dispose();
         cancelBookFrame.setLocationRelativeTo(this);
         cancelBookFrame.setVisible(true);
@@ -129,7 +142,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_ExitButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        JFrame loginFrame=new LoginForm();
+        JFrame loginFrame = new LoginForm();
         this.dispose();
         loginFrame.setLocationRelativeTo(this);
         loginFrame.setVisible(true);
@@ -137,19 +150,28 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void checkFullnessButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkFullnessButtonActionPerformed
         // TODO add your handling code here:
-        JFrame checkFullnessFrame=new CheckFullnessForm();
+        JFrame checkFullnessFrame = new CheckFullnessForm();
         this.dispose();
         checkFullnessFrame.setLocationRelativeTo(this);
-       checkFullnessFrame.setVisible(true);
+        checkFullnessFrame.setVisible(true);
     }//GEN-LAST:event_checkFullnessButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        JFrame StoreRegisterForm=new StoreRegisterForm();
+        JFrame StoreRegisterForm = new StoreRegisterForm();
         this.dispose();
         StoreRegisterForm.setLocationRelativeTo(this);
         StoreRegisterForm.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void createReservationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createReservationButtonActionPerformed
+
+        JFrame createBookFrame = new CreateBookForm();
+        dispose();
+        createBookFrame.setLocationRelativeTo(this);
+        createBookFrame.setVisible(true);
+
+    }//GEN-LAST:event_createReservationButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,6 +212,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton ExitButton;
     private javax.swing.JButton cancelReservationButton;
     private javax.swing.JButton checkFullnessButton;
+    private javax.swing.JButton createReservationButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton loginButton;
     // End of variables declaration//GEN-END:variables
