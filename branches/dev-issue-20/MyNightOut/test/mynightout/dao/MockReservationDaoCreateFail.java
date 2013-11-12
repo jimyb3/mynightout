@@ -16,20 +16,17 @@ import mynightout.model.Reservation;
 public class MockReservationDaoCreateFail implements IReservationDaoCreate {
 
     @Override
-    public Reservation createReservation(String customerName, /*int reservationId,*/
+    public Reservation createReservation(String customerName,
             Date reservationDate, int numberParty, String storeName)
             throws DaoException {
-        try {
-            Reservation r = new Reservation();
+        Reservation r = new Reservation();
 
-            r.setStoreName(storeName);
-            r.setCustomerName(customerName);
-            r.setReservationDate(reservationDate);
-            r.setReservationId(1);
-            r.setNumberParty(numberParty);
-            return r;
-        } catch (Exception e) {
-            throw new IllegalArgumentException("Problima me tin basi de exw reservationNumber");
-        }
+        r.setStoreName(storeName);
+        r.setCustomerName(customerName);
+        r.setReservationDate(reservationDate);
+        r.setReservationId(12345);
+        r.setNumberParty(numberParty);
+        r.setSuccessCreate(false);
+        return r;
     }
 }

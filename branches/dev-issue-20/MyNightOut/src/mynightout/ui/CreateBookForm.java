@@ -7,6 +7,7 @@ package mynightout.ui;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.controllers.CreateBookController;
 import mynightout.dao.ReservationDaoCreate;
@@ -16,34 +17,15 @@ import mynightout.model.Reservation;
  *
  * @author Miltos
  */
-public class CreateReservationForm extends javax.swing.JFrame {
+public class CreateBookForm extends javax.swing.JFrame {
 
     /**
      * Creates new form CreateReservationForm
      */
-    public CreateReservationForm() {
-        //Calendar cal;
+    public CreateBookForm() {
+
         initComponents();
-        /*//Tkke the current day
-        Calendar cal = Calendar.getInstance();
-
-        //Add one day
-        cal.add(Calendar.DAY_OF_MONTH, 0);
-
-        //Set the time to 00:00:00
-        cal.set(Calendar.HOUR_OF_DAY, 0);
-        cal.set(Calendar.MINUTE, 0);
-        cal.set(Calendar.SECOND, 0);
-        cal.set(Calendar.MILLISECOND, 0);
-
-        //Convert to Date object
-        Date date = cal.getTime();*/
-        //DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-	   //get current date time with Date()
-	   Date date = new Date();
-	   //System.out.println(dateFormat.format(date));
-
-   
+        Date date = new Date();
         this.reservationDateChooser.setDate(date);
     }
 
@@ -148,26 +130,21 @@ public class CreateReservationForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void reservationOkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationOkButtonActionPerformed
-        // TODO add your handling code here:
 
         CreateBookController controller = new CreateBookController(new ReservationDaoCreate());
 
-        //to apo katw mou ekane to problima kai den ebgene to exeption epidi ekane conflict me to d ligo pio katw  
-        //int reservationPartyNumber = Integer.parseInt(reservationPartyNumberTextField.getText());
-        
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        Date reservationDate = new Date();//reservationDateChooser.getDate();
+        Date reservationDate = new Date();
         String c = sdf.format(reservationDate);
-        
-        
+
         try {
             try {
-                int d = Integer.parseInt(reservationPartyNumberTextField.getText());
+                int partyNumber = Integer.parseInt(reservationPartyNumberTextField.getText());
 
                 Reservation createReservation = controller.createReservationNew(
                         this.reservationCustomerNameLabel.getText(),
                         sdf.format(this.reservationDateChooser.getDate()),
-                        d,
+                        partyNumber,
                         (String) this.reservationNightClubSelection.getSelectedItem());
                 JOptionPane.showMessageDialog(null, "Η καταχώρηση ήταν επιτυχής",
                         "Success", JOptionPane.INFORMATION_MESSAGE);
@@ -185,16 +162,11 @@ public class CreateReservationForm extends javax.swing.JFrame {
     }//GEN-LAST:event_reservationOkButtonActionPerformed
 
     private void reservationButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationButtonCloseActionPerformed
-        // TODO add your handling code here:
 
+        JFrame mainFrame = new MainFrame();
         dispose();
-        
-        //SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        //Date reservationDate = new Date();//reservationDateChooser.getDate();
-        //sdf.format(reservationDate);
-        
-        JOptionPane.showMessageDialog(null, this.reservationDateChooser.getDateEditor(),
-                "Failure", JOptionPane.INFORMATION_MESSAGE);
+        mainFrame.setLocationRelativeTo(this);
+        mainFrame.setVisible(true);
 
     }//GEN-LAST:event_reservationButtonCloseActionPerformed
 
@@ -215,20 +187,20 @@ public class CreateReservationForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CreateReservationForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateBookForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CreateReservationForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateBookForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CreateReservationForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateBookForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CreateReservationForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CreateBookForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CreateReservationForm().setVisible(true);
+                new CreateBookForm().setVisible(true);
             }
         });
     }

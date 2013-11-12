@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.dao;
 
 import java.util.Date;
@@ -16,17 +15,18 @@ import mynightout.model.Reservation;
  */
 public class MockReservationDaoCreateSuccess implements IReservationDaoCreate {
 
-        @Override
-        public Reservation createReservation (String customerName, /*int reservationId,*/
-                Date reservationDate, int numberParty, String storeName)
-                throws DaoException {
+    @Override
+    public Reservation createReservation(String customerName,
+            Date reservationDate, int numberParty, String storeName)
+            throws DaoException {
         Reservation r = new Reservation();
-        
+
         r.setStoreName(storeName);
         r.setCustomerName(customerName);
         r.setReservationDate(reservationDate);
         r.setReservationId(12345);
         r.setNumberParty(numberParty);
+        r.setSuccessCreate(true);
         return r;
     }
 }

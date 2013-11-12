@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.controllers;
 
 import java.text.SimpleDateFormat;
@@ -25,22 +24,22 @@ import static org.junit.Assert.*;
  * @author Miltos
  */
 public class CreateBookControllerTest {
-    
+
     public CreateBookControllerTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -53,10 +52,10 @@ public class CreateBookControllerTest {
         System.out.println("createReservationNewSuccess");
         String customerName = "foufoutos";
         int reservationId = 12345;
-        
+
         //Take the current day
-        Calendar cal =
-                Calendar.getInstance();
+        Calendar cal
+                = Calendar.getInstance();
 
         //Add one day
         cal.add(Calendar.DAY_OF_MONTH, 1);
@@ -75,39 +74,31 @@ public class CreateBookControllerTest {
 
         String dateString = df.format(reservationDate);
 
-        
-        CreateBookController instance = new CreateBookController(new
-         MockReservationDaoCreateSuccess());
+        CreateBookController instance = new CreateBookController(new MockReservationDaoCreateSuccess());
 
-        
-        
-        
-        //Date reservationDate = null;
         int numberParty = 5;
         String storeName = "Mas piran Eidisi";
-        //CreateBookController instance = null;
-       // Reservation expResult = null;
+
         Reservation result = instance.createReservationNew(customerName,
-                /*reservationId,*/ dateString, numberParty, storeName);
+                dateString, numberParty, storeName);
         Assert.assertEquals(customerName, result.getCustomerName());
         Assert.assertEquals(storeName, result.getStoreName());
         Assert.assertEquals(reservationDate, result.getReservationDate());
         Assert.assertEquals(numberParty, result.getNumberParty());
         Assert.assertEquals(12345, result.getReservationId());
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        Assert.assertEquals(true, result.isSuccessCreate());
+
     }
-  
-   
-        @Test
+
+    @Test
     public void testCreateReservationNewFailed() throws Exception {
         System.out.println("createReservationNewSuccess");
         String customerName = "foufoutos";
         int reservationId = 12345;
-        
+
         //Take the current day
-        Calendar cal =
-                Calendar.getInstance();
+        Calendar cal
+                = Calendar.getInstance();
 
         //Add one day
         cal.add(Calendar.DAY_OF_MONTH, 1);
@@ -126,34 +117,21 @@ public class CreateBookControllerTest {
 
         String dateString = df.format(reservationDate);
 
-        
-        CreateBookController instance = new CreateBookController(new
-         MockReservationDaoCreateFail());
+        CreateBookController instance = new CreateBookController(new MockReservationDaoCreateFail());
 
-        
-        
-        
-        //Date reservationDate = null;
         int numberParty = 5;
         String storeName = "Mas piran Eidisi";
-        //CreateBookController instance = null;
-       // Reservation expResult = null;
-       try{
-        Reservation result = instance.createReservationNew(customerName,
-                /*reservationId,*/ dateString, numberParty, storeName);
-        Assert.assertEquals(customerName, result.getCustomerName());
-        Assert.assertEquals(storeName, result.getStoreName());
-        Assert.assertEquals(reservationDate, result.getReservationDate());
-        Assert.assertEquals(numberParty, result.getNumberParty());
-        Assert.assertEquals(12345, result.getReservationId());
-       }
-       catch(Exception e){
-       }
-       }}
-        //return 
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    
 
-
-
+        try {
+            Reservation result = instance.createReservationNew(customerName,
+                    dateString, numberParty, storeName);
+            Assert.assertEquals(customerName, result.getCustomerName());
+            Assert.assertEquals(storeName, result.getStoreName());
+            Assert.assertEquals(reservationDate, result.getReservationDate());
+            Assert.assertEquals(numberParty, result.getNumberParty());
+            Assert.assertEquals(12345, result.getReservationId());
+            Assert.assertEquals(false, result.isSuccessCreate());
+        } catch (Exception e) {
+        }
+    }
+}
