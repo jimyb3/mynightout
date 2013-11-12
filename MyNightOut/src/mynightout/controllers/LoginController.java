@@ -6,9 +6,7 @@
 package mynightout.controllers;
 
 import mynightout.dao.ConnectionToMysql;
-import mynightout.dao.IUserDao;
 import mynightout.dao.SelectFromDB;
-import mynightout.exceptions.DaoException;
 import mynightout.model.User;
 
 /**
