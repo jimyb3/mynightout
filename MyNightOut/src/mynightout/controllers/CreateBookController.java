@@ -25,7 +25,7 @@ public class CreateBookController {
     }
 
     public Reservation createReservationNew(String customerName,
-            String dateString, int numberParty, String storeName)
+            String dateString, int seatNumber, String storeName)
             throws IllegalArgumentException, DaoException {
 
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -41,7 +41,7 @@ public class CreateBookController {
             throw new IllegalArgumentException("Customer name should be at least three characters long");
         }
 
-        if (numberParty > 5) {
+        if (seatNumber > 5) {
             throw new IllegalArgumentException("Each table has only 5 seats");
             // TODO edw prepei na ginei pio sun8eto problepsi gia parapanw trapezia
         }
@@ -49,7 +49,7 @@ public class CreateBookController {
         // TODO elenxo gia imerominia pou exei perasei
         try {
             return createBookDao.createReservation(customerName,
-                    reservationDate, numberParty, storeName);
+                    reservationDate, seatNumber, storeName);
         } catch (DaoException e) {
             throw e;
         }

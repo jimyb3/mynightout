@@ -76,15 +76,15 @@ public class CreateBookControllerTest {
 
         CreateBookController instance = new CreateBookController(new MockReservationDaoCreateSuccess());
 
-        int numberParty = 5;
+        int seatNumber = 5;
         String storeName = "Mas piran Eidisi";
 
         Reservation result = instance.createReservationNew(customerName,
-                dateString, numberParty, storeName);
+                dateString, seatNumber, storeName);
         Assert.assertEquals(customerName, result.getUserName());
         Assert.assertEquals(storeName, result.getStoreName());
         Assert.assertEquals(reservationDate, result.getReservationDate());
-        Assert.assertEquals(numberParty, result.getSeatNumber());
+        Assert.assertEquals(seatNumber, result.getSeatNumber());
         Assert.assertEquals(12345, result.getReservationId());
         Assert.assertEquals(true, result.isSuccessCreate());
 
@@ -119,16 +119,16 @@ public class CreateBookControllerTest {
 
         CreateBookController instance = new CreateBookController(new MockReservationDaoCreateFail());
 
-        int numberParty = 5;
+        int seatNumber = 5;
         String storeName = "Mas piran Eidisi";
 
         try {
             Reservation result = instance.createReservationNew(customerName,
-                    dateString, numberParty, storeName);
+                    dateString, seatNumber, storeName);
             Assert.assertEquals(customerName, result.getUserName());
             Assert.assertEquals(storeName, result.getStoreName());
             Assert.assertEquals(reservationDate, result.getReservationDate());
-            Assert.assertEquals(numberParty, result.getSeatNumber());
+            Assert.assertEquals(seatNumber, result.getSeatNumber());
             Assert.assertEquals(12345, result.getReservationId());
             Assert.assertEquals(false, result.isSuccessCreate());
         } catch (Exception e) {
