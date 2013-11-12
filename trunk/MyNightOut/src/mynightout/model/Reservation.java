@@ -11,22 +11,22 @@ package mynightout.model;
  * @author Dimitris
  */
 public class Reservation {
-    private String customerName;
+    private String userName;
     private int reservationId;
 
     public Reservation(String customerName, int reservationId) {
-        this.customerName = customerName;
+        this.userName = customerName;
         this.reservationId = reservationId;
     }
     
     private boolean cancelSuccessful;
     
     public String getUserName(){
-        return customerName;
+        return userName;
     }
     
-    public void setUserName(String customerName){
-        this.customerName=customerName;
+    public void setUserName(String userName){
+        this.userName=userName;
     }
     
     public int getReservationId(){
