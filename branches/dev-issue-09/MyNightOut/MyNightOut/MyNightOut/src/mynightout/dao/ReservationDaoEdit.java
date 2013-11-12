@@ -6,6 +6,7 @@
 
 package mynightout.dao;
 
+import java.util.Date;
 import mynightout.model.Reservation;
 
 /**
@@ -15,8 +16,8 @@ import mynightout.model.Reservation;
 public class ReservationDaoEdit implements IReservationDaoEdit 
 {
  @Override 
-  public Reservation selectReservation(String customerName,String dateString,int numOfPeople,String storeName,String ID){
+  public Reservation selectReservation(String customerName,Date reservationDate,int numOfPeople,String storeName,String ID){
 
- return new Reservation();  
+ return new Reservation(customerName,reservationDate,numOfPeople,storeName,ID);  
 }
 }
