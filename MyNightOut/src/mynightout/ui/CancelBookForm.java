@@ -120,7 +120,7 @@ public class CancelBookForm extends javax.swing.JFrame {
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         // TODO add your handling code here:
-        CancelBookController controller=new CancelBookController(new ReservationDao());
+        CancelBookController controller=new CancelBookController();
         int reservationId=Integer.parseInt(reservationIdTextField.getText());
         try{
             Reservation cancelReservation=controller.cancelReservation(customerNameTextField.getText(), reservationId);
