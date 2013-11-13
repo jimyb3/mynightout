@@ -53,29 +53,25 @@ public class EditReservationControllerTest {
         String reservationDate = "16/11/2013";
         int numOfPeople = 5;
         String storeName = "Gkazi";
-        String ID = "55555";
         EditReservationController instance = new EditReservationController(new MockEditDaoSuccess());
-       // Reservation expResult = null;
         Reservation result = instance.editReservation(customerName, reservationDate, numOfPeople, storeName);
         Assert.assertEquals(customerName, result.getCustomerName());
         Assert.assertEquals(reservationDate, result.getReservationDate());
-        Assert.assertEquals(numOfPeople, result.getReservationId());
-        Assert.assertEquals(ID, result.getReservationId());
-        assertEquals(true, result);
+        Assert.assertEquals(true, result.isCancelSuccessful());
         // TODO review the generated test code and remove the default call to fail.
       //  fail("The test case is a prototype.");
     }
      @Test
-    public void testDeleteReservation_1args_2() throws Exception {
+    public void testEditReservation_1args_2() throws Exception {
         System.out.println("editReservation");
-        String customerName = "ma";
+        String customerName = "mary";
         String reservationDate = "16/11/2013";
         int numOfPeople = 5;
         String storeName = "Gkazi";
-        String ID = "55555";
         EditReservationController instance = new EditReservationController(new MockEditDaoFailure());
-        Reservation result = instance.editReservation(customerName,reservationDate, numOfPeople, storeName);
-        Assert.assertEquals(Integer.parseInt(ID),result.getReservationId());
+        Reservation result = instance.editReservation(customerName, reservationDate, numOfPeople, storeName);
+        Assert.assertEquals(customerName, result.getCustomerName());
+        Assert.assertEquals(reservationDate, result.getReservationDate());
         Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
        // fail("The test case is a prototype.");
     }
