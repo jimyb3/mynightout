@@ -90,7 +90,7 @@ public class Reservation {
         this.numOfPeople = numOfPeople;
     }
     public Reservation(String ID){
-        
+      this.reservationId=Integer.parseInt(ID);
     }
   }  
  
