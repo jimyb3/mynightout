@@ -22,9 +22,6 @@ public class MockEditDaoFailure implements IReservationDaoEdit  {
         Reservation reservation=new Reservation(customerName,reservationDate, numOfPeople,storeName);
         
         
-        //String numOfPeopleString=Integer.toString(numOfPeople);
-        reservation.setCustomerName(customerName);
-      //  reservation.setReservationId(ID);
         reservation.setCancelSuccessful(false);
         return reservation;
      
