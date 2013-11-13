@@ -17,7 +17,7 @@ public class Reservation {
     private int reservationId;
     private boolean cancelSuccessful;
     private String userName;
-    private Date reservationDate;
+    private String reservationDate;
     private String storeName;
     private int numOfPeople;
     
@@ -46,12 +46,12 @@ public class Reservation {
     }
 
  public Reservation(String customerName, int reservationId) {
-        this.userName = customerName;
+        this.customerName = customerName;
         this.reservationId = reservationId;
     }
  public Reservation(String customerName,
- Date reservationDate, int numberOfPeople, String storeName) {
- this.userName = customerName;
+ String reservationDate, int numberOfPeople, String storeName) {
+ this.customerName = customerName;
  this.reservationDate = reservationDate;
  this.storeName = storeName;
  this.numOfPeople = numberOfPeople;
@@ -66,12 +66,13 @@ public class Reservation {
         this.userName = userName;
     }
 
-    public Date getReservationDate() {
+    public String getReservationDate() {
         return reservationDate;
     }
 
-    public void setReservationDate(Date reservationDate) {
+    public String setReservationDate(String reservationDate) {
         this.reservationDate = reservationDate;
+        return reservationDate;
     }
 
     public String getStoreName() {
@@ -92,7 +93,10 @@ public class Reservation {
     public Reservation(String ID){
       this.reservationId=Integer.parseInt(ID);
     }
-  }  
+
+  
+   
+}  
  
     
     

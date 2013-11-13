@@ -13,11 +13,11 @@ import mynightout.model.Reservation;
  *
  * @author Maria
  */
-public class ReservationDaoEdit implements IReservationDaoEdit 
+public class ReservationDaoEdit implements IReservationDaoEdit
 {
  @Override 
-  public Reservation selectReservation(String customerName,Date reservationDate,int numOfPeople,String storeName,String ID){
+  public Reservation selectReservation(String customerName,String reservationDate,int numOfPeople,String storeName){
 
- return new Reservation(customerName,reservationDate,numOfPeople,storeName,ID);  
+ return new Reservation(customerName,reservationDate,numOfPeople,storeName);  
 }
 }

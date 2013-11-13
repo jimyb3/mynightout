@@ -57,6 +57,8 @@ public class EditReservationControllerTest {
         Reservation result = instance.editReservation(customerName, reservationDate, numOfPeople, storeName);
         Assert.assertEquals(customerName, result.getCustomerName());
         Assert.assertEquals(reservationDate, result.getReservationDate());
+        Assert.assertEquals(numOfPeople, result.getNumOfPeople());
+        Assert.assertEquals(storeName, result.getStoreName()); 
         Assert.assertEquals(true, result.isCancelSuccessful());
         // TODO review the generated test code and remove the default call to fail.
       //  fail("The test case is a prototype.");
@@ -72,6 +74,8 @@ public class EditReservationControllerTest {
         Reservation result = instance.editReservation(customerName, reservationDate, numOfPeople, storeName);
         Assert.assertEquals(customerName, result.getCustomerName());
         Assert.assertEquals(reservationDate, result.getReservationDate());
+        Assert.assertEquals(numOfPeople, result.getNumOfPeople());
+        Assert.assertEquals(storeName, result.getStoreName()); 
         Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
        // fail("The test case is a prototype.");
     }

@@ -28,16 +28,16 @@ public class EditReservationController {
   }
  
  @SuppressWarnings("empty-statement")
-   public Reservation editReservation(String customerName,String dateString,int numOfPeople,String storeName,String ID)
+   public Reservation editReservation(String customerName,String reservationDate,int numOfPeople,String storeName)
         throws IllegalArgumentException,DaoException
     {
           
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        String dtStr = dateString.trim();  // 01/01/2011
-        Date reservationDate;
+        String dtStr = reservationDate.trim();  // 01/01/2011
+        Date resDate;
         try
         {
-             reservationDate = df.parse(dtStr);  // dt = Sun Jan 01 00:00:00 IST 2011
+             resDate = df.parse(dtStr);  // dt = Sun Jan 01 00:00:00 IST 2011
         } 
         catch (ParseException e)
         {
@@ -55,7 +55,7 @@ public class EditReservationController {
         }
         try
         {
-                    return reservationDao.selectReservation(customerName,dateString,numOfPeople,storeName);
+                    return reservationDao.selectReservation(customerName,reservationDate,numOfPeople,storeName);
         } 
         catch(DaoException e)
         {

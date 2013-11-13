@@ -16,6 +16,6 @@ import mynightout.model.Reservation;
  */
 public interface IReservationDaoEdit {
 
-    public Reservation selectReservation(String customerName,Date reservationDate, int numOfPeople, String storeName) throws DaoException;
+    public Reservation selectReservation(String customerName,String reservationDate, int numOfPeople, String storeName) throws DaoException;
     
 }
