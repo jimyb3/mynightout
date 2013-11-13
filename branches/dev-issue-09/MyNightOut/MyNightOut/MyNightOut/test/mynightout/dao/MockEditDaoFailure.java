@@ -17,7 +17,7 @@ import mynightout.model.Reservation;
 public class MockEditDaoFailure implements IReservationDaoEdit  {
     
  @Override
-      public Reservation selectReservation(String customerName, Date reservationDate, int numOfPeople, String storeName) throws DaoException{
+      public Reservation selectReservation(String customerName,String reservationDate, int numOfPeople, String storeName) throws DaoException{
 
         Reservation reservation=new Reservation(customerName,reservationDate, numOfPeople,storeName);
         
