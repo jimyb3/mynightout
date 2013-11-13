@@ -30,7 +30,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="loginButton" min="-2" pref="127" max="-2" attributes="0"/>
-                          <Component id="ExitButton" min="-2" pref="127" max="-2" attributes="0"/>
+                          <Component id="exitButton" min="-2" pref="127" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -41,7 +41,7 @@
               </Group>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jButton1" max="32767" attributes="0"/>
+                  <Component id="createStoreButton" max="32767" attributes="0"/>
                   <Component id="createReservationButton" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -71,8 +71,8 @@
                   </Group>
               </Group>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="ExitButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="exitButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="createStoreButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
           </Group>
@@ -88,12 +88,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelReservationButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="ExitButton">
+    <Component class="javax.swing.JButton" name="exitButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x39a;&#x3bb;&#x3b5;&#x3af;&#x3c3;&#x3b9;&#x3bc;&#x3bf;"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExitButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exitButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="loginButton">
@@ -112,12 +112,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkFullnessButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="createStoreButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x394;&#x3b7;&#x3bc;&#x3b9;&#x3bf;&#x3c5;&#x3c1;&#x3b3;&#x3af;&#x3b1; &#x39a;&#x3b1;&#x3c4;&#x3b1;&#x3c3;&#x3c4;&#x3ae;&#x3bc;&#x3b1;&#x3c4;&#x3bf;&#x3c2;"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createStoreButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="createReservationButton">
