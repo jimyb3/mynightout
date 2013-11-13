@@ -16,7 +16,7 @@ import mynightout.model.Reservation;
 public class MockDeleteDaoSuccess implements IReservationDaoDelete {
   @Override   
     public Reservation selectReservation(String reservationId) throws DaoException{
-        Reservation reservation= new Reservation();
+        Reservation reservation= new Reservation(reservationId);
         
         reservation.setReservationId(Integer.parseInt(reservationId));
         reservation.setCancelSuccessful(true);
