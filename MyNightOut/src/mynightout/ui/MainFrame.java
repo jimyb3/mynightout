@@ -6,6 +6,8 @@
 package mynightout.ui;
 
 import javax.swing.JFrame;
+import mynightout.controllers.EditReservationController;
+import mynightout.dao.ReservationDaoEdit;
 
 /**
  *
@@ -30,11 +32,14 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         cancelReservationButton = new javax.swing.JButton();
-        exitButton = new javax.swing.JButton();
+        ExitButton = new javax.swing.JButton();
         loginButton = new javax.swing.JButton();
         checkFullnessButton = new javax.swing.JButton();
-        createStoreButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         createReservationButton = new javax.swing.JButton();
+        editButton = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyNightOut");
@@ -46,10 +51,10 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        exitButton.setText("Κλείσιμο");
-        exitButton.addActionListener(new java.awt.event.ActionListener() {
+        ExitButton.setText("Κλείσιμο");
+        ExitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitButtonActionPerformed(evt);
+                ExitButtonActionPerformed(evt);
             }
         });
 
@@ -67,10 +72,10 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        createStoreButton.setText("Δημιουργία Καταστήματος");
-        createStoreButton.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Δημιουργία Καταστήματος");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createStoreButtonActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -78,6 +83,27 @@ public class MainFrame extends javax.swing.JFrame {
         createReservationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createReservationButtonActionPerformed(evt);
+            }
+        });
+
+        editButton.setText("Επεξεργασία Κράτησης");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Επεξεργασία Κράτησης");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
+
+        deleteButton.setText("Διαγραφή Κράτησης");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
             }
         });
 
@@ -91,22 +117,28 @@ public class MainFrame extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(checkFullnessButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cancelReservationButton)))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(createStoreButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(createReservationButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(createReservationButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(157, Short.MAX_VALUE)
-                .addComponent(loginButton)
+                .addContainerGap(116, Short.MAX_VALUE)
+                .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(loginButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,8 +152,8 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(createReservationButton)
                         .addGap(26, 26, 26)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(exitButton)
-                    .addComponent(createStoreButton))
+                    .addComponent(ExitButton)
+                    .addComponent(jButton1))
                 .addGap(30, 30, 30))
         );
 
@@ -136,10 +168,10 @@ public class MainFrame extends javax.swing.JFrame {
         cancelBookFrame.setVisible(true);
     }//GEN-LAST:event_cancelReservationButtonActionPerformed
 
-    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+    private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_exitButtonActionPerformed
+    }//GEN-LAST:event_ExitButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         JFrame loginFrame = new LoginForm();
@@ -156,13 +188,13 @@ public class MainFrame extends javax.swing.JFrame {
         checkFullnessFrame.setVisible(true);
     }//GEN-LAST:event_checkFullnessButtonActionPerformed
 
-    private void createStoreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createStoreButtonActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         JFrame StoreRegisterForm = new StoreRegisterForm();
         this.dispose();
         StoreRegisterForm.setLocationRelativeTo(this);
         StoreRegisterForm.setVisible(true);
-    }//GEN-LAST:event_createStoreButtonActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void createReservationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createReservationButtonActionPerformed
 
@@ -172,6 +204,20 @@ public class MainFrame extends javax.swing.JFrame {
         createBookFrame.setVisible(true);
 
     }//GEN-LAST:event_createReservationButtonActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+     JFrame editReservationFrame=new EditReservationForm();
+     this.dispose();
+     editReservationFrame.setLocationRelativeTo(this);
+     editReservationFrame.setVisible(true);  // TODO add your handling code here:
+    }//GEN-LAST:event_editButtonActionPerformed
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+     JFrame deleteReservationFrame=new DeleteReservationForm();
+     this.dispose();
+     deleteReservationFrame.setLocationRelativeTo(this);
+     deleteReservationFrame.setVisible(true);   // TODO add your handling code here:
+    }//GEN-LAST:event_deleteButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -209,11 +255,14 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ExitButton;
     private javax.swing.JButton cancelReservationButton;
     private javax.swing.JButton checkFullnessButton;
     private javax.swing.JButton createReservationButton;
-    private javax.swing.JButton createStoreButton;
-    private javax.swing.JButton exitButton;
+    private javax.swing.JButton deleteButton;
+    private javax.swing.JButton editButton;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton loginButton;
     // End of variables declaration//GEN-END:variables
 }

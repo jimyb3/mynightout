@@ -5,6 +5,7 @@
  */
 package mynightout.model;
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.util.Date;
 
 /**
@@ -21,14 +22,41 @@ public class Reservation {
     private int reservationId;
     private boolean successCreate;
     private boolean cancelSuccessful;
+    private String customerName;
+    private int numOfPeople;
+    private String reservationDate1;
 
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public int getNumOfPeople() {
+        return numOfPeople;
+    }
+
+    public void setNumOfPeople(int numOfPeople) {
+        this.numOfPeople = numOfPeople;
+    }
+
+    public String getReservationDate1() {
+        return reservationDate1;
+    }
+
+    public void setReservationDate1(String reservationDate1) {
+        this.reservationDate1 = reservationDate1;
+    }
+    
     public Reservation(String customerName, int reservationId) {
         this.userName = customerName;
         this.reservationId = reservationId;
     }
 
     public Reservation(String customerName,
-            Date reservationDate, int seatNumber, String storeName) {
+         Date reservationDate, int seatNumber, String storeName) {
         this.userName = customerName;
         this.reservationDate = reservationDate;
         this.storeName = storeName;
@@ -50,6 +78,7 @@ public class Reservation {
 
     public void setStoreName(String storeName) {
         this.storeName = storeName;
+        
     }
 
     public Date getReservationDate() {
@@ -91,4 +120,16 @@ public class Reservation {
     public void setCancelSuccessful(boolean cancelSuccessful) {
         this.cancelSuccessful = cancelSuccessful;
     }
+   
+   public Reservation(String customerName,
+   String reservationDate1, int numberOfPeople, String storeName) {
+   this.customerName = customerName;
+   this.reservationDate1 = reservationDate1;
+   this.storeName = storeName;
+   this.numOfPeople = numberOfPeople;
+} 
+   public Reservation(int reservationId)
+   {
+          this.reservationId=reservationId;
+   }
 }
