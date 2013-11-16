@@ -6,7 +6,7 @@
 package mynightout.controllers;
 
 import mynightout.dao.ConnectionToMysql;
-import mynightout.dao.SelectFromDB;
+import mynightout.dao.UserDao;
 import mynightout.model.User;
 
 /**
@@ -17,7 +17,7 @@ public class LoginController {
 
     public User Login(String userName, String passWord) {
 
-        SelectFromDB currentUser = new SelectFromDB();
+        UserDao currentUser = new UserDao();
         ConnectionToMysql conn = new ConnectionToMysql();
         
         if(currentUser.isUserDataValid(userName, passWord, conn)) {

@@ -6,8 +6,7 @@
 package mynightout.controllers;
 
 import mynightout.dao.ConnectionToMysql;
-import mynightout.dao.UpdateDB;
-import mynightout.exceptions.DaoException;
+import mynightout.dao.ReservationDao;
 import mynightout.model.Reservation;
 
 /**
@@ -30,7 +29,7 @@ public class CancelBookController {
      */
     public Reservation cancelReservation(String userName, int reservationId) {
 
-        UpdateDB changeReservationStatus = new UpdateDB();
+        ReservationDao changeReservationStatus = new ReservationDao();
         ConnectionToMysql conn = new ConnectionToMysql();
 
         if (changeReservationStatus.isReservationCancelled(userName, reservationId, conn)) {
