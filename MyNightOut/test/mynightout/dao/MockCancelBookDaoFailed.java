@@ -1,5 +1,6 @@
 package mynightout.dao;
 
+import mynightout.dao.IReservationDao;
 import mynightout.exceptions.DaoException;
 import mynightout.model.Reservation;
 
@@ -13,7 +14,7 @@ import mynightout.model.Reservation;
  *
  * @author MyPro
  */
-public class MockCancelBookDaoFailure implements IReservationDao{
+public class MockCancelBookDaoFailed implements IReservationDao{
     /**
      * Προσποιήσου ότι δεν διέγραψες μια κράτηση και επέστρεψε το false για 
      * αποτυχημένη διαγραφή.
@@ -25,10 +26,11 @@ public class MockCancelBookDaoFailure implements IReservationDao{
     
     @Override
     public Reservation selectReservation(String customerName, int reservationId) throws DaoException{
-        Reservation reservation= new Reservation(customerName, reservationId);
+        Reservation reservation= new Reservation();
         
-        
-        reservation.setCancelSuccessful(false);
+        reservation.setCustomerName(customerName);
+        reservation.setReservationId(reservationId);
+        reservation.setCancelSuccessfull(false);
         return reservation;
     }
     

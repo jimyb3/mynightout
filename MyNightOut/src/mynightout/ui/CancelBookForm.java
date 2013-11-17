@@ -120,10 +120,10 @@ public class CancelBookForm extends javax.swing.JFrame {
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         // TODO add your handling code here:
-        CancelBookController controller=new CancelBookController();
+        CancelBookController controller=new CancelBookController(new ReservationDao());
         int reservationId=Integer.parseInt(reservationIdTextField.getText());
         try{
-            Reservation cancelReservation=controller.cancelReservation(customerNameTextField.getText(), reservationId);
+            Reservation cancelReservation=controller.cancelReservationNew(customerNameTextField.getText(), reservationId);
             JOptionPane.showMessageDialog(null, "Reservation canceled with id: " + reservationId, "Success",JOptionPane.INFORMATION_MESSAGE);
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",JOptionPane.INFORMATION_MESSAGE);

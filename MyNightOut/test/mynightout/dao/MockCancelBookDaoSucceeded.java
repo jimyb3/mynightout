@@ -16,7 +16,7 @@ import mynightout.model.Reservation;
  * ένα framework σαν το JMock ή το Mockito
  * @author Dimitris
  */
-public class MockCancelBookDaoSuccess implements IReservationDao{
+public class MockCancelBookDaoSucceeded implements IReservationDao{
     /**
      * Προσποιήσου ότι διέγραψες μια κράτηση και επέστρεψε το true για 
      * επιτυχημένη διαγραφή.
@@ -28,10 +28,11 @@ public class MockCancelBookDaoSuccess implements IReservationDao{
     
     @Override
     public Reservation selectReservation(String customerName, int reservationId) throws DaoException{
-        Reservation reservation= new Reservation(customerName, reservationId);
+        Reservation reservation= new Reservation();
         
-        
-        reservation.setCancelSuccessful(true);
+        reservation.setCustomerName(customerName);
+        reservation.setReservationId(reservationId);
+        reservation.setCancelSuccessfull(true);
         return reservation;
     }
     

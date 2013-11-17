@@ -22,7 +22,9 @@ public class MyNightOut {
     public static void main(String[] args) {
         // TODO code application logic here
         JFrame mainFrame=new MainFrame();
-        mainFrame.setVisible(true);     
+        mainFrame.setVisible(true);
+        
+        
     }
     
 }
