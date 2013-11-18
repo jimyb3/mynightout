@@ -3,60 +3,110 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.dao;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.List;
 import mynightout.exceptions.DaoException;
-import mynightout.model.User;
+import mynightout.entity.User;
+import mynightout.entity.Reservation;
+import mynightout.util.HibernateUtil;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
 
 /**
  *
  * @author ioanna
  */
-public class UserDao implements IUserDao{
+public class UserDao implements IUserDao {
+
     @Override
     public User makeLogin(String userName, String passWord) throws DaoException {
         return new User();
     }
-    
-    public void insertNewUserData(String userName, String passWord, String customerName, String customerLastname, String telephoneNum, ConnectionToMysql conn) {
-        PreparedStatement pst2 = null;
+//νέος χρήστης
+    public void insertNewUserData(String userName, String passWord, String customerName, String customerLastname, String telephoneNum) {
         try {
-            String sqlInsertUser;
-            sqlInsertUser = ("INSERT INTO user(Username, Password, Customer_name, Customer_lastname, Telephone_num) VALUES ('" + userName + "','" + passWord + "','" + customerName + "','" + customerLastname + "','" + telephoneNum + "');");
-            pst2 = conn.connection().prepareStatement(sqlInsertUser);
-            pst2.executeUpdate();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+            User newUser = new User(userName, passWord, customerName, customerLastname, telephoneNum);
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.save(newUser);
+            session.getTransaction().commit();
+        } catch (HibernateException he) {
+            he.printStackTrace();
         }
-    } 
-    
-    public boolean isUserDataValid(String userName, String passWord, ConnectionToMysql conn) {
-        PreparedStatement stmt = null;
-
+    }
+//έλεγχος στοιχείων εισόδου χρήστη, αν υπάρχουν true αλλιώς false
+    //LOGIN
+    public boolean isUserDataValid(String userName, String passWord) {
         try {
-            String sql;
-            sql = ("SELECT Username, Password FROM user WHERE Username = '" + userName + "' AND Password = '" + passWord + "'; ");
-            stmt = conn.connection().prepareStatement(sql);
-            ResultSet rs = stmt.executeQuery(sql);
-            if (rs.next()) {
-                rs.close();
-                stmt.close();
-                System.out.println("ok");
+            String hql = "from User user where user.username='" + userName + "' and user.password='" + passWord + "'";
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            Query q = session.createQuery(hql);
+            List resultList = q.list();
+            session.getTransaction().commit();
+            if (!resultList.isEmpty()) {
                 return true;
             } else {
-                rs.close();
-                stmt.close();
-                System.out.println("fail");
                 return false;
             }
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        } catch (HibernateException he) {
+            he.printStackTrace();
             return false;
         }
-    }  
+
+    }
+
+    public int getUserIdByUsername(String userName) {
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            String hqlUser = "select us.userId from User us where us.username='" + userName + "'";
+            Query q = session.createQuery(hqlUser);
+            List resultList1 = q.list();
+            session.getTransaction().commit();
+            int userId = (int) resultList1.get(0);
+            session.close();
+            return userId;
+        } catch (HibernateException he) {
+            he.printStackTrace();
+            return -1;
+        }
+    }
+//προβολή στοιχείων του χρήστη
+    public List getUserData(String userName) {
+        try {
+            String hql = "select user.username, user.password, user.customerName. user.customerLastname, user.telephoneNum"
+                    + " from User user where user.username='" + userName + "'";
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            Query q = session.createQuery(hql);
+            List userDataList = q.list();
+            session.getTransaction().commit();
+            return userDataList;
+        } catch (HibernateException he) {
+            he.printStackTrace();
+            return null;
+        }
+
+    }
+//ΔΙΑΧΕΙΡΙΣΗ ΠΡΟΣΩΠΙΚΩΝ ΣΤΟΙΧΕΙΩΝ
+    public boolean updateUserData(String userName, String password, String customerName, String customerLastname, String telephoneNum) {
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            int userId = new UserDao().getUserIdByUsername(userName);
+            String hql = "update User set password = '" + password + "', customerName = '" + customerName + "', customerLastname = '" + customerLastname + "', telephoneNum = '" + telephoneNum + "'  where userId='" + userId + "'";
+            Query q = session.createQuery(hql);
+            q.executeUpdate();
+            session.getTransaction().commit();
+            session.close();
+            return true;
+        } catch (HibernateException he) {
+            he.printStackTrace();
+            return false;
+        }
+    }
 }
+

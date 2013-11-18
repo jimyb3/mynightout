@@ -8,8 +8,16 @@ package mynightout.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
+import java.util.List;
+import mynightout.entity.User;
 import mynightout.exceptions.DaoException;
-import mynightout.model.Reservation;
+import mynightout.entity.Reservation;
+import mynightout.entity.Nightclub;
+import mynightout.util.HibernateUtil;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
 
 /**
  * Κλάση που κάποια στιγμή θα χρησιμοποιηθεί για την επικοινωνία με το σύστημα
@@ -23,89 +31,76 @@ public class ReservationDao implements IReservationDao {
     public Reservation selectReservation(String userName, int reservationId) throws DaoException {
         return new Reservation(userName, reservationId);
     }
-
-    public void insertReservationData(String userName, String nightClubName, String reservationDate, int seatNumber, ConnectionToMysql conn) {
-        PreparedStatement pst = null;
-        PreparedStatement stmt = null;
-
+//ΚΡΑΤΗΣΗ
+    //δημιουργεί νεα κράτηση στη βάση
+    public void insertReservationData(String userName, String nightClubName, Date reservationDate, int seatNumber) {
         try {
-            String sql1;
-            sql1 = ("SELECT User_id FROM user WHERE Username = '" + userName + "';");
-            stmt = conn.connection().prepareStatement(sql1);
-            ResultSet rsuserId = stmt.executeQuery(sql1);
-            rsuserId.next();
-            String UserId = rsuserId.getString("User_id");
-            String sql2;
-            sql2 = ("SELECT Club_id FROM nightclub WHERE Club_name = '" + nightClubName + "';");
-            stmt = conn.connection().prepareStatement(sql2);
-            ResultSet rsclubId = stmt.executeQuery(sql2);
-            rsclubId.next();
-            String ClubId = rsclubId.getString("Club_id");
-            String status = "not canceled";
-            String sql = ("INSERT INTO reservation(User_id, Club_id, Reservation_date, Seat_number, Reservation_status) VALUES ('" + UserId + "', '" + ClubId + "', '" + reservationDate + "', '" + seatNumber + "', '" + status + "');");
-            pst = conn.connection().prepareStatement(sql);
-            pst.executeUpdate();
-
-            //conn.connection().prepareStatement("SELECT User_id FROM user WHERE Username = '" + userName + "';");
-        } catch (SQLException se) {
-            se.printStackTrace();
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            int userId = new UserDao().getUserIdByUsername(userName);
+            int clubId = new NightClubDao().getNightClubIdByNightClubName(nightClubName);
+            Reservation newReservation = new Reservation(userId, clubId, reservationDate, seatNumber, "active");
+            session.save(newReservation);
+            session.getTransaction().commit();
+            session.close();
+        } catch (HibernateException he) {
+            he.printStackTrace();
         }
     }
-
-    public void selectReservationByUsername(String userName, ConnectionToMysql conn) {
-        PreparedStatement stmt = null;
-
+//ΧΡΗΣΤΗΣ-ΙΣΤΟΡΙΚΟ
+    //επιστρέφει όλες τις active=δεν έχουν ακυρωθεί, κρατήσεις τος χρήστη
+    public List getUserReservations(String userName) {
         try {
-            String sql;
-            sql = ("SELECT Customer_name, Customer_lastname, Club_name, Reservation_date,"
-                    + " reservation.Seat_number\n"
-                    + "FROM nightclub\n"
-                    + "INNER JOIN (\n"
-                    + "user\n"
-                    + "INNER JOIN reservation ON user.User_id = reservation.User_id\n"
-                    + ") ON nightclub.Club_id = reservation.Club_id\n"
-                    + "WHERE Username ='" + userName + "';");
-            stmt = conn.connection().prepareStatement(sql);
-            ResultSet rs = stmt.executeQuery(sql);
-
-            while (rs.next()) {
-                String customerName = rs.getString("Customer_name");
-                String customerLastName = rs.getString("Customer_lastname");
-                String clubName = rs.getString("Club_name");
-                String reservationDate = rs.getString("Reservation_date");
-                String seatNumber = rs.getString("Seat_number");
-                System.out.println(customerName + " " + customerLastName + " " + clubName + " " + reservationDate + " " + seatNumber + "\n");
-                //System.out.println("epitheto :" +customerLastName);
-            }
-            rs.close();
-            stmt.close();
-
-        } catch (SQLException se) {
-            se.printStackTrace();
+            String hql = "select nin.clubName, res.reservationDate  from User us, Reservation res, Nightclub nin where us.userId=res.userId and nin.clubId=res.clubId and us.username='" + userName + "' and res.reservationStatus=\'active\'";
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            Query q = session.createQuery(hql);
+            List reservationsList = q.list();
+            session.getTransaction().commit();
+            return reservationsList;
+        } catch (HibernateException he) {
+            he.printStackTrace();
+            return null;
         }
+
     }
-
-    public boolean isReservationCancelled(String userName, int reservationId, ConnectionToMysql conn) {
-        PreparedStatement stmt = null;
-
+//ΑΚΥΡΩΣΗ ΚΡΑΤΗΣΗΣ 
+    //είσοδοι username και reservationId----ο χρήστης ακυρώνει κάποια κράτησή του
+    //true αν έγινε
+    public boolean cancelReservationByUser(String userName, int reservationId) {
         try {
-            String sql;
-            sql = ("UPDATE reservation SET Reservation_status=\"inactive\" WHERE Reservation_id='" + reservationId + "' AND User_id=(SELECT User_id FROM user WHERE Username='" + userName + "');");
-            stmt = conn.connection().prepareStatement(sql);
-            stmt.executeUpdate(sql);
-            if (stmt.executeUpdate(sql) == 1) {
-                stmt.close();
-                System.out.println("ok");
-                return true;
-            } else {
-
-                stmt.close();
-                System.out.println("fail");
-                return false;
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            int userId = new UserDao().getUserIdByUsername(userName);           
+            String hql = "update Reservation set reservationStatus ='inactive' where userId='"+userId+"' and reservationId='"+reservationId+"'";
+            Query q = session. createQuery(hql);           
+            q.executeUpdate();
+            session.getTransaction().commit();
+            session.close();
+            return true;
+        } catch (HibernateException he) {
+            he.printStackTrace();
             return false;
         }
+       
     }
+    //ΔΙΑΓΡΑΦΗ ΚΡΑΤΗΣΗΣ= ο καταστηματάρχης επιλέγει να ακυρώσει κάποια κράτηση 
+    public boolean cancelReservationByNightClub(String clubName, int reservationId) {
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            int clubId = new NightClubDao().getNightClubIdByNightClubName(clubName);           
+            String hql = "update Reservation set reservationStatus ='inactive' where clubId='"+clubId+"' and reservationId='"+reservationId+"'";
+            Query q = session. createQuery(hql);           
+            q.executeUpdate();
+            session.getTransaction().commit();
+            session.close();
+            return true;
+        } catch (HibernateException he) {
+            he.printStackTrace();
+            return false;
+        }
+       
+    }
+
 }

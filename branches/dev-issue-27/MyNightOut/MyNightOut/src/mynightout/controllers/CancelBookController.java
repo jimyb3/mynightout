@@ -32,7 +32,7 @@ public class CancelBookController {
         ReservationDao changeReservationStatus = new ReservationDao();
         ConnectionToMysql conn = new ConnectionToMysql();
 
-        if (changeReservationStatus.isReservationCancelled(userName, reservationId, conn)) {
+        if (changeReservationStatus.cancelReservationByUser(userName, reservationId)) {
             try {
                 Reservation reservation = new Reservation(userName, reservationId);
                 return reservation;

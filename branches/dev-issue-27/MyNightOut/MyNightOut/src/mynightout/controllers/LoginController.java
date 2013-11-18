@@ -18,9 +18,9 @@ public class LoginController {
     public User Login(String userName, String passWord) {
 
         UserDao currentUser = new UserDao();
-        ConnectionToMysql conn = new ConnectionToMysql();
         
-        if(currentUser.isUserDataValid(userName, passWord, conn)) {
+        
+        if(currentUser.isUserDataValid(userName, passWord)) {
             try {
                 User newUser = new User(userName, passWord);
                 return newUser;
