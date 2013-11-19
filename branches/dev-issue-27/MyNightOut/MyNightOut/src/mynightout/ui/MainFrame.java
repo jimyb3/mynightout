@@ -171,6 +171,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_ExitButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
