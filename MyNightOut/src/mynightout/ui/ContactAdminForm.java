@@ -6,6 +6,10 @@
 
 package mynightout.ui;
 
+import com.sun.net.httpserver.Authenticator.Success;
+import javax.print.attribute.standard.MediaSize.Other;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author panos
@@ -94,6 +98,11 @@ public class ContactAdminForm extends javax.swing.JFrame implements IContactAdmi
         jLabel3.setText("Περιγράψτε το πρόβλημα που αντιμετωπίζετε:");
 
         SendHelp.setText("Αποστολή");
+        SendHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SendHelpActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout SendHelpPanelLayout = new javax.swing.GroupLayout(SendHelpPanel);
         SendHelpPanel.setLayout(SendHelpPanelLayout);
@@ -215,6 +224,16 @@ public class ContactAdminForm extends javax.swing.JFrame implements IContactAdmi
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_BackButtonActionPerformed
+
+    private void SendHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendHelpActionPerformed
+        // TODO add your handling code here:
+        try {
+            
+            JOptionPane.showMessageDialog(null,"Η αποστολή ολοκληρώθηκε με επιτυχία!","Success",JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
+        }    
+    }//GEN-LAST:event_SendHelpActionPerformed
 
     /**
      * @param args the command line arguments
