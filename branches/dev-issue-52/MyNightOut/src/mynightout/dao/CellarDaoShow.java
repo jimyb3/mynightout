@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.dao;
 
 import mynightout.exceptions.DaoException;
@@ -13,9 +12,10 @@ import mynightout.model.Cellar;
  *
  * @author Maria
  */
-public class CellarDaoShow implements ICellarDaoShow{
-   @override
-    public Cellar selectCellar(String NameOfBottle, String NumOfBottles){
-      return new Cellar(NameOfBottle,NumOfBottles);
-}
+public class CellarDaoShow implements ICellarDaoShow {
+
+    @Override
+    public Cellar selectCellar(String NameOfBottle, String NumOfBottles) {
+        return new Cellar(NameOfBottle, NumOfBottles);
+    }
 }
