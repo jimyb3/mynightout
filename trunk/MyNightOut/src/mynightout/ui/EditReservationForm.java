@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import javax.swing.JFrame;
@@ -207,16 +206,16 @@ public class EditReservationForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void numberOfPeopleNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberOfPeopleNewActionPerformed
-        int newNumber=0;
+        int newNumber = 0;
 
-        String newNumberString=Integer.toString(newNumber);
-        newNumberString =numberOfPeopleNew.getText();
+        String newNumberString = Integer.toString(newNumber);
+        newNumberString = numberOfPeopleNew.getText();
         // TODO add your handling code here:
     }//GEN-LAST:event_numberOfPeopleNewActionPerformed
 
     private void reservationIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationIdActionPerformed
         String Id;
-        Id=reservationId.getText();   // TODO add your handling code here:
+        Id = reservationId.getText();   // TODO add your handling code here:
     }//GEN-LAST:event_reservationIdActionPerformed
 
     private void customerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerNameActionPerformed
@@ -224,7 +223,7 @@ public class EditReservationForm extends javax.swing.JFrame {
     }//GEN-LAST:event_customerNameActionPerformed
 
     private void cancelbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelbuttonActionPerformed
-        JFrame mainFrame=new MainFrame();
+        JFrame mainFrame = new MainFrame();
         this.dispose();
         mainFrame.setLocationRelativeTo(this);
         mainFrame.setVisible(true);   // TODO add your handling code here:
@@ -232,14 +231,14 @@ public class EditReservationForm extends javax.swing.JFrame {
 
     private void reservationDateNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationDateNewActionPerformed
         String newDate;
-        newDate=reservationDateNew.getText();  // TODO add your handling code here:
+        newDate = reservationDateNew.getText();  // TODO add your handling code here:
     }//GEN-LAST:event_reservationDateNewActionPerformed
 
     private void editbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editbuttonActionPerformed
 
-        EditReservationController controller=new EditReservationController(new ReservationDaoEdit());
+        EditReservationController controller = new EditReservationController(new ReservationDaoEdit());
 
-         JOptionPane.showMessageDialog(null,"Τα νέα στοιχεία της κράτησης ειναι :"+  reservationDateNew.getText()+"  "+ numberOfPeopleNew.getText());
+        JOptionPane.showMessageDialog(null, "Τα νέα στοιχεία της κράτησης ειναι :" + reservationDateNew.getText() + "  " + numberOfPeopleNew.getText());
 
     }//GEN-LAST:event_editbuttonActionPerformed
 

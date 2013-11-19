@@ -8,7 +8,7 @@ package mynightout.dao;
 
 import mynightout.dao.IReservationDao;
 import mynightout.exceptions.DaoException;
-import mynightout.model.Reservation;
+import mynightout.entity.Reservation;
 
 
 /**

@@ -8,7 +8,7 @@ package mynightout.controllers;
 
 import mynightout.dao.MockCheckFullnessDaoFailed;
 import mynightout.dao.MockCheckFullnessDaoSucceeded;
-import mynightout.model.NightClub;
+import mynightout.entity.Nightclub;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -54,7 +54,7 @@ public class CheckFullnessControllerTest {
         
         CheckFullnessController instance = new CheckFullnessController(new MockCheckFullnessDaoSucceeded());
         
-        NightClub result = instance.checkFullness(storeName);
+        Nightclub result = instance.checkFullness(storeName);
         Assert.assertEquals(storeName, result.getStoreName());
         Assert.assertEquals(true, result.isStoreFull());
         // TODO review the generated test code and remove the default call to fail.
@@ -71,7 +71,7 @@ public class CheckFullnessControllerTest {
         
         CheckFullnessController instance = new CheckFullnessController(new MockCheckFullnessDaoFailed());
         
-        NightClub result = instance.checkFullness(storeName);
+        Nightclub result = instance.checkFullness(storeName);
         Assert.assertEquals(storeName, result.getStoreName());
         Assert.assertEquals(false, result.isStoreFull());
         // TODO review the generated test code and remove the default call to fail.

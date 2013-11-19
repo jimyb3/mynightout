@@ -3,20 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.dao;
 
-import mynightout.model.Reservation;
+import mynightout.entity.Reservation;
 
 /**
  *
  * @author Maria
  */
-public class ReservationDaoDelete implements IReservationDaoDelete{
-@Override
-public Reservation selectReservation(String ID){
+public class ReservationDaoDelete implements IReservationDaoDelete {
 
-int resId=Integer.parseInt(ID);
-return new Reservation(resId);
-}
+    @Override
+    public Reservation selectReservation(int reservationId) {
+        return new Reservation(reservationId);
+    }
 }

@@ -7,7 +7,7 @@
 package mynightout.dao;
 
 import mynightout.exceptions.DaoException;
-import mynightout.model.User;
+import mynightout.entity.User;
 
 /**
  *

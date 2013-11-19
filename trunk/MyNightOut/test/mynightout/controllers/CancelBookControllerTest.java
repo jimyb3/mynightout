@@ -6,7 +6,7 @@
 
 package mynightout.controllers;
 
-import mynightout.model.Reservation;
+import mynightout.entity.Reservation;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -50,20 +50,20 @@ public class CancelBookControllerTest {
         CancelBookController instance = new CancelBookController();
         Reservation expResult = new Reservation("user1",5);
         Reservation result = instance.cancelReservation(userName, reservationId);
-        Assert.assertEquals(expResult.getUserName(), result.getUserName());
+        Assert.assertEquals(expResult.getUsername(), result.getUsername());
         Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
         
     }
     
-    @Test (expected=IllegalArgumentException.class)
+    @Test (expected=IndexOutOfBoundsException.class)
     public void testFailedCancel() {
         System.out.println("cancelReservation");
-        String userName = " ";
-        int reservationId = 0;
+        String userName = "";
+        int reservationId = -1;
         CancelBookController instance = new CancelBookController();
         Reservation expResult = new Reservation("user1",5);
         Reservation result = instance.cancelReservation(userName, reservationId);
-        Assert.assertEquals(expResult.getUserName(), result.getUserName());
+        Assert.assertEquals(expResult.getUsername(), result.getUsername());
         Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
         
     }

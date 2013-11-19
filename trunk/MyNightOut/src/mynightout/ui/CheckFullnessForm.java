@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import mynightout.controllers.CheckFullnessController;
 import mynightout.dao.NightClubDao;
 import mynightout.exceptions.DaoException;
-import mynightout.model.NightClub;
+import mynightout.entity.Nightclub;
 
 /**
  *
@@ -89,7 +89,7 @@ public class CheckFullnessForm extends javax.swing.JFrame {
           CheckFullnessController controller=new CheckFullnessController(new NightClubDao());
         
           try {
-             NightClub nightClub=controller.checkFullness(nightClubTextField.getText());
+             Nightclub nightClub=controller.checkFullness(nightClubTextField.getText());
              JOptionPane.showMessageDialog(null, "Δεν είναι πλήρης, 54/100", "Success",JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {      //minima la8ous apo th vash (den vgazei mhmyma)
          JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",JOptionPane.INFORMATION_MESSAGE);

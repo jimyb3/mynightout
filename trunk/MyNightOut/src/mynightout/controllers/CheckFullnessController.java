@@ -7,7 +7,7 @@ package mynightout.controllers;
 
 import mynightout.dao.INightClubDao;
 import mynightout.exceptions.DaoException;
-import mynightout.model.NightClub;
+import mynightout.entity.Nightclub;
 
 /**
  *
@@ -21,7 +21,7 @@ public class CheckFullnessController {
         this.nightClubDao = nightClubDao;
     }
 
-    public NightClub checkFullness(String storeName) throws IllegalArgumentException, DaoException {
+    public Nightclub checkFullness(String storeName) throws IllegalArgumentException, DaoException {
 
         if (storeName.length() < 3) {
             throw new IllegalArgumentException("Το όνομα του καταστήματος είναι πολύ μικρο");
