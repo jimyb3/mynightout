@@ -6,10 +6,11 @@
 package mynightout.presenters;
 
 import java.awt.Container;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import mynightout.ui.CancelBookForm;
 import mynightout.ui.SelectTableForm;
@@ -19,17 +20,22 @@ import mynightout.ui.SelectTableForm;
  * @author Dimitris
  */
 public class SelectTablePresenter {
+    
 
     public void createSelectTable(SelectTableForm form, int row1, int row2, int row3, int row4) {
         /**hack Να κάνω αλλαγή του ονόματος της συναρτησης όπως επίσης να προσθέσω στο τέλος
          * κώδικα για επιβεβαίωση της κάτοψης από τον καταστηματαρχη, να αφαιρεθεί ο κώδικας
          * από τα κουμπιά.
         */
+        
         JPanel p1 = new JPanel();
         Container pane = form.getContentPane();
         int tableNumber = row1 + row2 + row3 + row4 + 1;
         JButton[] table = new JButton[tableNumber];
-        
+        String imagePath="C:\\Users\\Dimitris\\Desktop\\164217_10151537190287697_1858435540_n.jpg";
+        //URL url =getClass().getResource(imagePath);
+        Image img = Toolkit.getDefaultToolkit().createImage(imagePath);
+        ImageIcon icon=new ImageIcon(img);
         /**hack Να αντικατασταθεί ο κωδικας από τα κουμπιά με κώδικα που θα επιτρέπει
          * την αλλαγή των θέσεων.
          */
@@ -38,8 +44,19 @@ public class SelectTablePresenter {
             table[count] = new JButton("A" + i);
             table[count].setSize(120, 20);
             table[count].setActionCommand(table[count].getText());//Δίνουμε στο Action το text που θέλουμε.
+            if(i==2 || i==4){
+                imagePath="C:\\Users\\Dimitris\\Desktop\\1236721_446787192101221_1766361339_n.jpg";
+                //URL url =getClass().getResource(imagePath);
+                img = Toolkit.getDefaultToolkit().createImage(imagePath);
+                icon=new ImageIcon(img);
+            }else{
+                imagePath="C:\\Users\\Dimitris\\Desktop\\164217_10151537190287697_1858435540_n.jpg";
+                //URL url =getClass().getResource(imagePath);
+                img = Toolkit.getDefaultToolkit().createImage(imagePath);
+                icon=new ImageIcon(img);
+            }
+            table[count].setIcon(icon);
             table[count].addActionListener(new ActionListener() {
-
                 @Override
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     String table = evt.getActionCommand();//Παίρνουμε πίσω το text που δώσαμε.
@@ -60,6 +77,18 @@ public class SelectTablePresenter {
             table[count] = new JButton("B" + i);
             table[count].setSize(120, 20);
             table[count].setActionCommand(table[count].getText());
+            if(i==1 || i==2){
+                imagePath="C:\\Users\\Dimitris\\Desktop\\1236721_446787192101221_1766361339_n.jpg";
+                //URL url =getClass().getResource(imagePath);
+                img = Toolkit.getDefaultToolkit().createImage(imagePath);
+                icon=new ImageIcon(img);
+            }else{
+                imagePath="C:\\Users\\Dimitris\\Desktop\\164217_10151537190287697_1858435540_n.jpg";
+                //URL url =getClass().getResource(imagePath);
+                img = Toolkit.getDefaultToolkit().createImage(imagePath);
+                icon=new ImageIcon(img);
+            }
+            table[count].setIcon(icon);
             table[count].addActionListener(new ActionListener() {
 
                 @Override
@@ -81,6 +110,18 @@ public class SelectTablePresenter {
             table[count] = new JButton("Γ" + i);
             table[count].setSize(120, 20);
             table[count].setActionCommand(table[count].getText());
+            if(i==2 || i==3){
+                imagePath="C:\\Users\\Dimitris\\Desktop\\1236721_446787192101221_1766361339_n.jpg";
+                //URL url =getClass().getResource(imagePath);
+                img = Toolkit.getDefaultToolkit().createImage(imagePath);
+                icon=new ImageIcon(img);
+            }else{
+                imagePath="C:\\Users\\Dimitris\\Desktop\\164217_10151537190287697_1858435540_n.jpg";
+                //URL url =getClass().getResource(imagePath);
+                img = Toolkit.getDefaultToolkit().createImage(imagePath);
+                icon=new ImageIcon(img);
+            }
+            table[count].setIcon(icon);
             table[count].addActionListener(new ActionListener() {
 
                 @Override
@@ -97,12 +138,13 @@ public class SelectTablePresenter {
 
             count = count + 1;
         }
-
+/*
         JPanel p4 = new JPanel();
         for (int i = 1; i <= row4; i++) {
             table[count] = new JButton("Δ" + i);
             table[count].setSize(120, 20);
             table[count].setActionCommand(table[count].getText());//Δίνουμε στο Action το text που θέλουμε.
+            table[count].setIcon(icon);
             table[count].addActionListener(new ActionListener() {
 
                 @Override
@@ -119,19 +161,19 @@ public class SelectTablePresenter {
 
             count = count + 1;
         }
-
-        p1.setSize(table[row1].getWidth() * row1, 40);
-        p2.setSize(table[row2].getWidth() * row2, 40);
-        p3.setSize(table[row3].getWidth() * row3, 40);
-        p4.setSize(table[row4].getWidth() * row4, 40);
+*/
+        p1.setSize(250 * row1, 120);
+        p2.setSize(250 * row2, 120);
+        p3.setSize(250 * row3, 120);
+       // p4.setSize(table[row4].getWidth() * row4, 120);
         pane.add(p1);
         pane.add(p2);
         pane.add(p3);
-        pane.add(p4);
+       // pane.add(p4);
         p1.setLocation(0, 0);
-        p2.setLocation(0, 50);
-        p3.setLocation(0, 100);
-        p4.setLocation(0, 150);
+        p2.setLocation(0, 130);
+        p3.setLocation(0, 260);
+        //p4.setLocation(0, 390);
         
         /**hack να βρίσκει ποια σειρά από τραπέζια έχει τα περισσότερα τραπέζια και
          * και να ορίζει αυτή στην εντολή για το μέγεθος του παραθύρου
@@ -144,7 +186,7 @@ public class SelectTablePresenter {
         
        
         
-        form.setSize(750, 500);
+        form.setSize(1500, 500);
         form.setVisible(true);
     }
 }
