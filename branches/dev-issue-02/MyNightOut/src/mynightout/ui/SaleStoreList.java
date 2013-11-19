@@ -6,6 +6,9 @@
 
 package mynightout.ui;
 
+
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Mustaine
@@ -41,7 +44,7 @@ public class SaleStoreList extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
         jLabel1.setText("Φοιτητικές Προσφορές");
 
-        SaleStore1.setText("Κατάστημα1");
+        SaleStore1.setText("Πύλη Αξιού");
         SaleStore1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SaleStore1ActionPerformed(evt);
@@ -135,6 +138,8 @@ public class SaleStoreList extends javax.swing.JFrame {
         StoreView SV = new StoreView();
         SV.setVisible(true);
         SV.StoreDesc.setText("Περιγραφη μαγαζιου 1");
+
+        SV.StorePic.setIcon(new ImageIcon(getClass().getResource("/mynightout.resources/aksiou.jpg")));
     }//GEN-LAST:event_SaleStore1ActionPerformed
 
     private void SaleStore2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaleStore2ActionPerformed

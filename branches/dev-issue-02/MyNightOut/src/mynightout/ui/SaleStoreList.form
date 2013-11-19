@@ -86,7 +86,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="SaleStore1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#x39a;&#x3b1;&#x3c4;&#x3ac;&#x3c3;&#x3c4;&#x3b7;&#x3bc;&#x3b1;1"/>
+        <Property name="text" type="java.lang.String" value="&#x3a0;&#x3cd;&#x3bb;&#x3b7; &#x391;&#x3be;&#x3b9;&#x3bf;&#x3cd;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaleStore1ActionPerformed"/>
