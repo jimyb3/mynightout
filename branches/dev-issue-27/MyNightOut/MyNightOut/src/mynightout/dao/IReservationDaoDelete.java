@@ -7,12 +7,12 @@
 package mynightout.dao;
 
 import mynightout.exceptions.DaoException;
-import mynightout.model.Reservation;
+import mynightout.entity.Reservation;
 
 /**
  *
  * @author Maria
  */
 public interface IReservationDaoDelete {
-    Reservation selectReservation(String ID)throws DaoException;
+    Reservation selectReservation(int reservationId)throws DaoException;
 }

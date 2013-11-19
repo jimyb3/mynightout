@@ -7,7 +7,7 @@
 package mynightout.dao;
 
 import mynightout.exceptions.DaoException;
-import mynightout.model.Reservation;
+import mynightout.entity.Reservation;
 
 /**
  *
@@ -15,11 +15,8 @@ import mynightout.model.Reservation;
  */
 public class MockDeleteDaoFailure implements IReservationDaoDelete{
      @Override   
-    public Reservation selectReservation(String reservationId) throws DaoException{
-        int resId=Integer.parseInt(reservationId);
-        Reservation reservation= new Reservation(resId);
-        
-        reservation.setReservationId(Integer.parseInt(reservationId));
+    public Reservation selectReservation(int reservationId) throws DaoException{
+        Reservation reservation= new Reservation(reservationId);
         reservation.setCancelSuccessful(false);
         return reservation;
     }

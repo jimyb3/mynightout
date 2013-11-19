@@ -6,7 +6,7 @@
 package mynightout.dao;
 
 import mynightout.exceptions.DaoException;
-import mynightout.model.User;
+import mynightout.entity.User;
 
 /**
  *
@@ -17,8 +17,8 @@ public class MockLoginDaoSuccess implements IUserDao {
     @Override
     public User makeLogin(String userName, String passWord) throws DaoException {
         User user = new User();
-        user.setUserName(userName);
-        user.setPassWord(passWord);
+        user.setUsername(userName);
+        user.setPassword(passWord);
         //user.setloginSuccessful(true);
         return user;
     }

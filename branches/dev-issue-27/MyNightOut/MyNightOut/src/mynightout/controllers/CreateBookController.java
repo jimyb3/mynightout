@@ -8,7 +8,7 @@ package mynightout.controllers;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import mynightout.model.Reservation;
+import mynightout.entity.Reservation;
 import mynightout.exceptions.DaoException;
 import mynightout.dao.IReservationDaoCreate;
 
@@ -23,24 +23,21 @@ public class CreateBookController {
     public CreateBookController(IReservationDaoCreate createBookDao) {
         this.createBookDao = createBookDao;
     }
-
-    public Reservation createReservationNew(String customerName,
-            String dateString, int seatNumber, String storeName)
+    /**Η βάση μέσα στoν πίνακα κράτηση κρατάει μόνο το userId, το clubId, την ημερομηνία
+     * κράτησης, των αριθμό θέσεων, και μια ένα status που μας δειχνει αν ειναι ενεργή
+     * η κράτηση.
+     * 
+     */
+    public Reservation createReservationNew(int userId, int clubId, 
+            Date reservationDate, int seatNumber, String reservationStatus)
             throws IllegalArgumentException, DaoException {
 
-        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        String dtStr = dateString.trim();  // 01/01/2011
-        Date reservationDate;
-        try {
-            reservationDate = df.parse(dtStr);  // dt = Sun Jan 01 00:00:00 IST 2011
-        } catch (ParseException e) {
-            throw new IllegalArgumentException("Incorrect date format");
-        }
-
+        
+        /*
         if (customerName.length() < 3) {
             throw new IllegalArgumentException("Customer name should be at least three characters long");
         }
-
+        */
         if (seatNumber > 5) {
             throw new IllegalArgumentException("Each table has only 5 seats");
             // TODO edw prepei na ginei pio sun8eto problepsi gia parapanw trapezia
@@ -48,8 +45,8 @@ public class CreateBookController {
 
         // TODO elenxo gia imerominia pou exei perasei
         try {
-            return createBookDao.createReservation(customerName,
-                    reservationDate, seatNumber, storeName);
+            return createBookDao.createReservation(userId, clubId, reservationDate, 
+                    seatNumber, reservationStatus);
         } catch (DaoException e) {
             throw e;
         }

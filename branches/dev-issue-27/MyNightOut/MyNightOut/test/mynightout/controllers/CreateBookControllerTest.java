@@ -5,12 +5,13 @@
  */
 package mynightout.controllers;
 
+import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import mynightout.dao.MockReservationDaoCreateFail;
 import mynightout.dao.MockReservationDaoCreateSuccess;
-import mynightout.model.Reservation;
+import mynightout.entity.Reservation;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -49,40 +50,55 @@ public class CreateBookControllerTest {
      */
     @Test
     public void testCreateReservationNewSuccessed() throws Exception {
+        /**
+         * Η βάση μέσα στoν πίνακα κράτηση κρατάει μόνο το userId, το clubId,
+         * την ημερομηνία κράτησης, των αριθμό θέσεων, και μια ένα status που
+         * μας δειχνει αν ειναι ενεργή η κράτηση.
+         *
+         * Παρακάτω πρεπει να αλαχθουν οι μεταβλητές και τα ορίσματα μέσα στον
+         * controller για να τρέχει σωστά το test. Η γενική δομή δεν έχει
+         * αλλάξει
+         */
+
         System.out.println("createReservationNewSuccess");
-        String customerName = "foufoutos";
+        int userId = 1;
         int reservationId = 12345;
+        //Μετατρέπουμε το string σε date
+        String date = "16/11/2013";
+        Format formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Date reservationDate = (Date) formatter.parseObject(date);
+        /*
+         //Take the current day
+         Calendar cal
+         = Calendar.getInstance();
 
-        //Take the current day
-        Calendar cal
-                = Calendar.getInstance();
+         //Add one day
+         cal.add(Calendar.DAY_OF_MONTH, 1);
 
-        //Add one day
-        cal.add(Calendar.DAY_OF_MONTH, 1);
+         //Set the time to 00:00:00
+         cal.set(Calendar.HOUR_OF_DAY, 0);
+         cal.set(Calendar.MINUTE, 0);
+         cal.set(Calendar.SECOND, 0);
+         cal.set(Calendar.MILLISECOND, 0);
 
-        //Set the time to 00:00:00
-        cal.set(Calendar.HOUR_OF_DAY, 0);
-        cal.set(Calendar.MINUTE, 0);
-        cal.set(Calendar.SECOND, 0);
-        cal.set(Calendar.MILLISECOND, 0);
+         //Convert to Date object
+         Date reservationDate = cal.getTime();
 
-        //Convert to Date object
-        Date reservationDate = cal.getTime();
+         //Convert date to a String of the form dd/MM/yyyy
+         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
-        //Convert date to a String of the form dd/MM/yyyy
-        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-
-        String dateString = df.format(reservationDate);
+         String dateString = df.format(reservationDate);
+         */
 
         CreateBookController instance = new CreateBookController(new MockReservationDaoCreateSuccess());
 
         int seatNumber = 5;
-        String storeName = "Mas piran Eidisi";
+        int clubId = 2;
 
-        Reservation result = instance.createReservationNew(customerName,
-                dateString, seatNumber, storeName);
-        Assert.assertEquals(customerName, result.getUserName());
-        Assert.assertEquals(storeName, result.getStoreName());
+        Reservation result = instance.createReservationNew(userId, clubId,
+                reservationDate, seatNumber, "active");
+        Assert.assertEquals(userId, result.getUserId());
+        Assert.assertEquals(clubId, result.getClubId());
         Assert.assertEquals(reservationDate, result.getReservationDate());
         Assert.assertEquals(seatNumber, result.getSeatNumber());
         Assert.assertEquals(12345, result.getReservationId());
@@ -93,40 +109,44 @@ public class CreateBookControllerTest {
     @Test
     public void testCreateReservationNewFailed() throws Exception {
         System.out.println("createReservationNewSuccess");
-        String customerName = "foufoutos";
+        int userId = 1;
         int reservationId = 12345;
+        //Μετατρέπουμε το string σε date
+        String date = "16/11/2013";
+        Format formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Date reservationDate = (Date) formatter.parseObject(date);
+        /*
+         //Take the current day
+         Calendar cal
+         = Calendar.getInstance();
 
-        //Take the current day
-        Calendar cal
-                = Calendar.getInstance();
+         //Add one day
+         cal.add(Calendar.DAY_OF_MONTH, 1);
 
-        //Add one day
-        cal.add(Calendar.DAY_OF_MONTH, 1);
+         //Set the time to 00:00:00
+         cal.set(Calendar.HOUR_OF_DAY, 0);
+         cal.set(Calendar.MINUTE, 0);
+         cal.set(Calendar.SECOND, 0);
+         cal.set(Calendar.MILLISECOND, 0);
 
-        //Set the time to 00:00:00
-        cal.set(Calendar.HOUR_OF_DAY, 0);
-        cal.set(Calendar.MINUTE, 0);
-        cal.set(Calendar.SECOND, 0);
-        cal.set(Calendar.MILLISECOND, 0);
+         //Convert to Date object
+         Date reservationDate = cal.getTime();
 
-        //Convert to Date object
-        Date reservationDate = cal.getTime();
+         //Convert date to a String of the form dd/MM/yyyy
+         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
-        //Convert date to a String of the form dd/MM/yyyy
-        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-
-        String dateString = df.format(reservationDate);
-
+         String dateString = df.format(reservationDate);
+         */
         CreateBookController instance = new CreateBookController(new MockReservationDaoCreateFail());
 
         int seatNumber = 5;
-        String storeName = "Mas piran Eidisi";
+        int clubId = 2;
 
         try {
-            Reservation result = instance.createReservationNew(customerName,
-                    dateString, seatNumber, storeName);
-            Assert.assertEquals(customerName, result.getUserName());
-            Assert.assertEquals(storeName, result.getStoreName());
+            Reservation result = instance.createReservationNew(userId, clubId,
+                    reservationDate, seatNumber, "active");
+            Assert.assertEquals(userId, result.getUserId());
+            Assert.assertEquals(clubId, result.getClubId());
             Assert.assertEquals(reservationDate, result.getReservationDate());
             Assert.assertEquals(seatNumber, result.getSeatNumber());
             Assert.assertEquals(12345, result.getReservationId());

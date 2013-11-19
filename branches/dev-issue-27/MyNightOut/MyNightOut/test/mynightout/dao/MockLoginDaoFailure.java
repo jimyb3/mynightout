@@ -17,8 +17,8 @@ public class MockLoginDaoFailure implements IUserDao{
      @Override
     public User makeLogin(String userName, String passWord) throws DaoException {
         User user = new User();
-        user.setUserName(userName);
-        user.setPassWord(passWord);
+        user.setUsername(userName);
+        user.setPassword(passWord);
         //user.setloginSuccessful(false);
         return user;
     }

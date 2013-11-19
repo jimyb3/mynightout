@@ -3,27 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.dao;
 
+import java.util.Date;
 import mynightout.exceptions.DaoException;
-import mynightout.model.Reservation;
+import mynightout.entity.Reservation;
 
 /**
  *
  * @author Maria
  */
-public class MockEditDaoFailure implements IReservationDaoEdit{
-     @Override   
+public class MockEditDaoFailure implements IReservationDaoEdit {
 
-     public Reservation selectReservation(String customerName,String reservationDate, int numOfPeople, String storeName) 
-        throws DaoException{
-            Reservation reservation=new Reservation(customerName,reservationDate, numOfPeople,storeName);
-        
-              
+    @Override
+    public Reservation selectReservation(int userId, int clubId,
+            Date reservationDate, int seatNumber)
+            throws DaoException {
+        Reservation reservation = new Reservation(userId, clubId, reservationDate, seatNumber);
         reservation.setCancelSuccessful(false);
         return reservation;
-     
+    }
 }
-}
-

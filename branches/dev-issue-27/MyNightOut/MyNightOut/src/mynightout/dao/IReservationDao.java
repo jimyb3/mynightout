@@ -16,6 +16,6 @@ import mynightout.entity.Reservation;
  * @author Dimitris
  */
 public interface IReservationDao {
-    Reservation selectReservation(String customerName, int reservationId) throws DaoException;
+    Reservation selectReservation(String userName, int reservationId) throws DaoException;
     
 }

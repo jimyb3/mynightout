@@ -19,10 +19,17 @@ public class User  implements java.io.Serializable {
      private String customerName;
      private String customerLastname;
      private String telephoneNum;
+     //βοηθητικές μεταβλητές για τα test αυτά θα σταματήσουν να χρησιμοποιούνται
+    //όταν γίνει η κανονική συνδεση με τη βαση.
 
     public User() {
     }
-
+    
+    public User(String username, String password){
+        this.username=username;
+        this.password=password;
+    }
+    
     public User(String username, String password, String customerName, String customerLastname, String telephoneNum) {
        this.username = username;
        this.password = password;

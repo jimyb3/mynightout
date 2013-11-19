@@ -8,20 +8,36 @@ import java.util.Date;
  */
 public class Reservation implements java.io.Serializable {
 
-    private Integer reservationId;
-    private String username;
+    private int reservationId;
     private int userId;
     private int clubId;
     private Date reservationDate;
     private int seatNumber;
     private String reservationStatus;
-
+    //βοηθητικές μεταβλητές για τα test αυτά θα σταματήσουν να χρησιμοποιούνται
+    //όταν γίνει η κανονική συνδεση με τη βαση.
+        private String username;
+        private boolean cancelSuccessful;
+        private boolean successCreate;
+    
+    
     public Reservation() {
     }
 
     public Reservation(String username, int reservationId) {
         this.username = username;
         this.reservationId = reservationId;
+    }
+
+    public Reservation(int reservationId) {
+        this.reservationId = reservationId;
+    }
+
+    public Reservation(int userId, int clubId, Date reservationDate, int seatNumber) {
+        this.userId = userId;
+        this.clubId = clubId;
+        this.reservationDate = reservationDate;
+        this.seatNumber = seatNumber;
     }
 
     public Reservation(int userId, int clubId, Date reservationDate, int seatNumber, String reservationStatus) {
@@ -32,11 +48,35 @@ public class Reservation implements java.io.Serializable {
         this.reservationStatus = reservationStatus;
     }
 
-    public Integer getReservationId() {
-        return this.reservationId;
+    public boolean isSuccessCreate() {
+        return successCreate;
     }
 
-    public void setReservationId(Integer reservationId) {
+    public void setSuccessCreate(boolean successCreate) {
+        this.successCreate = successCreate;
+    }
+    
+    public boolean isCancelSuccessful() {
+        return cancelSuccessful;
+    }
+
+    public void setCancelSuccessful(boolean cancelSuccessful) {
+        this.cancelSuccessful = cancelSuccessful;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public int getReservationId() {
+        return reservationId;
+    }
+
+    public void setReservationId(int reservationId) {
         this.reservationId = reservationId;
     }
 

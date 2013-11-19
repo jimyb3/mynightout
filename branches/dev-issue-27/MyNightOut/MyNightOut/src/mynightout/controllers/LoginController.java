@@ -5,9 +5,9 @@
  */
 package mynightout.controllers;
 
-import mynightout.dao.ConnectionToMysql;
+
 import mynightout.dao.UserDao;
-import mynightout.model.User;
+import mynightout.entity.User;
 
 /**
  *
@@ -18,17 +18,16 @@ public class LoginController {
     public User Login(String userName, String passWord) {
 
         UserDao currentUser = new UserDao();
-        
-        
-        if(currentUser.isUserDataValid(userName, passWord)) {
+
+        if (currentUser.isUserDataValid(userName, passWord)) {
             try {
                 User newUser = new User(userName, passWord);
                 return newUser;
-                
+
             } catch (Exception e) {
                 throw e;
             }
-        } else {           
+        } else {
             throw new IllegalArgumentException("Λάθος στοιχεία εισόδου");
         }
 

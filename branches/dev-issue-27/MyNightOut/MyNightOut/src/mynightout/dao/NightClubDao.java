@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.List;
 import mynightout.entity.User;
 import mynightout.exceptions.DaoException;
-import mynightout.model.NightClub;
+import mynightout.entity.Nightclub;
 import mynightout.util.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -24,8 +24,8 @@ import org.hibernate.Session;
 public class NightClubDao implements INightClubDao {
 
     @Override
-    public NightClub selectNightClub(String storeName) throws DaoException {
-        return new NightClub();
+    public Nightclub selectNightClub(String storeName) throws DaoException {
+        return new Nightclub();
     }
 //επιστρέφει List με clubName, seatNumber, telephoneNum για όλα τα καταστήματα της βάσης
 //ΕΜΦΑΝΙΣΗ ΚΑΤΑΣΤΗΜΑΤΟΣ
