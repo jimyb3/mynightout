@@ -6,8 +6,6 @@
 package mynightout.ui;
 
 import javax.swing.JFrame;
-import mynightout.controllers.EditReservationController;
-import mynightout.dao.ReservationDaoEdit;
 
 /**
  *
@@ -32,10 +30,10 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         cancelReservationButton = new javax.swing.JButton();
-        ExitButton = new javax.swing.JButton();
+        exitButton = new javax.swing.JButton();
         loginButton = new javax.swing.JButton();
         checkFullnessButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        createStoreButton = new javax.swing.JButton();
         createReservationButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -51,10 +49,10 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        ExitButton.setText("Κλείσιμο");
-        ExitButton.addActionListener(new java.awt.event.ActionListener() {
+        exitButton.setText("Κλείσιμο");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExitButtonActionPerformed(evt);
+                exitButtonActionPerformed(evt);
             }
         });
 
@@ -72,10 +70,10 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Δημιουργία Καταστήματος");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        createStoreButton.setText("Δημιουργία Καταστήματος");
+        createStoreButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                createStoreButtonActionPerformed(evt);
             }
         });
 
@@ -111,50 +109,53 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(cancelReservationButton)
+                        .addGap(5, 5, 5)
+                        .addComponent(exitButton)
+                        .addGap(5, 5, 5)
+                        .addComponent(loginButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
                         .addComponent(checkFullnessButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cancelReservationButton)))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(createReservationButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(32, 32, 32))
+                        .addGap(5, 5, 5)
+                        .addComponent(createStoreButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(createReservationButton)
+                        .addGap(5, 5, 5)
+                        .addComponent(editButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jButton2)
+                        .addGap(5, 5, 5)
+                        .addComponent(deleteButton)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(116, Short.MAX_VALUE)
-                .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(loginButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(cancelReservationButton)
-                            .addGap(18, 18, 18))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(checkFullnessButton)
-                            .addGap(1, 1, 1)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(createReservationButton)
-                        .addGap(26, 26, 26)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ExitButton)
-                    .addComponent(jButton1))
-                .addGap(30, 30, 30))
+                    .addComponent(cancelReservationButton)
+                    .addComponent(exitButton)
+                    .addComponent(loginButton))
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(checkFullnessButton)
+                    .addComponent(createStoreButton))
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(createReservationButton)
+                    .addComponent(editButton))
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addComponent(deleteButton))
+                .addContainerGap(229, Short.MAX_VALUE))
         );
 
         pack();
@@ -170,7 +171,6 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
         // TODO add your handling code here:
-        this.dispose();
     }//GEN-LAST:event_ExitButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
@@ -206,18 +206,31 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_createReservationButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-     JFrame editReservationFrame=new EditReservationForm();
-     this.dispose();
-     editReservationFrame.setLocationRelativeTo(this);
-     editReservationFrame.setVisible(true);  // TODO add your handling code here:
+        JFrame editReservationFrame = new EditReservationForm();
+        this.dispose();
+        editReservationFrame.setLocationRelativeTo(this);
+        editReservationFrame.setVisible(true);  // TODO add your handling code here:
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-     JFrame deleteReservationFrame=new DeleteReservationForm();
-     this.dispose();
-     deleteReservationFrame.setLocationRelativeTo(this);
-     deleteReservationFrame.setVisible(true);   // TODO add your handling code here:
+        JFrame deleteReservationFrame = new DeleteReservationForm();
+        this.dispose();
+        deleteReservationFrame.setLocationRelativeTo(this);
+        deleteReservationFrame.setVisible(true);   // TODO add your handling code here:
     }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_exitButtonActionPerformed
+
+    private void createStoreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createStoreButtonActionPerformed
+        // TODO add your handling code here:
+        JFrame StoreRegisterForm = new StoreRegisterForm();
+        this.dispose();
+        StoreRegisterForm.setLocationRelativeTo(this);
+        StoreRegisterForm.setVisible(true);
+    }//GEN-LAST:event_createStoreButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,13 +268,13 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ExitButton;
     private javax.swing.JButton cancelReservationButton;
     private javax.swing.JButton checkFullnessButton;
     private javax.swing.JButton createReservationButton;
+    private javax.swing.JButton createStoreButton;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton exitButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton loginButton;
     // End of variables declaration//GEN-END:variables
