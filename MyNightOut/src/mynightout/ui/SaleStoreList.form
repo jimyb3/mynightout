@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="SaleStore4" max="32767" attributes="0"/>
+                  <Component id="SaleStore1" pref="173" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="SaleStore2" pref="160" max="32767" attributes="0"/>
+                  <Component id="SaleStore5" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="SaleStore3" pref="177" max="32767" attributes="0"/>
+                  <Component id="SaleStore6" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="148" max="32767" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="SaleStore3" max="32767" attributes="0"/>
+                          <Component id="SaleStore2" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="SaleStore1" min="-2" pref="72" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="SaleStore4" pref="67" max="32767" attributes="0"/>
+                  <Component id="SaleStore5" max="32767" attributes="0"/>
+                  <Component id="SaleStore6" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace pref="92" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="36" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#x3a6;&#x3bf;&#x3b9;&#x3c4;&#x3b7;&#x3c4;&#x3b9;&#x3ba;&#x3ad;&#x3c2; &#x3a0;&#x3c1;&#x3bf;&#x3c3;&#x3c6;&#x3bf;&#x3c1;&#x3ad;&#x3c2;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="SaleStore1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x3a0;&#x3cd;&#x3bb;&#x3b7; &#x391;&#x3be;&#x3b9;&#x3bf;&#x3cd;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaleStore1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="SaleStore2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x39a;&#x3b1;&#x3c4;&#x3ac;&#x3c3;&#x3c4;&#x3b7;&#x3bc;&#x3b1;2"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaleStore2ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="SaleStore3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x39a;&#x3b1;&#x3c4;&#x3ac;&#x3c3;&#x3c4;&#x3b7;&#x3bc;&#x3b1;3"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaleStore3ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="SaleStore4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x39a;&#x3b1;&#x3c4;&#x3ac;&#x3c3;&#x3c4;&#x3b7;&#x3bc;&#x3b1;4"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaleStore4ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="SaleStore5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x39a;&#x3b1;&#x3c4;&#x3ac;&#x3c3;&#x3c4;&#x3b7;&#x3bc;&#x3b1;5"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaleStore5ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="SaleStore6">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x39a;&#x3b1;&#x3c4;&#x3ac;&#x3c3;&#x3c4;&#x3b7;&#x3bc;&#x3b1;6"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SaleStore6ActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>
