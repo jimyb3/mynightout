@@ -7,7 +7,7 @@
 package mynightout.dao;
 
 import mynightout.exceptions.DaoException;
-import mynightout.model.NightClub;
+import mynightout.entity.Nightclub;
 
 /**
  *
@@ -16,8 +16,8 @@ import mynightout.model.NightClub;
 public class MockCheckFullnessDaoSucceeded implements INightClubDao{
     
     @Override
-    public NightClub selectNightClub(String storeName) throws DaoException{
-        NightClub nightclub = new NightClub();
+    public Nightclub selectNightClub(String storeName) throws DaoException{
+        Nightclub nightclub = new Nightclub();
         
         nightclub.setStoreName(storeName);            
         nightclub.setStoreFull(true);

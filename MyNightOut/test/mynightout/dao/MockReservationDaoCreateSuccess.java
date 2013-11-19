@@ -7,7 +7,7 @@ package mynightout.dao;
 
 import java.util.Date;
 import mynightout.exceptions.DaoException;
-import mynightout.model.Reservation;
+import mynightout.entity.Reservation;
 
 /**
  *
@@ -16,15 +16,13 @@ import mynightout.model.Reservation;
 public class MockReservationDaoCreateSuccess implements IReservationDaoCreate {
 
     @Override
-    public Reservation createReservation(String customerName,
-            Date reservationDate, int seatNumber, String storeName)
+    public Reservation createReservation(int userId, int clubId, 
+            Date reservationDate, int seatNumber, String reservationStatus)
             throws DaoException {
-        Reservation reservation = new Reservation(customerName, reservationDate, seatNumber, storeName);
+        Reservation reservation = new Reservation(userId, clubId, 
+            reservationDate, seatNumber);
 
-        reservation.setUserName(customerName);
-        reservation.setReservationDate(reservationDate);
-        reservation.setSeatNumber(seatNumber);
-        reservation.setStoreName(storeName);
+        
         reservation.setReservationId(12345);
         reservation.setSuccessCreate(true);
         return reservation;

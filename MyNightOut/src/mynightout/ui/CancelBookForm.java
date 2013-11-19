@@ -9,7 +9,7 @@ package mynightout.ui;
 import javax.swing.JFrame;
 import mynightout.controllers.CancelBookController;
 import mynightout.dao.ReservationDao;
-import mynightout.model.Reservation;
+import mynightout.entity.Reservation;
 import javax.swing.JOptionPane;
 
 /**
@@ -34,9 +34,9 @@ public class CancelBookForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        customerNameLabel = new javax.swing.JLabel();
+        userNameLabel = new javax.swing.JLabel();
         reservationIdLabel = new javax.swing.JLabel();
-        customerNameTextField = new javax.swing.JTextField();
+        userNameTextField = new javax.swing.JTextField();
         reservationIdTextField = new javax.swing.JTextField();
         okButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
@@ -44,7 +44,7 @@ public class CancelBookForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        customerNameLabel.setText("Όνομα Κράτησης:");
+        userNameLabel.setText("Username:");
 
         reservationIdLabel.setText("Αριθμός κράτησης:");
 
@@ -75,15 +75,13 @@ public class CancelBookForm extends javax.swing.JFrame {
                         .addComponent(mesageLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(109, 109, 109)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(reservationIdLabel)
+                            .addComponent(userNameLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(customerNameLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(customerNameTextField))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(reservationIdLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(reservationIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(userNameTextField)
+                            .addComponent(reservationIdTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE))))
                 .addContainerGap(53, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -102,8 +100,8 @@ public class CancelBookForm extends javax.swing.JFrame {
                 .addComponent(mesageLabel)
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(customerNameLabel)
-                    .addComponent(customerNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(userNameLabel)
+                    .addComponent(userNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(reservationIdLabel)
@@ -123,7 +121,7 @@ public class CancelBookForm extends javax.swing.JFrame {
         CancelBookController controller=new CancelBookController();
         int reservationId=Integer.parseInt(reservationIdTextField.getText());
         try{
-            Reservation cancelReservation=controller.cancelReservation(customerNameTextField.getText(), reservationId);
+            Reservation cancelReservation=controller.cancelReservation(userNameTextField.getText(), reservationId);
             JOptionPane.showMessageDialog(null, "Reservation canceled with id: " + reservationId, "Success",JOptionPane.INFORMATION_MESSAGE);
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",JOptionPane.INFORMATION_MESSAGE);
@@ -132,7 +130,7 @@ public class CancelBookForm extends javax.swing.JFrame {
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         // TODO add your handling code here:
-        customerNameTextField.setText("");
+        userNameTextField.setText("");
         reservationIdTextField.setText("");
         JFrame mainFrame=new MainFrame();
         this.dispose();
@@ -177,11 +175,11 @@ public class CancelBookForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
-    private javax.swing.JLabel customerNameLabel;
-    private javax.swing.JTextField customerNameTextField;
     private javax.swing.JLabel mesageLabel;
     private javax.swing.JButton okButton;
     private javax.swing.JLabel reservationIdLabel;
     private javax.swing.JTextField reservationIdTextField;
+    private javax.swing.JLabel userNameLabel;
+    private javax.swing.JTextField userNameTextField;
     // End of variables declaration//GEN-END:variables
 }

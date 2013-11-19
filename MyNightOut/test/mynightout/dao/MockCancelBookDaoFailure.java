@@ -1,7 +1,7 @@
 package mynightout.dao;
 
 import mynightout.exceptions.DaoException;
-import mynightout.model.Reservation;
+import mynightout.entity.Reservation;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

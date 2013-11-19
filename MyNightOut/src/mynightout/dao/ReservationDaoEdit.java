@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.dao;
 
 import java.util.Date;
-import mynightout.model.Reservation;
+import mynightout.entity.Reservation;
 
 /**
  *
  * @author Maria
  */
-public class ReservationDaoEdit implements IReservationDaoEdit
-{
- @Override 
-  public Reservation selectReservation(String customerName,String reservationDate,int numOfPeople,String storeName){
+public class ReservationDaoEdit implements IReservationDaoEdit {
 
- return new Reservation(customerName,reservationDate,numOfPeople,storeName);  
-}
+    @Override
+    public Reservation selectReservation(int userId, int clubId,
+            Date reservationDate, int seatNumber) {
+
+        return new Reservation(userId, clubId, reservationDate, seatNumber);
+    }
 }

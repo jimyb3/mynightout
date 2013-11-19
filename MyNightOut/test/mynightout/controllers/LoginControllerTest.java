@@ -6,7 +6,7 @@
 
 package mynightout.controllers;
 
-import mynightout.model.User;
+import mynightout.entity.User;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -51,8 +51,8 @@ public class LoginControllerTest {
         LoginController instance = new LoginController();
         User expResult = new User("user1", "123456");
         User result = instance.Login(userName, passWord);
-        Assert.assertEquals(expResult.getUserName() , result.getUserName()); 
-        Assert.assertEquals(expResult.getPassWord() , result.getPassWord()); 
+        Assert.assertEquals(expResult.getUsername() , result.getUsername()); 
+        Assert.assertEquals(expResult.getPassword() , result.getPassword()); 
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }

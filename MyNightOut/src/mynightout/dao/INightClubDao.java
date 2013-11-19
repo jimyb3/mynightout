@@ -7,13 +7,13 @@
 package mynightout.dao;
 
 import mynightout.exceptions.DaoException;
-import mynightout.model.NightClub;
+import mynightout.entity.Nightclub;
 
 /**
  *
  * @author panos
  */
 public interface INightClubDao {
-    NightClub selectNightClub(String storeName) throws DaoException;
+    Nightclub selectNightClub(String storeName) throws DaoException;
     
 }

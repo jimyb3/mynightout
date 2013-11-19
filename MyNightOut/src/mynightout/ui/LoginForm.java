@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.controllers.LoginController;
 import mynightout.dao.UserDao;
-import mynightout.model.User;
+import mynightout.entity.User;
 
 /**
  *
@@ -118,8 +117,8 @@ public class LoginForm extends javax.swing.JFrame {
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
         LoginController controller = new LoginController();
         try {
-            User user = controller.Login(userNameField.getText(),passWordField.getText());
-            JOptionPane.showMessageDialog(null,"welcome", "Success",JOptionPane.INFORMATION_MESSAGE);
+            User user = controller.Login(userNameField.getText(), passWordField.getText());
+            JOptionPane.showMessageDialog(null, "welcome", "Success", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -134,7 +133,6 @@ public class LoginForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_userNameFieldActionPerformed
 
- 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton enterButton;
