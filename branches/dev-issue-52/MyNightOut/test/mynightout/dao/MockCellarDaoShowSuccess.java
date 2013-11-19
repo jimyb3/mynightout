@@ -15,7 +15,7 @@ import mynightout.model.Cellar;
  */
 public class MockCellarDaoShowSuccess implements ICellarDaoShow{
      @Override
-     public Cellar selectCellar(String NameOfBottle,String NumOfBottles) throws DaoException{
+     public Cellar selectCellar(String NameOfBottle,int NumOfBottles) throws DaoException{
         
        Cellar cellar=new Cellar(NameOfBottle,NumOfBottles);
         
