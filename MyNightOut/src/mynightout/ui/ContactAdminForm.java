@@ -10,7 +10,8 @@ package mynightout.ui;
  *
  * @author panos
  */
-public class ContactAdminForm extends javax.swing.JFrame {
+
+public class ContactAdminForm extends javax.swing.JFrame implements IContactAdminForm {
 
     /**
      * Creates new form ContactAdminForm
@@ -264,4 +265,9 @@ public class ContactAdminForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void sendHelpDisplay(String mes) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
