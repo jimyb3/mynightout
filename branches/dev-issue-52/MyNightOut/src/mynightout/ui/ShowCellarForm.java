@@ -110,8 +110,8 @@ public class ShowCellarForm extends javax.swing.JFrame {
        
       
         Vector<String> tableHeaders = new Vector<String>();
-        tableHeaders.add("Μαρκα");
-        tableHeaders.add("ποσοτητα");
+        tableHeaders.add("Όνομα Φιάλης");
+        tableHeaders.add("Ποσότητα");
         Vector firstRow=new Vector();
         Vector secondRow=new Vector(); 
         Vector thirdRow=new Vector();
