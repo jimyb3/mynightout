@@ -15,23 +15,6 @@ import mynightout.ui.StoreRegisterForm;
  * @author Mustaine
  */
 public class Presenter implements IPresenter{
-    /*@Override
-    public void storeregister(IStoreRegisterForm form, String DesiredUsername, String DesiredPassword,
-            String CompanyName, String Street, String Postcode, String Telephone1, String Telephone2,
-            String Mobile, String Fax, String Email){
-        
-        if(DesiredUsername.equalsIgnoreCase(DesiredPassword)){
-            //TO DO: Αποστολή στοιχείων με e-mail.
-            
-            form.display("Επιτυχής Αποστολή!");
-            
-        }
-        else{
-            form.display("Αποτυχία Αποστολής!");
-        }
-        
-        
-    }*/
     
     
      @Override
@@ -62,19 +45,7 @@ public class Presenter implements IPresenter{
             
         }
 
-   // @Override
-   // public void storeregister(IStoreRegisterForm form, String DesiredUsername, String DesiredPassword, String CompanyName, String Street, String Postcode, String Telephone1, String Telephone2, String Mobile, String Fax, String Email) {
-   //     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-  //  }
-
-    //@Override
-   //  @Override
-   // public void sendEmail(StoreRegisterForm form, String DesiredUsername, String DesiredPassword,
-    //        String CompanyName, String Street, String Postcode, String Telephone1, String Telephone2,
-     //       String Mobile, String Fax, String Email) {
-     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-   // }
-        
+   
         
     }
     

@@ -17,7 +17,10 @@ import javax.mail.internet.MimeMessage;
 /**
  *
  * @author Mustaine
+ * Δημιουργία Controller ο οποίος αναλαμβάνει την άμεση
+ * αποστολή αίτησης νέου καταστήματος μέσω email.
  */
+
 public class EmailSenderController {
     
     public static boolean sendMail(String from, String password, String message, String to){
@@ -52,16 +55,11 @@ public class EmailSenderController {
            transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
            transport.close();
            
-           return true;
-           
-           
-           
+           return true;                  
         }
         catch(MessagingException me){
-            me.printStackTrace();
-            
-        }   
-            
+            me.printStackTrace();            
+        }            
         return false;
     }
     

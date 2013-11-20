@@ -11,7 +11,9 @@ package mynightout.ui;
  * @author Mustaine
  */
 public interface IStoreRegisterForm {
+    
     public void display(String msg);
+    
     public void sendEmail(StoreRegisterForm form);
     
 }
