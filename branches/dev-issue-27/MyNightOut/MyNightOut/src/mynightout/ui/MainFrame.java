@@ -36,7 +36,6 @@ public class MainFrame extends javax.swing.JFrame {
         createStoreButton = new javax.swing.JButton();
         createReservationButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -91,13 +90,6 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Επεξεργασία Κράτησης");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editButtonActionPerformed(evt);
-            }
-        });
-
         deleteButton.setText("Διαγραφή Κράτησης");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,9 +121,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGap(5, 5, 5)
                         .addComponent(editButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jButton2)
-                        .addGap(5, 5, 5)
+                        .addGap(169, 169, 169)
                         .addComponent(deleteButton)))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
@@ -152,9 +142,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(createReservationButton)
                     .addComponent(editButton))
                 .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(deleteButton))
+                .addComponent(deleteButton)
                 .addContainerGap(229, Short.MAX_VALUE))
         );
 
@@ -170,7 +158,6 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelReservationButtonActionPerformed
 
     private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
-        // TODO add your handling code here:
         
     }//GEN-LAST:event_ExitButtonActionPerformed
 
@@ -276,7 +263,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
     private javax.swing.JButton exitButton;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton loginButton;
     // End of variables declaration//GEN-END:variables
 }
