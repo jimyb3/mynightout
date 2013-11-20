@@ -15,7 +15,7 @@ import mynightout.model.Cellar;
 public class CellarDaoShow implements ICellarDaoShow {
 
     @Override
-    public Cellar selectCellar(String NameOfBottle, String NumOfBottles) {
+    public Cellar selectCellar(String NameOfBottle,int NumOfBottles) {
         return new Cellar(NameOfBottle, NumOfBottles);
     }
 }

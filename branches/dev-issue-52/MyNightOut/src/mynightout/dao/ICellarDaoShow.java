@@ -14,5 +14,5 @@ import mynightout.model.Cellar;
  * @author Maria
  */
 public interface ICellarDaoShow {
-    Cellar selectCellar(String NameOfBottle,String NumOfBottles)throws DaoException;
+    Cellar selectCellar(String NameOfBottle, int NumOfBottles)throws DaoException;
 }

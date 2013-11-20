@@ -36,6 +36,7 @@ public class ShowCellarForm extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         cellarTable = new javax.swing.JTable();
         CloseButton = new javax.swing.JButton();
+        ShowButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,6 +61,13 @@ public class ShowCellarForm extends javax.swing.JFrame {
             }
         });
 
+        ShowButton.setText("Εμφάνιση");
+        ShowButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -71,14 +79,19 @@ public class ShowCellarForm extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(171, 171, 171)
-                        .addComponent(CloseButton)))
+                        .addComponent(CloseButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(155, 155, 155)
+                        .addComponent(ShowButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
-                .addGap(38, 38, 38)
+                .addGap(9, 9, 9)
+                .addComponent(ShowButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CloseButton)
                 .addContainerGap())
         );
@@ -87,73 +100,45 @@ public class ShowCellarForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseButtonActionPerformed
-        // TODO add your handling code here:
+        JFrame mainFrame = new MainFrame();
+        this.dispose();
+        mainFrame.setLocationRelativeTo(this);
+        mainFrame.setVisible(true);   // TODO add your handling code here:
     }//GEN-LAST:event_CloseButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
- /*   public class JTableUsage extends JFrame
-   {
-    DefaultTableModel model;
-    JTable table;
-    String col[] = {"Όνομα Φιάλης","Ποσότητα"};
+    private void ShowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowButtonActionPerformed
+       
+      
+        Vector<String> tableHeaders = new Vector<String>();
+        tableHeaders.add("Μαρκα");
+        tableHeaders.add("ποσοτητα");
+        Vector firstRow=new Vector();
+        Vector secondRow=new Vector(); 
+        Vector thirdRow=new Vector();
+        Vector tableData=new Vector();
+        firstRow.add("Bacardi");
+        firstRow.add("3");
+        tableData.add(firstRow);
+        secondRow.add("Jameson");
+        secondRow.add("5");
+        tableData.add(secondRow);
+        thirdRow.add("Johny Walker Red");
+        thirdRow.add("2");
+        tableData.add(thirdRow);
+        cellarTable.setModel(new 
+        DefaultTableModel(tableData,tableHeaders)); // TODO add your handling code here:
+    }//GEN-LAST:event_ShowButtonActionPerformed
 
-    }
-*/
+  
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ShowCellarForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ShowCellarForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ShowCellarForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ShowCellarForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-      /*String[] columnNames  ={"Όνομα Φιάλης ",
-                               "Ποσότητα"};
-       
-      Object[][] data = {
-             {"Jack Daniels","5"},
-             {"Absolute", "2"},
-             {"Johny Walker Red Label","6"}
-      };*/
-        /* Create and display the form */
-    //   new JTableUsage().start();
-       
-                
+             
                 
      java.awt.EventQueue.invokeLater(new Runnable() {
         public void run() {
          new ShowCellarForm().setVisible(true);
-         JFrame showCellarForm=new ShowCellarForm();
-         Vector<String> tableHeaders = new Vector<String>();
-        tableHeaders.add("Μαρκα");
-        tableHeaders.add("ποσοτητα");
-        Vector oneRow=new Vector();
-        Vector tableData=new Vector();
-        oneRow.add("Bacardi");
-        oneRow.add("3");
-        tableData.add(oneRow);
-        showCellarForm.cellarTable.setModel(new 
-        DefaultTableModel(tableData,tableHeaders));
        
-        showCellarForm.setVisible(true);        
-            }
+          
+          }
         });
     
       
@@ -162,6 +147,7 @@ public class ShowCellarForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CloseButton;
+    private javax.swing.JButton ShowButton;
     private javax.swing.JTable cellarTable;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

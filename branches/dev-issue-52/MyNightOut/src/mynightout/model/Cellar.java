@@ -11,11 +11,11 @@ package mynightout.model;
  * @author Maria
  */
 public class Cellar {
-  String NameOfBottle;
-  String NumOfBottles;
+ private String NameOfBottle;
+ private  int NumOfBottles;
 private boolean showCellarSuccessful;
 
-    public Cellar(String NameOfBottle, String NumOfBottles) {
+    public Cellar(String NameOfBottle, int NumOfBottles) {
         this.NameOfBottle =NameOfBottle;
         this.NumOfBottles =NumOfBottles;
     }
@@ -28,11 +28,11 @@ private boolean showCellarSuccessful;
         this.NameOfBottle = NameOfBottle;
     }
 
-    public String getNumOfBottles() {
+    public int getNumOfBottles() {
         return NumOfBottles;
     }
 
-    public void setNumOfBottles(String NumOfBottles) {
+    public void setNumOfBottles(int NumOfBottles) {
         this.NumOfBottles = NumOfBottles;
     }
 
