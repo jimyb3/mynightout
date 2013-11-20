@@ -39,6 +39,7 @@ public class MainFrame extends javax.swing.JFrame {
         createReservationButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
+        FAQButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyNightOut");
@@ -99,6 +100,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        FAQButton.setText("FAQ/Help");
+        FAQButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FAQButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,7 +131,9 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGap(5, 5, 5)
                         .addComponent(editButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
+                        .addGap(44, 44, 44)
+                        .addComponent(FAQButton)
+                        .addGap(18, 18, 18)
                         .addComponent(deleteButton)))
                 .addGap(41, 41, 41))
         );
@@ -143,9 +153,14 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(createReservationButton)
                     .addComponent(editButton))
-                .addGap(5, 5, 5)
-                .addComponent(deleteButton)
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(deleteButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(FAQButton)))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
 
         pack();
@@ -210,6 +225,14 @@ public class MainFrame extends javax.swing.JFrame {
         StoreRegisterForm.setVisible(true);
     }//GEN-LAST:event_createStoreButtonActionPerformed
 
+    private void FAQButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FAQButtonActionPerformed
+        // TODO add your handling code here:
+        JFrame contactAdminForm=new ContactAdminForm();
+     
+     contactAdminForm.setLocationRelativeTo(this);
+     contactAdminForm.setVisible(true);
+    }//GEN-LAST:event_FAQButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -246,6 +269,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton FAQButton;
     private javax.swing.JButton cancelReservationButton;
     private javax.swing.JButton checkFullnessButton;
     private javax.swing.JButton createReservationButton;
