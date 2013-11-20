@@ -6,6 +6,7 @@
 
 package mynightout.presenters;
 
+import mynightout.ui.IContactAdminForm;
 import mynightout.ui.IStoreRegisterForm;
 
 /**
@@ -16,5 +17,7 @@ public interface IPresenter {
     public void storeregister(IStoreRegisterForm form, String DesiredUsername, String DesiredPassword,
             String CompanyName, String Street, String Postcode, String Telephone1, String Telephone2,
             String Mobile, String Fax, String Email);
+    
+     public void sendHelp(IContactAdminForm form, String msgtosend);
     
 }

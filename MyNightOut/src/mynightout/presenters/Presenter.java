@@ -6,6 +6,7 @@
 
 package mynightout.presenters;
 
+import mynightout.ui.IContactAdminForm;
 import mynightout.ui.IStoreRegisterForm;
 
 /**
@@ -30,4 +31,12 @@ public class Presenter implements IPresenter{
         
         
     }
+    
+    
+     @Override
+    public void sendHelp(IContactAdminForm form, String msgtosend){
+        
+        
+    }
+    
 }
