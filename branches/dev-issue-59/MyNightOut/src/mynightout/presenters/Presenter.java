@@ -52,9 +52,11 @@ public class Presenter implements IPresenter{
         
         if(EmailSenderController.sendMail("mynightouttest@gmail.com", "dge457hdw3", userMessage, to)){
             System.out.println("Επιτυχής Αποστολή!");
+            form.display("Επιτυχής Αποστολή!");
         }
         else{
-            System.out.println("Παρουσιάστηκε κάποιο πρόβλημα, ξαναπροσπαθήστε.");
+            System.out.println("Παρουσιάστηκε κάποιο πρόβλημα.");
+            form.display("Παρουσιάστηκε κάποιο πρόβλημα, ξαναπροσπαθήστε.");
         }
         
             
