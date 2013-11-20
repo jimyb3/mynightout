@@ -222,9 +222,9 @@ public class StoreRegisterForm extends javax.swing.JFrame implements IStoreRegis
         // TODO add your handling code here:
         Presenter prsreg=new Presenter();
         
-        prsreg.storeregister(this, AdressTextField.getText(), CompanyTextField.getText(), DesPassTextField.getText(), DesUserTextField.getText(),
-                EmailTextField.getText(), FaxTextField.getText(), MobileTextField.getText(), PostcodeTextField.getText(), Tel1TextField.getText(), 
-                Tel2TextField.getText());
+        prsreg.sendEmail(this, DesUserTextField.getText(), DesPassTextField.getText(), CompanyTextField.getText() ,AdressTextField.getText() ,  
+                PostcodeTextField.getText() , Tel1TextField.getText() ,Tel2TextField.getText(),MobileTextField.getText() , FaxTextField.getText()  , 
+              EmailTextField.getText() );
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
     /**
@@ -289,4 +289,9 @@ public class StoreRegisterForm extends javax.swing.JFrame implements IStoreRegis
     private javax.swing.JTextField Tel1TextField;
     private javax.swing.JTextField Tel2TextField;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void sendEmail(StoreRegisterForm form) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
