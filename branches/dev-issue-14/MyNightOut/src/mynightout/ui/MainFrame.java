@@ -39,7 +39,7 @@ public class MainFrame extends javax.swing.JFrame {
         createReservationButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        UserHistoryShow = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyNightOut");
@@ -100,7 +100,12 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("UserHistory");
+        UserHistoryShow.setText("UserHistory");
+        UserHistoryShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserHistoryShowActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -127,7 +132,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(editButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(52, 52, 52)
-                        .addComponent(jButton1)
+                        .addComponent(UserHistoryShow)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(deleteButton)))
                 .addGap(41, 41, 41))
@@ -151,7 +156,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(deleteButton)
-                    .addComponent(jButton1))
+                    .addComponent(UserHistoryShow))
                 .addContainerGap(188, Short.MAX_VALUE))
         );
 
@@ -217,6 +222,13 @@ public class MainFrame extends javax.swing.JFrame {
         StoreRegisterForm.setVisible(true);
     }//GEN-LAST:event_createStoreButtonActionPerformed
 
+    private void UserHistoryShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserHistoryShowActionPerformed
+        JFrame UserHistoryForm = new UserHistoryForm();
+        this.dispose();
+        UserHistoryForm.setLocationRelativeTo(this);
+        UserHistoryForm.setVisible(true);
+    }//GEN-LAST:event_UserHistoryShowActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -253,6 +265,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton UserHistoryShow;
     private javax.swing.JButton cancelReservationButton;
     private javax.swing.JButton checkFullnessButton;
     private javax.swing.JButton createReservationButton;
@@ -260,7 +273,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
     private javax.swing.JButton exitButton;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton loginButton;
     // End of variables declaration//GEN-END:variables
 }
