@@ -19,7 +19,7 @@ import javax.mail.internet.MimeMessage;
  * @author Mustaine
  * Δημιουργία Controller ο οποίος αναλαμβάνει την άμεση
  * αποστολή αίτησης ενημέρωσης κάποιας υπηρεσίας μέσω email.
- * Η σύνταξη της εντολής είναι ως εξής: sendmail("mynightouttest@gmail.com", "dge457hdw3", "Μήνυμα Προς Αποστολή", Παραλήπτης, "Θέμα Μηνύματος")
+ * Η σύνταξη της εντολής είναι ως εξής: sendmail("mynightouttest@gmail.com", "dge457hdw3", "Μήνυμα Προς Αποστολή", Παραλήπτης, "Θέμα Μηνύματος");
  */
 
 public class EmailSenderController {
