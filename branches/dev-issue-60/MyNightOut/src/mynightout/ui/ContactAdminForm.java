@@ -7,6 +7,7 @@
 package mynightout.ui;
 
 import javax.swing.JOptionPane;
+import mynightout.presenters.Presenter;
 
 /**
  *
@@ -229,12 +230,10 @@ public class ContactAdminForm extends javax.swing.JFrame {
 
     private void SendHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendHelpActionPerformed
         // TODO add your handling code here:
-        try {
-
-            JOptionPane.showMessageDialog(null,"Η αποστολή ολοκληρώθηκε με επιτυχία!","Success",JOptionPane.INFORMATION_MESSAGE);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
-        }
+        Presenter prsreg=new Presenter();
+        
+        prsreg.sendHelp(this, HelpText.getText());
+        
     }//GEN-LAST:event_SendHelpActionPerformed
 
     private void FAQHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FAQHelpActionPerformed
@@ -290,4 +289,8 @@ public class ContactAdminForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
+
+    public void display(String επιτυχής_Αποστολή) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
