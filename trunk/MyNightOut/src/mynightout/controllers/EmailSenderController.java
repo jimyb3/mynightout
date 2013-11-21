@@ -18,12 +18,13 @@ import javax.mail.internet.MimeMessage;
  *
  * @author Mustaine
  * Δημιουργία Controller ο οποίος αναλαμβάνει την άμεση
- * αποστολή αίτησης νέου καταστήματος μέσω email.
+ * αποστολή αίτησης ενημέρωσης κάποιας υπηρεσίας μέσω email.
+ * Η σύνταξη της εντολής είναι ως εξής: sendmail("mynightouttest@gmail.com", "dge457hdw3", "Μήνυμα Προς Αποστολή", Παραλήπτης, "Θέμα Μηνύματος");
  */
 
 public class EmailSenderController {
     
-    public static boolean sendMail(String from, String password, String message, String to){
+    public static boolean sendMail(String from, String password, String message, String to, String subject){
         String host = "smtp.gmail.com";
         Properties props = System.getProperties();
         props.put("mail.smtp.starttls.enable", "true");
@@ -45,7 +46,7 @@ public class EmailSenderController {
             mimeMessage.addRecipient(RecipientType.TO, toAddress);
             
            //Προσθήκη Θέματος.
-           mimeMessage.setSubject("Δήλωση Νέου Καταστήματος");
+           mimeMessage.setSubject(subject);
            
            //Προσθήκη Μηνύματος.
            mimeMessage.setText(message);
