@@ -9,6 +9,7 @@ import java.awt.Container;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -32,10 +33,10 @@ public class SelectTablePresenter {
         Container pane = form.getContentPane();
         int tableNumber = row1 + row2 + row3 + row4 + 1;
         JButton[] table = new JButton[tableNumber];
-        String imagePath="C:\\Users\\Dimitris\\Desktop\\164217_10151537190287697_1858435540_n.jpg";
-        //URL url =getClass().getResource(imagePath);
-        Image img = Toolkit.getDefaultToolkit().createImage(imagePath);
-        ImageIcon icon=new ImageIcon(img);
+        String imagePath="/images/1236721_44678719210121_1766361339_n.jpg";
+        URL url =getClass().getResource(imagePath);
+        
+        ImageIcon icon=new ImageIcon(url);
         /**hack Να αντικατασταθεί ο κωδικας από τα κουμπιά με κώδικα που θα επιτρέπει
          * την αλλαγή των θέσεων.
          */
@@ -45,15 +46,15 @@ public class SelectTablePresenter {
             table[count].setSize(120, 20);
             table[count].setActionCommand(table[count].getText());//Δίνουμε στο Action το text που θέλουμε.
             if(i==2 || i==4){
-                imagePath="C:\\Users\\Dimitris\\Desktop\\1236721_446787192101221_1766361339_n.jpg";
-                //URL url =getClass().getResource(imagePath);
-                img = Toolkit.getDefaultToolkit().createImage(imagePath);
-                icon=new ImageIcon(img);
+                imagePath="/images/1236721_44678719210121_1766361339_n.jpg";
+                url =getClass().getResource(imagePath);
+                
+                icon=new ImageIcon(url);
             }else{
-                imagePath="C:\\Users\\Dimitris\\Desktop\\164217_10151537190287697_1858435540_n.jpg";
-                //URL url =getClass().getResource(imagePath);
-                img = Toolkit.getDefaultToolkit().createImage(imagePath);
-                icon=new ImageIcon(img);
+                imagePath="/images/164217_10151537190287697_1858435540_n.jpg";
+                url =getClass().getResource(imagePath);
+                
+                icon=new ImageIcon(url);
             }
             table[count].setIcon(icon);
             table[count].addActionListener(new ActionListener() {
@@ -78,15 +79,15 @@ public class SelectTablePresenter {
             table[count].setSize(120, 20);
             table[count].setActionCommand(table[count].getText());
             if(i==1 || i==2){
-                imagePath="C:\\Users\\Dimitris\\Desktop\\1236721_446787192101221_1766361339_n.jpg";
-                //URL url =getClass().getResource(imagePath);
-                img = Toolkit.getDefaultToolkit().createImage(imagePath);
-                icon=new ImageIcon(img);
+                imagePath="/images/1236721_44678719210121_1766361339_n.jpg";
+                url =getClass().getResource(imagePath);
+                
+                icon=new ImageIcon(url);
             }else{
-                imagePath="C:\\Users\\Dimitris\\Desktop\\164217_10151537190287697_1858435540_n.jpg";
-                //URL url =getClass().getResource(imagePath);
-                img = Toolkit.getDefaultToolkit().createImage(imagePath);
-                icon=new ImageIcon(img);
+                imagePath="/images/164217_10151537190287697_1858435540_n.jpg";
+                url =getClass().getResource(imagePath);
+                
+                icon=new ImageIcon(url);
             }
             table[count].setIcon(icon);
             table[count].addActionListener(new ActionListener() {
@@ -111,15 +112,15 @@ public class SelectTablePresenter {
             table[count].setSize(120, 20);
             table[count].setActionCommand(table[count].getText());
             if(i==2 || i==3){
-                imagePath="C:\\Users\\Dimitris\\Desktop\\1236721_446787192101221_1766361339_n.jpg";
-                //URL url =getClass().getResource(imagePath);
-                img = Toolkit.getDefaultToolkit().createImage(imagePath);
-                icon=new ImageIcon(img);
+                imagePath="/images/1236721_44678719210121_1766361339_n.jpg";
+                url =getClass().getResource(imagePath);
+                
+                icon=new ImageIcon(url);
             }else{
-                imagePath="C:\\Users\\Dimitris\\Desktop\\164217_10151537190287697_1858435540_n.jpg";
-                //URL url =getClass().getResource(imagePath);
-                img = Toolkit.getDefaultToolkit().createImage(imagePath);
-                icon=new ImageIcon(img);
+                imagePath="/images/164217_10151537190287697_1858435540_n.jpg";
+                url =getClass().getResource(imagePath);
+                
+                icon=new ImageIcon(url);
             }
             table[count].setIcon(icon);
             table[count].addActionListener(new ActionListener() {
