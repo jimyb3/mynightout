@@ -45,25 +45,15 @@ public class DeleteReservationControllerTest {
     /**
      * Test of deleteReservation method, of class DeleteReservationController.
      */
-    @Test
-    public void testDeleteReservation_1args_1() throws Exception {
-        System.out.println("deleteReservation");
-        int reservationId = 5;
-        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoSuccess());
-        Reservation result = instance.deleteReservation(reservationId);
-        Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(true, result.isCancelSuccessful());
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
+    
 
     /**
      * Test of DeleteReservation method, of class DeleteReservationController.
      */
     @Test
-    public void testDeleteReservation_1args_2() throws Exception {
+    public void testDeleteReservationWithNegativeNumber() throws Exception {
         System.out.println("DeleteReservation");
-        int reservationId = 5;
+        int reservationId = -1;
         DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
         Reservation result = instance.deleteReservation(reservationId);
         Assert.assertEquals(reservationId, result.getReservationId());
@@ -75,7 +65,7 @@ public class DeleteReservationControllerTest {
      * Test of deleteReservation method, of class DeleteReservationController.
      */
     @Test
-    public void testDeleteReservation() throws Exception {
+    public void testDeleteReservationWithCorrectNumber() throws Exception {
         System.out.println("deleteReservation");
         int reservationId = 5;
         DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoSuccess());
@@ -83,5 +73,27 @@ public class DeleteReservationControllerTest {
         Assert.assertEquals(reservationId, result.getReservationId());
         Assert.assertEquals(true, result.isCancelSuccessful());
     }
+    
+      @Test
+    public void testDeleteReservationWithZero() throws Exception {
+        System.out.println("deleteReservation");
+        
+        int reservationId = 0;
+        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
+        Reservation result = instance.deleteReservation(reservationId);
+        Assert.assertEquals(reservationId, result.getReservationId());
+        Assert.assertEquals(false, result.isCancelSuccessful());
+    }
+     @Test
+    public void testDeleteReservationWithHugeNumber() throws Exception {
+        System.out.println("DeleteReservation");
+        int reservationId = 1000000000;
+        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
+        Reservation result = instance.deleteReservation(reservationId);
+        Assert.assertEquals(reservationId, result.getReservationId());
+        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
+        // fail("The test case is a prototype.");
+    }
+    
 
 }
