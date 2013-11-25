@@ -55,8 +55,10 @@ public class DeleteReservationControllerTest {
     public void testDeleteReservationWithNegativeNumber() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId = -1;
+        String clubName="marias";
         DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
         Reservation result = instance.deleteReservation(clubName,reservationId);
+        Assert.assertEquals(clubName,result.getClubName());
         Assert.assertEquals(reservationId, result.getReservationId());
         Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
         // fail("The test case is a prototype.");
