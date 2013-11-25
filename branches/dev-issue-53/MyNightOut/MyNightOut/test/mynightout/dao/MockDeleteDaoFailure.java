@@ -15,8 +15,8 @@ import mynightout.entity.Reservation;
  */
 public class MockDeleteDaoFailure implements IReservationDaoDelete{
      @Override   
-    public Reservation selectReservation(int reservationId) throws DaoException{
-        Reservation reservation= new Reservation(reservationId);
+    public Reservation selectReservation(String clubName,int reservationId) throws DaoException{
+        Reservation reservation= new Reservation(clubName,reservationId);
         reservation.setCancelSuccessful(false);
         return reservation;
     }

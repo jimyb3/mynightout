@@ -21,6 +21,7 @@ import static org.junit.Assert.*;
  * @author Maria
  */
 public class DeleteReservationControllerTest {
+   
 
     public DeleteReservationControllerTest() {
 
@@ -55,7 +56,7 @@ public class DeleteReservationControllerTest {
         System.out.println("DeleteReservation");
         int reservationId = -1;
         DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
-        Reservation result = instance.deleteReservation(reservationId);
+        Reservation result = instance.deleteReservation(clubName,reservationId);
         Assert.assertEquals(reservationId, result.getReservationId());
         Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
         // fail("The test case is a prototype.");
@@ -69,7 +70,7 @@ public class DeleteReservationControllerTest {
         System.out.println("deleteReservation");
         int reservationId = 5;
         DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoSuccess());
-        Reservation result = instance.deleteReservation(reservationId);
+        Reservation result = instance.deleteReservation(clubName,reservationId);
         Assert.assertEquals(reservationId, result.getReservationId());
         Assert.assertEquals(true, result.isCancelSuccessful());
     }

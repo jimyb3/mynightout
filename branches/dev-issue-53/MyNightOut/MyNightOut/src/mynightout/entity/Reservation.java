@@ -19,6 +19,15 @@ public class Reservation implements java.io.Serializable {
         private String username;
         private boolean cancelSuccessful;
         private boolean successCreate;
+        private String clubName;
+
+    public String getClubName() {
+        return clubName;
+    }
+
+    public void setClubName(String clubName) {
+        this.clubName = clubName;
+    }
     
     
     public Reservation() {

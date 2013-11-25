@@ -14,7 +14,7 @@ import mynightout.entity.Reservation;
 public class ReservationDaoDelete implements IReservationDaoDelete {
 
     @Override
-    public Reservation selectReservation(int reservationId) {
+    public Reservation selectReservation(String clubName,int reservationId) {
         return new Reservation(reservationId);
     }
 }

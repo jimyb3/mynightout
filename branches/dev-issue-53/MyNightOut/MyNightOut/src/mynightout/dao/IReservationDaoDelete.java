@@ -14,5 +14,5 @@ import mynightout.entity.Reservation;
  * @author Maria
  */
 public interface IReservationDaoDelete {
-    Reservation selectReservation(int reservationId)throws DaoException;
+    Reservation selectReservation(String clubName,int reservationId)throws DaoException;
 }
