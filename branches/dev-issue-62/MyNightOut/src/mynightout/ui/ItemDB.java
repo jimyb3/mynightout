@@ -2,8 +2,10 @@ package mynightout.ui;
 
 
 import java.util.ArrayList;
+import static java.util.Collections.list;
 import java.util.List;
 import mynightout.dao.NightClubDao;
+import mynightout.entity.Nightclub;
 
 /**
  *
@@ -13,18 +15,22 @@ class ItemDB {
 
     
     public String getclubs() {
-    NightClubDao getstores = new NightClubDao();
+        NightClubDao getstores = new NightClubDao();
      
         List allNightClubs = getstores.getAllNightClubs();
-      
-      for (Object o : allNightClubs){
-   
-                for (int i=0; int i<=allNightClubs.toArray().length; i+;){
+        
+        
+        
+        
+        int i=0;
+        for (Object o : allNightClubs){
+         
+                Nightclub nightclub = (Nightclub) o;
+                String table[i]=Νightclub.getStoreName();
+                i++;
             
-                         NightClub nightClub = (NightClub) o;
-                         String table[i]=nightClub.getname();
-                 }
         }
+        
         
         
         
