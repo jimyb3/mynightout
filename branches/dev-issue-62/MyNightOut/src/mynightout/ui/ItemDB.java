@@ -26,7 +26,7 @@ class ItemDB {
         for (Object o : allNightClubs){
          
                 Nightclub nightclub = (Nightclub) o;
-                String table[i]=Νightclub.getStoreName();
+                String table[i]=nightclub.getStoreName();
                 i++;
             
         }
@@ -48,7 +48,7 @@ class ItemDB {
         // }
         return null;
     }
-    ;
+    
 
   //  public static String mainMenuCodes[] = {"fix", "stages", "sales", "BEVE", "FOOD", "BEVE"};
    // public static String mainMenuDesc[] = {"FOOD", "BEVERAGES", "FOOD", "BEVERAGES", "FOOD", "BEVERAGES"};
