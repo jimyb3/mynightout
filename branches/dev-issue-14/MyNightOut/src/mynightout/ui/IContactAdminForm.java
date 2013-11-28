@@ -8,12 +8,9 @@ package mynightout.ui;
 
 /**
  *
- * @author Mustaine
+ * @author panos
  */
-public interface IStoreRegisterForm {
-    
-    public void display(String msg);
-    
-    public void sendEmail(StoreRegisterForm form);
+public interface IContactAdminForm {
+    public void sendHelpDisplay(String mes);
     
 }

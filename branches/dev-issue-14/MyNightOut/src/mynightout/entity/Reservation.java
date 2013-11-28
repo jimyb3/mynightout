@@ -23,6 +23,10 @@ public class Reservation implements java.io.Serializable {
     
     public Reservation() {
     }
+    public Reservation(int clubId, Date reservationDate) {
+        this.clubId = clubId;
+        this.reservationDate = reservationDate;
+    }
 
     public Reservation(String username, int reservationId) {
         this.username = username;

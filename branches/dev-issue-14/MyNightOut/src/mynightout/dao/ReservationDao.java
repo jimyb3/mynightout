@@ -51,7 +51,7 @@ public class ReservationDao implements IReservationDao {
     //επιστρέφει όλες τις active=δεν έχουν ακυρωθεί, κρατήσεις τος χρήστη
     public List getUserReservations(String userName) {
         try {
-            String hql = "select nin.clubId, res.reservationDate  from User us, Reservation res, Nightclub nin where us.userId=res.userId and nin.clubId=res.clubId and us.username='" + userName + "' and res.reservationStatus=\'active\'";
+            String hql = "select res.clubId, res.reservationDate  from User us, Reservation res, Nightclub nin where us.userId=res.userId and nin.clubId=res.clubId and us.username='" + userName + "' and res.reservationStatus=\'active\'";
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             Query q = session.createQuery(hql);

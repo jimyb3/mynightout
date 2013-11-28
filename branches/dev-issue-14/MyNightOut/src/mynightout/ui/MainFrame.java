@@ -39,7 +39,9 @@ public class MainFrame extends javax.swing.JFrame {
         createReservationButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
-        UserHistoryShow = new javax.swing.JButton();
+        FAQButton = new javax.swing.JButton();
+        showCellarForm = new javax.swing.JButton();
+        ViewHistoryButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyNightOut");
@@ -100,10 +102,24 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        UserHistoryShow.setText("UserHistory");
-        UserHistoryShow.addActionListener(new java.awt.event.ActionListener() {
+        FAQButton.setText("FAQ/Help");
+        FAQButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserHistoryShowActionPerformed(evt);
+                FAQButtonActionPerformed(evt);
+            }
+        });
+
+        showCellarForm.setText("Εμφάνιση Κελαριού");
+        showCellarForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showCellarFormActionPerformed(evt);
+            }
+        });
+
+        ViewHistoryButton.setText("View History");
+        ViewHistoryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewHistoryButtonActionPerformed(evt);
             }
         });
 
@@ -131,11 +147,17 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGap(5, 5, 5)
                         .addComponent(editButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(UserHistoryShow)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(deleteButton)))
+                        .addGap(44, 44, 44)
+                        .addComponent(FAQButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(deleteButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addComponent(showCellarForm)))
                 .addGap(41, 41, 41))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(ViewHistoryButton)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,11 +175,18 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(createReservationButton)
                     .addComponent(editButton))
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deleteButton)
-                    .addComponent(UserHistoryShow))
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(deleteButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(FAQButton)))
+                .addGap(18, 18, 18)
+                .addComponent(showCellarForm)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addComponent(ViewHistoryButton)
+                .addContainerGap())
         );
 
         pack();
@@ -222,12 +251,27 @@ public class MainFrame extends javax.swing.JFrame {
         StoreRegisterForm.setVisible(true);
     }//GEN-LAST:event_createStoreButtonActionPerformed
 
-    private void UserHistoryShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserHistoryShowActionPerformed
-        JFrame UserHistoryForm = new UserHistoryForm();
-        this.dispose();
-        UserHistoryForm.setLocationRelativeTo(this);
-        UserHistoryForm.setVisible(true);
-    }//GEN-LAST:event_UserHistoryShowActionPerformed
+    private void FAQButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FAQButtonActionPerformed
+        // TODO add your handling code here:
+        JFrame contactAdminForm=new ContactAdminForm();
+     
+     contactAdminForm.setLocationRelativeTo(this);
+     contactAdminForm.setVisible(true);
+    }//GEN-LAST:event_FAQButtonActionPerformed
+
+    private void showCellarFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCellarFormActionPerformed
+       JFrame showCellarFrame=new ShowCellarForm();
+      this.dispose();
+      showCellarFrame.setLocationRelativeTo(this);
+      showCellarFrame.setVisible(true); // TODO add your handling code here:
+    }//GEN-LAST:event_showCellarFormActionPerformed
+
+    private void ViewHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewHistoryButtonActionPerformed
+     JFrame UserHistoryForm=new UserHistoryForm();
+     this.dispose();
+     UserHistoryForm.setLocationRelativeTo(this);
+     UserHistoryForm.setVisible(true);
+    }//GEN-LAST:event_ViewHistoryButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,7 +309,8 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton UserHistoryShow;
+    private javax.swing.JButton FAQButton;
+    private javax.swing.JButton ViewHistoryButton;
     private javax.swing.JButton cancelReservationButton;
     private javax.swing.JButton checkFullnessButton;
     private javax.swing.JButton createReservationButton;
@@ -274,5 +319,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton editButton;
     private javax.swing.JButton exitButton;
     private javax.swing.JButton loginButton;
+    private javax.swing.JButton showCellarForm;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,7 +11,9 @@ import mynightout.ui.IStoreRegisterForm;
 /**
  *
  * @author Mustaine
+ * Έλεγχος Καταχώρησης Καταστήματος με Mock Object το οποίο ακυρώνεται λόγω υλοποίησης αποστολής στοιχείων μέσω E-mail.
  */
+/*
 public class MockStoreRegisterForm implements IStoreRegisterForm {
     @Override
     public void display(String msg) {
@@ -19,3 +21,4 @@ public class MockStoreRegisterForm implements IStoreRegisterForm {
     }
     
 }
+*/
