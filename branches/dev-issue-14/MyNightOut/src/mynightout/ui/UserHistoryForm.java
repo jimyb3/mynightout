@@ -11,19 +11,13 @@ import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import mynightout.dao.ReservationDao;
-import mynightout.entity.Nightclub;
 import mynightout.entity.Reservation;
-import mynightout.entity.User;
-import mynightout.util.HibernateUtil;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
 /**
  *
  * @author Fuzzaki
  */
 public class UserHistoryForm extends javax.swing.JFrame {
-    private String userName;
+    //private String userName;
     
     /**
      * Creates new form UserHistoryForm
@@ -31,28 +25,28 @@ public class UserHistoryForm extends javax.swing.JFrame {
     public UserHistoryForm() {
         initComponents();
     }
-    private static String QUERY_BASED_ON_USER_NAME="from Reservation where user_id like'";
+    //private static String QUERY_BASED_ON_USER_NAME="from Reservation where user_id like'";
 
     //private void runQueryBasedOnUserName() {
     //ReservationDao reservation = new ReservationDao();
-    //reservation.getUserReservations(QUERY_BASED_ON_USER_NAME + usernameTextField.getText() + "'");
-     //}
-    private void runQueryBasedOnUserName() {
-    executeHQLQuery(QUERY_BASED_ON_USER_NAME + usernameTextField.getText() + "'");
-    }
-    private void executeHQLQuery(String hql) {
-    try {
+    //reservation.getUserReservations();
+    //}
+    //private void runQueryBasedOnUserName() {
+    //executeHQLQuery(QUERY_BASED_ON_USER_NAME + usernameTextField.getText() + "'");
+    //}
+    //private void executeHQLQuery(String hql) {
+    //try {
         //String hql = "select nin.clubName, res.reservationDate  from User us, Reservation res, Nightclub nin where us.userId=res.userId and nin.clubId=res.clubId and us.username='" + userName + "' and res.reservationStatus=\'active\'";
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        Query q = session.createQuery(hql);
-        List resultList = q.list();
-        displayResult(resultList);
-        session.getTransaction().commit();
-    } catch (HibernateException he) {
-        he.printStackTrace();
-    }
-}
+        //Session session = HibernateUtil.getSessionFactory().openSession();
+        //session.beginTransaction();
+        //Query q = session.createQuery(hql);
+        //List resultList = q.list();
+        //displayResult(resultList);
+        //session.getTransaction().commit();
+    //} catch (HibernateException he) {
+       // he.printStackTrace();
+    //}
+//}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -177,37 +171,52 @@ public class UserHistoryForm extends javax.swing.JFrame {
     }//GEN-LAST:event_MainMenuButtonActionPerformed
 
     private void fetchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fetchButtonActionPerformed
-        if(!usernameTextField.getText().trim().equals("")) {
-        runQueryBasedOnUserName();
-    }//GEN-LAST:event_fetchButtonActionPerformed
-    }
-    
-    private void displayResult(List resultList) {
-    Vector<String> tableHeaders = new Vector<String>();
-    Vector tableData = new Vector();
-    tableHeaders.add("ReservationID"); 
-    tableHeaders.add("ReservationDate");
-    tableHeaders.add("SeatNumber");
-    tableHeaders.add("Status");
-    
-    for(Object o : resultList) {
-        //User user = (User)o;
+        //if(!usernameTextField.getText().trim().equals("")) {
+        //runQueryBasedOnUserName();
+        ReservationDao reservation = new ReservationDao();
+        List resultList=reservation.getUserReservations(usernameTextField.getText());
+        Vector<String> tableHeaders = new Vector<String>();
+        Vector tableData = new Vector();
+        tableHeaders.add("Club Name"); 
+        tableHeaders.add("Reservation Date");
+        
+        for(Object o : resultList) {
         Reservation reservation = (Reservation)o;
-        //Nightclub nightclub = (Nightclub)o;
         Vector<Object> oneRow = new Vector<Object>();
+        oneRow.add(reservation.getClubId());
+        oneRow.add(reservation.getReservationDate());
+        tableData.add(oneRow);
+         }
+        resultTable.setModel(new DefaultTableModel(tableData, tableHeaders));
+    }//GEN-LAST:event_fetchButtonActionPerformed
+    
+
+    //private void displayResult(List resultList) {
+    //Vector<String> tableHeaders = new Vector<String>();
+    //Vector tableData = new Vector();
+    //tableHeaders.add("ReservationID"); 
+    //tableHeaders.add("ReservationDate");
+    //tableHeaders.add("SeatNumber");
+    //tableHeaders.add("Status");
+    
+    //for(Object o : resultList) {
+        //User user = (User)o;
+        //Reservation reservation = (Reservation)o;
+        //Nightclub nightclub = (Nightclub)o;
+        //Vector<Object> oneRow = new Vector<Object>();
         //oneRow.add(nightclub.getStoreName());
         //oneRow.add(user.getUserId());
         //oneRow.add(user.getCustomerName());
         //oneRow.add(user.getCustomerLastname());
         //oneRow.add(user.getTelephoneNum());
-        oneRow.add(reservation.getReservationId());
-        oneRow.add(reservation.getReservationDate());
-        oneRow.add(reservation.getSeatNumber());
-        oneRow.add(reservation.getReservationStatus());
-        tableData.add(oneRow);
-    }
-    resultTable.setModel(new DefaultTableModel(tableData, tableHeaders));
-}
+        //oneRow.add(reservation.getReservationId());
+        //oneRow.add(reservation.getReservationDate());
+        //oneRow.add(reservation.getSeatNumber());
+        //oneRow.add(reservation.getReservationStatus());
+        //tableData.add(oneRow);
+    //}
+    //resultTable.setModel(new DefaultTableModel(tableData, tableHeaders));
+//}
     /**
      * @param args the command line arguments
      */
