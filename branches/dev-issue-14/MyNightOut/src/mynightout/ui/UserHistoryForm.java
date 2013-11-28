@@ -5,30 +5,54 @@
  */
 
 package mynightout.ui;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.ResultSet;
+
+import java.util.List;
+import java.util.Vector;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-
-
+import javax.swing.table.DefaultTableModel;
+import mynightout.dao.ReservationDao;
+import mynightout.entity.Nightclub;
+import mynightout.entity.Reservation;
+import mynightout.entity.User;
+import mynightout.util.HibernateUtil;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
 /**
  *
  * @author Fuzzaki
  */
 public class UserHistoryForm extends javax.swing.JFrame {
-
+    private String userName;
     
-    
+    /**
+     * Creates new form UserHistoryForm
+     */
     public UserHistoryForm() {
         initComponents();
-        
     }
-    
-    
+    private static String QUERY_BASED_ON_USER_NAME="from Reservation where user_id like'";
 
+    //private void runQueryBasedOnUserName() {
+    //ReservationDao reservation = new ReservationDao();
+    //reservation.getUserReservations(QUERY_BASED_ON_USER_NAME + usernameTextField.getText() + "'");
+     //}
+    private void runQueryBasedOnUserName() {
+    executeHQLQuery(QUERY_BASED_ON_USER_NAME + usernameTextField.getText() + "'");
+    }
+    private void executeHQLQuery(String hql) {
+    try {
+        //String hql = "select nin.clubName, res.reservationDate  from User us, Reservation res, Nightclub nin where us.userId=res.userId and nin.clubId=res.clubId and us.username='" + userName + "' and res.reservationStatus=\'active\'";
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        Query q = session.createQuery(hql);
+        List resultList = q.list();
+        displayResult(resultList);
+        session.getTransaction().commit();
+    } catch (HibernateException he) {
+        he.printStackTrace();
+    }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,182 +62,152 @@ public class UserHistoryForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        textID = new javax.swing.JTextField();
-        textFirstName = new javax.swing.JTextField();
-        textLastName = new javax.swing.JTextField();
+        HeaderLabel = new javax.swing.JLabel();
+        fetchButton = new javax.swing.JButton();
+        usernameTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        textUserName = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        CloseHistory = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        resultTable = new javax.swing.JTable();
+        MainMenuButton = new javax.swing.JButton();
+        ExitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        textID.setText("                 ");
+        HeaderLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        HeaderLabel.setText("History Viewer");
 
-        textFirstName.setText("                     ");
-
-        textLastName.setText("                    ");
-
-        jLabel1.setText("UserName");
-
-        textUserName.setText("                  ");
-
-        jLabel2.setText("ID");
-
-        jLabel3.setText("FirstName");
-
-        jLabel4.setText("LastName");
-
-        jButton1.setText("First");
-
-        jButton2.setText("Previous");
-
-        jButton3.setText("Next");
-
-        jButton4.setText("Last");
-
-        CloseHistory.setText("Close");
-        CloseHistory.addActionListener(new java.awt.event.ActionListener() {
+        fetchButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        fetchButton.setText("Fetch");
+        fetchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CloseHistoryActionPerformed(evt);
+                fetchButtonActionPerformed(evt);
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel5.setText("History Explorer");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("UserID");
 
-        jTextField1.setText("                     ");
+        resultTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(resultTable);
 
-        jLabel6.setText("KataStima");
+        MainMenuButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        MainMenuButton.setText("Main Menu");
+        MainMenuButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MainMenuButtonActionPerformed(evt);
+            }
+        });
 
-        jTextField2.setText("                      ");
-
-        jLabel7.setText("Date");
+        ExitButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ExitButton.setText("Exit");
+        ExitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
-                        .addGap(57, 57, 57)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(textUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
-                                .addComponent(jLabel4))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(171, 171, 171)
-                        .addComponent(CloseHistory)))
-                .addGap(103, 103, 103))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
+                .addGap(56, 56, 56)
+                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(usernameTextField)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(fetchButton)
+                .addGap(37, 37, 37))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(textID, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(textLastName)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel7)
-                                .addGap(68, 68, 68)))))
+                .addGap(160, 160, 160)
+                .addComponent(HeaderLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(MainMenuButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ExitButton)
+                .addGap(86, 86, 86))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel5)
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(textID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addComponent(HeaderLabel)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(CloseHistory)
-                .addGap(31, 31, 31))
+                    .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fetchButton)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MainMenuButton)
+                    .addComponent(ExitButton))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CloseHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseHistoryActionPerformed
-        JFrame mainFrame = new MainFrame();
-        dispose();
-        mainFrame.setLocationRelativeTo(this);
-        mainFrame.setVisible(true);
-    }//GEN-LAST:event_CloseHistoryActionPerformed
+    private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_ExitButtonActionPerformed
 
+    private void MainMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MainMenuButtonActionPerformed
+     JFrame MainFrame=new MainFrame();
+     this.dispose();
+     MainFrame.setLocationRelativeTo(this);
+     MainFrame.setVisible(true);
+    }//GEN-LAST:event_MainMenuButtonActionPerformed
+
+    private void fetchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fetchButtonActionPerformed
+        if(!usernameTextField.getText().trim().equals("")) {
+        runQueryBasedOnUserName();
+    }//GEN-LAST:event_fetchButtonActionPerformed
+    }
+    
+    private void displayResult(List resultList) {
+    Vector<String> tableHeaders = new Vector<String>();
+    Vector tableData = new Vector();
+    tableHeaders.add("ReservationID"); 
+    tableHeaders.add("ReservationDate");
+    tableHeaders.add("SeatNumber");
+    tableHeaders.add("Status");
+    
+    for(Object o : resultList) {
+        //User user = (User)o;
+        Reservation reservation = (Reservation)o;
+        //Nightclub nightclub = (Nightclub)o;
+        Vector<Object> oneRow = new Vector<Object>();
+        //oneRow.add(nightclub.getStoreName());
+        //oneRow.add(user.getUserId());
+        //oneRow.add(user.getCustomerName());
+        //oneRow.add(user.getCustomerLastname());
+        //oneRow.add(user.getTelephoneNum());
+        oneRow.add(reservation.getReservationId());
+        oneRow.add(reservation.getReservationDate());
+        oneRow.add(reservation.getSeatNumber());
+        oneRow.add(reservation.getReservationStatus());
+        tableData.add(oneRow);
+    }
+    resultTable.setModel(new DefaultTableModel(tableData, tableHeaders));
+}
     /**
      * @param args the command line arguments
      */
@@ -250,23 +244,13 @@ public class UserHistoryForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CloseHistory;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton ExitButton;
+    private javax.swing.JLabel HeaderLabel;
+    private javax.swing.JButton MainMenuButton;
+    private javax.swing.JButton fetchButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField textFirstName;
-    private javax.swing.JTextField textID;
-    private javax.swing.JTextField textLastName;
-    private javax.swing.JTextField textUserName;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable resultTable;
+    private javax.swing.JTextField usernameTextField;
     // End of variables declaration//GEN-END:variables
 }
