@@ -39,11 +39,11 @@ public class User  implements java.io.Serializable {
     }
    
     
-    public Integer getUserId() {
+    public int getUserId() {
         return this.userId;
     }
     
-    public void setUserId(Integer userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
     public String getUsername() {

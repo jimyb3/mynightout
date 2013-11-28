@@ -43,6 +43,7 @@ public class LoginControllerTest {
     /**
      * Test of Login method, of class LoginController.
      */
+    //
     @Test
     public void testSuccessfulLogin() {
         
@@ -69,10 +70,58 @@ public class LoginControllerTest {
         //Assert. assertEquals(expResult.getPassWord() , result.getPassWord())); 
                
            }
+    @Test (expected=IllegalArgumentException.class)
+    public void testFailedLoginNoUsername() {
+        String userName = "";
+        String passWord = "123456";
+        LoginController instance = new LoginController();
+        User expResult = new User("user1","123456");
+        User result = instance.Login(userName, passWord);
+    }
+    @Test (expected=IllegalArgumentException.class)
+    public void testFailedLoginNoPassword() {
+        String userName = "user1";
+        String passWord = "";
+        LoginController instance = new LoginController();
+        User expResult = new User("user1","123456");
+        User result = instance.Login(userName, passWord);
+    }
+    @Test (expected=IllegalArgumentException.class)
+    public void testFailedLoginSmallUsername() {
+        String userName = "us";
+        String passWord = "123456";
+        LoginController instance = new LoginController();
+        User expResult = new User("user1","123456");
+        User result = instance.Login(userName, passWord);
+    }
+    @Test (expected=IllegalArgumentException.class)
+    public void testFailedLoginSmallPassword() {
+        String userName = "user1";
+        String passWord = "1";
+        LoginController instance = new LoginController();
+        User expResult = new User("user1","123456");
+        User result = instance.Login(userName, passWord);
+    }
+    @Test (expected=IllegalArgumentException.class)
+    public void testFailedLoginUsernameTooBig() {
+        String userName = "user1234user12345user";
+        String passWord = "123456";
+        LoginController instance = new LoginController();
+        User expResult = new User("user1","123456");
+        User result = instance.Login(userName, passWord);
+    }
+    @Test (expected=IllegalArgumentException.class)
+    public void testFailedLoginPasswordTooBig() {
+        String userName = "user1";
+        String passWord = "12345678912345678";
+        LoginController instance = new LoginController();
+        User expResult = new User("user1","123456");
+        User result = instance.Login(userName, passWord);
+    }
+    
        } 
         
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        
     
     
 
