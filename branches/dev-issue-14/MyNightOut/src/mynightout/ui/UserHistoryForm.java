@@ -181,10 +181,10 @@ public class UserHistoryForm extends javax.swing.JFrame {
         tableHeaders.add("Reservation Date");
         
         for(Object o : resultList) {
-        Reservation reservation = (Reservation)o;
+        Reservation reservations = (Reservation)o;
         Vector<Object> oneRow = new Vector<Object>();
-        oneRow.add(reservation.getClubId());
-        oneRow.add(reservation.getReservationDate());
+        oneRow.add(reservations.getClubId());
+        oneRow.add(reservations.getReservationDate());
         tableData.add(oneRow);
          }
         resultTable.setModel(new DefaultTableModel(tableData, tableHeaders));
