@@ -6,6 +6,7 @@
 package mynightout.controllers;
 
 import mynightout.dao.IReservationDaoDelete;
+import mynightout.dao.ReservationDao;
 import mynightout.exceptions.DaoException;
 import mynightout.entity.Reservation;
 
@@ -22,15 +23,26 @@ public class DeleteReservationController {
 
     }
 
-    public Reservation deleteReservation(int reservationId) throws IllegalArgumentException, DaoException {
-        /*if (ID.length() != 5) {
-            throw new IllegalArgumentException("Το ID που δώσατε δεν είναι έγκυρο");
-        }*/
-        try {
-            return reservationDao.selectReservation(reservationId);
-        } catch (DaoException e) {
-            throw e;
-        }
-    }
+    public Reservation deleteReservation(String clubName,int reservationId) {
+       ReservationDao changeReservationStatus = new ReservationDao();
+       
+        if (changeReservationStatus.cancelReservationByNightClub(clubName,reservationId)) {
+          try 
+          {
+                Reservation reservation = new Reservation(clubName, reservationId);
+                return reservation;
+            } 
+          catch (Exception e)
+            {
+                throw e;
+            }
+        } else
+        {
+            throw new IllegalArgumentException("Η διαγραφή δεν έγινε");
+         }
+       
+       
 
+     
+  }
 }

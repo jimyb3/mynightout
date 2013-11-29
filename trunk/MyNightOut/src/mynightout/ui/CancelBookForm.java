@@ -48,6 +48,18 @@ public class CancelBookForm extends javax.swing.JFrame {
 
         reservationIdLabel.setText("Αριθμός κράτησης:");
 
+        userNameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userNameTextFieldActionPerformed(evt);
+            }
+        });
+
+        reservationIdTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reservationIdTextFieldActionPerformed(evt);
+            }
+        });
+
         okButton.setText("ΟΚ");
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,6 +149,14 @@ public class CancelBookForm extends javax.swing.JFrame {
         mainFrame.setLocationRelativeTo(this);
         mainFrame.setVisible(true);
     }//GEN-LAST:event_cancelButtonActionPerformed
+
+    private void reservationIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationIdTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reservationIdTextFieldActionPerformed
+
+    private void userNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userNameTextFieldActionPerformed
 
     /**
      * @param args the command line arguments

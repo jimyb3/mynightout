@@ -41,6 +41,7 @@ public class MainFrame extends javax.swing.JFrame {
         deleteButton = new javax.swing.JButton();
         FAQButton = new javax.swing.JButton();
         showCellarForm = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyNightOut");
@@ -115,6 +116,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Εμφάνιση Προμηθευτών");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -145,7 +153,9 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(deleteButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(132, 132, 132)
-                        .addComponent(showCellarForm)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(showCellarForm)
+                            .addComponent(jButton1))))
                 .addGap(41, 41, 41))
         );
         layout.setVerticalGroup(
@@ -173,7 +183,9 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(FAQButton)))
                 .addGap(18, 18, 18)
                 .addComponent(showCellarForm)
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         pack();
@@ -247,11 +259,18 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_FAQButtonActionPerformed
 
     private void showCellarFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCellarFormActionPerformed
-       JFrame showCellarFrame=new ShowCellarForm();
+      JFrame showCellarFrame=new ShowCellarForm();
       this.dispose();
       showCellarFrame.setLocationRelativeTo(this);
       showCellarFrame.setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_showCellarFormActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      JFrame showSuppliersFrame=new ShowSupplierForm();
+      this.dispose();
+      showSuppliersFrame.setLocationRelativeTo(this);
+      showSuppliersFrame.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -297,6 +316,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
     private javax.swing.JButton exitButton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton loginButton;
     private javax.swing.JButton showCellarForm;
     // End of variables declaration//GEN-END:variables
