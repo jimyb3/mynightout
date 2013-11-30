@@ -41,7 +41,7 @@ public class LoginControllerTest {
     }
 
     /**
-     * Test of Login method, of class LoginController.
+     * Test of login method, of class loginController.
      */
     //
     @Test
@@ -51,7 +51,7 @@ public class LoginControllerTest {
         String passWord = "123456";
         LoginController instance = new LoginController();
         User expResult = new User("user1", "123456");
-        User result = instance.Login(userName, passWord);
+        User result = instance.login(userName, passWord);
         Assert.assertEquals(expResult.getUsername() , result.getUsername()); 
         Assert.assertEquals(expResult.getPassword() , result.getPassword()); 
         // TODO review the generated test code and remove the default call to fail.
@@ -65,7 +65,7 @@ public class LoginControllerTest {
         String passWord = "_-_-_-";
         LoginController instance = new LoginController();
         User expResult = new User("user1", "123456");
-        User result = instance.Login(userName, passWord);
+        User result = instance.login(userName, passWord);
         //Assert. assertEquals(expResult.getUserName() , result.getUserName());
         //Assert. assertEquals(expResult.getPassWord() , result.getPassWord())); 
                
@@ -76,7 +76,7 @@ public class LoginControllerTest {
         String passWord = "123456";
         LoginController instance = new LoginController();
         User expResult = new User("user1","123456");
-        User result = instance.Login(userName, passWord);
+        User result = instance.login(userName, passWord);
     }
     @Test (expected=IllegalArgumentException.class)
     public void testFailedLoginNoPassword() {
@@ -84,7 +84,7 @@ public class LoginControllerTest {
         String passWord = "";
         LoginController instance = new LoginController();
         User expResult = new User("user1","123456");
-        User result = instance.Login(userName, passWord);
+        User result = instance.login(userName, passWord);
     }
     @Test (expected=IllegalArgumentException.class)
     public void testFailedLoginSmallUsername() {
@@ -92,7 +92,7 @@ public class LoginControllerTest {
         String passWord = "123456";
         LoginController instance = new LoginController();
         User expResult = new User("user1","123456");
-        User result = instance.Login(userName, passWord);
+        User result = instance.login(userName, passWord);
     }
     @Test (expected=IllegalArgumentException.class)
     public void testFailedLoginSmallPassword() {
@@ -100,7 +100,7 @@ public class LoginControllerTest {
         String passWord = "1";
         LoginController instance = new LoginController();
         User expResult = new User("user1","123456");
-        User result = instance.Login(userName, passWord);
+        User result = instance.login(userName, passWord);
     }
     @Test (expected=IllegalArgumentException.class)
     public void testFailedLoginUsernameTooBig() {
@@ -108,7 +108,7 @@ public class LoginControllerTest {
         String passWord = "123456";
         LoginController instance = new LoginController();
         User expResult = new User("user1","123456");
-        User result = instance.Login(userName, passWord);
+        User result = instance.login(userName, passWord);
     }
     @Test (expected=IllegalArgumentException.class)
     public void testFailedLoginPasswordTooBig() {
@@ -116,7 +116,7 @@ public class LoginControllerTest {
         String passWord = "12345678912345678";
         LoginController instance = new LoginController();
         User expResult = new User("user1","123456");
-        User result = instance.Login(userName, passWord);
+        User result = instance.login(userName, passWord);
     }
     
        } 
