@@ -15,7 +15,7 @@ import mynightout.entity.User;
  */
 public class LoginController {
 
-    public User Login(String userName, String passWord) {
+    public User login(String userName, String passWord) {
 
         UserDao currentUser = new UserDao();
 

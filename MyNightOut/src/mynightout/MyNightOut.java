@@ -6,15 +6,8 @@
 
 package mynightout;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.JFrame;
-import mynightout.dao.NightClubDao;
-import mynightout.dao.ReservationDao;
-import mynightout.dao.UserDao;
-import mynightout.entity.User;
 import mynightout.ui.MainFrame;
 
 /**
@@ -31,7 +24,6 @@ public class MyNightOut {
         // TODO code application logic here
         JFrame mainFrame=new MainFrame();
         mainFrame.setVisible(true);
-        
     }
     
 }

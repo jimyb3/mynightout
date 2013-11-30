@@ -37,8 +37,9 @@ public class ReservationDao implements IReservationDao {
     //επιστρέφει αντικείμενο Reservation με τα χαρακτηριστικά της νέας κράτησης, εαν προστέθηκε στη βάση η εγγραφή
     //αλλιώς, null
     public Reservation insertReservationData(String userName, String nightClubName, Date reservationDate, int seatNumber) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        
         try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             int userId = new UserDao().getUserIdByUsername(userName);
             int clubId = new NightClubDao().getNightClubIdByNightClubName(nightClubName);
@@ -49,6 +50,7 @@ public class ReservationDao implements IReservationDao {
             return newReservation;
         } catch (HibernateException he) {
             he.printStackTrace();
+            session.beginTransaction().rollback();
             return null;
         }
     }
@@ -57,16 +59,19 @@ public class ReservationDao implements IReservationDao {
     //αν κάτι πάει στραβά, επιστρέφει NULL
     //παίρνει ως όρισμα το userName, με βάση αυτό βρίσκει τις κρατήσεις
     public List getUserReservations(String userName) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            String hql = "select nin.clubName, res.reservationDate  from User us, Reservation res, Nightclub nin where us.userId=res.userId and nin.clubId=res.clubId and us.username='" + userName + "' and res.reservationStatus=\'active\'";
-            Session session = HibernateUtil.getSessionFactory().openSession();
+            int userId = new UserDao().getUserIdByUsername(userName);
+            String hql = "select res.clubId, res.reservationDate  from Reservation res where res.userId='" + userId + "' and res.reservationStatus=\'active\'";
             session.beginTransaction();
             Query q = session.createQuery(hql);
             List reservationsList = q.list();
             session.getTransaction().commit();
+            session.close();
             return reservationsList;
         } catch (HibernateException he) {
             he.printStackTrace();
+            session.beginTransaction().rollback();
             return null;
         }
 
@@ -76,8 +81,8 @@ public class ReservationDao implements IReservationDao {
     //ορίσματα username και reservationId
     // επιστρέφει true αν έγινε η ακύρωση, αλλιώς false
     public boolean cancelReservationByUser(String userName, int reservationId) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             int userId = new UserDao().getUserIdByUsername(userName);           
             String hql = "update Reservation set reservationStatus ='inactive' where userId='"+userId+"' and reservationId='"+reservationId+"'";
@@ -88,6 +93,7 @@ public class ReservationDao implements IReservationDao {
             return true;
         } catch (HibernateException he) {
             he.printStackTrace();
+            session.beginTransaction().rollback();
             return false;
         }
        
@@ -97,8 +103,8 @@ public class ReservationDao implements IReservationDao {
     //ορίσματα clubName και reservationId
     //επιστρέφει true αν έγινε η ακύρωση, αλλιώς false
     public boolean cancelReservationByNightClub(String clubName, int reservationId) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             int clubId = new NightClubDao().getNightClubIdByNightClubName(clubName);           
             String hql = "update Reservation set reservationStatus ='inactive' where clubId='"+clubId+"' and reservationId='"+reservationId+"'";
@@ -109,6 +115,7 @@ public class ReservationDao implements IReservationDao {
             return true;
         } catch (HibernateException he) {
             he.printStackTrace();
+            session.beginTransaction().rollback();
             return false;
         }
        

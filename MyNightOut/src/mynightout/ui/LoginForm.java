@@ -18,7 +18,7 @@ import mynightout.entity.User;
 public class LoginForm extends javax.swing.JFrame {
 
     /**
-     * Creates new form LoginForm
+     * Creates new form loginForm
      */
     public LoginForm() {
         initComponents();
@@ -117,7 +117,7 @@ public class LoginForm extends javax.swing.JFrame {
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
         LoginController controller = new LoginController();
         try {
-            User user = controller.Login(userNameField.getText(), passWordField.getText());
+            User user = controller.login(userNameField.getText(), passWordField.getText());
             JOptionPane.showMessageDialog(null, "welcome", "Success", JOptionPane.INFORMATION_MESSAGE);
             //Είσοδος στην κατηγορία καταστημάτων.
             JFrame storeCategory=new StoreCategory();
