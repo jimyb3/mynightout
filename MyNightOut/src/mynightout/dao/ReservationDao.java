@@ -62,7 +62,7 @@ public class ReservationDao implements IReservationDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             int userId = new UserDao().getUserIdByUsername(userName);
-            String hql = "select res.clubId, res.reservationDate  from Reservation res where res.userId='" + userId + "' and res.reservationStatus=\'active\'";
+            String hql = "from Reservation res where res.userId='" + userId + "' and res.reservationStatus=\'active\'";
             session.beginTransaction();
             Query q = session.createQuery(hql);
             List reservationsList = q.list();
