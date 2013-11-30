@@ -5,6 +5,7 @@
  */
 package mynightout.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import mynightout.exceptions.DaoException;
 import mynightout.entity.User;
@@ -24,43 +25,49 @@ public class UserDao implements IUserDao {
     public User makeLogin(String userName, String passWord) throws DaoException {
         return new User();
     }
-//νέος χρήστης
-    public void insertNewUserData(String userName, String passWord, String customerName, String customerLastname, String telephoneNum) {
+//εισαγωγή νέου χρήστη στη βάση
+    //ορίσματα :userName, passWord, customerName, customerLastname, telephoneNum
+    //επιστρέφει αντικείμενο user με τα χαρακτηριστικά του νέου χρήστη, εαν προστέθηκε στη βάση η εγγραφή
+    //απιστρέφει null αν δεν έγινε η εισαγωγη στη βάση
+    //TODO : θα προστεθούν νέα χαρακτηριστικά για το χρήστη
+    public User insertNewUserData(String userName, String passWord, String customerName, String customerLastname, String telephoneNum) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            User newUser = new User(userName, passWord, customerName, customerLastname, telephoneNum);
-            Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
+            User newUser = new User(userName, passWord, customerName, customerLastname, telephoneNum);
             session.save(newUser);
+            session.flush();
             session.getTransaction().commit();
+            return newUser;
         } catch (HibernateException he) {
             he.printStackTrace();
+            session.beginTransaction().rollback();
+            return null;
         }
     }
-//έλεγχος στοιχείων εισόδου χρήστη, αν υπάρχουν true αλλιώς false
-    //LOGIN
+//έλεγχος στοιχείων εισόδου χρήστη
+    //ορίσματα : username κ password
+    //επιστρέφει true αν είναι σωστά, αλλιώς false
     public boolean isUserDataValid(String userName, String passWord) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             String hql = "from User user where user.username='" + userName + "' and user.password='" + passWord + "'";
-            Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             Query q = session.createQuery(hql);
             List resultList = q.list();
             session.getTransaction().commit();
-            if (!resultList.isEmpty()) {
-                return true;
-            } else {
-                return false;
-            }
+            return !resultList.isEmpty();
         } catch (HibernateException he) {
             he.printStackTrace();
+            session.beginTransaction().rollback();
             return false;
         }
 
     }
-
+//επιστρέφει το <userid> του χρήστη <username>
     public int getUserIdByUsername(String userName) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             String hqlUser = "select us.userId from User us where us.username='" + userName + "'";
             Query q = session.createQuery(hqlUser);
@@ -71,30 +78,43 @@ public class UserDao implements IUserDao {
             return userId;
         } catch (HibernateException he) {
             he.printStackTrace();
+            session.beginTransaction().rollback();
             return -1;
         }
     }
 //προβολή στοιχείων του χρήστη
-    public List getUserData(String userName) {
-        try {
-            String hql = "select user.username, user.password, user.customerName. user.customerLastname, user.telephoneNum"
-                    + " from User user where user.username='" + userName + "'";
-            Session session = HibernateUtil.getSessionFactory().openSession();
+    //όρισμα : userName
+    //επιστρέφει αντικείμενο List με τα χαρακτηριστικα του χρήστη <userName>
+    //επιστρέφει null αν κάτι πάει στραβά
+    //todo : αργότερα ο User θα έχει περισσότερα πεδία
+    public User getUserData(String userName) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try { 
             session.beginTransaction();
+            String hql = "from User user where user.username='" + userName + "'";
             Query q = session.createQuery(hql);
             List userDataList = q.list();
-            session.getTransaction().commit();
-            return userDataList;
+            session.getTransaction().commit();             
+            session.close();
+            User user=new User(); 
+            for(Object o:userDataList){
+                user=(User)o;
+             }
+             return user;
         } catch (HibernateException he) {
             he.printStackTrace();
+            session.beginTransaction().rollback();
             return null;
         }
 
     }
 //ΔΙΑΧΕΙΡΙΣΗ ΠΡΟΣΩΠΙΚΩΝ ΣΤΟΙΧΕΙΩΝ
+    //ορίσματα : userName, password, customerName, customerLastname, telephoneNum
+    //επιστρέφει true αν έγινε η ενημέρωση, alliws false
+    // todo : είναι σωστό που επστρέφει boolean ?
     public boolean updateUserData(String userName, String password, String customerName, String customerLastname, String telephoneNum) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             int userId = new UserDao().getUserIdByUsername(userName);
             String hql = "update User set password = '" + password + "', customerName = '" + customerName + "', customerLastname = '" + customerLastname + "', telephoneNum = '" + telephoneNum + "'  where userId='" + userId + "'";
@@ -105,8 +125,9 @@ public class UserDao implements IUserDao {
             return true;
         } catch (HibernateException he) {
             he.printStackTrace();
+            session.beginTransaction().rollback();
             return false;
         }
     }
 }
-
+ 

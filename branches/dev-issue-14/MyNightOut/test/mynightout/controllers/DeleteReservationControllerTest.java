@@ -21,6 +21,7 @@ import static org.junit.Assert.*;
  * @author Maria
  */
 public class DeleteReservationControllerTest {
+   
 
     public DeleteReservationControllerTest() {
 
@@ -45,27 +46,19 @@ public class DeleteReservationControllerTest {
     /**
      * Test of deleteReservation method, of class DeleteReservationController.
      */
-    @Test
-    public void testDeleteReservation_1args_1() throws Exception {
-        System.out.println("deleteReservation");
-        int reservationId = 5;
-        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoSuccess());
-        Reservation result = instance.deleteReservation(reservationId);
-        Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(true, result.isCancelSuccessful());
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
+    
 
     /**
      * Test of DeleteReservation method, of class DeleteReservationController.
      */
-    @Test
-    public void testDeleteReservation_1args_2() throws Exception {
+    @Test(expected=IndexOutOfBoundsException.class)
+    public void testDeleteReservationWithNegativeNumber() throws Exception {
         System.out.println("DeleteReservation");
-        int reservationId = 5;
+        int reservationId = -1;
+        String clubName="marias";
         DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
-        Reservation result = instance.deleteReservation(reservationId);
+        Reservation result = instance.deleteReservation(clubName,reservationId);
+        Assert.assertEquals(clubName,result.getClubName());
         Assert.assertEquals(reservationId, result.getReservationId());
         Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
         // fail("The test case is a prototype.");
@@ -74,14 +67,197 @@ public class DeleteReservationControllerTest {
     /**
      * Test of deleteReservation method, of class DeleteReservationController.
      */
-    @Test
-    public void testDeleteReservation() throws Exception {
+     @Test(expected=IndexOutOfBoundsException.class)
+    public void testDeleteReservationWithWrongBoth() throws Exception {
+        System.out.println("DeleteReservation");
+        int reservationId = -1;
+        String clubName="mar";
+        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
+        Reservation result = instance.deleteReservation(clubName,reservationId);
+        Assert.assertEquals(clubName,result.getClubName());
+        Assert.assertEquals(reservationId, result.getReservationId());
+        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
+        // fail("The test case is a prototype.");
+    }
+    @Test(expected=IndexOutOfBoundsException.class)
+    public void testDeleteReservationWithCorrectNumber() throws Exception {
         System.out.println("deleteReservation");
         int reservationId = 5;
+        String clubName="marias";
         DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoSuccess());
-        Reservation result = instance.deleteReservation(reservationId);
+        Reservation result = instance.deleteReservation(clubName,reservationId);
+        Assert.assertEquals(clubName,result.getClubName());
         Assert.assertEquals(reservationId, result.getReservationId());
         Assert.assertEquals(true, result.isCancelSuccessful());
     }
-
+    
+      @Test(expected=IndexOutOfBoundsException.class)
+    public void testDeleteReservationWithZero() throws Exception {
+        System.out.println("deleteReservation");
+        
+        int reservationId = 0;
+        String clubName="marias";
+        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
+        Reservation result = instance.deleteReservation(clubName,reservationId);
+        Assert.assertEquals(clubName,result.getClubName());
+        Assert.assertEquals(reservationId, result.getReservationId());
+        Assert.assertEquals(false, result.isCancelSuccessful());
+    }
+     @Test(expected=IndexOutOfBoundsException.class)
+    public void testDeleteReservationWithHugeId() throws Exception {
+        System.out.println("DeleteReservation");
+        int reservationId = 1000000000;
+        String clubName="marias";
+        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
+        Reservation result = instance.deleteReservation(clubName,reservationId);
+        Assert.assertEquals(clubName,result.getClubName());
+        Assert.assertEquals(reservationId, result.getReservationId());
+        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
+        // fail("The test case is a prototype.");
+    }
+    
+     @Test(expected=IndexOutOfBoundsException.class)
+    public void testDeleteReservationWithHugeIdAndSmallName() throws Exception {
+        System.out.println("DeleteReservation");
+        int reservationId = 1000000000;
+        String clubName="mar";
+        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
+        Reservation result = instance.deleteReservation(clubName,reservationId);
+        Assert.assertEquals(clubName,result.getClubName());
+        Assert.assertEquals(reservationId, result.getReservationId());
+        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
+        // fail("The test case is a prototype.");
+    }
+      @Test(expected=IndexOutOfBoundsException.class)
+    public void testDeleteReservationWithBothHuge() throws Exception {
+        System.out.println("DeleteReservation");
+        int reservationId = 1000000000;
+        String clubName="mariaskkkkkklllw";
+        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
+        Reservation result = instance.deleteReservation(clubName,reservationId);
+        Assert.assertEquals(clubName,result.getClubName());
+        Assert.assertEquals(reservationId, result.getReservationId());
+        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
+        // fail("The test case is a prototype.");
+    }
+    
+      @Test(expected=IndexOutOfBoundsException.class)
+    public void testDeleteReservationWithHugeNameAndSmallId() throws Exception {
+        System.out.println("DeleteReservation");
+        int reservationId = -5;
+        String clubName="mariaskkkkkklllw";
+        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
+        Reservation result = instance.deleteReservation(clubName,reservationId);
+        Assert.assertEquals(clubName,result.getClubName());
+        Assert.assertEquals(reservationId, result.getReservationId());
+        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
+        // fail("The test case is a prototype.");
+    }
+    @Test(expected=IndexOutOfBoundsException.class)
+    public void testDeleteReservationWithSmallName() throws Exception {
+        System.out.println("DeleteReservation");
+        int reservationId = 10;
+        String clubName="mar";
+        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
+        Reservation result = instance.deleteReservation(clubName,reservationId);
+        Assert.assertEquals(clubName,result.getClubName());
+        Assert.assertEquals(reservationId, result.getReservationId());
+        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
+        // fail("The test case is a prototype.");
+    }
+    
+      @Test(expected=IndexOutOfBoundsException.class)
+    public void testDeleteReservationWithHugeName() throws Exception {
+        System.out.println("DeleteReservation");
+        int reservationId = 10;
+        String clubName="mariaskkkkkklllw";
+        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
+        Reservation result = instance.deleteReservation(clubName,reservationId);
+        Assert.assertEquals(clubName,result.getClubName());
+        Assert.assertEquals(reservationId, result.getReservationId());
+        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
+        // fail("The test case is a prototype.");
+    }
+    
+      @Test(expected=IndexOutOfBoundsException.class)
+    public void testDeleteReservationWithZeroIdAndSmallName() throws Exception {
+        System.out.println("DeleteReservation");
+        int reservationId = 0;
+        String clubName="mar";
+        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
+        Reservation result = instance.deleteReservation(clubName,reservationId);
+        Assert.assertEquals(clubName,result.getClubName());
+        Assert.assertEquals(reservationId, result.getReservationId());
+        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
+        // fail("The test case is a prototype.");
+    }
+    
+      @Test(expected=IndexOutOfBoundsException.class)
+    public void testDeleteReservationWithHugeNameAndZeroId() throws Exception {
+        System.out.println("DeleteReservation");
+        int reservationId =0;
+        String clubName="mariaskkkkkklllw";
+        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
+        Reservation result = instance.deleteReservation(clubName,reservationId);
+        Assert.assertEquals(clubName,result.getClubName());
+        Assert.assertEquals(reservationId, result.getReservationId());
+        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
+        // fail("The test case is a prototype.");
+    }
+      @Test(expected=IndexOutOfBoundsException.class)
+       public void testDeleteReservationWithZeroIdAndEmptyName() throws Exception {
+        System.out.println("DeleteReservation");
+        int reservationId;
+        reservationId = 0;
+        String clubName="";
+        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
+        Reservation result = instance.deleteReservation(clubName,reservationId);
+        Assert.assertEquals(clubName,result.getClubName());
+        Assert.assertEquals(reservationId, result.getReservationId());
+        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
+        // fail("The test case is a prototype.");
+    }
+       
+    
+      @Test(expected=IndexOutOfBoundsException.class)
+       public void testDeleteReservationWithSmallIdAndEmptyName() throws Exception {
+        System.out.println("DeleteReservation");
+        int reservationId;
+        reservationId = -1;
+        String clubName="";
+        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
+        Reservation result = instance.deleteReservation(clubName,reservationId);
+        Assert.assertEquals(clubName,result.getClubName());
+        Assert.assertEquals(reservationId, result.getReservationId());
+        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
+        // fail("The test case is a prototype.");
+    }   
+        @Test(expected=IndexOutOfBoundsException.class)
+       public void testDeleteReservationWithHugeIdAndEmptyName() throws Exception {
+        System.out.println("DeleteReservation");
+        int reservationId;
+        reservationId = 1000000000;
+        String clubName="";
+        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
+        Reservation result = instance.deleteReservation(clubName,reservationId);
+        Assert.assertEquals(clubName,result.getClubName());
+        Assert.assertEquals(reservationId, result.getReservationId());
+        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
+        // fail("The test case is a prototype.");
+    }   
+        @Test(expected=IndexOutOfBoundsException.class)
+       public void testDeleteReservationWithEmptyName() throws Exception {
+        System.out.println("DeleteReservation");
+        int reservationId;
+        reservationId = 10;
+        String clubName="";
+        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
+        Reservation result = instance.deleteReservation(clubName,reservationId);
+        Assert.assertEquals(clubName,result.getClubName());
+        Assert.assertEquals(reservationId, result.getReservationId());
+        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
+        // fail("The test case is a prototype.");
+    }   
+       
 }
+

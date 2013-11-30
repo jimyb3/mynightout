@@ -31,11 +31,15 @@ public class ReservationDao implements IReservationDao {
     public Reservation selectReservation(String userName, int reservationId) throws DaoException {
         return new Reservation(userName, reservationId);
     }
-//ΚΡΑΤΗΣΗ
+    //ΚΡΑΤΗΣΗ
     //δημιουργεί νεα κράτηση στη βάση
-    public void insertReservationData(String userName, String nightClubName, Date reservationDate, int seatNumber) {
+    //ορίσματα : userName, nightClubName, reservationDate, seatNumber
+    //επιστρέφει αντικείμενο Reservation με τα χαρακτηριστικά της νέας κράτησης, εαν προστέθηκε στη βάση η εγγραφή
+    //αλλιώς, null
+    public Reservation insertReservationData(String userName, String nightClubName, Date reservationDate, int seatNumber) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        
         try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             int userId = new UserDao().getUserIdByUsername(userName);
             int clubId = new NightClubDao().getNightClubIdByNightClubName(nightClubName);
@@ -43,33 +47,42 @@ public class ReservationDao implements IReservationDao {
             session.save(newReservation);
             session.getTransaction().commit();
             session.close();
+            return newReservation;
         } catch (HibernateException he) {
             he.printStackTrace();
+            session.beginTransaction().rollback();
+            return null;
         }
     }
 //ΧΡΗΣΤΗΣ-ΙΣΤΟΡΙΚΟ
-    //επιστρέφει όλες τις active=δεν έχουν ακυρωθεί, κρατήσεις τος χρήστη
+    //επιστρέφει μια λίστα που περιέχει όλες τις active=δεν έχουν ακυρωθεί, κρατήσεις τος χρήστη
+    //αν κάτι πάει στραβά, επιστρέφει NULL
+    //παίρνει ως όρισμα το userName, με βάση αυτό βρίσκει τις κρατήσεις
     public List getUserReservations(String userName) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            String hql = "select res.clubId, res.reservationDate  from User us, Reservation res, Nightclub nin where us.userId=res.userId and nin.clubId=res.clubId and us.username='" + userName + "' and res.reservationStatus=\'active\'";
-            Session session = HibernateUtil.getSessionFactory().openSession();
+            int userId = new UserDao().getUserIdByUsername(userName);
+            String hql = "select res.clubId, res.reservationDate  from Reservation res where res.userId='" + userId + "' and res.reservationStatus=\'active\'";
             session.beginTransaction();
             Query q = session.createQuery(hql);
             List reservationsList = q.list();
             session.getTransaction().commit();
+            session.close();
             return reservationsList;
         } catch (HibernateException he) {
             he.printStackTrace();
+            session.beginTransaction().rollback();
             return null;
         }
 
     }
 //ΑΚΥΡΩΣΗ ΚΡΑΤΗΣΗΣ 
-    //είσοδοι username και reservationId----ο χρήστης ακυρώνει κάποια κράτησή του
-    //true αν έγινε
+    //ο χρηστης ακυρώνει κάποια κράτηση
+    //ορίσματα username και reservationId
+    // επιστρέφει true αν έγινε η ακύρωση, αλλιώς false
     public boolean cancelReservationByUser(String userName, int reservationId) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             int userId = new UserDao().getUserIdByUsername(userName);           
             String hql = "update Reservation set reservationStatus ='inactive' where userId='"+userId+"' and reservationId='"+reservationId+"'";
@@ -80,14 +93,18 @@ public class ReservationDao implements IReservationDao {
             return true;
         } catch (HibernateException he) {
             he.printStackTrace();
+            session.beginTransaction().rollback();
             return false;
         }
        
     }
-    //ΔΙΑΓΡΑΦΗ ΚΡΑΤΗΣΗΣ= ο καταστηματάρχης επιλέγει να ακυρώσει κάποια κράτηση 
+    //ΔΙΑΓΡΑΦΗ ΚΡΑΤΗΣΗΣ
+    //ο καταστηματάρχης διαγράφει κάποια κράτηση
+    //ορίσματα clubName και reservationId
+    //επιστρέφει true αν έγινε η ακύρωση, αλλιώς false
     public boolean cancelReservationByNightClub(String clubName, int reservationId) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             int clubId = new NightClubDao().getNightClubIdByNightClubName(clubName);           
             String hql = "update Reservation set reservationStatus ='inactive' where clubId='"+clubId+"' and reservationId='"+reservationId+"'";
@@ -98,6 +115,7 @@ public class ReservationDao implements IReservationDao {
             return true;
         } catch (HibernateException he) {
             he.printStackTrace();
+            session.beginTransaction().rollback();
             return false;
         }
        

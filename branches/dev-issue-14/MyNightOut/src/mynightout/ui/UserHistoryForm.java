@@ -10,43 +10,22 @@ import java.util.List;
 import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
+import mynightout.dao.NightClubDao;
 import mynightout.dao.ReservationDao;
 import mynightout.entity.Reservation;
 /**
  *
- * @author Fuzzaki
+ * @author Naeyna
  */
 public class UserHistoryForm extends javax.swing.JFrame {
-    //private String userName;
-    
+
     /**
      * Creates new form UserHistoryForm
      */
     public UserHistoryForm() {
         initComponents();
     }
-    //private static String QUERY_BASED_ON_USER_NAME="from Reservation where user_id like'";
 
-    //private void runQueryBasedOnUserName() {
-    //ReservationDao reservation = new ReservationDao();
-    //reservation.getUserReservations();
-    //}
-    //private void runQueryBasedOnUserName() {
-    //executeHQLQuery(QUERY_BASED_ON_USER_NAME + usernameTextField.getText() + "'");
-    //}
-    //private void executeHQLQuery(String hql) {
-    //try {
-        //String hql = "select nin.clubName, res.reservationDate  from User us, Reservation res, Nightclub nin where us.userId=res.userId and nin.clubId=res.clubId and us.username='" + userName + "' and res.reservationStatus=\'active\'";
-        //Session session = HibernateUtil.getSessionFactory().openSession();
-        //session.beginTransaction();
-        //Query q = session.createQuery(hql);
-        //List resultList = q.list();
-        //displayResult(resultList);
-        //session.getTransaction().commit();
-    //} catch (HibernateException he) {
-       // he.printStackTrace();
-    //}
-//}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,10 +35,10 @@ public class UserHistoryForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        HeaderLabel = new javax.swing.JLabel();
-        fetchButton = new javax.swing.JButton();
-        usernameTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        usernameTextField = new javax.swing.JTextField();
+        FetchButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         resultTable = new javax.swing.JTable();
         MainMenuButton = new javax.swing.JButton();
@@ -67,19 +46,17 @@ public class UserHistoryForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        HeaderLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        HeaderLabel.setText("History Viewer");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("History Viewer");
 
-        fetchButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        fetchButton.setText("Fetch");
-        fetchButton.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setText("UserName");
+
+        FetchButton.setText("Fetch");
+        FetchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fetchButtonActionPerformed(evt);
+                FetchButtonActionPerformed(evt);
             }
         });
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("UserID");
 
         resultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -94,7 +71,6 @@ public class UserHistoryForm extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(resultTable);
 
-        MainMenuButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         MainMenuButton.setText("Main Menu");
         MainMenuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,7 +78,6 @@ public class UserHistoryForm extends javax.swing.JFrame {
             }
         });
 
-        ExitButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ExitButton.setText("Exit");
         ExitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,52 +90,52 @@ public class UserHistoryForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(usernameTextField)
-                .addGap(18, 18, 18)
-                .addComponent(fetchButton)
-                .addGap(37, 37, 37))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(jLabel2)
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(usernameTextField))
+                        .addGap(18, 18, 18)
+                        .addComponent(FetchButton)
+                        .addGap(0, 59, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(160, 160, 160)
-                .addComponent(HeaderLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(86, 86, 86)
+                .addGap(80, 80, 80)
                 .addComponent(MainMenuButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ExitButton)
-                .addGap(86, 86, 86))
+                .addGap(78, 78, 78))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(HeaderLabel)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
                     .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fetchButton)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                    .addComponent(FetchButton))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MainMenuButton)
                     .addComponent(ExitButton))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addGap(50, 50, 50))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
-        this.dispose();
+     this.dispose();
     }//GEN-LAST:event_ExitButtonActionPerformed
 
     private void MainMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MainMenuButtonActionPerformed
@@ -170,9 +145,7 @@ public class UserHistoryForm extends javax.swing.JFrame {
      MainFrame.setVisible(true);
     }//GEN-LAST:event_MainMenuButtonActionPerformed
 
-    private void fetchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fetchButtonActionPerformed
-        //if(!usernameTextField.getText().trim().equals("")) {
-        //runQueryBasedOnUserName();
+    private void FetchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FetchButtonActionPerformed
         ReservationDao reservation = new ReservationDao();
         List resultList=reservation.getUserReservations(usernameTextField.getText());
         Vector<String> tableHeaders = new Vector<String>();
@@ -180,43 +153,17 @@ public class UserHistoryForm extends javax.swing.JFrame {
         tableHeaders.add("Club Name"); 
         tableHeaders.add("Reservation Date");
         
-        for(Object o : resultList) {
-        Reservation reservations = (Reservation)o;
+        for(Object o: resultList){
+        Reservation res=(Reservation) o;
         Vector<Object> oneRow = new Vector<Object>();
-        oneRow.add(reservations.getClubId());
-        oneRow.add(reservations.getReservationDate());
+        String clubName=new NightClubDao().getNightClubNameByNightClubId(res.getClubId());
+        oneRow.add(clubName);
+        oneRow.add(res.getReservationDate());
         tableData.add(oneRow);
-         }
+        }
         resultTable.setModel(new DefaultTableModel(tableData, tableHeaders));
-    }//GEN-LAST:event_fetchButtonActionPerformed
-    
+    }//GEN-LAST:event_FetchButtonActionPerformed
 
-    //private void displayResult(List resultList) {
-    //Vector<String> tableHeaders = new Vector<String>();
-    //Vector tableData = new Vector();
-    //tableHeaders.add("ReservationID"); 
-    //tableHeaders.add("ReservationDate");
-    //tableHeaders.add("SeatNumber");
-    //tableHeaders.add("Status");
-    
-    //for(Object o : resultList) {
-        //User user = (User)o;
-        //Reservation reservation = (Reservation)o;
-        //Nightclub nightclub = (Nightclub)o;
-        //Vector<Object> oneRow = new Vector<Object>();
-        //oneRow.add(nightclub.getStoreName());
-        //oneRow.add(user.getUserId());
-        //oneRow.add(user.getCustomerName());
-        //oneRow.add(user.getCustomerLastname());
-        //oneRow.add(user.getTelephoneNum());
-        //oneRow.add(reservation.getReservationId());
-        //oneRow.add(reservation.getReservationDate());
-        //oneRow.add(reservation.getSeatNumber());
-        //oneRow.add(reservation.getReservationStatus());
-        //tableData.add(oneRow);
-    //}
-    //resultTable.setModel(new DefaultTableModel(tableData, tableHeaders));
-//}
     /**
      * @param args the command line arguments
      */
@@ -254,10 +201,10 @@ public class UserHistoryForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ExitButton;
-    private javax.swing.JLabel HeaderLabel;
+    private javax.swing.JButton FetchButton;
     private javax.swing.JButton MainMenuButton;
-    private javax.swing.JButton fetchButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable resultTable;
     private javax.swing.JTextField usernameTextField;
