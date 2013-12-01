@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17 ??? 2013 4:36:29 ?? by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="mynightout.entity.Nightclub" table="nightclub" catalog="mynightout">
+        <id name="clubId" type="java.lang.Integer">
+            <column name="Club_id" />
+            <generator class="identity" />
+        </id>
+        <property name="clubName" type="string">
+            <column name="Club_name" length="30" not-null="true" />
+        </property>
+        <property name="clubPassword" type="string">
+            <column name="Club_password" length="15" not-null="true" />
+        </property>
+        <property name="seatNumber" type="int">
+            <column name="Seat_number" not-null="true" />
+        </property>
+        <property name="telephoneNum" type="string">
+            <column name="Telephone_num" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
