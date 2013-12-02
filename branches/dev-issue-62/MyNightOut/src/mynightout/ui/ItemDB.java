@@ -12,9 +12,15 @@ import mynightout.entity.Nightclub;
  * @author Mustaine
  */
 class ItemDB {
-
+   
+    public static String mainMenuCodes[]= ItemDB.getclubs();
+   // String[] mainMenuCodes= this.getclubs();
+   //  mainMenuCodes[]=getclubs();
     
-    public String getclubs() {
+    
+    
+    
+    public static String[] getclubs() {
         NightClubDao getstores = new NightClubDao();
      
         List allNightClubs = getstores.getAllNightClubs();
@@ -23,38 +29,31 @@ class ItemDB {
         
         
         int i=0;
+        String[] table=new String[allNightClubs.size()];
         for (Object o : allNightClubs){
-         
-                Nightclub nightclub = (Nightclub) o;
-                String table[i]=nightclub.getStoreName();
-                i++;
-            
-        }
-        
-        
-        
-        
-        
-       // List Clubs = NightClubDao.getAllNightClubs();
-
-        //for(Object o : resultList) {
-        //Actor actor = (Actor)o;
-        // Vector<Object> oneRow = new Vector<Object>();
-        //oneRow.add(actor.getActorId());
-        // oneRow.add(actor.getFirstName());
-        //oneRow.add(actor.getLastName());
-        // oneRow.add(actor.getLastUpdate());
-        // tableData.add(oneRow);
-        // }
-        return null;
+                  Nightclub nightclub = (Nightclub) o;
+                  table[i]= nightclub.getStoreName();
+                  i++;
+         }
+        //StoresForm test = new StoresForm();
+       // test.
+        return table;
     }
     
 
-  //  public static String mainMenuCodes[] = {"fix", "stages", "sales", "BEVE", "FOOD", "BEVE"};
+    
+    
+    
+    
+    
+    
+  //  public String mainMenuCodes[] = getclubs();
+  
+   // public static String mainMenuCodes[] = {"fix", "stages", "sales", "BEVE", "FOOD", "BEVE"};
    // public static String mainMenuDesc[] = {"FOOD", "BEVERAGES", "FOOD", "BEVERAGES", "FOOD", "BEVERAGES"};
   //  private static ArrayList list;
 
-    public static ArrayList getSubMenu(String mainMenuCodes) {
+  /*  public ArrayList getSubMenu(String mainMenuCodes) {
 
         list = new ArrayList();
         if (mainMenuCodes.equals("FOOD")) {
@@ -72,5 +71,5 @@ class ItemDB {
             list.add(subDesc);
         }
         return list;
-    }
+    }*/
 }

@@ -10,11 +10,12 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
+
 import java.util.ArrayList;
+import static javassist.compiler.ast.ASTList.append;
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 /**
  *
@@ -56,6 +57,8 @@ public class StoresForm extends javax.swing.JFrame {
         jsc_item = new javax.swing.JScrollPane();
         pnl_button = new javax.swing.JPanel();
         btn_back = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -101,6 +104,12 @@ public class StoresForm extends javax.swing.JFrame {
         });
         pnl_main.add(btn_back, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 120, 50));
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        pnl_main.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 300, 80));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -140,6 +149,8 @@ public class StoresForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_back;
     private javax.swing.JButton btn_exit;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JScrollPane jsc_item;
     private javax.swing.JPanel pnl_button;
     private javax.swing.JPanel pnl_main;
@@ -147,7 +158,10 @@ public class StoresForm extends javax.swing.JFrame {
 
 
     private void addMainMenue() {
-
+        
+        
+        
+        
         pnl_button.removeAll();
         repaint();
 
@@ -155,13 +169,39 @@ public class StoresForm extends javax.swing.JFrame {
         ImageIcon icon;
         String imagePath,imag = "/com/images/";
 
-        ArrayList menue = new ArrayList();
+         ArrayList menue = new ArrayList();
         ArrayList itemName = new ArrayList();
 
-        for (int size = 0 ; size<ItemDB.mainMenuCodes.length; size++) {
+        ItemDB getstorenames = new ItemDB();
+        
+        String[] storestablenames= getstorenames.getclubs();
+        
+        //List<String> wordList = Arrays.asList(storestablenames);
+        this.jTextArea1.append(storestablenames);
+        
+     //   storestablenames=convertStringToArraylist(storestablenames);
+     //   storestablenames = convertStringArrayToArraylist(storestablenames);
+       // List<String> myList = new ArrayList<String>(Arrays.asList(storestablenames.split(",")));
+       // List mylist = Lists.newArrayList(Splitter.on(" , ").split(storestablenames));
+        
+         //   String[] items = (split(storestablenames));
+         //   List<String> container = Arrays.asList(items);
+           // ArrayList<String> myllist = (ArrayList<String>) Arrays.asList(storestablenames);
+       // List<String> myllist = Arrays.asList(storestablenames);
+       // public String mainMenuCodes[] = ItemDB.getclubs();
+        
+        
+        
+        
+        for (int size = 0; size < ItemDB.mainMenuCodes.length; size++) {
             menue.add(ItemDB.mainMenuCodes[size]);
-            itemName.add(ItemDB.mainMenuDesc[size]);
+           // itemName.add(ItemDB.mainMenuDesc[size]);
         }
+        
+        
+        
+        
+        
         
         JButton[] buttons = new JButton[menue.size()];
 
@@ -192,8 +232,8 @@ public class StoresForm extends javax.swing.JFrame {
             buttons[i].addActionListener(new ActionListener() {
 
                 public void actionPerformed(ActionEvent e) {
-                    String choice = e.getActionCommand();
-                    addSubmenue(choice);
+                    //String choice = e.getActionCommand();
+                   // addSubmenue(choice);
                 }
             });
         }
@@ -221,7 +261,7 @@ public class StoresForm extends javax.swing.JFrame {
         pack();
     }
 
-    private void addSubmenue(String choice) {
+  /*  private void addSubmenue(String choice) {
         pnl_button.removeAll();
         repaint();
 
@@ -313,4 +353,22 @@ public class StoresForm extends javax.swing.JFrame {
             choice  =   "HOT BEVERAGES";
         JOptionPane.showMessageDialog(this, "You have select  "+choice);
     }
+    
+public ArrayList convertStringToArraylist(String str) {
+    ArrayList charList = new ArrayList();      
+    for(int i = 0; i<str.length();i++){
+        charList.add(str.charAt(i));
+    }
+    return charList;
+}
+
+public static ArrayList convertStringArrayToArraylist(String[] strArr){
+    ArrayList stringList = new ArrayList();
+    for (String s : strArr) {
+        stringList.add(s);
+    }
+    return stringList;
+}
+
+*/
 }
