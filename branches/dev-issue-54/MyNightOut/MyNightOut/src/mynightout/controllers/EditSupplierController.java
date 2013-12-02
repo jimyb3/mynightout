@@ -9,6 +9,7 @@ package mynightout.controllers;
 import mynightout.dao.ISupplierDaoEdit;
 import mynightout.entity.Reservation;
 import mynightout.exceptions.DaoException;
+import mynightout.model.Supplier;
 
 /**
  *
@@ -23,7 +24,7 @@ public class EditSupplierController {
     }
 
     @SuppressWarnings("empty-statement")
-    public Reservation editReservation(String firstName, String lastName, String companyName, String address, int  cellPhoneNumber, int officePhoneNumber, String email)
+    public Supplier editReservation(String firstName, String lastName, String companyName, String address, int  cellPhoneNumber, int officePhoneNumber, String email)
      throws IllegalArgumentException, DaoException { 
        
         
@@ -32,8 +33,7 @@ public class EditSupplierController {
             // TODO 
         }
         try {
-            return supplierDao.selectSupplier(firstName,lastName, 
-            companyName, address,cellPhoneNumber,officePhoneNumber,email);
+            return supplierDao.selectSupplier(firstName,lastName,companyName, address,cellPhoneNumber,officePhoneNumber,email);
         } catch (DaoException e) {
             throw e;
         }
