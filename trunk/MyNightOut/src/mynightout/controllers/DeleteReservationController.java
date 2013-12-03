@@ -34,7 +34,7 @@ public class DeleteReservationController {
             } 
           catch (Exception e)
             {
-                throw e;
+                throw new IllegalArgumentException("Πρόβλημα στην βάση");
             }
         } else
         {

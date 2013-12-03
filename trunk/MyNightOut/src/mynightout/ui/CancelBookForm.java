@@ -8,9 +8,9 @@ package mynightout.ui;
 
 import javax.swing.JFrame;
 import mynightout.controllers.CancelBookController;
-import mynightout.dao.ReservationDao;
 import mynightout.entity.Reservation;
 import javax.swing.JOptionPane;
+import mynightout.dao.UserDao;
 
 /**
  *
@@ -132,6 +132,8 @@ public class CancelBookForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         CancelBookController controller=new CancelBookController();
         int reservationId=Integer.parseInt(reservationIdTextField.getText());
+        
+        mesageLabel.setText(new UserDao().getUserIdByUsername(userNameTextField.getText()).getCustomerLastname());
         try{
             Reservation cancelReservation=controller.cancelReservation(userNameTextField.getText(), reservationId);
             JOptionPane.showMessageDialog(null, "Reservation canceled with id: " + reservationId, "Success",JOptionPane.INFORMATION_MESSAGE);

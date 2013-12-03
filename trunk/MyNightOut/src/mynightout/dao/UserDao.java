@@ -65,21 +65,25 @@ public class UserDao implements IUserDao {
 
     }
 //επιστρέφει το <userid> του χρήστη <username>
-    public int getUserIdByUsername(String userName) {
+    public User getUserIdByUsername(String userName) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            String hqlUser = "select us.userId from User us where us.username='" + userName + "'";
+            String hqlUser = "from User us where us.username='" + userName + "'";
             Query q = session.createQuery(hqlUser);
             List resultList1 = q.list();
             session.getTransaction().commit();
-            int userId = (int) resultList1.get(0);
             session.close();
-            return userId;
+            User user=new User(); 
+            for(Object o:resultList1){
+                user=(User)o;
+             }
+            return user;
+            
         } catch (HibernateException he) {
             he.printStackTrace();
             session.beginTransaction().rollback();
-            return -1;
+            return null;
         }
     }
 //προβολή στοιχείων του χρήστη
@@ -116,7 +120,7 @@ public class UserDao implements IUserDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            int userId = new UserDao().getUserIdByUsername(userName);
+            int userId = new UserDao().getUserIdByUsername(userName).getUserId();
             String hql = "update User set password = '" + password + "', customerName = '" + customerName + "', customerLastname = '" + customerLastname + "', telephoneNum = '" + telephoneNum + "'  where userId='" + userId + "'";
             Query q = session.createQuery(hql);
             q.executeUpdate();
