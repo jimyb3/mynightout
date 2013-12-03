@@ -25,7 +25,7 @@ public class LoginController {
                 return newUser;
 
             } catch (Exception e) {
-                throw e;
+                throw new IllegalArgumentException("Πρόβλημα στην βάση");
             }
         } else {
             throw new IllegalArgumentException("Λάθος στοιχεία εισόδου");

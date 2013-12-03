@@ -55,7 +55,7 @@ public class CancelBookControllerTest {
         
     }
     
-    @Test (expected=IndexOutOfBoundsException.class)
+    @Test(expected=AssertionError.class)
     public void testFailedCancelNoUserName() {
         System.out.println("cancelReservation");
         String userName = "";
@@ -68,7 +68,7 @@ public class CancelBookControllerTest {
         
     }
     
-    @Test (expected=IndexOutOfBoundsException.class)
+    @Test (expected=AssertionError.class)
     public void testFailedCancelWithBigUserName() {
         System.out.println("cancelReservation");
         String userName = "qwertyuiopasdfgh";
@@ -81,7 +81,7 @@ public class CancelBookControllerTest {
         
     }
     
-    @Test (expected=IndexOutOfBoundsException.class)
+    @Test (expected=AssertionError.class)
     public void testFailedCancelWithBigReservationId() {
         System.out.println("cancelReservation");
         String userName = "jim";
@@ -94,7 +94,7 @@ public class CancelBookControllerTest {
         
     }
     
-    @Test (expected=IndexOutOfBoundsException.class)
+    @Test (expected=AssertionError.class)
     public void testFailedCancelWithBigReservationIdAndUserName() {
         System.out.println("cancelReservation");
         String userName = "qwertyuiopasdfgh";
@@ -107,7 +107,7 @@ public class CancelBookControllerTest {
         
     }
     
-    @Test (expected=IndexOutOfBoundsException.class)
+    @Test(expected=AssertionError.class)
     public void testFailedCancelWithSmallReservationIdAndBigUserName() {
         System.out.println("cancelReservation");
         String userName = "qwertyuiopasdfgh";
@@ -120,7 +120,7 @@ public class CancelBookControllerTest {
         
     }
     
-    @Test (expected=IndexOutOfBoundsException.class)
+    @Test (expected=AssertionError.class)
     public void testFailedCancelWithBigReservationIdNoUserName() {
         System.out.println("cancelReservation");
         String userName = "";

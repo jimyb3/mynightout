@@ -33,8 +33,8 @@ public class Reservation implements java.io.Serializable {
     public Reservation() {
     }
 
-    public Reservation(String username, int reservationId) {
-        this.username = username;
+    public Reservation(String clubName, int reservationId) {
+        this.clubName = clubName;
         this.reservationId = reservationId;
     }
 

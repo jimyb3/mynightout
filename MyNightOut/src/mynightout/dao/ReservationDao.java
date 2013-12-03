@@ -41,8 +41,8 @@ public class ReservationDao implements IReservationDao {
         
         try {
             session.beginTransaction();
-            int userId = new UserDao().getUserIdByUsername(userName);
-            int clubId = new NightClubDao().getNightClubIdByNightClubName(nightClubName);
+            int userId = new UserDao().getUserIdByUsername(userName).getUserId();
+            int clubId = new NightClubDao().getNightClubIdByNightClubName(nightClubName).getClubId();
             Reservation newReservation = new Reservation(userId, clubId, reservationDate, seatNumber, "active");
             session.save(newReservation);
             session.getTransaction().commit();
@@ -61,7 +61,7 @@ public class ReservationDao implements IReservationDao {
     public List getUserReservations(String userName) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            int userId = new UserDao().getUserIdByUsername(userName);
+            int userId = new UserDao().getUserIdByUsername(userName).getUserId();
             String hql = "from Reservation res where res.userId='" + userId + "' and res.reservationStatus=\'active\'";
             session.beginTransaction();
             Query q = session.createQuery(hql);
@@ -84,7 +84,7 @@ public class ReservationDao implements IReservationDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            int userId = new UserDao().getUserIdByUsername(userName);           
+            int userId = new UserDao().getUserIdByUsername(userName).getUserId();           
             String hql = "update Reservation set reservationStatus ='inactive' where userId='"+userId+"' and reservationId='"+reservationId+"'";
             Query q = session. createQuery(hql);           
             q.executeUpdate();
@@ -106,7 +106,7 @@ public class ReservationDao implements IReservationDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            int clubId = new NightClubDao().getNightClubIdByNightClubName(clubName);           
+            int clubId = new NightClubDao().getNightClubIdByNightClubName(clubName).getClubId();           
             String hql = "update Reservation set reservationStatus ='inactive' where clubId='"+clubId+"' and reservationId='"+reservationId+"'";
             Query q = session. createQuery(hql);           
             q.executeUpdate();

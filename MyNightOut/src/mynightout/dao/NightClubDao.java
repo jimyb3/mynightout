@@ -5,13 +5,10 @@
  */
 package mynightout.dao;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
-import mynightout.entity.User;
 import mynightout.exceptions.DaoException;
 import mynightout.entity.Nightclub;
+import mynightout.entity.Reservation;
 import mynightout.util.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -47,21 +44,24 @@ public class NightClubDao implements INightClubDao {
 
     }
 //επιστρέφει το <clubid> του χρήστη <clubname>
-    public int getNightClubIdByNightClubName(String clubName) {
+    public Reservation getNightClubIdByNightClubName(String clubName) {
          Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            String hqlNightClub = "select cl.clubId from Nightclub cl where cl.clubName='" + clubName + "'";
+            String hqlNightClub = "from Nightclub cl where cl.clubName='" + clubName + "'";
             Query w = session.createQuery(hqlNightClub);
             List resultList = w.list();
             session.getTransaction().commit();
-            int clubId = (int) resultList.get(0);
             session.close();
-            return clubId;
+            Reservation reservation=new Reservation(); 
+            for(Object o:resultList){
+                reservation=(Reservation)o;
+             }
+             return reservation;
         } catch (HibernateException he) {
             he.printStackTrace();
             session.beginTransaction().rollback();
-            return -1;
+            return null;
         }
     }
     
@@ -118,7 +118,7 @@ public class NightClubDao implements INightClubDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            int clubId = new NightClubDao().getNightClubIdByNightClubName(clubName);
+            int clubId = new NightClubDao().getNightClubIdByNightClubName(clubName).getClubId();
             String hql = "update Nightclub set clubPassword = '" + clubPassword + "', seatNumber = '" + seatNumber + "', telephoneNum = '" + telephoneNum + "' where clubId='" + clubId + "'";
             Query q = session.createQuery(hql);
             q.executeUpdate();
