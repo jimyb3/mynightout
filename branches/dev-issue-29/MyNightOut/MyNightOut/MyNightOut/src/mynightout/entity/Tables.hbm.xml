@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="mynightout.entity.Tables" table="tables">
+      <id name="clubId" type="java.lang.Integer">
+            <column name="Club_id" />
+            <generator class="identity" />
+        </id>
+        <property name="firstRow" type="int">
+            <column name="First_row" not-null="true" />
+        </property>
+        <property name="secondRow" type="int">
+            <column name="Second_Row" not-null="true" />
+        </property>
+        <property name="thirdRow" type="int">
+            <column name="Third_Row" not-null="true" />
+        </property>
+        <property name="fourthRow" type="int">
+            <column name="Fourth_Row" not-null="true" />
+        </property>
+        <property name="fifthRow" type="int">
+            <column name="Fifth_Row" not-null="true" />
+        </property>
+        <property name="sixthRow" type="int">
+            <column name="Sixth_Row" not-null="true" />
+        </property>
+        <one-to-one name="nightclub" class="mynightout.entity.Nightclub"
+			constrained="true"></one-to-one>
+  </class>
+</hibernate-mapping>

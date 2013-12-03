@@ -1,6 +1,10 @@
 package mynightout.entity;
 // Generated 17 NOV 2013 4:36:29 PM by Hibernate Tools 3.6.0
 
+import java.util.HashSet;
+import java.util.Set;
+
+
 
 
 
@@ -19,6 +23,9 @@ public class User  implements java.io.Serializable {
      private String customerName;
      private String customerLastname;
      private String telephoneNum;
+     private String emailAddress;
+     private Set<Reservation> reservation = 
+				new HashSet<Reservation>(0);
      //βοηθητικές μεταβλητές για τα test αυτά θα σταματήσουν να χρησιμοποιούνται
     //όταν γίνει η κανονική συνδεση με τη βαση.
 
@@ -36,6 +43,14 @@ public class User  implements java.io.Serializable {
        this.customerName = customerName;
        this.customerLastname = customerLastname;
        this.telephoneNum = telephoneNum;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
     }
    
     

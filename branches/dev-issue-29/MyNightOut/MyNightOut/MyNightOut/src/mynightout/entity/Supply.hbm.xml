@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="mynightout.entity.Supply" table="supply">
+       <id name="supplierId" type="java.lang.Integer">
+            <column name="Supplier_id" />
+            <generator class="identity" />
+        </id>
+         <id name="clubId" type="java.lang.Integer">
+            <column name="Club_id" />
+            <generator class="identity" />
+        </id>
+  </class>
+</hibernate-mapping>

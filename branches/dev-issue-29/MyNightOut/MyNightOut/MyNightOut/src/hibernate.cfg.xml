@@ -11,5 +11,9 @@
     <mapping resource="mynightout/entity/Reservation.hbm.xml"/>
     <mapping resource="mynightout/entity/User.hbm.xml"/>
     <mapping resource="mynightout/entity/Nightclub.hbm.xml"/>
+    <mapping resource="mynightout/entity/Supplier.hbm.xml"/>
+    <mapping resource="mynightout/entity/Cellar.hbm.xml"/>
+    <mapping resource="mynightout/entity/Supply.hbm.xml"/>
+    <mapping resource="mynightout/entity/Tables.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

@@ -12,14 +12,41 @@ public class Reservation implements java.io.Serializable {
     private int userId;
     private int clubId;
     private Date reservationDate;
+    private String trapezi;
     private int seatNumber;
     private String reservationStatus;
+    private User user;
+    private Nightclub nightclub;
     //βοηθητικές μεταβλητές για τα test αυτά θα σταματήσουν να χρησιμοποιούνται
     //όταν γίνει η κανονική συνδεση με τη βαση.
         private String username;
         private boolean cancelSuccessful;
         private boolean successCreate;
         private String clubName;
+
+    public void setNightclub(Nightclub nightclub) {
+        this.nightclub = nightclub;
+    }
+
+    public Nightclub getNightclub() {
+        return nightclub;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setTrapezi(String trapezi) {
+        this.trapezi = trapezi;
+    }
+
+    public String getTrapezi() {
+        return trapezi;
+    }
 
     public String getClubName() {
         return clubName;

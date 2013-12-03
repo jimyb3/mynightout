@@ -23,5 +23,15 @@
         <property name="telephoneNum" type="string">
             <column name="Telephone_num" length="10" not-null="true" />
         </property>
+        <property name="emailAddress" type="string">
+            <column name="Email_address" length="40" not-null="true" />
+        </property>    
+        <set name="reservation" table="reservation" 
+				inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="User_id" not-null="true" />
+            </key>
+            <one-to-many class="mynightout.entity.Reservation" />
+        </set>        
     </class>
 </hibernate-mapping>
