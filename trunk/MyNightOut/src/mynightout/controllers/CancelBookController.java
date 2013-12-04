@@ -6,7 +6,9 @@
 package mynightout.controllers;
 
 import mynightout.dao.ReservationDao;
+import mynightout.dao.UserDao;
 import mynightout.entity.Reservation;
+import mynightout.entity.ReservationId;
 
 /**
  *
@@ -26,14 +28,16 @@ public class CancelBookController {
      * @throws IllegalArgumentException αν κάποια από τις παραμέτρους δεν ήταν
      * σωστή DaoException αν απέτυχε η επικοινωνία με τη βάση
      */
-    public Reservation cancelReservation(String userName, int reservationId) {
+    public ReservationId cancelReservation(String userName, int reservationId) {
 
         ReservationDao changeReservationStatus = new ReservationDao();
-
-        if (changeReservationStatus.cancelReservationByUser(userName, reservationId)) {
+                ReservationId res=new ReservationId();
+                res.setReservationId(reservationId);
+                int userId=new UserDao().getUserIdByUsername(userName).getUserId();
+                res.setUserId(userId);
+        if (changeReservationStatus.cancelReservationByUser(res)) {
             try {
-                Reservation reservation = new Reservation(userName, reservationId);
-                return reservation;
+                return res;
             } catch (Exception e) {
                 throw new IllegalArgumentException("Πρόβλημα στην βάση");
             }

@@ -5,12 +5,11 @@
  */
 package mynightout.controllers;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import mynightout.entity.Reservation;
 import mynightout.exceptions.DaoException;
 import mynightout.dao.IReservationDaoCreate;
+import mynightout.entity.ReservationId;
 
 /**
  *
@@ -29,7 +28,7 @@ public class CreateBookController {
      * 
      */
     public Reservation createReservationNew(int userId, int clubId, 
-            Date reservationDate, int seatNumber, String reservationStatus)
+            Date reservationDate, String trapezi, int seatNumber, String reservationStatus)
             throws IllegalArgumentException, DaoException {
 
         
@@ -45,8 +44,11 @@ public class CreateBookController {
 
         // TODO elenxo gia imerominia pou exei perasei
         try {
-            return createBookDao.createReservation(userId, clubId, reservationDate, 
-                    seatNumber, reservationStatus);
+            ReservationId res=new ReservationId();
+            res.setClubId(clubId);
+            res.setUserId(userId);
+            return createBookDao.createReservation(res, reservationDate, 
+                    trapezi, seatNumber, reservationStatus);
         } catch (DaoException e) {
             throw e;
         }

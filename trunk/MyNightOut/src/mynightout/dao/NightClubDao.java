@@ -44,7 +44,7 @@ public class NightClubDao implements INightClubDao {
 
     }
 //επιστρέφει το <clubid> του χρήστη <clubname>
-    public Reservation getNightClubIdByNightClubName(String clubName) {
+    public Nightclub getNightClubIdByNightClubName(String clubName) {
          Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
@@ -53,11 +53,11 @@ public class NightClubDao implements INightClubDao {
             List resultList = w.list();
             session.getTransaction().commit();
             session.close();
-            Reservation reservation=new Reservation(); 
+            Nightclub ninghtClub=new Nightclub(); 
             for(Object o:resultList){
-                reservation=(Reservation)o;
+                ninghtClub=(Nightclub)o;
              }
-             return reservation;
+             return ninghtClub;
         } catch (HibernateException he) {
             he.printStackTrace();
             session.beginTransaction().rollback();

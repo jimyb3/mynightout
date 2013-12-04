@@ -8,6 +8,7 @@ package mynightout.dao;
 import java.util.Date;
 import mynightout.exceptions.DaoException;
 import mynightout.entity.Reservation;
+import mynightout.entity.ReservationId;
 
 /**
  *
@@ -15,6 +16,6 @@ import mynightout.entity.Reservation;
  */
 public interface IReservationDaoCreate {
 
-    Reservation createReservation(int userId, int clubId, Date reservationDate, 
-            int seatNumber, String reservationStatus) throws DaoException;
+    Reservation createReservation(ReservationId res, Date reservationDate, 
+            String trapezi, int seatNumber, String reservationStatus) throws DaoException;
 }

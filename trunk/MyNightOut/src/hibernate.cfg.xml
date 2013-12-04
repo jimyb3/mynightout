@@ -6,10 +6,12 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://mynightout.no-ip.biz:3306/mynightout?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.show_sql">true</property>
-    <property name="hibernate.query.factory_class">org.hibernate.hql.ast.ASTQueryTranslatorFactory</property>
-    <mapping resource="mynightout/entity/Reservation.hbm.xml"/>
+    <mapping resource="mynightout/entity/Supplier.hbm.xml"/>
+    <mapping resource="mynightout/entity/Cellar.hbm.xml"/>
     <mapping resource="mynightout/entity/User.hbm.xml"/>
     <mapping resource="mynightout/entity/Nightclub.hbm.xml"/>
+    <mapping resource="mynightout/entity/Supply.hbm.xml"/>
+    <mapping resource="mynightout/entity/Tables.hbm.xml"/>
+    <mapping resource="mynightout/entity/Reservation.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

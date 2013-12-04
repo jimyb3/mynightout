@@ -30,11 +30,11 @@ public class UserDao implements IUserDao {
     //επιστρέφει αντικείμενο user με τα χαρακτηριστικά του νέου χρήστη, εαν προστέθηκε στη βάση η εγγραφή
     //απιστρέφει null αν δεν έγινε η εισαγωγη στη βάση
     //TODO : θα προστεθούν νέα χαρακτηριστικά για το χρήστη
-    public User insertNewUserData(String userName, String passWord, String customerName, String customerLastname, String telephoneNum) {
+    public User insertNewUserData(String username, String password, String customerName, String customerLastname, String telephoneNum, String emailAddress) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            User newUser = new User(userName, passWord, customerName, customerLastname, telephoneNum);
+            User newUser = new User(username, password, customerName, customerLastname, telephoneNum, emailAddress);
             session.save(newUser);
             session.flush();
             session.getTransaction().commit();
