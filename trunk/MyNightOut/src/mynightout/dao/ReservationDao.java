@@ -65,7 +65,7 @@ public class ReservationDao implements IReservationDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             int userId = new UserDao().getUserIdByUsername(userName).getUserId();
-            String hql = "from Reservation res where res.userId='" + userId + "' and res.reservationStatus=\'active\'";
+            String hql = "from Reservation re where re.id.userId='"+userId+"' and re.reservationStatus=\'active\'";
             session.beginTransaction();
             Query q = session.createQuery(hql);
             List reservationsList = q.list();
@@ -88,8 +88,8 @@ public class ReservationDao implements IReservationDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            String hql = "update Reservation set reservationStatus ='inactive' "
-                    + "where userId='" + reservation.getUserId() + "' and reservationId='" + reservation.getReservationId() + "'";
+            String hql = "update Reservation re set re.reservationStatus ='inactive' "
+                    + "where re.id.userId='" + reservation.getUserId() + "' and re.id.reservationId='" + reservation.getReservationId() + "'";
             Query q = session.createQuery(hql);
             q.executeUpdate();
             session.getTransaction().commit();
@@ -112,8 +112,8 @@ public class ReservationDao implements IReservationDao {
         try {
             session.beginTransaction();
             
-            String hql = "update Reservation set reservationStatus ='inactive' "
-                    + "where clubId='" + reservation.getClubId() + "' and reservationId='" + reservation.getReservationId() + "'";
+            String hql = "update Reservation re set re.reservationStatus ='inactive' "
+                    + "where re.id.clubId='" + reservation.getClubId() + "' and re.id.reservationId='" + reservation.getReservationId() + "'";
             Query q = session.createQuery(hql);
             q.executeUpdate();
             session.getTransaction().commit();

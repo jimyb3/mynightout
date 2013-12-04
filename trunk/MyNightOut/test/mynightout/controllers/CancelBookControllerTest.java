@@ -6,7 +6,9 @@
 
 package mynightout.controllers;
 
+import mynightout.dao.UserDao;
 import mynightout.entity.Reservation;
+import mynightout.entity.ReservationId;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -46,11 +48,15 @@ public class CancelBookControllerTest {
     public void testSuccessfulCancel() {
         System.out.println("cancelSuccessfulReservation");
         String userName = "user1";
-        int reservationId = 5;
+        int userId=new UserDao().getUserIdByUsername(userName).getUserId();
+        int reservationId = 6;
         CancelBookController instance = new CancelBookController();
-        Reservation expResult = new Reservation("user1",5);
-        Reservation result = instance.cancelReservation(userName, reservationId);
-        Assert.assertEquals(expResult.getUsername(), result.getUsername());
+        ReservationId expResult = new ReservationId();
+        expResult.setUserId(userId);
+        expResult.setReservationId(reservationId);
+        
+        ReservationId result = instance.cancelReservation(userName, reservationId);
+        Assert.assertEquals(expResult.getUserId(), result.getUserId());
         Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
         
     }
@@ -59,11 +65,16 @@ public class CancelBookControllerTest {
     public void testFailedCancelNoUserName() {
         System.out.println("cancelReservation");
         String userName = "";
+        int userId=new UserDao().getUserIdByUsername(userName).getUserId();
         int reservationId = -1;
+        
         CancelBookController instance = new CancelBookController();
-        Reservation expResult = new Reservation("user1",5);
-        Reservation result = instance.cancelReservation(userName, reservationId);
-        Assert.assertEquals(expResult.getUsername(), result.getUsername());
+        ReservationId expResult = new ReservationId();
+        expResult.setUserId(userId);
+        expResult.setReservationId(reservationId);
+        ReservationId result = instance.cancelReservation(userName, reservationId);
+        
+        Assert.assertEquals(expResult.getUserId(), result.getUserId());
         Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
         
     }
@@ -72,24 +83,33 @@ public class CancelBookControllerTest {
     public void testFailedCancelWithBigUserName() {
         System.out.println("cancelReservation");
         String userName = "qwertyuiopasdfgh";
+        int userId=new UserDao().getUserIdByUsername(userName).getUserId();
         int reservationId = 1;
-        CancelBookController instance = new CancelBookController();
-        Reservation expResult = new Reservation("user1",5);
-        Reservation result = instance.cancelReservation(userName, reservationId);
-        Assert.assertEquals(expResult.getUsername(), result.getUsername());
-        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
         
+        CancelBookController instance = new CancelBookController();
+        ReservationId expResult = new ReservationId();
+        expResult.setUserId(userId);
+        expResult.setReservationId(reservationId);
+        ReservationId result = instance.cancelReservation(userName, reservationId);
+        
+        Assert.assertEquals(expResult.getUserId(), result.getUserId());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
     }
     
     @Test (expected=AssertionError.class)
     public void testFailedCancelWithBigReservationId() {
         System.out.println("cancelReservation");
         String userName = "jim";
+        int userId=new UserDao().getUserIdByUsername(userName).getUserId();
         int reservationId = 1999999999;
+        
         CancelBookController instance = new CancelBookController();
-        Reservation expResult = new Reservation("user1",5);
-        Reservation result = instance.cancelReservation(userName, reservationId);
-        Assert.assertEquals(expResult.getUsername(), result.getUsername());
+        ReservationId expResult = new ReservationId();
+        expResult.setUserId(userId);
+        expResult.setReservationId(reservationId);
+        ReservationId result = instance.cancelReservation(userName, reservationId);
+        
+        Assert.assertEquals(expResult.getUserId(), result.getUserId());
         Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
         
     }
@@ -98,11 +118,16 @@ public class CancelBookControllerTest {
     public void testFailedCancelWithBigReservationIdAndUserName() {
         System.out.println("cancelReservation");
         String userName = "qwertyuiopasdfgh";
+        int userId=new UserDao().getUserIdByUsername(userName).getUserId();
         int reservationId = 1999999999;
+        
         CancelBookController instance = new CancelBookController();
-        Reservation expResult = new Reservation("user1",5);
-        Reservation result = instance.cancelReservation(userName, reservationId);
-        Assert.assertEquals(expResult.getUsername(), result.getUsername());
+        ReservationId expResult = new ReservationId();
+        expResult.setUserId(userId);
+        expResult.setReservationId(reservationId);
+        ReservationId result = instance.cancelReservation(userName, reservationId);
+        
+        Assert.assertEquals(expResult.getUserId(), result.getUserId());
         Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
         
     }
@@ -111,11 +136,16 @@ public class CancelBookControllerTest {
     public void testFailedCancelWithSmallReservationIdAndBigUserName() {
         System.out.println("cancelReservation");
         String userName = "qwertyuiopasdfgh";
+        int userId=new UserDao().getUserIdByUsername(userName).getUserId();
         int reservationId = -1;
+        
         CancelBookController instance = new CancelBookController();
-        Reservation expResult = new Reservation("user1",5);
-        Reservation result = instance.cancelReservation(userName, reservationId);
-        Assert.assertEquals(expResult.getUsername(), result.getUsername());
+        ReservationId expResult = new ReservationId();
+        expResult.setUserId(userId);
+        expResult.setReservationId(reservationId);
+        ReservationId result = instance.cancelReservation(userName, reservationId);
+        
+        Assert.assertEquals(expResult.getUserId(), result.getUserId());
         Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
         
     }
@@ -124,11 +154,16 @@ public class CancelBookControllerTest {
     public void testFailedCancelWithBigReservationIdNoUserName() {
         System.out.println("cancelReservation");
         String userName = "";
+        int userId=new UserDao().getUserIdByUsername(userName).getUserId();
         int reservationId = 1999999999;
+        
         CancelBookController instance = new CancelBookController();
-        Reservation expResult = new Reservation("user1",5);
-        Reservation result = instance.cancelReservation(userName, reservationId);
-        Assert.assertEquals(expResult.getUsername(), result.getUsername());
+        ReservationId expResult = new ReservationId();
+        expResult.setUserId(userId);
+        expResult.setReservationId(reservationId);
+        ReservationId result = instance.cancelReservation(userName, reservationId);
+        
+        Assert.assertEquals(expResult.getUserId(), result.getUserId());
         Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
         
     }
