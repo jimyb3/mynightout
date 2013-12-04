@@ -37,6 +37,10 @@ public class Reservation  implements java.io.Serializable {
        this.seatNumber = seatNumber;
        this.reservationStatus = reservationStatus;
     }
+
+    public Reservation(ReservationId id) {
+        this.id = id;
+    }
    
     public ReservationId getId() {
         return this.id;
