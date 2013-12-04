@@ -1,5 +1,5 @@
 package mynightout.entity;
-// Generated 4 Дек 2013 5:28:19 рм by Hibernate Tools 3.6.0
+// Generated 4 DEC 2013 5:28:19 AM by Hibernate Tools 3.6.0
 
 
 

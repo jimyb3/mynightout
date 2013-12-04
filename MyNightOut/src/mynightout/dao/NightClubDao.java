@@ -53,11 +53,11 @@ public class NightClubDao implements INightClubDao {
             List resultList = w.list();
             session.getTransaction().commit();
             session.close();
-            Nightclub ninghtClub=new Nightclub(); 
+            Nightclub nightClub=new Nightclub(); 
             for(Object o:resultList){
-                ninghtClub=(Nightclub)o;
+                nightClub=(Nightclub)o;
              }
-             return ninghtClub;
+             return nightClub;
         } catch (HibernateException he) {
             he.printStackTrace();
             session.beginTransaction().rollback();
