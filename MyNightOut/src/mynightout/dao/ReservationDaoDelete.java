@@ -6,6 +6,7 @@
 package mynightout.dao;
 
 import mynightout.entity.Reservation;
+import mynightout.entity.ReservationId;
 
 /**
  *
@@ -14,7 +15,7 @@ import mynightout.entity.Reservation;
 public class ReservationDaoDelete implements IReservationDaoDelete {
 
     @Override
-    public Reservation selectReservation(String clubName,int reservationId) {
-        return new Reservation(reservationId);
+    public ReservationId selectReservation(int reservationId, int userId, int clubId) {
+        return new ReservationId(reservationId, userId, clubId);
     }
 }

@@ -158,7 +158,7 @@ public class CreateBookForm extends javax.swing.JFrame {
                 int seatNumber = Integer.parseInt(reservationPartyNumberTextField.getText());
 
                 Reservation createReservation = controller.createReservationNew(1,2,
-                        this.reservationDateChooser.getDate(),
+                        this.reservationDateChooser.getDate(), "θέση τραπεζιού",
                         seatNumber, "active");
                 JOptionPane.showMessageDialog(null, "Η καταχώρηση ήταν επιτυχής",
                         "Success", JOptionPane.INFORMATION_MESSAGE);

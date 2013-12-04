@@ -11,6 +11,7 @@ import java.util.Date;
 import mynightout.dao.IReservationDaoEdit;
 import mynightout.exceptions.DaoException;
 import mynightout.entity.Reservation;
+import mynightout.entity.ReservationId;
 
 /**
  *
@@ -27,7 +28,7 @@ public class EditReservationController {
 
     @SuppressWarnings("empty-statement")
     public Reservation editReservation(int userId, int clubId, 
-            Date reservationDate, int seatNumber)
+            Date reservationDate, String trapezi, int seatNumber, String reservationStatus)
             throws IllegalArgumentException, DaoException {
         /**
          * Η βάση μέσα στoν πίνακα κράτηση κρατάει μόνο το userId, το clubId, την ημερομηνία
@@ -45,8 +46,11 @@ public class EditReservationController {
             // TODO 
         }
         try {
-            return reservationDao.selectReservation(userId, clubId, 
-            reservationDate, seatNumber);
+            ReservationId res=new ReservationId();
+            res.setClubId(clubId);
+            res.setUserId(userId);
+            return reservationDao.selectReservation(res, 
+            reservationDate, trapezi, seatNumber, reservationStatus);
         } catch (DaoException e) {
             throw e;
         }

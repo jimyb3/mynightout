@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 17 ??? 2013 4:36:29 ?? by Hibernate Tools 3.6.0 -->
+<!-- Generated 4 ??? 2013 5:28:21 ?? by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="mynightout.entity.User" table="user" catalog="mynightout">
         <id name="userId" type="java.lang.Integer">
@@ -9,7 +9,7 @@
             <generator class="identity" />
         </id>
         <property name="username" type="string">
-            <column name="Username" length="15" not-null="true" />
+            <column name="Username" length="15" not-null="true" unique="true" />
         </property>
         <property name="password" type="string">
             <column name="Password" length="15" not-null="true" />
@@ -22,6 +22,9 @@
         </property>
         <property name="telephoneNum" type="string">
             <column name="Telephone_num" length="10" not-null="true" />
+        </property>
+        <property name="emailAddress" type="string">
+            <column name="Email_address" length="40" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>
