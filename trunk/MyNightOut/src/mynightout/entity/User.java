@@ -12,7 +12,7 @@ public class User implements java.io.Serializable {
     private String customerName;
     private String customerLastname;
     private String telephoneNum;
-    private String emailAddress;
+    private String email;
 
     public User() {
     }
@@ -28,7 +28,7 @@ public class User implements java.io.Serializable {
         this.customerName = customerName;
         this.customerLastname = customerLastname;
         this.telephoneNum = telephoneNum;
-        this.emailAddress = emailAddress;
+        this.email = emailAddress;
     }
 
     public Integer getUserId() {
@@ -79,12 +79,12 @@ public class User implements java.io.Serializable {
         this.telephoneNum = telephoneNum;
     }
 
-    public String getEmailAddress() {
-        return this.emailAddress;
+    public String getEmail() {
+        return this.email;
     }
 
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 }

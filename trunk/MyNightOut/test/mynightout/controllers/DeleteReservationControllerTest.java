@@ -8,13 +8,13 @@ package mynightout.controllers;
 import mynightout.dao.MockDeleteDaoFailure;
 import mynightout.dao.MockDeleteDaoSuccess;
 import mynightout.entity.Reservation;
+import mynightout.entity.ReservationId;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -57,7 +57,7 @@ public class DeleteReservationControllerTest {
         int reservationId = -1;
         String clubName="marias";
         DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
-        Reservation result = instance.deleteReservation(clubName,reservationId);
+        ReservationId result = instance.deleteReservation(clubName,reservationId);
         Assert.assertEquals(clubName,result.getClubName());
         Assert.assertEquals(reservationId, result.getReservationId());
         Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.

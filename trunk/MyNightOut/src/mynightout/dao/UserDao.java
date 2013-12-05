@@ -116,7 +116,7 @@ public class UserDao implements IUserDao {
     //ορίσματα : userName, password, customerName, customerLastname, telephoneNum
     //επιστρέφει true αν έγινε η ενημέρωση, alliws false
     // todo : είναι σωστό που επστρέφει boolean ?
-    public boolean updateUserData(String userName, String password, String customerName, String customerLastname, String telephoneNum) {
+    public boolean updateUserData(String userName, String password, String customerName, String customerLastname, String telephoneNum, String email) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();

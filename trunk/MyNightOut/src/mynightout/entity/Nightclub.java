@@ -14,10 +14,10 @@ public class Nightclub  implements java.io.Serializable {
      private String clubName;
      private String clubPassword;
      private String address;
-     private String emailAddress;
+     private String email;
      private int seatNumber;
      private String telephoneNum;
-     private String categoryId;
+     private String category;
      private String clubImage;
      private Date closedFrom;
      private Date closedThrough;
@@ -38,10 +38,10 @@ public class Nightclub  implements java.io.Serializable {
        this.clubName = clubName;
        this.clubPassword = clubPassword;
        this.address = address;
-       this.emailAddress = emailAddress;
+       this.email = emailAddress;
        this.seatNumber = seatNumber;
        this.telephoneNum = telephoneNum;
-       this.categoryId = categoryId;
+       this.category = categoryId;
        this.clubImage = clubImage;
        this.closedFrom = closedFrom;
        this.closedThrough = closedThrough;
@@ -76,12 +76,12 @@ public class Nightclub  implements java.io.Serializable {
     public void setAddress(String address) {
         this.address = address;
     }
-    public String getEmailAddress() {
-        return this.emailAddress;
+    public String getEmail() {
+        return this.email;
     }
     
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
+    public void setEmail(String email) {
+        this.email = email;
     }
     public int getSeatNumber() {
         return this.seatNumber;
@@ -97,12 +97,12 @@ public class Nightclub  implements java.io.Serializable {
     public void setTelephoneNum(String telephoneNum) {
         this.telephoneNum = telephoneNum;
     }
-    public String getCategoryId() {
-        return this.categoryId;
+    public String getCategory() {
+        return this.category;
     }
     
-    public void setCategoryId(String categoryId) {
-        this.categoryId = categoryId;
+    public void setCategory(String category) {
+        this.category = category;
     }
     public String getClubImage() {
         return this.clubImage;

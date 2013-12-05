@@ -6,14 +6,8 @@
 
 package mynightout;
 
-import java.text.Format;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
 import javax.swing.JFrame;
-import mynightout.dao.ReservationDao;
-import mynightout.entity.Reservation;
 import mynightout.ui.MainFrame;
 
 /**
@@ -30,13 +24,6 @@ public class MyNightOut {
         // TODO code application logic here
         JFrame mainFrame=new MainFrame();
         mainFrame.setVisible(true);
-        ReservationDao res=new ReservationDao();
-        String date = "2/1/2014";
-        Format formatter = new SimpleDateFormat("dd/MM/yyyy");
-        Date reservationDate = (Date) formatter.parseObject(date);
-        res.insertReservationData("test", "Ελλήνων Γεύσεις", reservationDate, "Β2", 5);
-        
-             
     }
     
 }
