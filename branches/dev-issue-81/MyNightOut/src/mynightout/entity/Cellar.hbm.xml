@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 ??? 2013 5:28:21 ?? by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="mynightout.entity.Cellar" table="cellar" catalog="mynightout">
+        <id name="clubId" type="int">
+            <column name="Club_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="vodka" type="int">
+            <column name="Vodka" not-null="true" />
+        </property>
+        <property name="whiskey" type="int">
+            <column name="Whiskey" not-null="true" />
+        </property>
+        <property name="wine" type="int">
+            <column name="Wine" not-null="true" />
+        </property>
+        <property name="liqueur" type="int">
+            <column name="Liqueur" not-null="true" />
+        </property>
+        <property name="rum" type="int">
+            <column name="Rum" not-null="true" />
+        </property>
+        <property name="tequila" type="int">
+            <column name="Tequila" not-null="true" />
+        </property>
+        <property name="beer" type="int">
+            <column name="Beer" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
