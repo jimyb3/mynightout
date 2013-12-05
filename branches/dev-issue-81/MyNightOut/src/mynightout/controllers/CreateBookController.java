@@ -5,6 +5,9 @@
  */
 package mynightout.controllers;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import mynightout.entity.Reservation;
 import mynightout.exceptions.DaoException;
@@ -22,32 +25,49 @@ public class CreateBookController {
     public CreateBookController(IReservationDaoCreate createBookDao) {
         this.createBookDao = createBookDao;
     }
-    /**Η βάση μέσα στoν πίνακα κράτηση κρατάει μόνο το userId, το clubId, την ημερομηνία
-     * κράτησης, των αριθμό θέσεων, και μια ένα status που μας δειχνει αν ειναι ενεργή
-     * η κράτηση.
-     * 
+
+    /**
+     * Η βάση μέσα στoν πίνακα κράτηση κρατάει μόνο το userId, το clubId, την
+     * ημερομηνία κράτησης, των αριθμό θέσεων, και μια ένα status που μας
+     * δειχνει αν ειναι ενεργή η κράτηση.
+     *
      */
-    public Reservation createReservationNew(int userId, int clubId, 
+    public Reservation createReservationNew(int userId, int clubId,
             Date reservationDate, String trapezi, int seatNumber, String reservationStatus)
             throws IllegalArgumentException, DaoException {
 
-        
-        /*
-        if (customerName.length() < 3) {
-            throw new IllegalArgumentException("Customer name should be at least three characters long");
-        }
-        */
-        if (seatNumber > 5) {
-            throw new IllegalArgumentException("Each table has only 5 seats");
-            // TODO edw prepei na ginei pio sun8eto problepsi gia parapanw trapezia
+        if (seatNumber > 7) {
+            throw new IllegalArgumentException("Καθε τραπεζι εχει μονο 7 θεσεις");
+
+            // TODO edw prepei na ginei pio sun8eto px problepsi gia parapanw trapezia
         }
 
-        // TODO elenxo gia imerominia pou exei perasei
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date tempDate = new Date();
+        String c = sdf.format(tempDate);
         try {
-            ReservationPk res=new ReservationPk();
+            tempDate = sdf.parse(c);
+        } catch (ParseException e) {
+            throw new IllegalArgumentException("Incorrect date format");
+        }
+
+        /*
+         * ελεγχος αν η ημερομηνια εχει παρελθει
+         */
+        if (Calendar.getInstance().getTime().after(tempDate)) {
+            throw new IllegalArgumentException("Η ημερομηνια που επιλεξατε εχει παρέλθει!");
+
+            //TODO edw ektws autou tou elenxou 8a mporouse na min afinei ton xristi
+            //     na epile3ei imerominies pou exoun perasei
+        }
+
+        try {
+
+            // Check oeo?
+            ReservationPk res = new ReservationPk();
             res.setClubId(clubId);
             res.setUserId(userId);
-            return createBookDao.createReservation(res, reservationDate, 
+            return createBookDao.createReservation(res, reservationDate,
                     trapezi, seatNumber, reservationStatus);
         } catch (DaoException e) {
             throw e;
