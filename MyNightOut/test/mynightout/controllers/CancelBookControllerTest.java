@@ -61,12 +61,12 @@ public class CancelBookControllerTest {
         
     }
     
-    @Test(expected=AssertionError.class)
+    @Test(expected=NullPointerException.class)
     public void testFailedCancelNoUserName() {
         System.out.println("cancelReservation");
-        String userName = "";
+        String userName = null;
         int userId=new UserDao().getUserIdByUsername(userName).getUserId();
-        int reservationId = -1;
+        int reservationId = 5;
         
         CancelBookController instance = new CancelBookController();
         ReservationId expResult = new ReservationId();
@@ -79,7 +79,7 @@ public class CancelBookControllerTest {
         
     }
     
-    @Test (expected=AssertionError.class)
+    @Test (expected=NullPointerException.class)
     public void testFailedCancelWithBigUserName() {
         System.out.println("cancelReservation");
         String userName = "qwertyuiopasdfgh";
@@ -96,10 +96,10 @@ public class CancelBookControllerTest {
         Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
     }
     
-    @Test (expected=AssertionError.class)
+    @Test 
     public void testFailedCancelWithBigReservationId() {
         System.out.println("cancelReservation");
-        String userName = "jim";
+        String userName = "user1";
         int userId=new UserDao().getUserIdByUsername(userName).getUserId();
         int reservationId = 1999999999;
         
@@ -114,7 +114,7 @@ public class CancelBookControllerTest {
         
     }
     
-    @Test (expected=AssertionError.class)
+    @Test (expected=NullPointerException.class)
     public void testFailedCancelWithBigReservationIdAndUserName() {
         System.out.println("cancelReservation");
         String userName = "qwertyuiopasdfgh";
@@ -132,7 +132,7 @@ public class CancelBookControllerTest {
         
     }
     
-    @Test(expected=AssertionError.class)
+    @Test(expected=NullPointerException.class)
     public void testFailedCancelWithSmallReservationIdAndBigUserName() {
         System.out.println("cancelReservation");
         String userName = "qwertyuiopasdfgh";
@@ -150,7 +150,7 @@ public class CancelBookControllerTest {
         
     }
     
-    @Test (expected=AssertionError.class)
+    @Test (expected=NullPointerException.class)
     public void testFailedCancelWithBigReservationIdNoUserName() {
         System.out.println("cancelReservation");
         String userName = "";

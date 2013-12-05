@@ -89,7 +89,7 @@ public class ReservationDao implements IReservationDao {
         try {
             session.beginTransaction();
             String hql = "update Reservation re set re.reservationStatus ='inactive' "
-                    + "where re.id.userId='" + reservation.getUserId() + "' and re.id.reservationId='" + reservation.getReservationId() + "'";
+                    + "where re.id.userId=" + reservation.getUserId() + " and re.id.reservationId=" + reservation.getReservationId() + "";
             Query q = session.createQuery(hql);
             q.executeUpdate();
             session.getTransaction().commit();

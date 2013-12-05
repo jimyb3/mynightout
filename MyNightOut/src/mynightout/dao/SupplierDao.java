@@ -20,4 +20,6 @@ public class SupplierDao implements ISupplierDao{
     public Supplier selectSupplier(String firstName, String lastName, String companyName, String address, int  cellPhoneNumber, int officePhoneNumber, String email) throws DaoException{
     return new Supplier(firstName,lastName,companyName,address,cellPhoneNumber,officePhoneNumber,email);
     }
+    
+    
 }
