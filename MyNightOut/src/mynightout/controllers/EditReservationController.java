@@ -11,7 +11,7 @@ import java.util.Date;
 import mynightout.dao.IReservationDaoEdit;
 import mynightout.exceptions.DaoException;
 import mynightout.entity.Reservation;
-import mynightout.entity.ReservationId;
+import mynightout.entity.ReservationPk;
 
 /**
  *
@@ -46,7 +46,7 @@ public class EditReservationController {
             // TODO 
         }
         try {
-            ReservationId res=new ReservationId();
+            ReservationPk res=new ReservationPk();
             res.setClubId(clubId);
             res.setUserId(userId);
             return reservationDao.selectReservation(res, 

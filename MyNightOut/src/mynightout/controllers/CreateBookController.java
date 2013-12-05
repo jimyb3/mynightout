@@ -9,7 +9,7 @@ import java.util.Date;
 import mynightout.entity.Reservation;
 import mynightout.exceptions.DaoException;
 import mynightout.dao.IReservationDaoCreate;
-import mynightout.entity.ReservationId;
+import mynightout.entity.ReservationPk;
 
 /**
  *
@@ -44,7 +44,7 @@ public class CreateBookController {
 
         // TODO elenxo gia imerominia pou exei perasei
         try {
-            ReservationId res=new ReservationId();
+            ReservationPk res=new ReservationPk();
             res.setClubId(clubId);
             res.setUserId(userId);
             return createBookDao.createReservation(res, reservationDate, 

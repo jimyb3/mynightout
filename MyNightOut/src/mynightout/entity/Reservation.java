@@ -10,7 +10,7 @@ import java.util.Date;
 public class Reservation  implements java.io.Serializable {
 
 
-     private ReservationId id;
+     private ReservationPk id;
      private Date reservationDate;
      private String trapezi;
      private int seatNumber;
@@ -25,11 +25,11 @@ public class Reservation  implements java.io.Serializable {
     public Reservation() {
     }
     
-    public Reservation(ReservationId id, String username){
+    public Reservation(ReservationPk id, String username){
         this.id=id;
         this.username=username;
     }
-    public Reservation(ReservationId id, Date reservationDate, 
+    public Reservation(ReservationPk id, Date reservationDate, 
             String trapezi, int seatNumber, String reservationStatus) {
        this.id = id;
        this.reservationDate = reservationDate;
@@ -38,15 +38,15 @@ public class Reservation  implements java.io.Serializable {
        this.reservationStatus = reservationStatus;
     }
 
-    public Reservation(ReservationId id) {
+    public Reservation(ReservationPk id) {
         this.id = id;
     }
    
-    public ReservationId getId() {
+    public ReservationPk getId() {
         return this.id;
     }
     
-    public void setId(ReservationId id) {
+    public void setId(ReservationPk id) {
         this.id = id;
     }
     public Date getReservationDate() {

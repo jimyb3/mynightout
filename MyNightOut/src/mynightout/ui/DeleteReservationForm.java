@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.controllers.DeleteReservationController;
 import mynightout.dao.ReservationDaoDelete;
-import mynightout.entity.ReservationId;
+import mynightout.entity.ReservationPk;
 
 /**
  *
@@ -133,7 +133,7 @@ public class DeleteReservationForm extends javax.swing.JFrame {
         try{
             int reservationId=Integer.parseInt(GivenId.getText());
            //int clubName=Integer.parseInt(givenClubName.getText());
-            ReservationId deleteReservation=controller.deleteReservation( givenClubName.getText(),reservationId);
+            ReservationPk deleteReservation=controller.deleteReservation( givenClubName.getText(),reservationId);
             JOptionPane.showMessageDialog(null,"Το Id της διεγραμένης κράτησης ειναι :" +GivenId.getText(),
                 "Success",JOptionPane.INFORMATION_MESSAGE);
         }

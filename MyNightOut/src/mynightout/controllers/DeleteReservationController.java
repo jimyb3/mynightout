@@ -9,7 +9,7 @@ import mynightout.dao.IReservationDaoDelete;
 import mynightout.dao.NightClubDao;
 import mynightout.dao.ReservationDao;
 import mynightout.entity.Reservation;
-import mynightout.entity.ReservationId;
+import mynightout.entity.ReservationPk;
 
 /**
  *
@@ -24,9 +24,9 @@ public class DeleteReservationController {
 
     }
 
-    public ReservationId deleteReservation(String clubName, int reservationId) {
+    public ReservationPk deleteReservation(String clubName, int reservationId) {
         ReservationDao changeReservationStatus = new ReservationDao();
-        ReservationId res = new ReservationId();
+        ReservationPk res = new ReservationPk();
         res.setReservationId(reservationId);
         int clubId = new NightClubDao().getNightClubIdByNightClubName(clubName).getClubId();
         res.setClubId(clubId);
