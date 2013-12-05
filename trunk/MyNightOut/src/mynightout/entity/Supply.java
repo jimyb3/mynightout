@@ -9,20 +9,20 @@ package mynightout.entity;
 public class Supply  implements java.io.Serializable {
 
 
-     private SupplyId id;
+     private SupplyPk id;
 
     public Supply() {
     }
 
-    public Supply(SupplyId id) {
+    public Supply(SupplyPk id) {
        this.id = id;
     }
    
-    public SupplyId getId() {
+    public SupplyPk getId() {
         return this.id;
     }
     
-    public void setId(SupplyId id) {
+    public void setId(SupplyPk id) {
         this.id = id;
     }
 

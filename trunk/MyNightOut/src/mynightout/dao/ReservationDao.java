@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 import mynightout.exceptions.DaoException;
 import mynightout.entity.Reservation;
-import mynightout.entity.ReservationId;
+import mynightout.entity.ReservationPk;
 import mynightout.util.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -24,7 +24,7 @@ import org.hibernate.Session;
 public class ReservationDao implements IReservationDao {
 
     @Override
-    public Reservation selectReservation(ReservationId res, Date reservationDate, 
+    public Reservation selectReservation(ReservationPk res, Date reservationDate, 
             String trapezi, int seatNumber, String reservationStatus) throws DaoException {
         return new Reservation(res, reservationDate, trapezi, seatNumber, "active");
     }
@@ -41,7 +41,7 @@ public class ReservationDao implements IReservationDao {
             session.beginTransaction();
             int userId = new UserDao().getUserIdByUsername(userName).getUserId();
             int clubId = new NightClubDao().getNightClubIdByNightClubName(nightClubName).getClubId();
-            ReservationId res=new ReservationId();
+            ReservationPk res=new ReservationPk();
             res.setUserId(userId);
             res.setClubId(clubId);
             
@@ -84,7 +84,7 @@ public class ReservationDao implements IReservationDao {
     //ορίσματα username και reservationId
     // επιστρέφει true αν έγινε η ακύρωση, αλλιώς false
 
-    public boolean cancelReservationByUser(ReservationId reservation) {
+    public boolean cancelReservationByUser(ReservationPk reservation) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
@@ -107,7 +107,7 @@ public class ReservationDao implements IReservationDao {
     //ο καταστηματάρχης διαγράφει κάποια κράτηση
     //ορίσματα clubName και reservationId
     //επιστρέφει true αν έγινε η ακύρωση, αλλιώς false
-    public boolean cancelReservationByNightClub(ReservationId reservation) {
+    public boolean cancelReservationByNightClub(ReservationPk reservation) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();

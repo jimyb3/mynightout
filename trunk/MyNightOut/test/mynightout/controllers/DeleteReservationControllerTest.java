@@ -7,8 +7,9 @@ package mynightout.controllers;
 
 import mynightout.dao.MockDeleteDaoFailure;
 import mynightout.dao.MockDeleteDaoSuccess;
+import mynightout.dao.NightClubDao;
 import mynightout.entity.Reservation;
-import mynightout.entity.ReservationId;
+import mynightout.entity.ReservationPk;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -56,9 +57,10 @@ public class DeleteReservationControllerTest {
         System.out.println("DeleteReservation");
         int reservationId = -1;
         String clubName="marias";
+        int clubId= new NightClubDao().getNightClubIdByNightClubName(clubName).getClubId();
         DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
-        ReservationId result = instance.deleteReservation(clubName,reservationId);
-        Assert.assertEquals(clubName,result.getClubName());
+        ReservationPk result = instance.deleteReservation(clubName,reservationId);
+        Assert.assertEquals(clubId,result.getClubId());
         Assert.assertEquals(reservationId, result.getReservationId());
         Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
         // fail("The test case is a prototype.");

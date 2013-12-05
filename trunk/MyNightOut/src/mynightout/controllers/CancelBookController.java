@@ -8,7 +8,7 @@ package mynightout.controllers;
 import mynightout.dao.ReservationDao;
 import mynightout.dao.UserDao;
 import mynightout.entity.Reservation;
-import mynightout.entity.ReservationId;
+import mynightout.entity.ReservationPk;
 
 /**
  *
@@ -28,13 +28,29 @@ public class CancelBookController {
      * @throws IllegalArgumentException αν κάποια από τις παραμέτρους δεν ήταν
      * σωστή DaoException αν απέτυχε η επικοινωνία με τη βάση
      */
-    public ReservationId cancelReservation(String userName, int reservationId) {
-
+    public ReservationPk cancelReservation(String userName, int reservationId) {
+        
+        if(reservationId<0){
+            throw new IllegalArgumentException("Πολύ μικρό reservation ID.");
+        }
+        
+        if(reservationId>=1999999999){
+            throw new IllegalArgumentException("Πολύ μεγάλο reservation ID.");
+        }
+        
+        if(userName.length()>=15){
+            throw new IllegalArgumentException("Πολύ μεγάλο username.");
+        }
+         
+        if(userName.equals("")){
+            throw new IllegalArgumentException("Πολύ μικρό username.");
+        }
+            
         ReservationDao changeReservationStatus = new ReservationDao();
-                ReservationId res=new ReservationId();
-                res.setReservationId(reservationId);
-                int userId=new UserDao().getUserIdByUsername(userName).getUserId();
-                res.setUserId(userId);
+        ReservationPk res = new ReservationPk();
+        res.setReservationId(reservationId);
+        int userId = new UserDao().getUserIdByUsername(userName).getUserId();
+        res.setUserId(userId);
         if (changeReservationStatus.cancelReservationByUser(res)) {
             try {
                 return res;
