@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 ??? 2013 5:28:21 ?? by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="mynightout.entity.Reservation" table="reservation" catalog="mynightout">
+        <composite-id name="id" class="mynightout.entity.ReservationId">
+            <key-property name="reservationId" type="int">
+                <column name="Reservation_id" />
+            </key-property>
+            <key-property name="userId" type="int">
+                <column name="User_id" />
+            </key-property>
+            <key-property name="clubId" type="int">
+                <column name="Club_id" />
+            </key-property>
+        </composite-id>
+        <property name="reservationDate" type="date">
+            <column name="Reservation_date" length="10" not-null="true" />
+        </property>
+        <property name="trapezi" type="string">
+            <column name="Trapezi" length="4" not-null="true" />
+        </property>
+        <property name="seatNumber" type="int">
+            <column name="Seat_number" not-null="true" />
+        </property>
+        <property name="reservationStatus" type="string">
+            <column name="Reservation_status" length="12" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
