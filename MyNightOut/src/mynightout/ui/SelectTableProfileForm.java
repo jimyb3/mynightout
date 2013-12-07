@@ -33,6 +33,7 @@ public class SelectTableProfileForm extends javax.swing.JFrame {
         cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         cancelButton.setText("Άκυρο");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -40,23 +41,8 @@ public class SelectTableProfileForm extends javax.swing.JFrame {
                 cancelButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cancelButton)
-                .addContainerGap(325, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cancelButton)
-                .addContainerGap(266, Short.MAX_VALUE))
-        );
+        getContentPane().add(cancelButton);
+        cancelButton.setBounds(10, 11, 90, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

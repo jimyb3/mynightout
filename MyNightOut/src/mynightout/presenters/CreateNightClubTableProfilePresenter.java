@@ -5,6 +5,7 @@
  */
 package mynightout.presenters;
 
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionListener;
 import java.net.URL;
@@ -29,6 +30,7 @@ public class CreateNightClubTableProfilePresenter {
          * προσθέσω στο τέλος κώδικα για επιβεβαίωση της κάτοψης από τον
          * καταστηματαρχη.
          */
+        
         int max = Collections.max(Arrays.asList(row1, row2, row3, row4, row5, row6));
         JPanel p1 = new JPanel();
         form.jLabel2.setText(Integer.toString(row1));
@@ -41,9 +43,9 @@ public class CreateNightClubTableProfilePresenter {
         Container pane = form.getContentPane();
         int tableNumber = row1 + row2 + row3 + row4 + row5 + row6 + 1;
         JButton[] table = new JButton[tableNumber];
-        String imagePath = "/images/freeTable.jpg";
-        URL url = getClass().getResource(imagePath);
-
+        String tablesImage = "/images/freeTable.png";
+        URL url = getClass().getResource(tablesImage);
+        
         ImageIcon icon = new ImageIcon(url);
         /**
          * hack Να αντικατασταθεί ο κωδικας από τα κουμπιά με κώδικα που θα
@@ -54,6 +56,10 @@ public class CreateNightClubTableProfilePresenter {
             table[count] = new JButton("A" + i);
             table[count].setSize(120, 20);
             table[count].setIcon(icon);
+            table[count].setOpaque(false);
+            table[count].setBorderPainted(false);
+            table[count].setContentAreaFilled(false);
+            table[count].setFocusPainted(false); 
             p1.add(table[count]);
             count = count + 1;
         }
@@ -64,6 +70,10 @@ public class CreateNightClubTableProfilePresenter {
             table[count] = new JButton("B" + i);
             table[count].setSize(120, 20);
             table[count].setIcon(icon);
+            table[count].setOpaque(false);
+            table[count].setBorderPainted(false);
+            table[count].setContentAreaFilled(false);
+            table[count].setFocusPainted(false); 
             p2.add(table[count]);
             count = count + 1;
         }
@@ -74,6 +84,10 @@ public class CreateNightClubTableProfilePresenter {
             table[count] = new JButton("Γ" + i);
             table[count].setSize(120, 20);
             table[count].setIcon(icon);
+            table[count].setOpaque(false);
+            table[count].setBorderPainted(false);
+            table[count].setContentAreaFilled(false);
+            table[count].setFocusPainted(false); 
             p3.add(table[count]);
             count = count + 1;
         }
@@ -84,6 +98,10 @@ public class CreateNightClubTableProfilePresenter {
             table[count] = new JButton("Δ" + i);
             table[count].setSize(120, 20);
             table[count].setIcon(icon);
+            table[count].setOpaque(false);
+            table[count].setBorderPainted(false);
+            table[count].setContentAreaFilled(false);
+            table[count].setFocusPainted(false); 
             p4.add(table[count]);
             count = count + 1;
         }
@@ -94,6 +112,10 @@ public class CreateNightClubTableProfilePresenter {
             table[count] = new JButton("Ε" + i);
             table[count].setSize(120, 20);
             table[count].setIcon(icon);
+            table[count].setOpaque(false);
+            table[count].setBorderPainted(false);
+            table[count].setContentAreaFilled(false);
+            table[count].setFocusPainted(false); 
             p5.add(table[count]);
             count = count + 1;
         }
@@ -104,6 +126,10 @@ public class CreateNightClubTableProfilePresenter {
             table[count] = new JButton("Ζ" + i);
             table[count].setSize(120, 20);
             table[count].setIcon(icon);
+            table[count].setOpaque(false);
+            table[count].setBorderPainted(false);
+            table[count].setForeground(new Color(00,00,00,00));
+            table[count].setFocusPainted(false); 
             p6.add(table[count]);
             count = count + 1;
         }
@@ -135,6 +161,7 @@ public class CreateNightClubTableProfilePresenter {
          * ιδανικό ύψος του παραθύρου ώστε να το ορίζει στην εντολή
          * setSize(maxRow*120,numberRow*50)
          */
+        
         form.setSize(max * 115, 8 * 120);
         form.setVisible(true);
     }
