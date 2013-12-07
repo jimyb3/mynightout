@@ -152,7 +152,7 @@ public class ContactAdminFormTest extends UISpecTestCase {
             return dialog.getButton("OK").triggerClick();
             }
         })
-       .run();
+        .run();
   
    }
     

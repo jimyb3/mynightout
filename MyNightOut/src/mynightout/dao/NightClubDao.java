@@ -32,7 +32,7 @@ public class NightClubDao implements INightClubDao {
     public List getAllNightClubs() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            String hql = "from Nightclub nin";
+            String hql = "from Nightclub";
             session.beginTransaction();
             Query q = session.createQuery(hql);
             List nightclubsList = q.list();

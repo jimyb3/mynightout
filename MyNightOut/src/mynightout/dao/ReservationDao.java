@@ -5,6 +5,8 @@
  */
 package mynightout.dao;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import mynightout.exceptions.DaoException;
@@ -89,12 +91,14 @@ public class ReservationDao implements IReservationDao {
         try {
             session.beginTransaction();
             String hql = "update Reservation re set re.reservationStatus ='inactive' "
-                    + "where re.id.userId=" + reservation.getUserId() + " and re.id.reservationId=" + reservation.getReservationId() + "";
+                    + "where re.id.userId='" + reservation.getUserId() + "' and re.id.reservationId='" + reservation.getReservationId() + "'";
             Query q = session.createQuery(hql);
-            q.executeUpdate();
-            session.getTransaction().commit();
-            session.close();
-            return true;
+            if(q.executeUpdate()==1){
+                session.getTransaction().commit();
+                session.close();
+                return true;
+            }
+            return false;
         } catch (HibernateException he) {
             he.printStackTrace();
             session.beginTransaction().rollback();
@@ -126,5 +130,62 @@ public class ReservationDao implements IReservationDao {
         }
 
     }
+    
+    public int numberOfReservationTablesByDate(int clubId, Date reservationDate){
+        int numberOfTables=0;
+        String DATE_FORMAT = "yyyy/MM/dd";
+        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            
+            String hql = "from Reservation re "
+                    + "where re.id.clubId='" + clubId + "' and re.reservationDate='" + sdf.format(reservationDate) + "' and re.reservationStatus=\'active\'";
+            Query w = session.createQuery(hql);
+            List resultList = w.list();
+            session.getTransaction().commit();
+            session.close();
+            
+            Reservation re = new Reservation();
+            for (Object o : resultList) {
+                numberOfTables=numberOfTables+1;
+                re = (Reservation) o;
+                
+            }
+            return numberOfTables;
+        } catch (HibernateException he) {
+            he.printStackTrace();
+            session.beginTransaction().rollback();
+            return numberOfTables;
+        }
+    }
 
+    public List listWithReservationTablesByDate(int clubId, Date reservationDate){
+        
+        String DATE_FORMAT = "yyyy/MM/dd";
+        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            
+            String hql = "from Reservation re where re.id.clubId='" + clubId + "' "
+                    + "and re.reservationDate='" + sdf.format(reservationDate) + "' "
+                    + "and re.reservationStatus=\'active\'";
+            Query w = session.createQuery(hql);
+            List resultList = w.list();
+            session.getTransaction().commit();
+            session.close();
+            List tablesList = new ArrayList();
+            Reservation re = new Reservation();
+            for (Object o : resultList) {
+                re = (Reservation) o;
+                tablesList.add(re.getTrapezi());
+            }
+            return tablesList;
+        } catch (HibernateException he) {
+            he.printStackTrace();
+            session.beginTransaction().rollback();
+            return null;
+        }
+    }
 }

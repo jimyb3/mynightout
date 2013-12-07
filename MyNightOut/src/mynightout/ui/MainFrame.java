@@ -5,9 +5,13 @@
  */
 package mynightout.ui;
 
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
-import mynightout.controllers.EditReservationController;
-import mynightout.dao.ReservationDaoEdit;
+import mynightout.dao.TablesDao;
+import mynightout.entity.Tables;
+import mynightout.presenters.SelectTableProfilePresenter;
 
 /**
  *
@@ -39,9 +43,11 @@ public class MainFrame extends javax.swing.JFrame {
         createReservationButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
-        FAQButton = new javax.swing.JButton();
+        faqButton = new javax.swing.JButton();
         showCellarForm = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        showSuppliersButton = new javax.swing.JButton();
+        changeNightClubTableProfileButton = new javax.swing.JButton();
+        SelectTableButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyNightOut");
@@ -102,10 +108,10 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        FAQButton.setText("FAQ/Help");
-        FAQButton.addActionListener(new java.awt.event.ActionListener() {
+        faqButton.setText("FAQ/Help");
+        faqButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FAQButtonActionPerformed(evt);
+                faqButtonActionPerformed(evt);
             }
         });
 
@@ -116,10 +122,24 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Εμφάνιση Προμηθευτών");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        showSuppliersButton.setText("Εμφάνιση Προμηθευτών");
+        showSuppliersButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                showSuppliersButtonActionPerformed(evt);
+            }
+        });
+
+        changeNightClubTableProfileButton.setText("Αλλαγή στην κάτοψη");
+        changeNightClubTableProfileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changeNightClubTableProfileButtonActionPerformed(evt);
+            }
+        });
+
+        SelectTableButton.setText("Επιλογή τραπεζιού");
+        SelectTableButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelectTableButtonActionPerformed(evt);
             }
         });
 
@@ -128,34 +148,39 @@ public class MainFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(cancelReservationButton)
-                        .addGap(5, 5, 5)
-                        .addComponent(exitButton)
-                        .addGap(5, 5, 5)
-                        .addComponent(loginButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(checkFullnessButton)
-                        .addGap(5, 5, 5)
-                        .addComponent(createStoreButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(createReservationButton)
-                        .addGap(5, 5, 5)
-                        .addComponent(editButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(FAQButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(deleteButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(showCellarForm)
-                            .addComponent(jButton1))))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(27, 27, 27)
+                            .addComponent(cancelReservationButton)
+                            .addGap(5, 5, 5)
+                            .addComponent(exitButton)
+                            .addGap(5, 5, 5)
+                            .addComponent(loginButton))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(40, 40, 40)
+                            .addComponent(checkFullnessButton)
+                            .addGap(5, 5, 5)
+                            .addComponent(createStoreButton))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(19, 19, 19)
+                            .addComponent(createReservationButton)
+                            .addGap(5, 5, 5)
+                            .addComponent(editButton))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(4, 4, 4)
+                            .addComponent(faqButton)
+                            .addGap(18, 18, 18)
+                            .addComponent(deleteButton))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(92, 92, 92)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(showCellarForm)
+                                .addComponent(showSuppliersButton))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(SelectTableButton)
+                        .addComponent(changeNightClubTableProfileButton)))
                 .addGap(41, 41, 41))
         );
         layout.setVerticalGroup(
@@ -180,12 +205,16 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(deleteButton))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(FAQButton)))
+                        .addComponent(faqButton)))
                 .addGap(18, 18, 18)
                 .addComponent(showCellarForm)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addComponent(showSuppliersButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(changeNightClubTableProfileButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SelectTableButton)
+                .addContainerGap())
         );
 
         pack();
@@ -250,13 +279,13 @@ public class MainFrame extends javax.swing.JFrame {
         StoreRegisterForm.setVisible(true);
     }//GEN-LAST:event_createStoreButtonActionPerformed
 
-    private void FAQButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FAQButtonActionPerformed
+    private void faqButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_faqButtonActionPerformed
         // TODO add your handling code here:
         JFrame contactAdminForm=new ContactAdminForm();
      
      contactAdminForm.setLocationRelativeTo(this);
      contactAdminForm.setVisible(true);
-    }//GEN-LAST:event_FAQButtonActionPerformed
+    }//GEN-LAST:event_faqButtonActionPerformed
 
     private void showCellarFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCellarFormActionPerformed
       JFrame showCellarFrame=new ShowCellarForm();
@@ -265,12 +294,34 @@ public class MainFrame extends javax.swing.JFrame {
       showCellarFrame.setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_showCellarFormActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void showSuppliersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showSuppliersButtonActionPerformed
       JFrame showSuppliersFrame=new ShowSupplierForm();
       this.dispose();
       showSuppliersFrame.setLocationRelativeTo(this);
       showSuppliersFrame.setVisible(true);// TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_showSuppliersButtonActionPerformed
+
+    private void changeNightClubTableProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeNightClubTableProfileButtonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        ChangeNightClubTableProfileForm ctpf=new ChangeNightClubTableProfileForm();
+        ctpf.setLocationRelativeTo(this);
+        ctpf.setVisible(true);
+    }//GEN-LAST:event_changeNightClubTableProfileButtonActionPerformed
+
+    private void SelectTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectTableButtonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        SelectTableProfilePresenter stpp=new SelectTableProfilePresenter();
+        int clubId=1;
+        TablesDao td=new TablesDao();
+        Tables t=td.getClubsTables("Vogue");
+        try {
+            stpp.showSelectTableProfile(new SelectTableProfileForm(), t.getFirstRow(), t.getSecondRow(), t.getThirdRow(), t.getFourthRow(), t.getFifthRow(), t.getSixthRow(), clubId);
+        } catch (ParseException ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_SelectTableButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -308,16 +359,18 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton FAQButton;
+    private javax.swing.JButton SelectTableButton;
     private javax.swing.JButton cancelReservationButton;
+    private javax.swing.JButton changeNightClubTableProfileButton;
     private javax.swing.JButton checkFullnessButton;
     private javax.swing.JButton createReservationButton;
     private javax.swing.JButton createStoreButton;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
     private javax.swing.JButton exitButton;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton faqButton;
     private javax.swing.JButton loginButton;
     private javax.swing.JButton showCellarForm;
+    private javax.swing.JButton showSuppliersButton;
     // End of variables declaration//GEN-END:variables
 }
