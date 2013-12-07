@@ -121,7 +121,8 @@ public class UserDao implements IUserDao {
         try {
             session.beginTransaction();
             int userId = new UserDao().getUserIdByUsername(userName).getUserId();
-            String hql = "update User set password = '" + password + "', customerName = '" + customerName + "', customerLastname = '" + customerLastname + "', telephoneNum = '" + telephoneNum + "'  where userId='" + userId + "'";
+            String hql = "update User set password = '" + password + "', customerName = '" + customerName + "',"
+                    + " customerLastname = '" + customerLastname + "', telephoneNum = '" + telephoneNum + "'  where userId='" + userId + "'";
             Query q = session.createQuery(hql);
             q.executeUpdate();
             session.getTransaction().commit();

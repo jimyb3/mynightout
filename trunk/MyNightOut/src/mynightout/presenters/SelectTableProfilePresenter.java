@@ -5,6 +5,7 @@
  */
 package mynightout.presenters;
 
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionListener;
 import java.net.URL;
@@ -43,8 +44,9 @@ public class SelectTableProfilePresenter {
         Container pane = form.getContentPane();
         int tableNumber = row1 + row2 + row3 + row4 + row5 + row6 + 1;
         JButton[] table = new JButton[tableNumber];
-        String imagePath = "/images/freeTable.jpg";
-        URL url = getClass().getResource(imagePath);
+        String freeTableImage = "/images/freeTable.png";
+        String noFreeTableImage = "/images/NoFreeTable.png";
+        URL url = getClass().getResource(freeTableImage);
 
         ImageIcon icon = new ImageIcon(url);
         /**
@@ -56,6 +58,10 @@ public class SelectTableProfilePresenter {
             table[count] = new JButton("Α" + i);
             String tab = "Α" + i;
             table[count].setSize(120, 20);
+            table[count].setOpaque(false);
+            table[count].setBorderPainted(false);
+            table[count].setContentAreaFilled(false);
+            table[count].setForeground(new Color(00,00,00,00));
             table[count].setActionCommand(table[count].getText());//Δίνουμε στο Action το text που θέλουμε.
             boolean find = false;
             int j = 0;
@@ -67,12 +73,10 @@ public class SelectTableProfilePresenter {
             }
 
             if (find) {
-                imagePath = "/images/NoFreeTable.jpg";
-                url = getClass().getResource(imagePath);
+                url = getClass().getResource(noFreeTableImage);
                 icon = new ImageIcon(url);
             } else {
-                imagePath = "/images/freeTable.jpg";
-                url = getClass().getResource(imagePath);
+                url = getClass().getResource(freeTableImage);
                 icon = new ImageIcon(url);
                 table[count].addActionListener(new ActionListener() {
                     @Override
@@ -92,10 +96,13 @@ public class SelectTableProfilePresenter {
 
         JPanel p2 = new JPanel();
 
-        for (int i = 1;i <= row2;i++) {
+        for (int i = 1; i <= row2; i++) {
             table[count] = new JButton("Β" + i);
             String tab = "Β" + i;
             table[count].setSize(120, 20);
+            table[count].setOpaque(false);
+            table[count].setBorderPainted(false);
+            table[count].setContentAreaFilled(false);
             table[count].setActionCommand(table[count].getText());//Δίνουμε στο Action το text που θέλουμε.
             boolean find = false;
             int j = 0;
@@ -107,12 +114,10 @@ public class SelectTableProfilePresenter {
             }
 
             if (find) {
-                imagePath = "/images/NoFreeTable.jpg";
-                url = getClass().getResource(imagePath);
+                url = getClass().getResource(noFreeTableImage);
                 icon = new ImageIcon(url);
             } else {
-                imagePath = "/images/freeTable.jpg";
-                url = getClass().getResource(imagePath);
+                url = getClass().getResource(freeTableImage);
                 icon = new ImageIcon(url);
                 table[count].addActionListener(new ActionListener() {
                     @Override
@@ -134,12 +139,13 @@ public class SelectTableProfilePresenter {
 
         JPanel p3 = new JPanel();
 
-        for (int i = 1;
-                i <= row3;
-                i++) {
+        for (int i = 1; i <= row3; i++) {
             table[count] = new JButton("Γ" + i);
             String tab = "Γ" + i;
             table[count].setSize(120, 20);
+            table[count].setOpaque(false);
+            table[count].setBorderPainted(false);
+            table[count].setContentAreaFilled(false);
             table[count].setActionCommand(table[count].getText());//Δίνουμε στο Action το text που θέλουμε.
             boolean find = false;
             int j = 0;
@@ -151,12 +157,10 @@ public class SelectTableProfilePresenter {
             }
 
             if (find) {
-                imagePath = "/images/NoFreeTable.jpg";
-                url = getClass().getResource(imagePath);
+                url = getClass().getResource(noFreeTableImage);
                 icon = new ImageIcon(url);
             } else {
-                imagePath = "/images/freeTable.jpg";
-                url = getClass().getResource(imagePath);
+                url = getClass().getResource(freeTableImage);
                 icon = new ImageIcon(url);
                 table[count].addActionListener(new ActionListener() {
                     @Override
@@ -178,12 +182,13 @@ public class SelectTableProfilePresenter {
 
         JPanel p4 = new JPanel();
 
-        for (int i = 1;
-                i <= row4;
-                i++) {
+        for (int i = 1; i <= row4; i++) {
             table[count] = new JButton("Δ" + i);
             String tab = "Δ" + i;
             table[count].setSize(120, 20);
+            table[count].setOpaque(false);
+            table[count].setBorderPainted(false);
+            table[count].setContentAreaFilled(false);
             table[count].setActionCommand(table[count].getText());//Δίνουμε στο Action το text που θέλουμε.
             boolean find = false;
             int j = 0;
@@ -195,12 +200,10 @@ public class SelectTableProfilePresenter {
             }
 
             if (find) {
-                imagePath = "/images/NoFreeTable.jpg";
-                url = getClass().getResource(imagePath);
+                url = getClass().getResource(noFreeTableImage);
                 icon = new ImageIcon(url);
             } else {
-                imagePath = "/images/freeTable.jpg";
-                url = getClass().getResource(imagePath);
+                url = getClass().getResource(freeTableImage);
                 icon = new ImageIcon(url);
                 table[count].addActionListener(new ActionListener() {
                     @Override
@@ -222,12 +225,13 @@ public class SelectTableProfilePresenter {
 
         JPanel p5 = new JPanel();
 
-        for (int i = 1;
-                i <= row5;
-                i++) {
+        for (int i = 1; i <= row5; i++) {
             table[count] = new JButton("Ε" + i);
             String tab = "Ε" + i;
             table[count].setSize(120, 20);
+            table[count].setOpaque(false);
+            table[count].setBorderPainted(false);
+            table[count].setContentAreaFilled(false);
             table[count].setActionCommand(table[count].getText());//Δίνουμε στο Action το text που θέλουμε.
             boolean find = false;
             int j = 0;
@@ -239,12 +243,10 @@ public class SelectTableProfilePresenter {
             }
 
             if (find) {
-                imagePath = "/images/NoFreeTable.jpg";
-                url = getClass().getResource(imagePath);
+                url = getClass().getResource(noFreeTableImage);
                 icon = new ImageIcon(url);
             } else {
-                imagePath = "/images/freeTable.jpg";
-                url = getClass().getResource(imagePath);
+                url = getClass().getResource(freeTableImage);
                 icon = new ImageIcon(url);
                 table[count].addActionListener(new ActionListener() {
                     @Override
@@ -266,12 +268,13 @@ public class SelectTableProfilePresenter {
 
         JPanel p6 = new JPanel();
 
-        for (int i = 1;
-                i <= row6;
-                i++) {
+        for (int i = 1; i <= row6; i++) {
             table[count] = new JButton("Ζ" + i);
             String tab = "Ζ" + i;
             table[count].setSize(120, 20);
+            table[count].setOpaque(false);
+            table[count].setBorderPainted(false);
+            table[count].setContentAreaFilled(false);
             table[count].setActionCommand(table[count].getText());//Δίνουμε στο Action το text που θέλουμε.
             boolean find = false;
             int j = 0;
@@ -283,12 +286,10 @@ public class SelectTableProfilePresenter {
             }
 
             if (find) {
-                imagePath = "/images/NoFreeTable.jpg";
-                url = getClass().getResource(imagePath);
+                url = getClass().getResource(noFreeTableImage);
                 icon = new ImageIcon(url);
             } else {
-                imagePath = "/images/freeTable.jpg";
-                url = getClass().getResource(imagePath);
+                url = getClass().getResource(freeTableImage);
                 icon = new ImageIcon(url);
                 table[count].addActionListener(new ActionListener() {
                     @Override
@@ -344,7 +345,8 @@ public class SelectTableProfilePresenter {
          * ιδανικό ύψος του παραθύρου ώστε να το ορίζει στην εντολή
          * setSize(maxRow*120,numberRow*50)
          */
-        form.setSize(max* 115, 8 * 120);
+        form.setSize(max * 115, 8 * 120);
         form.setVisible(true);
+        
     }
 }

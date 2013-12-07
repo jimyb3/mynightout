@@ -64,7 +64,9 @@ public class TablesDao {
         try {
             session.beginTransaction();
             int clubId = new NightClubDao().getNightClubIdByNightClubName(clubName).getClubId();
-            String hql = "update Tables set firstRow = '" + firstRow + "', secondRow = '" + secondRow + "', thirdRow = '" + thirdRow + "', fourthRow = '" + fourthRow + "', fifthRow='" + fifthRow + "', sixthRow='" + sixthRow + "'  where clubId='" + clubId + "'";
+            String hql = "update Tables set firstRow = '" + firstRow + "', secondRow = '" + secondRow + "',"
+                    + " thirdRow = '" + thirdRow + "', fourthRow = '" + fourthRow + "', fifthRow='" + fifthRow + "',"
+                    + " sixthRow='" + sixthRow + "'  where clubId='" + clubId + "'";
             Query q = session.createQuery(hql);
             q.executeUpdate();
             session.getTransaction().commit();
