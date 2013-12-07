@@ -6,7 +6,8 @@
 package mynightout.dao;
 
 import java.util.List;
-import mynightout.dao.NightClubDao;
+import mynightout.entity.Nightclub;
+import mynightout.entity.Reservation;
 import mynightout.entity.Tables;
 import mynightout.util.HibernateUtil;
 import org.hibernate.HibernateException;
@@ -40,7 +41,7 @@ public class TablesDao {
             return null;
         }
     }
-    
+
     public Tables insertClubsTables(String clubName, int firstRow, int secondRow, int thirdRow, int fourthRow, int fifthRow, int sixthRow) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
@@ -57,13 +58,13 @@ public class TablesDao {
             return null;
         }
     }
-    
+
     public boolean updateClubsTables(String clubName, int firstRow, int secondRow, int thirdRow, int fourthRow, int fifthRow, int sixthRow) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             int clubId = new NightClubDao().getNightClubIdByNightClubName(clubName).getClubId();
-            String hql = "update Tables set firstRow = '" + firstRow + "', secondRow = '" + secondRow + "', thirdRow = '" + thirdRow + "', fourthRow = '" + fourthRow + "', fifthRow='"+fifthRow+"', sixthRow='"+sixthRow+"'  where clubId='" + clubId + "'";
+            String hql = "update Tables set firstRow = '" + firstRow + "', secondRow = '" + secondRow + "', thirdRow = '" + thirdRow + "', fourthRow = '" + fourthRow + "', fifthRow='" + fifthRow + "', sixthRow='" + sixthRow + "'  where clubId='" + clubId + "'";
             Query q = session.createQuery(hql);
             q.executeUpdate();
             session.getTransaction().commit();
@@ -73,6 +74,31 @@ public class TablesDao {
             he.printStackTrace();
             session.beginTransaction().rollback();
             return false;
+        }
+    }
+
+    public int numberOfTablesByClubId(int clubId) {
+        int numberOfTables = 0;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+
+            String hql = "from Tables ta where ta.clubId='" + clubId + "'";
+            Query w = session.createQuery(hql);
+            List resultList = w.list();
+            session.getTransaction().commit();
+            session.close();
+
+            Tables ta = new Tables();
+            for (Object o : resultList) {
+                ta = (Tables) o;
+                numberOfTables = ta.getFirstRow() + ta.getSecondRow() + ta.getThirdRow() + ta.getFourthRow() + ta.getFifthRow() + ta.getSixthRow();
+            }
+            return numberOfTables;
+        } catch (HibernateException he) {
+            he.printStackTrace();
+            session.beginTransaction().rollback();
+            return numberOfTables;
         }
     }
 }
