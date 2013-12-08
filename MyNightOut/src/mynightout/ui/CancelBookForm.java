@@ -133,7 +133,7 @@ public class CancelBookForm extends javax.swing.JFrame {
         CancelBookController controller=new CancelBookController();
         int reservationId=Integer.parseInt(reservationIdTextField.getText());
         
-        mesageLabel.setText(new UserDao().getUserIdByUsername(userNameTextField.getText()).getCustomerLastname());
+        mesageLabel.setText(new UserDao().getUserDataByUsername(userNameTextField.getText()).getCustomerLastname());
         try{
             ReservationPk cancelReservation=controller.cancelReservation(userNameTextField.getText(), reservationId);
             JOptionPane.showMessageDialog(null, "Reservation canceled with id: " + reservationId, "Success",JOptionPane.INFORMATION_MESSAGE);

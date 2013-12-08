@@ -59,7 +59,7 @@ public class TablesDao {
         }
     }
 
-    public boolean updateClubsTables(String clubName, int firstRow, int secondRow, int thirdRow, int fourthRow, int fifthRow, int sixthRow) {
+    public Tables updateClubsTables(String clubName, int firstRow, int secondRow, int thirdRow, int fourthRow, int fifthRow, int sixthRow) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
@@ -71,11 +71,12 @@ public class TablesDao {
             q.executeUpdate();
             session.getTransaction().commit();
             session.close();
-            return true;
+            Tables tables = new Tables(clubId, firstRow, secondRow, thirdRow, fourthRow, fifthRow, sixthRow);
+            return tables;
         } catch (HibernateException he) {
             he.printStackTrace();
             session.beginTransaction().rollback();
-            return false;
+            return null;
         }
     }
 
