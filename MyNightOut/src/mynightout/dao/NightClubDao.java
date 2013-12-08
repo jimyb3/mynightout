@@ -47,7 +47,7 @@ public class NightClubDao implements INightClubDao {
     }
 //επιστρέφει το <clubid> του χρήστη <clubname>
 
-    public Nightclub getNightClubIdByNightClubName(String clubName) {
+    public Nightclub getNightClubDataByClubName(String clubName) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
@@ -69,17 +69,20 @@ public class NightClubDao implements INightClubDao {
     }
 
 //βρίσκει και επιστρέφει το clubName to  καταστήματος με clubId
-    public String getNightClubNameByNightClubId(int clubId) {
+    public Nightclub getNightClubDataByClubId(int clubId) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            String hqlNightClub = "select cl.clubName from Nightclub cl where cl.clubId='" + clubId + "'";
+            String hqlNightClub = "from Nightclub cl where cl.clubId='" + clubId + "'";
             Query w = session.createQuery(hqlNightClub);
             List resultList = w.list();
             session.getTransaction().commit();
-            String clubName = (String) resultList.get(0);
             session.close();
-            return clubName;
+            Nightclub nightClub = new Nightclub();
+            for (Object o : resultList) {
+                nightClub = (Nightclub) o;
+            }
+            return nightClub;
         } catch (HibernateException he) {
             he.printStackTrace();
             session.beginTransaction().rollback();
@@ -91,58 +94,37 @@ public class NightClubDao implements INightClubDao {
         //8a doume an xreiastei
     }
 
-    //ΔΕΔΟΜΕΝΑ ΚΑΤΑΣΤΗΜΑΤΟΣ(!!!!!!!!!!!!!!!!!!!!!!)
-    //όρισμα : clubName
-    //επιστρέφει αντικείμενο List με δεδομένα του <clubName>
-    //null αν υπάρχει λάθος    
-    public List getNightClubData(String clubName) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        try {
-            String hql = "from Nightclub nin where nin.clubName='" + clubName + "'";
-            session.beginTransaction();
-            Query q = session.createQuery(hql);
-            List clubDataList = q.list();
-            session.getTransaction().commit();
-            session.close();
-            return clubDataList;
-        } catch (HibernateException he) {
-            he.printStackTrace();
-            session.beginTransaction().rollback();
-            return null;
-        }
-
-    }
 //ΕΝΗΜΕΡΩΣΗ ΤΩΝ ΔΕΔΟΜΕΝΩΝ ΕΝΟΣ ΜΑΓΑΖΙΟΥ
     //ορίσματα : clubName, clubPassword, seatNumber, telephoneNum
     //επιστρέφει true αν έγινε η ενημέρωση, alliws false
     // todo : είναι σωστό που επστρέφει boolean ?
     //todo : θα έχει περισσότερα πεδία το Nightclub αργότερα
-
-    public boolean updateNightClubData(String clubName, String clubPassword, int seatNumber, String telephoneNum,
+    public Nightclub updateNightClubData(String clubName, String clubPassword, int seatNumber, String telephoneNum,
             String address, String email, String category, String clubImage) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            int clubId = new NightClubDao().getNightClubIdByNightClubName(clubName).getClubId();
+            int clubId = new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
             String hql = "update Nightclub set clubPassword = '" + clubPassword + "', seatNumber = '" + seatNumber + "',"
-                    + " telephoneNum = '" + telephoneNum + "', address='"+ address +"', email='"+ email +"', category='"+ category +"',"
-                    + " clubImage='"+ clubImage +"'  where clubId='" + clubId + "'";
+                    + " telephoneNum = '" + telephoneNum + "', address='" + address + "', email='" + email + "', category='" + category + "',"
+                    + " clubImage='" + clubImage + "'  where clubId='" + clubId + "'";
             Query q = session.createQuery(hql);
             q.executeUpdate();
             session.getTransaction().commit();
             session.close();
-            return true;
+            Nightclub nightClub = new Nightclub(clubName, clubPassword, address, email, seatNumber, telephoneNum, category, clubImage);
+            return nightClub;
         } catch (HibernateException he) {
             he.printStackTrace();
             session.beginTransaction().rollback();
-            return false;
+            return null;
         }
     }
 
     //έλεγχος των στοιχείων εισόδου ενός καταστήματος, αν υπάρχουν στη βάση
     //ορίσματα : clubName, clubPassWord
     //true αν είναι σωστά, αλλιώς false
-    public boolean isNightClubDataValid(String clubName, String clubPassWord) {
+    public Nightclub isNightClubDataValid(String clubName, String clubPassWord) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             String hql = "from Nightclub nclub where nclub.clubName='" + clubName + "' and nclub.clubPassword='" + clubPassWord + "'";
@@ -150,11 +132,15 @@ public class NightClubDao implements INightClubDao {
             Query q = session.createQuery(hql);
             List resultList = q.list();
             session.getTransaction().commit();
-            return !resultList.isEmpty();
+            Nightclub nightClub = new Nightclub();
+            for (Object o : resultList) {
+                nightClub = (Nightclub) o;
+            }
+            return nightClub;
         } catch (HibernateException he) {
             he.printStackTrace();
             session.beginTransaction().rollback();
-            return false;
+            return null;
         }
     }
 
@@ -205,6 +191,45 @@ public class NightClubDao implements INightClubDao {
             he.printStackTrace();
             session.beginTransaction().rollback();
             return false;
+        }
+    }
+
+    public Nightclub updateNightClubClosedDates(int clubId, Date closedFrom, Date closedThrough) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            String hql = "update Nightclub set closedFrom='" + closedFrom + "'"
+                    + " and closedThrough='" + closedThrough + "'"
+                    + "  where clubId='" + clubId + "'";
+            Query q = session.createQuery(hql);
+            q.executeUpdate();
+            session.getTransaction().commit();
+            session.close();
+            Nightclub nightClub = new Nightclub(closedFrom, closedThrough);
+            return nightClub;
+        } catch (HibernateException he) {
+            he.printStackTrace();
+            session.beginTransaction().rollback();
+            return null;
+        }
+    }
+
+    public Nightclub updateNightClubDaysClosed(int clubId, String daysClosed) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            String hql = "update Nightclub set daysClosed='" + daysClosed + "'"
+                    + "  where clubId='" + clubId + "'";
+            Query q = session.createQuery(hql);
+            q.executeUpdate();
+            session.getTransaction().commit();
+            session.close();
+            Nightclub nightClub = new Nightclub(daysClosed);
+            return nightClub;
+        } catch (HibernateException he) {
+            he.printStackTrace();
+            session.beginTransaction().rollback();
+            return null;
         }
     }
 }

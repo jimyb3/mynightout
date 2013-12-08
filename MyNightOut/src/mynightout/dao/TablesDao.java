@@ -24,7 +24,7 @@ public class TablesDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            int clubId = new NightClubDao().getNightClubIdByNightClubName(clubName).getClubId();
+            int clubId = new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
             String hql = "from Tables tables where tables.clubId='" + clubId + "'";
             Query q = session.createQuery(hql);
             List resultList = q.list();
@@ -46,7 +46,7 @@ public class TablesDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            int clubId = new NightClubDao().getNightClubIdByNightClubName(clubName).getClubId();
+            int clubId = new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
             Tables tables = new Tables(clubId, firstRow, secondRow, thirdRow, fourthRow, fifthRow, sixthRow);
             session.save(tables);
             session.flush();
@@ -63,7 +63,7 @@ public class TablesDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            int clubId = new NightClubDao().getNightClubIdByNightClubName(clubName).getClubId();
+            int clubId = new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
             String hql = "update Tables set firstRow = '" + firstRow + "', secondRow = '" + secondRow + "',"
                     + " thirdRow = '" + thirdRow + "', fourthRow = '" + fourthRow + "', fifthRow='" + fifthRow + "',"
                     + " sixthRow='" + sixthRow + "'  where clubId='" + clubId + "'";
