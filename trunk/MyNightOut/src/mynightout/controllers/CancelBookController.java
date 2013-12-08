@@ -51,7 +51,7 @@ public class CancelBookController {
         res.setReservationId(reservationId);
         int userId = new UserDao().getUserIdByUsername(userName).getUserId();
         res.setUserId(userId);
-        if (changeReservationStatus.cancelReservationByUser(res)) {
+        if (res.equals(changeReservationStatus.cancelReservationByUser(res))) {
             try {
                 return res;
             } catch (Exception e) {

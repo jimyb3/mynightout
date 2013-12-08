@@ -42,7 +42,7 @@ public class ReservationDao implements IReservationDao {
         try {
             session.beginTransaction();
             int userId = new UserDao().getUserIdByUsername(userName).getUserId();
-            int clubId = new NightClubDao().getNightClubIdByNightClubName(nightClubName).getClubId();
+            int clubId = new NightClubDao().getNightClubDataByClubName(nightClubName).getClubId();
             ReservationPk res=new ReservationPk();
             res.setUserId(userId);
             res.setClubId(clubId);
@@ -86,23 +86,24 @@ public class ReservationDao implements IReservationDao {
     //ορίσματα username και reservationId
     // επιστρέφει true αν έγινε η ακύρωση, αλλιώς false
 
-    public boolean cancelReservationByUser(ReservationPk reservation) {
+    public ReservationPk cancelReservationByUser(ReservationPk reservation) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
+            ReservationPk rpk=new ReservationPk();
             session.beginTransaction();
             String hql = "update Reservation re set re.reservationStatus ='inactive' "
                     + "where re.id.userId='" + reservation.getUserId() + "' and re.id.reservationId='" + reservation.getReservationId() + "'";
             Query q = session.createQuery(hql);
-            if(q.executeUpdate()==1){
-                session.getTransaction().commit();
-                session.close();
-                return true;
-            }
-            return false;
+            q.executeUpdate();
+            session.getTransaction().commit();
+            session.close();
+            rpk.setUserId(reservation.getUserId());
+            rpk.setReservationId(reservation.getReservationId());
+            return rpk;
         } catch (HibernateException he) {
             he.printStackTrace();
             session.beginTransaction().rollback();
-            return false;
+            return null;
         }
 
     }
@@ -111,22 +112,24 @@ public class ReservationDao implements IReservationDao {
     //ο καταστηματάρχης διαγράφει κάποια κράτηση
     //ορίσματα clubName και reservationId
     //επιστρέφει true αν έγινε η ακύρωση, αλλιώς false
-    public boolean cancelReservationByNightClub(ReservationPk reservation) {
+    public ReservationPk cancelReservationByNightClub(ReservationPk reservation) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            
+            ReservationPk rpk=new ReservationPk();
             String hql = "update Reservation re set re.reservationStatus ='inactive' "
                     + "where re.id.clubId='" + reservation.getClubId() + "' and re.id.reservationId='" + reservation.getReservationId() + "'";
             Query q = session.createQuery(hql);
             q.executeUpdate();
             session.getTransaction().commit();
             session.close();
-            return true;
+            rpk.setClubId(reservation.getClubId());
+            rpk.setReservationId(reservation.getReservationId());
+            return rpk;
         } catch (HibernateException he) {
             he.printStackTrace();
             session.beginTransaction().rollback();
-            return false;
+            return null;
         }
 
     }

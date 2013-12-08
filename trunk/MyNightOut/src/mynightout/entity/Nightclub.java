@@ -33,8 +33,7 @@ public class Nightclub  implements java.io.Serializable {
     }
 
     public Nightclub(String clubName, String clubPassword, String address, 
-            String emailAddress, int seatNumber, String telephoneNum, String categoryId, String clubImage, 
-            Date closedFrom, Date closedThrough, String daysClosed) {
+            String emailAddress, int seatNumber, String telephoneNum, String categoryId, String clubImage) {
        this.clubName = clubName;
        this.clubPassword = clubPassword;
        this.address = address;
@@ -43,9 +42,17 @@ public class Nightclub  implements java.io.Serializable {
        this.telephoneNum = telephoneNum;
        this.category = categoryId;
        this.clubImage = clubImage;
+       
+       
+    }
+    
+    public Nightclub(Date closedFrom, Date closedThrough){
        this.closedFrom = closedFrom;
        this.closedThrough = closedThrough;
-       this.daysClosed = daysClosed;
+    }
+    
+    public Nightclub(String daysClosed){
+        this.daysClosed = daysClosed;
     }
    
     public Integer getClubId() {

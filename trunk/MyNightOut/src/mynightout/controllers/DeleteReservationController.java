@@ -28,9 +28,9 @@ public class DeleteReservationController {
         ReservationDao changeReservationStatus = new ReservationDao();
         ReservationPk res = new ReservationPk();
         res.setReservationId(reservationId);
-        int clubId = new NightClubDao().getNightClubIdByNightClubName(clubName).getClubId();
+        int clubId = new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
         res.setClubId(clubId);
-        if (changeReservationStatus.cancelReservationByNightClub(res)) {
+        if (res.equals(changeReservationStatus.cancelReservationByNightClub(res))) {
             try {
                 return res;
             } catch (Exception e) {

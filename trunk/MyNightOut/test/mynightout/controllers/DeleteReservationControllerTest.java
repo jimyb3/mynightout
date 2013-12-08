@@ -57,7 +57,7 @@ public class DeleteReservationControllerTest {
         System.out.println("DeleteReservation");
         int reservationId = -1;
         String clubName="marias";
-        int clubId= new NightClubDao().getNightClubIdByNightClubName(clubName).getClubId();
+        int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
         DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
         ReservationPk result = instance.deleteReservation(clubName,reservationId);
         Assert.assertEquals(clubId,result.getClubId());
