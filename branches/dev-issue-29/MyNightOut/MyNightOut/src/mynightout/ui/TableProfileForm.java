@@ -7,7 +7,9 @@ package mynightout.ui;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import mynightout.dao.NightClubDao;
 import mynightout.dao.TablesDao;
+import mynightout.entity.Tables;
 
 /**
  *
@@ -149,10 +151,15 @@ public class TableProfileForm extends javax.swing.JFrame implements ISelectTable
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         // TODO add your handling code here:
         TablesDao td=new TablesDao();
+        int clubId = new NightClubDao().getNightClubDataByClubName(jLabel8.getText()).getClubId();
+        Tables t = new Tables(clubId, Integer.parseInt(jLabel2.getText()),
+                Integer.parseInt(jLabel3.getText()), Integer.parseInt(jLabel4.getText()),
+                Integer.parseInt(jLabel5.getText()), Integer.parseInt(jLabel6.getText()),
+                        Integer.parseInt(jLabel7.getText()));
         if(td.updateClubsTables(jLabel8.getText(), Integer.parseInt(jLabel2.getText()),
                 Integer.parseInt(jLabel3.getText()), Integer.parseInt(jLabel4.getText()),
                 Integer.parseInt(jLabel5.getText()), Integer.parseInt(jLabel6.getText()),
-                        Integer.parseInt(jLabel7.getText()))){
+                        Integer.parseInt(jLabel7.getText())).equals(t)){
         this.dispose();
         JOptionPane.showMessageDialog(null, "Περάστηκαν οι αλλαγές.", "Success",JOptionPane.INFORMATION_MESSAGE);
         JFrame mainFrame=new MainFrame();

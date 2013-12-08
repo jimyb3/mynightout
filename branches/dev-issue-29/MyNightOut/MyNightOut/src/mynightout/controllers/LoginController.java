@@ -5,7 +5,6 @@
  */
 package mynightout.controllers;
 
-
 import mynightout.dao.UserDao;
 import mynightout.entity.User;
 
@@ -18,11 +17,11 @@ public class LoginController {
     public User login(String userName, String passWord) {
 
         UserDao currentUser = new UserDao();
+        User user = new User(userName, passWord);
 
-        if (currentUser.isUserDataValid(userName, passWord)) {
+        if (user.equals(currentUser.isUserDataValid(userName, passWord))) {
             try {
-                User newUser = new User(userName, passWord);
-                return newUser;
+                return user;
 
             } catch (Exception e) {
                 throw new IllegalArgumentException("Πρόβλημα στην βάση");
