@@ -6,65 +6,17 @@
 
 package mynightout.ui;
 
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.SwingUtilities;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author Maria
  */
 public class EditSupplierForm extends javax.swing.JFrame {
-    private static final long serialVersionUID = 1L;
-       private JTable table;
+
     /**
      * Creates new form EditSupplierForm
      */
-   
     public EditSupplierForm() {
-       Object[] columnNames = {"Όνομα", "Επίθετο", "Όνομα Εταιρίας", "Κινητό Τηλέφωνο","Σταθερό Γραφείου","email", "Boolean"};
-
-        Object[][] data = {
-            {"Μάριος", "Χατζής","Chatzis A.E", "69718582200","2321066635","chatzisAE@companies.gr", false},
-            {"Δημητρης", "Βασιλίου","Vasiliou and Sons","69322115482","2321025893" ,"vasiliouandsons@companis.gr",true},
-            {"Ιωαννης", "Δημητρίου","Booze-it","6945862114","2103336852","boozeit@companies.gr", true},
-
-            {"Κωνσταντίνα","Καραγιαννίδη","karagian A.E", "6952588743","2321055525","karagianAE@companies.gr", false},
-        };
-     DefaultTableModel model = new DefaultTableModel(data, columnNames);
-        table = new JTable(model) {
-
-            private static final long serialVersionUID = 1L;
-
-           @Override
-            public Class getColumnClass(int column) {
-            return getValueAt(0, column).getClass();
-            }
-          
-            @Override
-            public Class getColumnClass(int column) {
-                switch (column) {
-                    case 0:
-                        return String.class;
-                    case 1:
-                        return String.class;
-                    case 2:
-                        return Integer.class;
-                    case 3:
-                        return Double.class;
-                    default:
-                        return Boolean.class;
-                }
-            }
-        };
-        table.setPreferredScrollableViewportSize(table.getPreferredSize());
-        JScrollPane scrollPane = new JScrollPane(table);
-        getContentPane().add(scrollPane);
-
-        
-
-        //  initComponents();
+        initComponents();
     }
 
     /**
@@ -76,67 +28,47 @@ public class EditSupplierForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        EditSupplierButton = new javax.swing.JButton();
+        EditButton = new javax.swing.JButton();
         CancelButton = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        editSupplierTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        EditSupplierButton.setText("Επεξεργασία");
-        EditSupplierButton.addActionListener(new java.awt.event.ActionListener() {
+        EditButton.setText("Επεξεργασία");
+        EditButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditSupplierButtonActionPerformed(evt);
+                EditButtonActionPerformed(evt);
             }
         });
 
         CancelButton.setText("Ακύρωση");
 
-        editSupplierTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(editSupplierTable);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(516, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 717, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(342, 342, 342)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(CancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(EditSupplierButton))))
-                .addContainerGap(86, Short.MAX_VALUE))
+                    .addComponent(CancelButton)
+                    .addComponent(EditButton))
+                .addGap(99, 99, 99))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(EditSupplierButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(CancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(EditButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 352, Short.MAX_VALUE)
+                .addComponent(CancelButton)
+                .addGap(59, 59, 59))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void EditSupplierButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditSupplierButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EditSupplierButtonActionPerformed
+    private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
+      this.editSupplier();  // TODO add your handling code here:
+    }//GEN-LAST:event_EditButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,16 +98,8 @@ public class EditSupplierForm extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-         SwingUtilities.invokeLater(new Runnable() {
-
-       
-       // java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                EditSupplierTable frame = new EditSupplierTable();
-                frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                frame.pack();
-                frame.setLocation(150, 150);
                 new EditSupplierForm().setVisible(true);
             }
         });
@@ -183,8 +107,6 @@ public class EditSupplierForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelButton;
-    private javax.swing.JButton EditSupplierButton;
-    private javax.swing.JTable editSupplierTable;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton EditButton;
     // End of variables declaration//GEN-END:variables
 }
