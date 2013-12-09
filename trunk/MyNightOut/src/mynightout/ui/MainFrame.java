@@ -48,6 +48,7 @@ public class MainFrame extends javax.swing.JFrame {
         showSuppliersButton = new javax.swing.JButton();
         changeNightClubTableProfileButton = new javax.swing.JButton();
         SelectTableButton = new javax.swing.JButton();
+        confirmReservationButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyNightOut");
@@ -143,12 +144,19 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        confirmReservationButton.setText("<html>Επιβεβαίωση των <br></br>\nστοιχειων της κράτησης</html>");
+        confirmReservationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmReservationButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
@@ -178,9 +186,12 @@ public class MainFrame extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(showCellarForm)
                                 .addComponent(showSuppliersButton))))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(SelectTableButton)
-                        .addComponent(changeNightClubTableProfileButton)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(confirmReservationButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SelectTableButton)
+                            .addComponent(changeNightClubTableProfileButton))))
                 .addGap(41, 41, 41))
         );
         layout.setVerticalGroup(
@@ -211,9 +222,12 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(showSuppliersButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(changeNightClubTableProfileButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SelectTableButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(changeNightClubTableProfileButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(SelectTableButton))
+                    .addComponent(confirmReservationButton))
                 .addContainerGap())
         );
 
@@ -323,6 +337,18 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_SelectTableButtonActionPerformed
 
+    private void confirmReservationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmReservationButtonActionPerformed
+        // TODO add your handling code here:
+        ConfirmReservationInfoForm crif=new ConfirmReservationInfoForm();
+        crif.customerLastNameLabel.setText("Λαλακίδης");
+        crif.customerNameLabel.setText("Λαλάκης");
+        crif.nightClubNameLabel.setText("Vogue");
+        crif.reservationDateLabel.setText("01/01/2014");
+        crif.reservationTableLabel.setText("Α3");
+        this.dispose();
+        crif.setVisible(true);
+    }//GEN-LAST:event_confirmReservationButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -363,6 +389,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton cancelReservationButton;
     private javax.swing.JButton changeNightClubTableProfileButton;
     private javax.swing.JButton checkFullnessButton;
+    private javax.swing.JButton confirmReservationButton;
     private javax.swing.JButton createReservationButton;
     private javax.swing.JButton createStoreButton;
     private javax.swing.JButton deleteButton;

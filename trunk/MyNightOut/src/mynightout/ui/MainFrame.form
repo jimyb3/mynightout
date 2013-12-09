@@ -25,7 +25,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -62,9 +62,13 @@
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                      <Component id="SelectTableButton" min="-2" max="-2" attributes="0"/>
-                      <Component id="changeNightClubTableProfileButton" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="confirmReservationButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="157" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="SelectTableButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="changeNightClubTableProfileButton" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
@@ -105,9 +109,14 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="showSuppliersButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="54" max="32767" attributes="0"/>
-              <Component id="changeNightClubTableProfileButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="SelectTableButton" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="changeNightClubTableProfileButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="SelectTableButton" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="confirmReservationButton" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -216,6 +225,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SelectTableButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="confirmReservationButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;&#x395;&#x3c0;&#x3b9;&#x3b2;&#x3b5;&#x3b2;&#x3b1;&#x3af;&#x3c9;&#x3c3;&#x3b7; &#x3c4;&#x3c9;&#x3bd; &lt;br&gt;&lt;/br&gt;&#xa;&#x3c3;&#x3c4;&#x3bf;&#x3b9;&#x3c7;&#x3b5;&#x3b9;&#x3c9;&#x3bd; &#x3c4;&#x3b7;&#x3c2; &#x3ba;&#x3c1;&#x3ac;&#x3c4;&#x3b7;&#x3c3;&#x3b7;&#x3c2;&lt;/html&gt;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmReservationButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

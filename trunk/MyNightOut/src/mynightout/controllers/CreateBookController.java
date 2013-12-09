@@ -19,8 +19,8 @@ public class CreateBookController {
 
     private IReservationDaoCreate createBookDao;
 
-    public CreateBookController(IReservationDaoCreate createBookDao) {
-        this.createBookDao = createBookDao;
+    public CreateBookController() {
+        
     }
     /**Η βάση μέσα στoν πίνακα κράτηση κρατάει μόνο το userId, το clubId, την ημερομηνία
      * κράτησης, των αριθμό θέσεων, και μια ένα status που μας δειχνει αν ειναι ενεργή
