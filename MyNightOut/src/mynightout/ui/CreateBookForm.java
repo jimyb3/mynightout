@@ -147,7 +147,7 @@ public class CreateBookForm extends javax.swing.JFrame {
          
         
        
-        CreateBookController controller = new CreateBookController(new ReservationDaoCreate());
+        CreateBookController controller = new CreateBookController();
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date reservationDate = new Date();

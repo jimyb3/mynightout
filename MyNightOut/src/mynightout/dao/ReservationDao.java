@@ -178,7 +178,7 @@ public class ReservationDao implements IReservationDao {
             List resultList = w.list();
             session.getTransaction().commit();
             session.close();
-            List tablesList = new ArrayList();
+            List<String> tablesList = new ArrayList<String>();
             Reservation re = new Reservation();
             for (Object o : resultList) {
                 re = (Reservation) o;
