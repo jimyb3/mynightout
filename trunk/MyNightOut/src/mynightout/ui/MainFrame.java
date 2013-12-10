@@ -9,7 +9,9 @@ import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import mynightout.controllers.DisplayCellarController;
 import mynightout.dao.TablesDao;
+import mynightout.entity.Cellar;
 import mynightout.entity.Tables;
 import mynightout.presenters.SelectTableProfilePresenter;
 
@@ -51,6 +53,7 @@ public class MainFrame extends javax.swing.JFrame {
         confirmReservationButton = new javax.swing.JButton();
         setClosedDatesButton = new javax.swing.JButton();
         setDaysClosedButton = new javax.swing.JButton();
+        displayCellarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyNightOut");
@@ -167,6 +170,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        displayCellarButton.setText("Εμφάνιση/Επεξεργασία κάβας");
+        displayCellarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                displayCellarButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -213,6 +223,10 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(SelectTableButton)
                             .addComponent(changeNightClubTableProfileButton))))
                 .addGap(41, 41, 41))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(208, 208, 208)
+                .addComponent(displayCellarButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,7 +259,9 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(setClosedDatesButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(showSuppliersButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(displayCellarButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(changeNightClubTableProfileButton)
@@ -389,6 +405,26 @@ public class MainFrame extends javax.swing.JFrame {
         sncdcf.setVisible(true);
     }//GEN-LAST:event_setDaysClosedButtonActionPerformed
 
+    private void displayCellarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayCellarButtonActionPerformed
+        // TODO add your handling code here:
+        String clubName="Vogue";
+        DisplayCellarController dcc= new DisplayCellarController();
+        Cellar cellar=dcc.displayCellar(clubName);
+        DisplayCellarForm dcf=new DisplayCellarForm();
+        this.dispose();
+        dcf.cellarTable.setValueAt(cellar.getVodka(), 0, 1);
+        dcf.cellarTable.setValueAt(cellar.getWhiskey(), 1, 1);
+        dcf.cellarTable.setValueAt(cellar.getWine(), 2, 1);
+        dcf.cellarTable.setValueAt(cellar.getLiqueur(), 3, 1);
+        dcf.cellarTable.setValueAt(cellar.getRum(), 4, 1);
+        dcf.cellarTable.setValueAt(cellar.getTequila(), 5, 1);
+        dcf.cellarTable.setValueAt(cellar.getBeer(), 6, 1);
+        dcf.secretClubNameLabel.setText(clubName);
+        dcf.setVisible(true);
+       
+        
+    }//GEN-LAST:event_displayCellarButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -433,6 +469,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton createReservationButton;
     private javax.swing.JButton createStoreButton;
     private javax.swing.JButton deleteButton;
+    private javax.swing.JButton displayCellarButton;
     private javax.swing.JButton editButton;
     private javax.swing.JButton exitButton;
     private javax.swing.JButton faqButton;
