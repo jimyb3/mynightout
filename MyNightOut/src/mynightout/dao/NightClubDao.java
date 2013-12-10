@@ -183,7 +183,7 @@ public class NightClubDao implements INightClubDao {
             Calendar c = Calendar.getInstance();
             c.setTime(reservationDate);
             int dayOfReservation = c.get(Calendar.DAY_OF_WEEK);
-            for (int i = 0; i <= daysClosedArray.length; i++) {
+            for (int i = 1; i <= daysClosedArray.length; i++) {
                 if (!Integer.toString(dayOfReservation).equals(daysClosedArray[i])) {
                     open = true;
                 }
