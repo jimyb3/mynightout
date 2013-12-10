@@ -16,13 +16,14 @@ import mynightout.entity.Reservation;
  */
 public class DeleteReservationController {
 
-    private IReservationDaoDelete reservationDao;
-
-    public DeleteReservationController(IReservationDaoDelete reservationDao) {
-        this.reservationDao = reservationDao;
+   // private IReservationDaoDelete reservationDao;
+//
+  //  public DeleteReservationController(IReservationDaoDelete reservationDao) {
+     //   this.reservationDao = reservationDao;
 
     }
 
+    
     public Reservation deleteReservation(String clubName,int reservationId) {
        ReservationDao changeReservationStatus = new ReservationDao();
        
