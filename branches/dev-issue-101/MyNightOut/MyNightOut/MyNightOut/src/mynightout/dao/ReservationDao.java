@@ -33,7 +33,7 @@ public class ReservationDao implements IReservationDao {
 
     //ΚΡΑΤΗΣΗ
     //δημιουργεί νεα κράτηση στη βάση
-    //ορίσματα : userName, nightClubName, reservationDate, seatNumber
+    //ορίσματα : userName, nightClubName, reservationDate, seatNumber.....
     //επιστρέφει αντικείμενο Reservation με τα χαρακτηριστικά της νέας κράτησης, εαν προστέθηκε στη βάση η εγγραφή
     //αλλιώς, null
     public Reservation insertReservationData(String userName, String nightClubName, Date reservationDate, String trapezi, int seatNumber) {
@@ -83,8 +83,8 @@ public class ReservationDao implements IReservationDao {
     }
 //ΑΚΥΡΩΣΗ ΚΡΑΤΗΣΗΣ 
     //ο χρηστης ακυρώνει κάποια κράτηση
-    //ορίσματα username και reservationId
-    // επιστρέφει true αν έγινε η ακύρωση, αλλιώς false
+    //ορίσμα ReservationPl reservation
+    // επιστρέφει to antoistoixo ReservationPK an egine swsta, alliws null
 
     public ReservationPk cancelReservationByUser(ReservationPk reservation) {
         Session session = HibernateUtil.getSessionFactory().openSession();

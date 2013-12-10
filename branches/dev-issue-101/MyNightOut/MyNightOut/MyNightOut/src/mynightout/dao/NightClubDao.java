@@ -45,7 +45,7 @@ public class NightClubDao implements INightClubDao {
         }
 
     }
-//επιστρέφει το <clubid> του χρήστη <clubname>
+//επιστρέφει αντικείμενο nightclub με τα δεδομένα του καταστήματος με <clubName>
 
     public Nightclub getNightClubDataByClubName(String clubName) {
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -68,7 +68,7 @@ public class NightClubDao implements INightClubDao {
         }
     }
 
-//βρίσκει και επιστρέφει το clubName to  καταστήματος με clubId
+//επιστρέφει αντικείμενο nightclub με τα δεδομένα του καταστήματος με <clubId>
     public Nightclub getNightClubDataByClubId(int clubId) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
@@ -90,15 +90,11 @@ public class NightClubDao implements INightClubDao {
         }
     }
 
-    public void insertNewNightClub() {
-        //8a doume an xreiastei
-    }
+  
 
 //ΕΝΗΜΕΡΩΣΗ ΤΩΝ ΔΕΔΟΜΕΝΩΝ ΕΝΟΣ ΜΑΓΑΖΙΟΥ
-    //ορίσματα : clubName, clubPassword, seatNumber, telephoneNum
-    //επιστρέφει true αν έγινε η ενημέρωση, alliws false
-    // todo : είναι σωστό που επστρέφει boolean ?
-    //todo : θα έχει περισσότερα πεδία το Nightclub αργότερα
+    //ορίσματα : clubName, clubPassword, seatNumber, telephoneNum,address,email,category,clubImage
+    //επιστρέφει to antikeimeno an egine swsta, alliws null
     public Nightclub updateNightClubData(String clubName, String clubPassword, int seatNumber, String telephoneNum,
             String address, String email, String category, String clubImage) {
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -123,7 +119,7 @@ public class NightClubDao implements INightClubDao {
 
     //έλεγχος των στοιχείων εισόδου ενός καταστήματος, αν υπάρχουν στη βάση
     //ορίσματα : clubName, clubPassWord
-    //true αν είναι σωστά, αλλιώς false
+    //Nightclub an einai swsto, alliws null
     public Nightclub isNightClubDataValid(String clubName, String clubPassWord) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {

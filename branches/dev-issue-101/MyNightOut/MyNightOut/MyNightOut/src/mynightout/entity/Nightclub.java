@@ -45,7 +45,10 @@ public class Nightclub  implements java.io.Serializable {
        
        
     }
-    
+    public Nightclub(String clubName,String clubPassword) {
+        this.clubName = clubName;
+        this.clubPassword = clubPassword;        
+    }
     public Nightclub(Date closedFrom, Date closedThrough){
        this.closedFrom = closedFrom;
        this.closedThrough = closedThrough;
@@ -154,6 +157,30 @@ public class Nightclub  implements java.io.Serializable {
 
     public void setStoreFull(boolean storeFull) {
         this.storeFull = storeFull;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Nightclub other = (Nightclub) obj;
+        if ((this.clubName == null) ? (other.clubName != null) : !this.clubName.equals(other.clubName)) {
+            return false;
+        }
+        if ((this.clubPassword == null) ? (other.clubPassword != null) : !this.clubPassword.equals(other.clubPassword)) {
+            return false;
+        }
+        return true;
     }
 
 
