@@ -48,7 +48,7 @@ public class CancelBookControllerTest {
     public void testSuccessfulCancel() {
         System.out.println("cancelSuccessfulReservation");
         String userName = "user1";
-        int userId=new UserDao().getUserIdByUsername(userName).getUserId();
+        int userId=new UserDao().getUserDataByUsername(userName).getUserId();
         int reservationId = 6;
         CancelBookController instance = new CancelBookController();
         ReservationPk expResult = new ReservationPk();
@@ -65,7 +65,7 @@ public class CancelBookControllerTest {
     public void testFailedCancelNoUserName() {
         System.out.println("cancelReservation");
         String userName = null;
-        int userId=new UserDao().getUserIdByUsername(userName).getUserId();
+        int userId=new UserDao().getUserDataByUsername(userName).getUserId();
         int reservationId = 5;
         
         CancelBookController instance = new CancelBookController();
@@ -83,7 +83,7 @@ public class CancelBookControllerTest {
     public void testFailedCancelWithBigUserName() {
         System.out.println("cancelReservation");
         String userName = "qwertyuiopasdfgh";
-        int userId=new UserDao().getUserIdByUsername(userName).getUserId();
+        int userId=new UserDao().getUserDataByUsername(userName).getUserId();
         int reservationId = 1;
         
         CancelBookController instance = new CancelBookController();
@@ -100,7 +100,7 @@ public class CancelBookControllerTest {
     public void testFailedCancelWithBigReservationId() {
         System.out.println("cancelReservation");
         String userName = "user1";
-        int userId=new UserDao().getUserIdByUsername(userName).getUserId();
+        int userId=new UserDao().getUserDataByUsername(userName).getUserId();
         int reservationId = 1999999999;
         
         CancelBookController instance = new CancelBookController();
@@ -118,7 +118,7 @@ public class CancelBookControllerTest {
     public void testFailedCancelWithBigReservationIdAndUserName() {
         System.out.println("cancelReservation");
         String userName = "qwertyuiopasdfgh";
-        int userId=new UserDao().getUserIdByUsername(userName).getUserId();
+        int userId=new UserDao().getUserDataByUsername(userName).getUserId();
         int reservationId = 1999999999;
         
         CancelBookController instance = new CancelBookController();
@@ -136,7 +136,7 @@ public class CancelBookControllerTest {
     public void testFailedCancelWithSmallReservationIdAndBigUserName() {
         System.out.println("cancelReservation");
         String userName = "qwertyuiopasdfgh";
-        int userId=new UserDao().getUserIdByUsername(userName).getUserId();
+        int userId=new UserDao().getUserDataByUsername(userName).getUserId();
         int reservationId = -1;
         
         CancelBookController instance = new CancelBookController();
@@ -154,7 +154,7 @@ public class CancelBookControllerTest {
     public void testFailedCancelWithBigReservationIdNoUserName() {
         System.out.println("cancelReservation");
         String userName = "";
-        int userId=new UserDao().getUserIdByUsername(userName).getUserId();
+        int userId=new UserDao().getUserDataByUsername(userName).getUserId();
         int reservationId = 1999999999;
         
         CancelBookController instance = new CancelBookController();

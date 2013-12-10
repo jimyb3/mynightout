@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import mynightout.controllers.CreateBookController;
 import mynightout.dao.NightClubDao;
 import mynightout.exceptions.DaoException;
@@ -172,7 +173,8 @@ public class ConfirmReservationInfoForm extends javax.swing.JFrame {
         try {
             Date reservationDate = (Date) formatter.parseObject(date);
             CreateBookController cbc=new CreateBookController();
-        cbc.createReservationNew(userId, clubId, reservationDate, "Α3", 5, "active");
+            cbc.createReservationNew(userId, clubId, reservationDate, "Α3", 5, "active");
+            JOptionPane.showMessageDialog(null, "Έγινε η καταχώρηση της νέας κράτησης", "Success",JOptionPane.INFORMATION_MESSAGE);
         } catch (ParseException ex) {
             Logger.getLogger(ConfirmReservationInfoForm.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalArgumentException ex) {
