@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 ??? 2013 5:28:21 ?? by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="mynightout" name="mynightout.entity.User" table="user">
+    <id name="userId" type="java.lang.Integer">
+      <column name="User_id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="username" type="string">
+      <column length="15" name="Username" not-null="true" unique="true"/>
+    </property>
+    <property name="password" type="string">
+      <column length="15" name="Password" not-null="true"/>
+    </property>
+    <property name="customerName" type="string">
+      <column length="30" name="Customer_name" not-null="true"/>
+    </property>
+    <property name="customerLastname" type="string">
+      <column length="30" name="Customer_lastname" not-null="true"/>
+    </property>
+    <property name="telephoneNum" type="string">
+      <column length="10" name="Telephone_num" not-null="true"/>
+    </property>
+    <property name="email" type="string">
+      <column length="40" name="Email" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>
