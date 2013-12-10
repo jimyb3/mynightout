@@ -42,6 +42,12 @@ public class MyNightOut {
         int reservationTables=rDao.numberOfReservationTablesByDate(clubId, reservationDate);
         
         System.out.print(clubName+" "+reservationTables+"/"+allTables);*/
+        
+        NightClubDao ndao=new NightClubDao();
+        String date = "25/12/2013";
+        Format formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Date reservationDate = (Date) formatter.parseObject(date);
+        System.out.print(ndao.isNightClubOpenByWeekDay("Vogue", reservationDate));
     }
     
 }

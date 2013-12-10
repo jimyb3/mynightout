@@ -47,25 +47,25 @@ public class SetNightClubDaysClosedForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         mondayCheckBox.setText("Δευτέρα");
-        mondayCheckBox.setName("1"); // NOI18N
+        mondayCheckBox.setName("2"); // NOI18N
 
         tuesdayCheckBox.setText("Τρίτη");
-        tuesdayCheckBox.setName("2"); // NOI18N
+        tuesdayCheckBox.setName("3"); // NOI18N
 
         wednesdayCheckBox.setText("Τετάρτη");
-        wednesdayCheckBox.setName("3"); // NOI18N
+        wednesdayCheckBox.setName("4"); // NOI18N
 
         thursdayCheckBox.setText("Πέμπτη");
-        thursdayCheckBox.setName("4"); // NOI18N
+        thursdayCheckBox.setName("5"); // NOI18N
 
         fridayCheckBox.setText("Παρασκευή");
-        fridayCheckBox.setName("5"); // NOI18N
+        fridayCheckBox.setName("6"); // NOI18N
 
         saturdayCheckBox.setText("Σάββατο");
-        saturdayCheckBox.setName("6"); // NOI18N
+        saturdayCheckBox.setName("7"); // NOI18N
 
         sundayCheckBox.setText("Κυριακή");
-        sundayCheckBox.setName("7"); // NOI18N
+        sundayCheckBox.setName("1"); // NOI18N
 
         messageLabel.setText("Επέλεξε τις μέρες που θα είναι κλειστό το κατάστημα.");
 
