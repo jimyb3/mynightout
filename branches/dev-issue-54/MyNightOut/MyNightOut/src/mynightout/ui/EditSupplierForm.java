@@ -6,6 +6,9 @@
 
 package mynightout.ui;
 
+import mynightout.presenters.EditSupplierPresenter;
+import mynightout.presenters.Presenter;
+
 /**
  *
  * @author Maria
@@ -28,15 +31,15 @@ public class EditSupplierForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        EditButton = new javax.swing.JButton();
+        ShowSupplierListButton = new javax.swing.JButton();
         CancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        EditButton.setText("Επεξεργασία");
-        EditButton.addActionListener(new java.awt.event.ActionListener() {
+        ShowSupplierListButton.setText("Εμφάνιση  Προμηθευτών");
+        ShowSupplierListButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditButtonActionPerformed(evt);
+                ShowSupplierListButtonActionPerformed(evt);
             }
         });
 
@@ -47,28 +50,30 @@ public class EditSupplierForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(516, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CancelButton)
-                    .addComponent(EditButton))
-                .addGap(99, 99, 99))
+                .addContainerGap(442, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(CancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ShowSupplierListButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(146, 146, 146))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(EditButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 352, Short.MAX_VALUE)
-                .addComponent(CancelButton)
-                .addGap(59, 59, 59))
+                .addGap(73, 73, 73)
+                .addComponent(ShowSupplierListButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 322, Short.MAX_VALUE)
+                .addComponent(CancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
-      this.editSupplier();  // TODO add your handling code here:
-    }//GEN-LAST:event_EditButtonActionPerformed
+    private void ShowSupplierListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowSupplierListButtonActionPerformed
+      EditSupplierPresenter psr= new EditSupplierPresenter();
+      psr.editSupplier(this);
+      
+    }//GEN-LAST:event_ShowSupplierListButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -107,6 +112,6 @@ public class EditSupplierForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelButton;
-    private javax.swing.JButton EditButton;
+    private javax.swing.JButton ShowSupplierListButton;
     // End of variables declaration//GEN-END:variables
 }
