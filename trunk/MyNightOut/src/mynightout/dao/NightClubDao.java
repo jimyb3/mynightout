@@ -5,6 +5,8 @@
  */
 package mynightout.dao;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -196,10 +198,12 @@ public class NightClubDao implements INightClubDao {
 
     public Nightclub updateNightClubClosedDates(int clubId, Date closedFrom, Date closedThrough) {
         Session session = HibernateUtil.getSessionFactory().openSession();
+        DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+        String closedFromDate=df.format(closedFrom);
+        String closedThroughDate=df.format(closedThrough);
         try {
             session.beginTransaction();
-            String hql = "update Nightclub set closedFrom='" + closedFrom + "'"
-                    + " and closedThrough='" + closedThrough + "'"
+            String hql = "update Nightclub set closedFrom='" + closedFromDate + "',  closedThrough='" + closedThroughDate + "'"
                     + "  where clubId='" + clubId + "'";
             Query q = session.createQuery(hql);
             q.executeUpdate();
