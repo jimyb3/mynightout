@@ -170,10 +170,10 @@ public class StoresForm extends javax.swing.JFrame {
 
         String[] nightClubArray = nightClubs.split(",");
         
-        this.jLabel1.setText(nightClubArray[0]);
+        jLabel1.setText(nightClubArray[2]);
         
-        pnl_button.removeAll();
-        repaint();
+       // pnl_button.removeAll();
+       // repaint();
 
         Image img, sub;
         ImageIcon icon;
@@ -189,7 +189,7 @@ public class StoresForm extends javax.swing.JFrame {
         //List<String> wordList = Arrays.asList(storestablenames);
         
         
-        this.jLabel1.setText(nightClubArray[1]);
+        //this.jLabel1.setText(nightClubArray[1]);
         
      //   storestablenames=convertStringToArraylist(storestablenames);
      //   storestablenames = convertStringArrayToArraylist(storestablenames);
