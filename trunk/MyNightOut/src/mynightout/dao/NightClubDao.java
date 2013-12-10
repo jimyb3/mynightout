@@ -169,7 +169,7 @@ public class NightClubDao implements INightClubDao {
     public boolean isNightClubOpenByWeekDay(String clubName, Date reservationDate) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            boolean open = false;
+            boolean open = true;
             String hql = "from Nightclub nclub where nclub.clubName='" + clubName + "'";
             session.beginTransaction();
             Query q = session.createQuery(hql);
@@ -183,9 +183,9 @@ public class NightClubDao implements INightClubDao {
             Calendar c = Calendar.getInstance();
             c.setTime(reservationDate);
             int dayOfReservation = c.get(Calendar.DAY_OF_WEEK);
-            for (int i = 1; i <= daysClosedArray.length; i++) {
-                if (!Integer.toString(dayOfReservation).equals(daysClosedArray[i])) {
-                    open = true;
+            for (int i = 1; i < daysClosedArray.length; i++) {
+                if (Integer.toString(dayOfReservation).equals(daysClosedArray[i])) {
+                    open = false;
                 }
             }
             return open;

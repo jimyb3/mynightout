@@ -98,43 +98,43 @@
     <Component class="javax.swing.JCheckBox" name="mondayCheckBox">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x394;&#x3b5;&#x3c5;&#x3c4;&#x3ad;&#x3c1;&#x3b1;"/>
-        <Property name="name" type="java.lang.String" value="1" noResource="true"/>
+        <Property name="name" type="java.lang.String" value="2" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="tuesdayCheckBox">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x3a4;&#x3c1;&#x3af;&#x3c4;&#x3b7;"/>
-        <Property name="name" type="java.lang.String" value="2" noResource="true"/>
+        <Property name="name" type="java.lang.String" value="3" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="wednesdayCheckBox">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x3a4;&#x3b5;&#x3c4;&#x3ac;&#x3c1;&#x3c4;&#x3b7;"/>
-        <Property name="name" type="java.lang.String" value="3" noResource="true"/>
+        <Property name="name" type="java.lang.String" value="4" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="thursdayCheckBox">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x3a0;&#x3ad;&#x3bc;&#x3c0;&#x3c4;&#x3b7;"/>
-        <Property name="name" type="java.lang.String" value="4" noResource="true"/>
+        <Property name="name" type="java.lang.String" value="5" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="fridayCheckBox">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x3a0;&#x3b1;&#x3c1;&#x3b1;&#x3c3;&#x3ba;&#x3b5;&#x3c5;&#x3ae;"/>
-        <Property name="name" type="java.lang.String" value="5" noResource="true"/>
+        <Property name="name" type="java.lang.String" value="6" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="saturdayCheckBox">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x3a3;&#x3ac;&#x3b2;&#x3b2;&#x3b1;&#x3c4;&#x3bf;"/>
-        <Property name="name" type="java.lang.String" value="6" noResource="true"/>
+        <Property name="name" type="java.lang.String" value="7" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="sundayCheckBox">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x39a;&#x3c5;&#x3c1;&#x3b9;&#x3b1;&#x3ba;&#x3ae;"/>
-        <Property name="name" type="java.lang.String" value="7" noResource="true"/>
+        <Property name="name" type="java.lang.String" value="1" noResource="true"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="messageLabel">
