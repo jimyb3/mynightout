@@ -6,6 +6,7 @@
 
 package mynightout.ui;
 
+import javax.swing.JFrame;
 import mynightout.presenters.EditSupplierPresenter;
 import mynightout.presenters.Presenter;
 
@@ -44,6 +45,11 @@ public class EditSupplierForm extends javax.swing.JFrame {
         });
 
         CancelButton.setText("Ακύρωση");
+        CancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,6 +80,13 @@ public class EditSupplierForm extends javax.swing.JFrame {
       psr.editSupplier(this);
       
     }//GEN-LAST:event_ShowSupplierListButtonActionPerformed
+
+    private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
+       JFrame mainFrame=new MainFrame();
+        this.dispose();
+        mainFrame.setLocationRelativeTo(this);
+        mainFrame.setVisible(true);    // TODO add your handling code here:
+    }//GEN-LAST:event_CancelButtonActionPerformed
 
     /**
      * @param args the command line arguments
