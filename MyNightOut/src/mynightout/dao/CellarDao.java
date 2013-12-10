@@ -24,7 +24,7 @@ public class CellarDao {
      public Cellar selectCellar(String NameOfBottle, int NumOfBottles) throws DaoException {
      return new Cellar(NameOfBottle, NumOfBottles);
      }*/
-    public Cellar getNightClubDataByClubName(int clubId) {
+    public Cellar getNightClubCellarByClubName(int clubId) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
@@ -51,7 +51,7 @@ public class CellarDao {
         try {
             session.beginTransaction();
 
-            String hql = "update Cellar cl vodka='" + vodka + "', whiskey='" + whiskey + "',"
+            String hql = "update Cellar cl set vodka='" + vodka + "', whiskey='" + whiskey + "',"
                     + " wine='" + wine + "', liqueur='" + liqueur + "', rum='" + rum + "',"
                     + " tequila='" + tequila + "', beer='" + beer + "' where clubId='" + clubId + "'";
             Query q = session.createQuery(hql);
