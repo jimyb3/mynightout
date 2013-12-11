@@ -32,6 +32,12 @@ public class Nightclub  implements java.io.Serializable {
     public Nightclub() {
     }
 
+    public Nightclub(String clubName, String clubPassword) {
+        this.clubName = clubName;
+        this.clubPassword = clubPassword;
+    }
+    
+
     public Nightclub(String clubName, String clubPassword, String address, 
             String emailAddress, int seatNumber, String telephoneNum, String categoryId, String clubImage) {
        this.clubName = clubName;
@@ -176,8 +182,62 @@ public class Nightclub  implements java.io.Serializable {
         return hash;
     }
 
-    @Override
+     @Override
     public boolean equals(Object obj) {
+    if (obj == null) {
+    return false;
+    }
+    if (getClass() != obj.getClass()) {
+    return false;
+    }
+    final Nightclub other = (Nightclub) obj;
+    if (this.clubId != other.clubId && (this.clubId == null || !this.clubId.equals(other.clubId))) {
+    return false;
+    }
+    if ((this.clubName == null) ? (other.clubName != null) : !this.clubName.equals(other.clubName)) {
+    return false;
+    }
+    if ((this.clubPassword == null) ? (other.clubPassword != null) : !this.clubPassword.equals(other.clubPassword)) {
+    return false;
+    }
+    if ((this.address == null) ? (other.address != null) : !this.address.equals(other.address)) {
+    return false;
+    }
+    if ((this.email == null) ? (other.email != null) : !this.email.equals(other.email)) {
+    return false;
+    }
+    if (this.seatNumber != other.seatNumber) {
+    return false;
+    }
+    if ((this.telephoneNum == null) ? (other.telephoneNum != null) : !this.telephoneNum.equals(other.telephoneNum)) {
+    return false;
+    }
+    if ((this.category == null) ? (other.category != null) : !this.category.equals(other.category)) {
+    return false;
+    }
+    if ((this.clubImage == null) ? (other.clubImage != null) : !this.clubImage.equals(other.clubImage)) {
+    return false;
+    }
+    if (this.closedFrom != other.closedFrom && (this.closedFrom == null || !this.closedFrom.equals(other.closedFrom))) {
+    return false;
+    }
+    if (this.closedThrough != other.closedThrough && (this.closedThrough == null || !this.closedThrough.equals(other.closedThrough))) {
+    return false;
+    }
+    if ((this.daysClosed == null) ? (other.daysClosed != null) : !this.daysClosed.equals(other.daysClosed)) {
+    return false;
+    }
+    if ((this.storeName == null) ? (other.storeName != null) : !this.storeName.equals(other.storeName)) {
+    return false;
+    }
+    if (this.storeFull != other.storeFull) {
+    return false;
+    }
+    return true;
+    }
+    
+    
+    public boolean equalsForLogin(Object obj) {
         if (obj == null) {
             return false;
         }
@@ -185,46 +245,10 @@ public class Nightclub  implements java.io.Serializable {
             return false;
         }
         final Nightclub other = (Nightclub) obj;
-        if (this.clubId != other.clubId && (this.clubId == null || !this.clubId.equals(other.clubId))) {
-            return false;
-        }
         if ((this.clubName == null) ? (other.clubName != null) : !this.clubName.equals(other.clubName)) {
             return false;
         }
         if ((this.clubPassword == null) ? (other.clubPassword != null) : !this.clubPassword.equals(other.clubPassword)) {
-            return false;
-        }
-        if ((this.address == null) ? (other.address != null) : !this.address.equals(other.address)) {
-            return false;
-        }
-        if ((this.email == null) ? (other.email != null) : !this.email.equals(other.email)) {
-            return false;
-        }
-        if (this.seatNumber != other.seatNumber) {
-            return false;
-        }
-        if ((this.telephoneNum == null) ? (other.telephoneNum != null) : !this.telephoneNum.equals(other.telephoneNum)) {
-            return false;
-        }
-        if ((this.category == null) ? (other.category != null) : !this.category.equals(other.category)) {
-            return false;
-        }
-        if ((this.clubImage == null) ? (other.clubImage != null) : !this.clubImage.equals(other.clubImage)) {
-            return false;
-        }
-        if (this.closedFrom != other.closedFrom && (this.closedFrom == null || !this.closedFrom.equals(other.closedFrom))) {
-            return false;
-        }
-        if (this.closedThrough != other.closedThrough && (this.closedThrough == null || !this.closedThrough.equals(other.closedThrough))) {
-            return false;
-        }
-        if ((this.daysClosed == null) ? (other.daysClosed != null) : !this.daysClosed.equals(other.daysClosed)) {
-            return false;
-        }
-        if ((this.storeName == null) ? (other.storeName != null) : !this.storeName.equals(other.storeName)) {
-            return false;
-        }
-        if (this.storeFull != other.storeFull) {
             return false;
         }
         return true;

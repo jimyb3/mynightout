@@ -54,6 +54,7 @@ public class MainFrame extends javax.swing.JFrame {
         setClosedDatesButton = new javax.swing.JButton();
         setDaysClosedButton = new javax.swing.JButton();
         displayCellarButton = new javax.swing.JButton();
+        nightclubLoginButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyNightOut");
@@ -177,6 +178,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        nightclubLoginButton.setText("nightclub Login");
+        nightclubLoginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nightclubLoginButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -189,13 +197,6 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(setClosedDatesButton)
                             .addComponent(setDaysClosedButton))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(cancelReservationButton)
-                                .addGap(5, 5, 5)
-                                .addComponent(exitButton)
-                                .addGap(5, 5, 5)
-                                .addComponent(loginButton))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(40, 40, 40)
                                 .addComponent(checkFullnessButton)
@@ -215,7 +216,16 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addGap(92, 92, 92)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(showCellarForm)
-                                    .addComponent(showSuppliersButton)))))
+                                    .addComponent(showSuppliersButton)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(cancelReservationButton)
+                                .addGap(5, 5, 5)
+                                .addComponent(exitButton)
+                                .addGap(5, 5, 5)
+                                .addComponent(loginButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(nightclubLoginButton))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(confirmReservationButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -235,7 +245,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cancelReservationButton)
                     .addComponent(exitButton)
-                    .addComponent(loginButton))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(loginButton)
+                        .addComponent(nightclubLoginButton)))
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(checkFullnessButton)
@@ -283,7 +295,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelReservationButtonActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        JFrame loginFrame = new LoginForm();
+        JFrame loginFrame = new UserLoginForm();
         this.dispose();
         loginFrame.setLocationRelativeTo(this);
         loginFrame.setVisible(true);
@@ -426,6 +438,13 @@ public class MainFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_displayCellarButtonActionPerformed
 
+    private void nightclubLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nightclubLoginButtonActionPerformed
+        JFrame clubLoginFrame = new NightclubLoginForm();
+        this.dispose();
+        clubLoginFrame.setLocationRelativeTo(this);
+        clubLoginFrame.setVisible(true);
+    }//GEN-LAST:event_nightclubLoginButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -475,6 +494,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton exitButton;
     private javax.swing.JButton faqButton;
     private javax.swing.JButton loginButton;
+    private javax.swing.JButton nightclubLoginButton;
     private javax.swing.JButton setClosedDatesButton;
     private javax.swing.JButton setDaysClosedButton;
     private javax.swing.JButton showCellarForm;

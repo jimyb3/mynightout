@@ -7,7 +7,7 @@ package mynightout.ui;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import mynightout.controllers.LoginController;
+import mynightout.controllers.UserLoginController;
 import mynightout.dao.UserDao;
 import mynightout.entity.User;
 
@@ -15,12 +15,12 @@ import mynightout.entity.User;
  *
  * @author ioanna
  */
-public class LoginForm extends javax.swing.JFrame {
+public class UserLoginForm extends javax.swing.JFrame {
 
     /**
      * Creates new form loginForm
      */
-    public LoginForm() {
+    public UserLoginForm() {
         initComponents();
     }
 
@@ -62,11 +62,6 @@ public class LoginForm extends javax.swing.JFrame {
         passWordLabel.setText("Password");
 
         userNameField.setToolTipText("username");
-        userNameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userNameFieldActionPerformed(evt);
-            }
-        });
 
         passWordField.setToolTipText("password");
 
@@ -115,7 +110,7 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
-        LoginController controller = new LoginController();
+        UserLoginController controller = new UserLoginController();
         try {
             User user = controller.login(userNameField.getText(), passWordField.getText());
             JOptionPane.showMessageDialog(null, "welcome", "Success", JOptionPane.INFORMATION_MESSAGE);
@@ -134,11 +129,37 @@ public class LoginForm extends javax.swing.JFrame {
         userNameField.setText("");
         passWordField.setText("");
     }//GEN-LAST:event_resetButtonActionPerformed
+ public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(CancelBookForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(CancelBookForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(CancelBookForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(CancelBookForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
-    private void userNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_userNameFieldActionPerformed
-
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new UserLoginForm().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton enterButton;
