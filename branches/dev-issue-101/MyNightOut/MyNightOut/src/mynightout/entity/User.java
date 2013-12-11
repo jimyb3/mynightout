@@ -102,6 +102,38 @@ public class User implements java.io.Serializable {
 
     @Override
     public boolean equals(Object obj) {
+    if (obj == null) {
+    return false;
+    }
+    if (getClass() != obj.getClass()) {
+    return false;
+    }
+    final User other = (User) obj;
+    if (this.userId != other.userId && (this.userId == null || !this.userId.equals(other.userId))) {
+    return false;
+    }
+    if ((this.username == null) ? (other.username != null) : !this.username.equals(other.username)) {
+    return false;
+    }
+    if ((this.password == null) ? (other.password != null) : !this.password.equals(other.password)) {
+    return false;
+    }
+    if ((this.customerName == null) ? (other.customerName != null) : !this.customerName.equals(other.customerName)) {
+    return false;
+    }
+    if ((this.customerLastname == null) ? (other.customerLastname != null) : !this.customerLastname.equals(other.customerLastname)) {
+    return false;
+    }
+    if ((this.telephoneNum == null) ? (other.telephoneNum != null) : !this.telephoneNum.equals(other.telephoneNum)) {
+    return false;
+    }
+    if ((this.email == null) ? (other.email != null) : !this.email.equals(other.email)) {
+    return false;
+    }
+    return true;
+    }
+    //@Override
+    public boolean equalsForLogin(Object obj) {
         if (obj == null) {
             return false;
         }
@@ -109,25 +141,10 @@ public class User implements java.io.Serializable {
             return false;
         }
         final User other = (User) obj;
-        if (this.userId != other.userId && (this.userId == null || !this.userId.equals(other.userId))) {
-            return false;
-        }
         if ((this.username == null) ? (other.username != null) : !this.username.equals(other.username)) {
             return false;
         }
         if ((this.password == null) ? (other.password != null) : !this.password.equals(other.password)) {
-            return false;
-        }
-        if ((this.customerName == null) ? (other.customerName != null) : !this.customerName.equals(other.customerName)) {
-            return false;
-        }
-        if ((this.customerLastname == null) ? (other.customerLastname != null) : !this.customerLastname.equals(other.customerLastname)) {
-            return false;
-        }
-        if ((this.telephoneNum == null) ? (other.telephoneNum != null) : !this.telephoneNum.equals(other.telephoneNum)) {
-            return false;
-        }
-        if ((this.email == null) ? (other.email != null) : !this.email.equals(other.email)) {
             return false;
         }
         return true;

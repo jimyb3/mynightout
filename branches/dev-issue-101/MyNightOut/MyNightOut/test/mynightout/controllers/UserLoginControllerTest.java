@@ -19,9 +19,9 @@ import static org.junit.Assert.*;
  *
  * @author ioanna
  */
-public class LoginControllerTest {
+public class UserLoginControllerTest {
     
-    public LoginControllerTest() {
+    public UserLoginControllerTest() {
     }
     
     @BeforeClass
@@ -49,7 +49,7 @@ public class LoginControllerTest {
         
         String userName = "user1";
         String passWord = "123456";
-        LoginController instance = new LoginController();
+        UserLoginController instance = new UserLoginController();
         User expResult = new User("user1", "123456");
         User result = instance.login(userName, passWord);
         Assert.assertEquals(expResult.getUsername() , result.getUsername()); 
@@ -58,63 +58,63 @@ public class LoginControllerTest {
         //fail("The test case is a prototype.");
     }
     
-    @Test 
+    @Test (expected=IllegalArgumentException.class)
     public void testFailedLogin() {
         
         String userName = "user1";
         String passWord = "_-_-_-";
-        LoginController instance = new LoginController();
+        UserLoginController instance = new UserLoginController();
         User expResult = new User("user1", "123456");
         User result = instance.login(userName, passWord);
         //Assert. assertEquals(expResult.getUserName() , result.getUserName());
         //Assert. assertEquals(expResult.getPassWord() , result.getPassWord())); 
                
            }
-    @Test 
+    @Test (expected=IllegalArgumentException.class)
     public void testFailedLoginNoUsername() {
         String userName = "";
         String passWord = "123456";
-        LoginController instance = new LoginController();
+        UserLoginController instance = new UserLoginController();
         User expResult = new User("user1","123456");
         User result = instance.login(userName, passWord);
     }
-    @Test 
+    @Test (expected=IllegalArgumentException.class)
     public void testFailedLoginNoPassword() {
         String userName = "user1";
         String passWord = "";
-        LoginController instance = new LoginController();
+        UserLoginController instance = new UserLoginController();
         User expResult = new User("user1","123456");
         User result = instance.login(userName, passWord);
     }
-    @Test 
+    @Test (expected=IllegalArgumentException.class)
     public void testFailedLoginSmallUsername() {
         String userName = "us";
         String passWord = "123456";
-        LoginController instance = new LoginController();
+        UserLoginController instance = new UserLoginController();
         User expResult = new User("user1","123456");
         User result = instance.login(userName, passWord);
     }
-    @Test 
+    @Test (expected=IllegalArgumentException.class)
     public void testFailedLoginSmallPassword() {
         String userName = "user1";
         String passWord = "1";
-        LoginController instance = new LoginController();
+        UserLoginController instance = new UserLoginController();
         User expResult = new User("user1","123456");
         User result = instance.login(userName, passWord);
     }
-    @Test 
+    @Test (expected=IllegalArgumentException.class)
     public void testFailedLoginUsernameTooBig() {
         String userName = "user1234user12345user";
         String passWord = "123456";
-        LoginController instance = new LoginController();
+        UserLoginController instance = new UserLoginController();
         User expResult = new User("user1","123456");
         User result = instance.login(userName, passWord);
     }
-    @Test 
+    @Test (expected=IllegalArgumentException.class)
     public void testFailedLoginPasswordTooBig() {
         String userName = "user1";
         String passWord = "12345678912345678";
-        LoginController instance = new LoginController();
+        UserLoginController instance = new UserLoginController();
         User expResult = new User("user1","123456");
         User result = instance.login(userName, passWord);
     }
