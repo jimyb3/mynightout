@@ -80,7 +80,53 @@ public class Tables  implements java.io.Serializable {
         this.sixthRow = sixthRow;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 61 * hash + this.clubId;
+        hash = 61 * hash + this.firstRow;
+        hash = 61 * hash + this.secondRow;
+        hash = 61 * hash + this.thirdRow;
+        hash = 61 * hash + this.fourthRow;
+        hash = 61 * hash + this.fifthRow;
+        hash = 61 * hash + this.sixthRow;
+        return hash;
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Tables other = (Tables) obj;
+        if (this.clubId != other.clubId) {
+            return false;
+        }
+        if (this.firstRow != other.firstRow) {
+            return false;
+        }
+        if (this.secondRow != other.secondRow) {
+            return false;
+        }
+        if (this.thirdRow != other.thirdRow) {
+            return false;
+        }
+        if (this.fourthRow != other.fourthRow) {
+            return false;
+        }
+        if (this.fifthRow != other.fifthRow) {
+            return false;
+        }
+        if (this.sixthRow != other.sixthRow) {
+            return false;
+        }
+        return true;
+    }
+
+    
 
 
 }

@@ -156,7 +156,7 @@ public class TableProfileForm extends javax.swing.JFrame implements ISelectTable
                 Integer.parseInt(jLabel3.getText()), Integer.parseInt(jLabel4.getText()),
                 Integer.parseInt(jLabel5.getText()), Integer.parseInt(jLabel6.getText()),
                         Integer.parseInt(jLabel7.getText()));
-        if(!t.equals(td.updateClubsTables(jLabel8.getText(), Integer.parseInt(jLabel2.getText()),
+        if(t.equals(td.updateClubsTables(jLabel8.getText(), Integer.parseInt(jLabel2.getText()),
                 Integer.parseInt(jLabel3.getText()), Integer.parseInt(jLabel4.getText()),
                 Integer.parseInt(jLabel5.getText()), Integer.parseInt(jLabel6.getText()),
                 Integer.parseInt(jLabel7.getText())))){
