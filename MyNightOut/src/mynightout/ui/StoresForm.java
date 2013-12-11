@@ -1,7 +1,5 @@
+
 package mynightout.ui;
-
-
-
 
 import java.awt.Color;
 import java.awt.Font;
@@ -10,15 +8,15 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
-
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import mynightout.dao.NightClubDao;
 import mynightout.entity.Nightclub;
+import java.util.ArrayList;
 /**
  *
  * @author Mustaine
@@ -34,6 +32,9 @@ public class StoresForm extends javax.swing.JFrame {
     private final static int fontType       =   Font.BOLD;  // font type
     private final static String fontName    =   "Thoma";    // font name
     private final static Color  fontColor   =   new Color(0, 51, 255);  // font colot
+    //public static String mainMenuCodes[]    =   {"I want show!","I want dancing!","Something different..."};
+    public static String mainMenuDesc[]     =   {"Stages","Clubs/Bars","Alternative"};
+    private static ArrayList list;
 
     public StoresForm() {
         try {
@@ -50,7 +51,7 @@ public class StoresForm extends javax.swing.JFrame {
         initComponents();
     }
 
-//    @SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -59,7 +60,6 @@ public class StoresForm extends javax.swing.JFrame {
         jsc_item = new javax.swing.JScrollPane();
         pnl_button = new javax.swing.JPanel();
         btn_back = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -105,9 +105,6 @@ public class StoresForm extends javax.swing.JFrame {
         });
         pnl_main.add(btn_back, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 120, 50));
 
-        jLabel1.setText("jLabel1");
-        pnl_main.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 230, 60));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -147,7 +144,6 @@ public class StoresForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_back;
     private javax.swing.JButton btn_exit;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jsc_item;
     private javax.swing.JPanel pnl_button;
     private javax.swing.JPanel pnl_main;
@@ -158,69 +154,23 @@ public class StoresForm extends javax.swing.JFrame {
         
         
         
-        String nightClubs="";
-        Nightclub nightClub = new Nightclub();
-        NightClubDao getstores = new NightClubDao();
-        List allNightClubs = getstores.getAllNightClubs();
+     
         
-        for(Object o:allNightClubs){
-            nightClub=(Nightclub)o;
-            nightClubs=nightClubs+","+nightClub.getClubName();
-        }
-
-        String[] nightClubArray = nightClubs.split(",");
         
-        jLabel1.setText(nightClubArray[2]);
-        
-       // pnl_button.removeAll();
-       // repaint();
+        pnl_button.removeAll();
+        repaint();
 
         Image img, sub;
         ImageIcon icon;
         String imagePath,imag = "/com/images/";
 
-         ArrayList menue = new ArrayList();
+        ArrayList menue = new ArrayList();
         ArrayList itemName = new ArrayList();
 
-       // ItemDB getstorenames = new ItemDB();
-        
-    //    String[] storestablenames= getstorenames.getclubs();
-        
-        //List<String> wordList = Arrays.asList(storestablenames);
-        
-        
-        //this.jLabel1.setText(nightClubArray[1]);
-        
-     //   storestablenames=convertStringToArraylist(storestablenames);
-     //   storestablenames = convertStringArrayToArraylist(storestablenames);
-       // List<String> myList = new ArrayList<String>(Arrays.asList(storestablenames.split(",")));
-       // List mylist = Lists.newArrayList(Splitter.on(" , ").split(storestablenames));
-        
-         //   String[] items = (split(storestablenames));
-         //   List<String> container = Arrays.asList(items);
-           // ArrayList<String> myllist = (ArrayList<String>) Arrays.asList(storestablenames);
-       // List<String> myllist = Arrays.asList(storestablenames);
-       // public String mainMenuCodes[] = ItemDB.getclubs();
-        
-        /*Nightclub nightClub = new Nightclub();
-        NightClubDao getstores = new NightClubDao();
-        List allNightClubs = getstores.getAllNightClubs();
-        for(Object o:allNightClubs){
-        nightClub=(Nightclub)o;
+        for (int size = 0 ; size<mainMenuDesc.length; size++) {
+            menue.add(mainMenuDesc[size]);
+            itemName.add(mainMenuDesc[size]);
         }
-        return nightClub;*/
-        
-        
-        
-    //    for (int size = 0; size < ItemDB.getclubs().length; size++) {
-     //       menue.add(ItemDB.mainMenuCodes[size]);
-           // itemName.add(ItemDB.mainMenuDesc[size]);
-    //    }
-        
-        
-        
-        
-        
         
         JButton[] buttons = new JButton[menue.size()];
 
@@ -251,8 +201,8 @@ public class StoresForm extends javax.swing.JFrame {
             buttons[i].addActionListener(new ActionListener() {
 
                 public void actionPerformed(ActionEvent e) {
-                    //String choice = e.getActionCommand();
-                   // addSubmenue(choice);
+                    String choice = e.getActionCommand();
+                    addSubmenue(choice);
                 }
             });
         }
@@ -267,7 +217,7 @@ public class StoresForm extends javax.swing.JFrame {
                 vGap = 10;
                 for (int k = 0; k < numberOfColumns; k++) {
 
-                 //   pnl_button.add(buttons[b], new org.netbeans.lib.awtextra.AbsoluteConstraints(vGap, hGap, button_width, button_height));
+                    pnl_button.add(buttons[b], new org.netbeans.lib.awtextra.AbsoluteConstraints(vGap, hGap, button_width, button_height));
                     repaint();
                     vGap +=button_width+verticalGap;
                     b++;
@@ -280,7 +230,30 @@ public class StoresForm extends javax.swing.JFrame {
         pack();
     }
 
-  /*  private void addSubmenue(String choice) {
+    
+    
+    
+    
+    
+    
+    
+    private void addSubmenue(String choice) {
+        
+        String IDs="";
+        Nightclub nightClubIDs = new Nightclub();
+        NightClubDao getIDs = new NightClubDao();
+        List allNightClubs = getIDs.getAllNightClubs();
+        
+        for(Object o:allNightClubs){
+            nightClubIDs=(Nightclub)o;
+            IDs=IDs+","+nightClubIDs.getCategory();
+        }
+
+        String[] nightClubArray = IDs.split(",");
+        
+        
+        
+        
         pnl_button.removeAll();
         repaint();
 
@@ -291,12 +264,12 @@ public class StoresForm extends javax.swing.JFrame {
         ArrayList menue = new ArrayList();
         ArrayList itemName = new ArrayList();
 
-        ArrayList   list  =   ItemDB.getSubMenu(choice);
-        String subCode[]  =   (String[]) list.get(0);
+        ArrayList   list  =  getSubMenu(choice);
+        //String subCode[]  =   (String[]) list.get(0);
         String subDesc[]  =   (String[]) list.get(1);
 
-        for (int size = 0 ; size<subCode.length; size++) {
-            menue.add(subCode[size]);
+        for (int size = 0 ; size<subDesc.length; size++) {
+            menue.add(subDesc[size]);
             itemName.add(subDesc[size]);
         }
 
@@ -359,7 +332,82 @@ public class StoresForm extends javax.swing.JFrame {
         }
         pack();
     }
+    
+    
+    
+    
+    
+    
+    
+     public static ArrayList getSubMenu(String mainMenuCodes){
 
+        list    =   new ArrayList();
+        String nightClubs="";
+        Nightclub nightClub = new Nightclub();
+        NightClubDao getstores = new NightClubDao();
+        List allNightClubs = getstores.getAllNightClubs();
+        
+        Nightclub nightClubIDs = new Nightclub();
+        NightClubDao getIDs = new NightClubDao();
+        List allNightClubs2 = getIDs.getAllNightClubs();
+        
+        
+        
+        
+        if(mainMenuCodes.equals("Stages")){
+                       
+            for(Object o:allNightClubs){
+                nightClub=(Nightclub)o;
+                if(nightClubIDs.getCategory().equals("1"))
+                {           
+                    nightClubs=nightClubs+","+nightClub.getClubName();
+                }
+            }
+        
+            String[] nightClubArray = nightClubs.split(",");
+            
+            list.add(nightClubArray);
+
+        }else if(mainMenuCodes.equals("Clubs/Bars")){
+           // String subCode[]  =   {"FJ","HB"};
+                
+            for(Object o:allNightClubs){
+                nightClub=(Nightclub)o;
+                if(nightClubIDs.getCategory().equals("2"))
+                {           
+                    nightClubs=nightClubs+","+nightClub.getClubName();
+                }
+            }   
+                
+            String[] nightClubArray = nightClubs.split(",");
+            
+            list.add(nightClubArray );
+        }
+        else {
+                          
+            for(Object o:allNightClubs){
+                nightClub=(Nightclub)o;
+                if(nightClubIDs.getCategory().equals("3"))
+                {           
+                    nightClubs=nightClubs+","+nightClub.getClubName();
+                }
+            } 
+                
+            String[] nightClubArray = nightClubs.split(",");
+            
+            list.add(nightClubArray );
+        }
+        return list;
+    }
+
+     
+     
+    
+     
+     
+     
+     
+     
     private void addItems(String choice) {
 
         if(choice.equals("P"))
@@ -372,22 +420,4 @@ public class StoresForm extends javax.swing.JFrame {
             choice  =   "HOT BEVERAGES";
         JOptionPane.showMessageDialog(this, "You have select  "+choice);
     }
-    
-public ArrayList convertStringToArraylist(String str) {
-    ArrayList charList = new ArrayList();      
-    for(int i = 0; i<str.length();i++){
-        charList.add(str.charAt(i));
-    }
-    return charList;
-}
-
-public static ArrayList convertStringArrayToArraylist(String[] strArr){
-    ArrayList stringList = new ArrayList();
-    for (String s : strArr) {
-        stringList.add(s);
-    }
-    return stringList;
-}
-
-*/
 }
