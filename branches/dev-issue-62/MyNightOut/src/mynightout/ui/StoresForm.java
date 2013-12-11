@@ -1,4 +1,3 @@
-
 package mynightout.ui;
 
 import java.awt.Color;
@@ -17,28 +16,29 @@ import javax.swing.UIManager;
 import mynightout.dao.NightClubDao;
 import mynightout.entity.Nightclub;
 import java.util.ArrayList;
+
 /**
  *
  * @author Mustaine
  */
 public class StoresForm extends javax.swing.JFrame {
 
-    private final static int button_width   =   145;        // button width
-    private final static int button_height  =   140;        // button height
-    private final static int horizontalGap  =   10;         // horizontal gap in button
-    private final static int verticalGap    =   10;         // verticle gap in button
-    private final static int numberOfColumns=   4;          // number of colums in the button panel
-    private final static int fontSize       =   11;         // font size of button name
-    private final static int fontType       =   Font.BOLD;  // font type
-    private final static String fontName    =   "Thoma";    // font name
-    private final static Color  fontColor   =   new Color(0, 51, 255);  // font colot
-    public static String mainMenuDesc[]     =   {"Stages","Clubs/Bars","Alternative"};
-    private static ArrayList list;
+    private final static int button_width = 145;        // button width
+    private final static int button_height = 140;        // button height
+    private final static int horizontalGap = 10;         // horizontal gap in button
+    private final static int verticalGap = 10;         // verticle gap in button
+    private final static int numberOfColumns = 4;          // number of colums in the button panel
+    private final static int fontSize = 11;         // font size of button name
+    private final static int fontType = Font.BOLD;  // font type
+    private final static String fontName = "Thoma";    // font name
+    private final static Color fontColor = new Color(0, 51, 255);  // font colot
+    public static String mainMenuDesc[] = {"Stages", "Clubs/Bars", "Alternative"};
+    private static List list;
 
     public StoresForm() {
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-            
+
         } catch (Exception ex) {
             try {
                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -132,10 +132,9 @@ public class StoresForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_exitActionPerformed
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
-       addMainMenue();
+        addMainMenue();
     }//GEN-LAST:event_btn_backActionPerformed
 
-    
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -153,45 +152,41 @@ public class StoresForm extends javax.swing.JFrame {
     private javax.swing.JPanel pnl_main;
     // End of variables declaration//GEN-END:variables
 
-
     private void addMainMenue() {
-        
+
         pnl_button.removeAll();
         repaint();
 
         Image img, sub;
         ImageIcon icon;
-        String imagePath,imag = "/com/images/";
+        String imagePath, imag = "/com/images/";
 
-        ArrayList menue = new ArrayList();
-        ArrayList itemName = new ArrayList();
+        List menue = new ArrayList();
+        List itemName = new ArrayList();
 
-        for (int size = 0 ; size<mainMenuDesc.length; size++) {
+        for (int size = 0; size < mainMenuDesc.length; size++) {
             menue.add(mainMenuDesc[size]);
             itemName.add(mainMenuDesc[size]);
         }
-        
-        
-        
-        
+
         JButton[] buttons = new JButton[menue.size()];
 
         for (int i = 0; i < buttons.length; i++) {
-              
-            imagePath   = imag+menue.get(i).toString()+".jpeg";
 
-            URL url     = getClass().getResource(imagePath);
+            imagePath = imag + menue.get(i).toString() + ".jpeg";
+
+            URL url = getClass().getResource(imagePath);
 //                System.out.println(imagePath +"   Get Res : " +getClass().getResource(imagePath));
 
-            if(url!=null){
-                img         = Toolkit.getDefaultToolkit().getImage(url);
-                sub         = img.getScaledInstance(button_width - 8, button_height - 30, Image.SCALE_FAST);
-                icon        = new ImageIcon(sub);
+            if (url != null) {
+                img = Toolkit.getDefaultToolkit().getImage(url);
+                sub = img.getScaledInstance(button_width - 8, button_height - 30, Image.SCALE_FAST);
+                icon = new ImageIcon(sub);
+            } else {
+                icon = new ImageIcon();
             }
-            else
-               icon        = new ImageIcon();
 
-            buttons[i]  = new JButton(itemName.get(i).toString(), icon);
+            buttons[i] = new JButton(itemName.get(i).toString(), icon);
             buttons[i].setVerticalTextPosition(AbstractButton.BOTTOM);
             buttons[i].setHorizontalTextPosition(AbstractButton.CENTER);
 
@@ -204,84 +199,75 @@ public class StoresForm extends javax.swing.JFrame {
 
                 public void actionPerformed(ActionEvent e) {
                     String choice = e.getActionCommand();
-                    JOptionPane.showMessageDialog(null, choice, "Success",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, choice, "Success", JOptionPane.INFORMATION_MESSAGE);
                     addSubmenue(choice);
                 }
             });
         }
 
-        int b       =   0;
-        int vGap    =   verticalGap;
-        int hGap    =   horizontalGap;
-        int bLength =   buttons.length;
-        int bRows   =   bLength/numberOfColumns +1;
+        int b = 0;
+        int vGap = verticalGap;
+        int hGap = horizontalGap;
+        int bLength = buttons.length;
+        int bRows = bLength / numberOfColumns + 1;
 
-        L1:    for (int j = 0; j <bRows; j++) {
-                vGap = 10;
-                for (int k = 0; k < numberOfColumns; k++) {
+        L1:
+        for (int j = 0; j < bRows; j++) {
+            vGap = 10;
+            for (int k = 0; k < numberOfColumns; k++) {
 
-                    pnl_button.add(buttons[b], new org.netbeans.lib.awtextra.AbsoluteConstraints(vGap, hGap, button_width, button_height));
-                    repaint();
-                    vGap +=button_width+verticalGap;
-                    b++;
-                    if(b>=bLength){
-                        break L1;
-                    }
+                pnl_button.add(buttons[b], new org.netbeans.lib.awtextra.AbsoluteConstraints(vGap, hGap, button_width, button_height));
+                repaint();
+                vGap += button_width + verticalGap;
+                b++;
+                if (b >= bLength) {
+                    break L1;
                 }
-                hGap +=button_height+horizontalGap;
+            }
+            hGap += button_height + horizontalGap;
         }
         pack();
     }
 
-    
-    
-    
-    
-    
-    
-    
     private void addSubmenue(String choice) {
-        
-              
+
         pnl_button.removeAll();
         repaint();
 
         Image img, sub;
         ImageIcon icon;
-        String imagePath,imag = "/com/images/";
+        String imagePath, imag = "/com/images/";
 
-        ArrayList menue = new ArrayList();
-        ArrayList itemName = new ArrayList();
+        List menue = new ArrayList();
+        List itemName = new ArrayList();
 
-        ArrayList   list  =  getSubMenu(choice);
+        String[] list = getSubMenu(choice);
        // String subCode[]  =   (String[]) list.get(0);
-       // String subDesc[]  =   (String[]) list.get(1);
+        // String subDesc[]  =   (String[]) list.get(1);
 
-        for (int i = 0 ; i<list.size(); i++) {
-            menue.add(list.get(i));
-            itemName.add(list.get(i));
+        for (int i = 1; i < list.length; i++) {
+            menue.add(list[i]);
+            itemName.add(list[i]);
         }
 
         JButton[] buttons = new JButton[menue.size()];
 
         for (int i = 0; i < buttons.length; i++) {
 
-            imagePath   = imag+menue.get(i).toString()+".jpeg";
+            imagePath = imag + menue.get(i).toString() + ".jpeg";
 
-            URL url     = getClass().getResource(imagePath);
+            URL url = getClass().getResource(imagePath);
 //                System.out.println(imagePath +"   Get Reso : " +getClass().getResource(imagePath));
 
-            if(url!=null){
-                img         = Toolkit.getDefaultToolkit().getImage(url);
-                sub         = img.getScaledInstance(button_width - 8, button_height - 30, Image.SCALE_FAST);
-                icon        = new ImageIcon(sub);
+            if (url != null) {
+                img = Toolkit.getDefaultToolkit().getImage(url);
+                sub = img.getScaledInstance(button_width - 8, button_height - 30, Image.SCALE_FAST);
+                icon = new ImageIcon(sub);
+            } else {
+                icon = new ImageIcon();
             }
-            else
-               icon        = new ImageIcon();
 
-
-
-            buttons[i]  = new JButton(itemName.get(i).toString(), icon);
+            buttons[i] = new JButton(itemName.get(i).toString(), icon);
             buttons[i].setVerticalTextPosition(AbstractButton.BOTTOM);
             buttons[i].setHorizontalTextPosition(AbstractButton.CENTER);
 
@@ -289,124 +275,104 @@ public class StoresForm extends javax.swing.JFrame {
             buttons[i].setFont(new java.awt.Font("Tahoma", 1, 13));
             buttons[i].setForeground(new java.awt.Color(0, 51, 255));
 
-
             buttons[i].setActionCommand(menue.get(i).toString());
             buttons[i].addActionListener(new ActionListener() {
 
                 public void actionPerformed(ActionEvent e) {
                     String choice = e.getActionCommand();
-                    
+
                     getSubMenu(choice);
                 }
-                
+
             });
         }
-        int b       =   0;
-        int vGap    =   verticalGap;
-        int hGap    =   horizontalGap;
-        int bLength =   buttons.length;
-        int bRows   =   bLength/numberOfColumns +1;
+        int b = 0;
+        int vGap = verticalGap;
+        int hGap = horizontalGap;
+        int bLength = buttons.length;
+        int bRows = bLength / numberOfColumns + 1;
 
-        L1:    for (int j = 0; j <bRows; j++) {
-                vGap = 10;
-                for (int k = 0; k < numberOfColumns; k++) {
+        L1:
+        for (int j = 0; j < bRows; j++) {
+            vGap = 10;
+            for (int k = 0; k < numberOfColumns; k++) {
 
-                    pnl_button.add(buttons[b], new org.netbeans.lib.awtextra.AbsoluteConstraints(vGap, hGap, button_width, button_height));
-                    repaint();
-                    vGap +=button_width+verticalGap;
-                    b++;
-                    if(b>=bLength){
-                        break L1;
-                    }
+                pnl_button.add(buttons[b], new org.netbeans.lib.awtextra.AbsoluteConstraints(vGap, hGap, button_width, button_height));
+                repaint();
+                vGap += button_width + verticalGap;
+                b++;
+                if (b >= bLength) {
+                    break L1;
                 }
-                hGap +=button_height+horizontalGap;
+            }
+            hGap += button_height + horizontalGap;
         }
         pack();
     }
-    
-    
-    
-    
-    
-    
-    
-     public static ArrayList getSubMenu(String mainMenuCodes){
 
-        list    =   new ArrayList();
-        String nightClubs="";
+    public String[] getSubMenu(String mainMenuCodes) {
+
+        //list = new ArrayList();
+        String nightClubs = "";
         Nightclub nightClub = new Nightclub();
         NightClubDao getstores = new NightClubDao();
         List allNightClubs = getstores.getAllNightClubs();
-        
-       
-        
-        
-        JOptionPane.showMessageDialog(null, mainMenuCodes, "Success",JOptionPane.INFORMATION_MESSAGE);      
-        
-        if(mainMenuCodes.equals("Stages")){
-                       
-            for(Object o:allNightClubs){
-                nightClub=(Nightclub)o;
-                if(nightClub.getCategory().equals("1"))
-                {          
-                    
-                    nightClubs=nightClubs+","+nightClub.getClubName();
+
+        JOptionPane.showMessageDialog(null, mainMenuCodes, "Success", JOptionPane.INFORMATION_MESSAGE);
+
+        if (mainMenuCodes.equals("Stages")) {
+
+            for (Object o : allNightClubs) {
+                nightClub = (Nightclub) o;
+                if (nightClub.getCategory().equals("1")) {
+
+                    nightClubs = nightClubs + "," + nightClub.getClubName();
                 }
             }
-        
-            String[] nightClubArray = nightClubs.split(",");
-            
-            list.add(nightClubArray);
 
-        }else if(mainMenuCodes.equals("Clubs/Bars")){
-                           
-            for(Object o:allNightClubs){
-                nightClub=(Nightclub)o;
-                if(nightClub.getCategory().equals("2"))
-                {           
-                    nightClubs=nightClubs+","+nightClub.getClubName();
-                }
-            }   
-                
             String[] nightClubArray = nightClubs.split(",");
-            
-            list.add(nightClubArray );
-        }
-        else {
-                          
-            for(Object o:allNightClubs){
-                nightClub=(Nightclub)o;
-                if(nightClub.getCategory().equals("3"))
-                {           
-                    nightClubs=nightClubs+","+nightClub.getClubName();
+            return nightClubArray;
+            //list.add(nightClubArray);
+
+        } else if (mainMenuCodes.equals("Clubs/Bars")) {
+
+            for (Object o : allNightClubs) {
+                nightClub = (Nightclub) o;
+                if (nightClub.getCategory().equals("2")) {
+                    nightClubs = nightClubs + "," + nightClub.getClubName();
                 }
-            } 
-                
+            }
+
             String[] nightClubArray = nightClubs.split(",");
-            
-            list.add(nightClubArray );
+            return nightClubArray;
+            //list.add(nightClubArray);
+        } else {
+
+            for (Object o : allNightClubs) {
+                nightClub = (Nightclub) o;
+                if (nightClub.getCategory().equals("3")) {
+                    nightClubs = nightClubs + "," + nightClub.getClubName();
+                }
+            }
+
+            String[] nightClubArray = nightClubs.split(",");
+
+            return nightClubArray;
+            //list.add(nightClubArray);
         }
-        return list;
     }
 
-     
-     
-    
-     
-     
-     
-     
-     
     private void addItems(String choice) {
 
-        if(choice.equals("P"))
-            choice  =   "PIZZA";
-        else if(choice.equals("B"))
-            choice  =   "BURGER";
-        else if(choice.equals("FJ"))
-            choice  =   "FRUIT JUICE";
-        else if(choice.equals("HB"))
-            choice  =   "HOT BEVERAGES";
-        JOptionPane.showMessageDialog(this, "You have select  "+choice);
+        if (choice.equals("P")) {
+            choice = "PIZZA";
+        } else if (choice.equals("B")) {
+            choice = "BURGER";
+        } else if (choice.equals("FJ")) {
+            choice = "FRUIT JUICE";
+        } else if (choice.equals("HB")) {
+            choice = "HOT BEVERAGES";
+        }
+        JOptionPane.showMessageDialog(this, "You have select  " + choice);
     }
 }
