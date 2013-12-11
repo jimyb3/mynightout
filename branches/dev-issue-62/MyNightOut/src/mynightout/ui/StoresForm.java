@@ -60,6 +60,7 @@ public class StoresForm extends javax.swing.JFrame {
         jsc_item = new javax.swing.JScrollPane();
         pnl_button = new javax.swing.JPanel();
         btn_back = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -105,6 +106,9 @@ public class StoresForm extends javax.swing.JFrame {
         });
         pnl_main.add(btn_back, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 120, 50));
 
+        jLabel1.setText("jLabel1");
+        pnl_main.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -144,6 +148,7 @@ public class StoresForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_back;
     private javax.swing.JButton btn_exit;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jsc_item;
     private javax.swing.JPanel pnl_button;
     private javax.swing.JPanel pnl_main;
@@ -202,6 +207,7 @@ public class StoresForm extends javax.swing.JFrame {
 
                 public void actionPerformed(ActionEvent e) {
                     String choice = e.getActionCommand();
+                    JOptionPane.showMessageDialog(null, choice, "Success",JOptionPane.INFORMATION_MESSAGE);
                     addSubmenue(choice);
                 }
             });
@@ -239,20 +245,20 @@ public class StoresForm extends javax.swing.JFrame {
     
     private void addSubmenue(String choice) {
         
-        String IDs="";
+        /*String IDs="";
         Nightclub nightClubIDs = new Nightclub();
         NightClubDao getIDs = new NightClubDao();
         List allNightClubs = getIDs.getAllNightClubs();
         
         for(Object o:allNightClubs){
-            nightClubIDs=(Nightclub)o;
-            IDs=IDs+","+nightClubIDs.getCategory();
+        nightClubIDs=(Nightclub)o;
+        IDs=IDs+","+nightClubIDs.getCategory();
         }
-
-        String[] nightClubArray = IDs.split(",");
+        
+        String[] nightClubArray = IDs.split(",");*/
         
         
-        
+        //jLabel1.setText(mainMenuCodes);
         
         pnl_button.removeAll();
         repaint();
@@ -306,8 +312,10 @@ public class StoresForm extends javax.swing.JFrame {
 
                 public void actionPerformed(ActionEvent e) {
                     String choice = e.getActionCommand();
+                    
                     addItems(choice);
                 }
+                
             });
         }
         int b       =   0;
@@ -347,18 +355,16 @@ public class StoresForm extends javax.swing.JFrame {
         NightClubDao getstores = new NightClubDao();
         List allNightClubs = getstores.getAllNightClubs();
         
-        Nightclub nightClubIDs = new Nightclub();
-        NightClubDao getIDs = new NightClubDao();
-        List allNightClubs2 = getIDs.getAllNightClubs();
+       
         
         
+              
         
-        
-        if(mainMenuCodes.equals("Stages")){
+        if(mainMenuCodes.equalsIgnoreCase("Stages")){
                        
             for(Object o:allNightClubs){
                 nightClub=(Nightclub)o;
-                if(nightClubIDs.getCategory().equals("1"))
+                if(nightClub.getCategory().equalsIgnoreCase("1"))
                 {           
                     nightClubs=nightClubs+","+nightClub.getClubName();
                 }
@@ -368,12 +374,11 @@ public class StoresForm extends javax.swing.JFrame {
             
             list.add(nightClubArray);
 
-        }else if(mainMenuCodes.equals("Clubs/Bars")){
-           // String subCode[]  =   {"FJ","HB"};
-                
+        }else if(mainMenuCodes.equalsIgnoreCase("Clubs/Bars")){
+                           
             for(Object o:allNightClubs){
                 nightClub=(Nightclub)o;
-                if(nightClubIDs.getCategory().equals("2"))
+                if(nightClub.getCategory().equalsIgnoreCase("2"))
                 {           
                     nightClubs=nightClubs+","+nightClub.getClubName();
                 }
@@ -387,7 +392,7 @@ public class StoresForm extends javax.swing.JFrame {
                           
             for(Object o:allNightClubs){
                 nightClub=(Nightclub)o;
-                if(nightClubIDs.getCategory().equals("3"))
+                if(nightClub.getCategory().equalsIgnoreCase("3"))
                 {           
                     nightClubs=nightClubs+","+nightClub.getClubName();
                 }
