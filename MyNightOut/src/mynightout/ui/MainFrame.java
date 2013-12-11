@@ -365,12 +365,13 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void SelectTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectTableButtonActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+        
         SelectTableProfilePresenter stpp=new SelectTableProfilePresenter();
         int clubId=1;
         TablesDao td=new TablesDao();
         Tables t=td.getClubsTables("Vogue");
         try {
+            this.dispose();
             stpp.showSelectTableProfile(new SelectTableProfileForm(), t.getFirstRow(), t.getSecondRow(), t.getThirdRow(), t.getFourthRow(), t.getFifthRow(), t.getSixthRow(), clubId);
         } catch (ParseException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
