@@ -32,7 +32,6 @@ public class StoresForm extends javax.swing.JFrame {
     private final static int fontType       =   Font.BOLD;  // font type
     private final static String fontName    =   "Thoma";    // font name
     private final static Color  fontColor   =   new Color(0, 51, 255);  // font colot
-    //public static String mainMenuCodes[]    =   {"I want show!","I want dancing!","Something different..."};
     public static String mainMenuDesc[]     =   {"Stages","Clubs/Bars","Alternative"};
     private static ArrayList list;
 
@@ -157,11 +156,6 @@ public class StoresForm extends javax.swing.JFrame {
 
     private void addMainMenue() {
         
-        
-        
-     
-        
-        
         pnl_button.removeAll();
         repaint();
 
@@ -176,6 +170,9 @@ public class StoresForm extends javax.swing.JFrame {
             menue.add(mainMenuDesc[size]);
             itemName.add(mainMenuDesc[size]);
         }
+        
+        
+        
         
         JButton[] buttons = new JButton[menue.size()];
 
@@ -245,21 +242,7 @@ public class StoresForm extends javax.swing.JFrame {
     
     private void addSubmenue(String choice) {
         
-        /*String IDs="";
-        Nightclub nightClubIDs = new Nightclub();
-        NightClubDao getIDs = new NightClubDao();
-        List allNightClubs = getIDs.getAllNightClubs();
-        
-        for(Object o:allNightClubs){
-        nightClubIDs=(Nightclub)o;
-        IDs=IDs+","+nightClubIDs.getCategory();
-        }
-        
-        String[] nightClubArray = IDs.split(",");*/
-        
-        
-        //jLabel1.setText(mainMenuCodes);
-        
+              
         pnl_button.removeAll();
         repaint();
 
@@ -271,12 +254,12 @@ public class StoresForm extends javax.swing.JFrame {
         ArrayList itemName = new ArrayList();
 
         ArrayList   list  =  getSubMenu(choice);
-        //String subCode[]  =   (String[]) list.get(0);
-        String subDesc[]  =   (String[]) list.get(1);
+       // String subCode[]  =   (String[]) list.get(0);
+       // String subDesc[]  =   (String[]) list.get(1);
 
-        for (int size = 0 ; size<subDesc.length; size++) {
-            menue.add(subDesc[size]);
-            itemName.add(subDesc[size]);
+        for (int i = 0 ; i<list.size(); i++) {
+            menue.add(list.get(i));
+            itemName.add(list.get(i));
         }
 
         JButton[] buttons = new JButton[menue.size()];
@@ -313,7 +296,7 @@ public class StoresForm extends javax.swing.JFrame {
                 public void actionPerformed(ActionEvent e) {
                     String choice = e.getActionCommand();
                     
-                    addItems(choice);
+                    getSubMenu(choice);
                 }
                 
             });
@@ -358,14 +341,15 @@ public class StoresForm extends javax.swing.JFrame {
        
         
         
-              
+        JOptionPane.showMessageDialog(null, mainMenuCodes, "Success",JOptionPane.INFORMATION_MESSAGE);      
         
-        if(mainMenuCodes.equalsIgnoreCase("Stages")){
+        if(mainMenuCodes.equals("Stages")){
                        
             for(Object o:allNightClubs){
                 nightClub=(Nightclub)o;
-                if(nightClub.getCategory().equalsIgnoreCase("1"))
-                {           
+                if(nightClub.getCategory().equals("1"))
+                {          
+                    
                     nightClubs=nightClubs+","+nightClub.getClubName();
                 }
             }
@@ -374,11 +358,11 @@ public class StoresForm extends javax.swing.JFrame {
             
             list.add(nightClubArray);
 
-        }else if(mainMenuCodes.equalsIgnoreCase("Clubs/Bars")){
+        }else if(mainMenuCodes.equals("Clubs/Bars")){
                            
             for(Object o:allNightClubs){
                 nightClub=(Nightclub)o;
-                if(nightClub.getCategory().equalsIgnoreCase("2"))
+                if(nightClub.getCategory().equals("2"))
                 {           
                     nightClubs=nightClubs+","+nightClub.getClubName();
                 }
@@ -392,7 +376,7 @@ public class StoresForm extends javax.swing.JFrame {
                           
             for(Object o:allNightClubs){
                 nightClub=(Nightclub)o;
-                if(nightClub.getCategory().equalsIgnoreCase("3"))
+                if(nightClub.getCategory().equals("3"))
                 {           
                     nightClubs=nightClubs+","+nightClub.getClubName();
                 }
