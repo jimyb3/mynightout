@@ -35,7 +35,7 @@ public class SelectTableProfilePresenter {
         int max = Collections.max(Arrays.asList(row1, row2, row3, row4, row5, row6));
         JPanel[] p = new JPanel[7];
         ReservationDao rDao = new ReservationDao();
-        clubId = 1;
+        
         String date = "01/01/2014";
         Format formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date reservationDate = (Date) formatter.parseObject(date);
