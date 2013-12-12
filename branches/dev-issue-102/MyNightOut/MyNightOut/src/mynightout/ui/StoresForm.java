@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.JFrame;
 
 /**
  *
@@ -39,7 +40,15 @@ public class StoresForm extends javax.swing.JFrame {
     private final static Color fontColor = new Color(0, 51, 255);  // font colot
     public static String mainMenuDesc[] = {"Stages", "Clubs/Bars", "Alternative"};
     private static List list;
-
+    
+    private String currentUserName;
+    
+public StoresForm(String cUserName) {
+        currentUserName = cUserName;
+        initComponents();
+    }
+    
+    
     public StoresForm() {
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
@@ -133,7 +142,12 @@ public class StoresForm extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
-        System.exit(0);
+        //System.exit(0);
+        this.dispose();
+        JFrame mainUserFrame = new UserMainForm(currentUserName);
+        this.dispose();
+        mainUserFrame.setLocationRelativeTo(this);
+        mainUserFrame.setVisible(true);
     }//GEN-LAST:event_btn_exitActionPerformed
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
@@ -166,8 +180,8 @@ public class StoresForm extends javax.swing.JFrame {
         ImageIcon icon;
         String imagePath, imag = "/com/images/";
 
-        List menue = new ArrayList();
-        List itemName = new ArrayList();
+        List<String> menue = new ArrayList();
+        List<String> itemName = new ArrayList();
 
         for (int size = 0; size < mainMenuDesc.length; size++) {
             menue.add(mainMenuDesc[size]);
@@ -243,11 +257,11 @@ public class StoresForm extends javax.swing.JFrame {
         ImageIcon icon;
         String imagePath, imag = "/com/images/";
 
-        List menue = new ArrayList();
-        List itemName = new ArrayList();
+        List<String> menue = new ArrayList();
+        List<String> itemName = new ArrayList();
 
         String[] list = getSubMenu(choice);
-       // String subCode[]  =   (String[]) list.get(0);
+        // String subCode[]  =   (String[]) list.get(0);
         // String subDesc[]  =   (String[]) list.get(1);
 
         for (int i = 1; i < list.length; i++) {
@@ -285,9 +299,9 @@ public class StoresForm extends javax.swing.JFrame {
 
                 public void actionPerformed(ActionEvent e) {
                     String choice = e.getActionCommand();
-                    
+
                     getSubMenu(choice);
-                    
+
                     StoreView storeV = new StoreView();
                     URL url = null;
                     try {

@@ -6,6 +6,7 @@
 
 package mynightout.ui;
 
+import javax.swing.JFrame;
 import mynightout.presenters.CreateNightClubTableProfilePresenter;
 
 /**
@@ -13,14 +14,17 @@ import mynightout.presenters.CreateNightClubTableProfilePresenter;
  * @author Dimitris
  */
 public class ChangeNightClubTableProfileForm extends javax.swing.JFrame {
-
+private String currentClubName;
     /**
      * Creates new form createTableView
      */
     public ChangeNightClubTableProfileForm() {
         initComponents();
     }
-
+public ChangeNightClubTableProfileForm(String nightClubName) {
+    currentClubName = nightClubName;
+        initComponents();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,6 +50,7 @@ public class ChangeNightClubTableProfileForm extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         nightClubNameTextField = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +90,13 @@ public class ChangeNightClubTableProfileForm extends javax.swing.JFrame {
 
         jLabel8.setText("Όνομα καταστηματος");
 
+        backButton.setText("Πίσω");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,6 +132,8 @@ public class ChangeNightClubTableProfileForm extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(backButton)
+                .addGap(18, 18, 18)
                 .addComponent(OkButton)
                 .addGap(55, 55, 55))
         );
@@ -157,7 +171,9 @@ public class ChangeNightClubTableProfileForm extends javax.swing.JFrame {
                     .addComponent(row6TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(26, 26, 26)
-                .addComponent(OkButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(OkButton)
+                    .addComponent(backButton))
                 .addGap(28, 28, 28))
         );
 
@@ -168,11 +184,18 @@ public class ChangeNightClubTableProfileForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
         CreateNightClubTableProfilePresenter ctpp=new CreateNightClubTableProfilePresenter();
-        ctpp.createNightClubTableProfile(new TableProfileForm(), Integer.parseInt(row1TextField.getText()),
+        ctpp.createNightClubTableProfile(new TableProfileForm(currentClubName), Integer.parseInt(row1TextField.getText()),
                 Integer.parseInt(row2TextField.getText()), Integer.parseInt(row3TextField.getText()),
                 Integer.parseInt(row4TextField.getText()), Integer.parseInt(row5TextField.getText()),
                 Integer.parseInt(row6TextField.getText()), nightClubNameTextField.getText());
     }//GEN-LAST:event_OkButtonActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        JFrame mainNightClubFrame=new NightclubMainForm(currentClubName);
+            this.dispose();
+            mainNightClubFrame.setLocationRelativeTo(this);
+            mainNightClubFrame.setVisible(true);
+    }//GEN-LAST:event_backButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,6 +234,7 @@ public class ChangeNightClubTableProfileForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton OkButton;
+    private javax.swing.JButton backButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

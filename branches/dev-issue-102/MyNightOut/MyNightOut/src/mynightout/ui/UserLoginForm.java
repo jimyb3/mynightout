@@ -39,6 +39,7 @@ public class UserLoginForm extends javax.swing.JFrame {
         passWordLabel = new javax.swing.JLabel();
         userNameField = new javax.swing.JTextField();
         passWordField = new javax.swing.JTextField();
+        backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -65,6 +66,13 @@ public class UserLoginForm extends javax.swing.JFrame {
 
         passWordField.setToolTipText("password");
 
+        backButton.setText("Πίσω");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -73,10 +81,11 @@ public class UserLoginForm extends javax.swing.JFrame {
                 .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
                         .addComponent(enterButton)
-                        .addGap(36, 36, 36)
-                        .addComponent(resetButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(resetButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(backButton))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(passWordLabel)
@@ -86,7 +95,7 @@ public class UserLoginForm extends javax.swing.JFrame {
                             .addComponent(userNameLabel)
                             .addGap(28, 28, 28)
                             .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,7 +111,8 @@ public class UserLoginForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(enterButton)
-                    .addComponent(resetButton))
+                    .addComponent(resetButton)
+                    .addComponent(backButton))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
@@ -114,11 +124,11 @@ public class UserLoginForm extends javax.swing.JFrame {
         try {
             User user = controller.login(userNameField.getText(), passWordField.getText());
             JOptionPane.showMessageDialog(null, "welcome", "Success", JOptionPane.INFORMATION_MESSAGE);
-            //Είσοδος στην κατηγορία καταστημάτων.
-            JFrame stores=new StoresForm();
+            String cUserName = userNameField.getText();
+            JFrame userMain=new UserMainForm(cUserName);
             this.dispose();
-            stores.setLocationRelativeTo(this);
-            stores.setVisible(true);
+            userMain.setLocationRelativeTo(this);
+            userMain.setVisible(true);
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
@@ -129,6 +139,13 @@ public class UserLoginForm extends javax.swing.JFrame {
         userNameField.setText("");
         passWordField.setText("");
     }//GEN-LAST:event_resetButtonActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        JFrame mainFrame=new MainFrame();
+            this.dispose();
+            mainFrame.setLocationRelativeTo(this);
+            mainFrame.setVisible(true);
+    }//GEN-LAST:event_backButtonActionPerformed
  public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -162,6 +179,7 @@ public class UserLoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
     private javax.swing.JButton enterButton;
     private javax.swing.JTextField passWordField;
     private javax.swing.JLabel passWordLabel;

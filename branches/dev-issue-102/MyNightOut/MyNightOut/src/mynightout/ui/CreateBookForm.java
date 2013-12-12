@@ -19,6 +19,8 @@ import mynightout.entity.Reservation;
  */
 public class CreateBookForm extends javax.swing.JFrame {
 
+    private String currentUserName;
+
     /**
      * Creates new form CreateReservationForm
      */
@@ -27,6 +29,11 @@ public class CreateBookForm extends javax.swing.JFrame {
         initComponents();
         Date date = new Date();
         this.reservationDateChooser.setDate(date);
+    }
+
+    public CreateBookForm(String cUserName) {
+        currentUserName = cUserName;
+        initComponents();
     }
 
     /**
@@ -131,22 +138,21 @@ public class CreateBookForm extends javax.swing.JFrame {
 
     private void reservationOkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationOkButtonActionPerformed
         /**
-         * Η βάση μέσα στoν πίνακα κράτηση κρατάει μόνο το userId, το clubId, την ημερομηνία
-         * κράτησης, των αριθμό θέσεων, και μια ένα status που μας δειχνει αν ειναι ενεργή
-         * η κράτηση. Σαν προεπιλογή θα θέτουμε το status με active.
-         * 
-         * Γενικά στο προγραμμα θα έχουμε πάντα κρατημένο το username του χρήστη,
-         * με το username θα παίρνουμε το userId που χρειαζόμαστε υπάρχει η συναρτηση
-         * με το clubName που θα παίρνουμε πριν ανοιξει η φορμα για την κράτηση θα 
-         * μπορουμε να πάρουμε το clubId υπάρχει η συνάρτηση, την ημερομηνία και
-         * των αριθμο θέσεων θα τα παιρνουμε από τη φορμα, και το status απλά θα το 
-         * θέτουμε.
-         * 
-         * 
+         * Η βάση μέσα στoν πίνακα κράτηση κρατάει μόνο το userId, το clubId,
+         * την ημερομηνία κράτησης, των αριθμό θέσεων, και μια ένα status που
+         * μας δειχνει αν ειναι ενεργή η κράτηση. Σαν προεπιλογή θα θέτουμε το
+         * status με active.
+         *
+         * Γενικά στο προγραμμα θα έχουμε πάντα κρατημένο το username του
+         * χρήστη, με το username θα παίρνουμε το userId που χρειαζόμαστε
+         * υπάρχει η συναρτηση με το clubName που θα παίρνουμε πριν ανοιξει η
+         * φορμα για την κράτηση θα μπορουμε να πάρουμε το clubId υπάρχει η
+         * συνάρτηση, την ημερομηνία και των αριθμο θέσεων θα τα παιρνουμε από
+         * τη φορμα, και το status απλά θα το θέτουμε.
+         *
+         *
          */
-         
-        
-       
+
         CreateBookController controller = new CreateBookController();
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -157,11 +163,15 @@ public class CreateBookForm extends javax.swing.JFrame {
             try {
                 int seatNumber = Integer.parseInt(reservationPartyNumberTextField.getText());
 
-                Reservation createReservation = controller.createReservationNew(1,2,
+                Reservation createReservation = controller.createReservationNew(1, 2,
                         this.reservationDateChooser.getDate(), "θέση τραπεζιού",
                         seatNumber, "active");
                 JOptionPane.showMessageDialog(null, "Η καταχώρηση ήταν επιτυχής",
                         "Success", JOptionPane.INFORMATION_MESSAGE);
+                JFrame mainUserFrame = new UserMainForm(currentUserName);
+                this.dispose();
+                mainUserFrame.setLocationRelativeTo(this);
+                mainUserFrame.setVisible(true);
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",
@@ -177,10 +187,10 @@ public class CreateBookForm extends javax.swing.JFrame {
 
     private void reservationButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationButtonCloseActionPerformed
 
-        JFrame mainFrame = new MainFrame();
-        dispose();
-        mainFrame.setLocationRelativeTo(this);
-        mainFrame.setVisible(true);
+        JFrame mainUserFrame = new UserMainForm(currentUserName);
+        this.dispose();
+        mainUserFrame.setLocationRelativeTo(this);
+        mainUserFrame.setVisible(true);
 
     }//GEN-LAST:event_reservationButtonCloseActionPerformed
 

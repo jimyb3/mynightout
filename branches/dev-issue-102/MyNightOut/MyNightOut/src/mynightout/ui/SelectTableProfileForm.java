@@ -13,14 +13,17 @@ import javax.swing.JFrame;
  * @author Dimitris
  */
 public class SelectTableProfileForm extends javax.swing.JFrame {
-
+private String currentUserName;
     /**
      * Creates new form SelectTableProfileForm
      */
     public SelectTableProfileForm() {
         initComponents();
     }
-
+public SelectTableProfileForm(String cUserName) {
+        currentUserName = cUserName;
+        initComponents();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,11 +52,10 @@ public class SelectTableProfileForm extends javax.swing.JFrame {
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         // TODO add your handling code here:
+       JFrame mainUserFrame = new UserMainForm(currentUserName);
         this.dispose();
-        JFrame mainFrame=new MainFrame();
-        this.dispose();
-        mainFrame.setLocationRelativeTo(this);
-        mainFrame.setVisible(true);
+        mainUserFrame.setLocationRelativeTo(this);
+        mainUserFrame.setVisible(true);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import java.text.Format;
@@ -12,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.controllers.CreateBookController;
 import mynightout.dao.NightClubDao;
@@ -23,10 +23,17 @@ import mynightout.exceptions.DaoException;
  */
 public class ConfirmReservationInfoForm extends javax.swing.JFrame {
 
+    private String currentUserName;
+
     /**
      * Creates new form ConfirmReservationInfoForm
      */
     public ConfirmReservationInfoForm() {
+        initComponents();
+    }
+
+    public ConfirmReservationInfoForm(String cUserName) {
+        currentUserName = cUserName;
         initComponents();
     }
 
@@ -158,23 +165,28 @@ public class ConfirmReservationInfoForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        // TODO add your handling code here:
+        
         this.dispose();
+       
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
         // TODO add your handling code here:
-        int clubId= new NightClubDao().getNightClubDataByClubName(nightClubNameLabel.getText()).getClubId();
-        int userId=1;
-        
+        int clubId = new NightClubDao().getNightClubDataByClubName(nightClubNameLabel.getText()).getClubId();
+        int userId = 1;
+
         String date = "01/01/2014";
-        
-        Format formatter= new SimpleDateFormat("dd/MM/yyyy");
+
+        Format formatter = new SimpleDateFormat("dd/MM/yyyy");
         try {
             Date reservationDate = (Date) formatter.parseObject(date);
-            CreateBookController cbc=new CreateBookController();
+            CreateBookController cbc = new CreateBookController();
             cbc.createReservationNew(userId, clubId, reservationDate, reservationTableLabel.getText(), 5, "active");
-            JOptionPane.showMessageDialog(null, "Έγινε η καταχώρηση της νέας κράτησης", "Success",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Έγινε η καταχώρηση της νέας κράτησης", "Success", JOptionPane.INFORMATION_MESSAGE);
+            JFrame mainUserFrame = new UserMainForm(currentUserName);
+            this.dispose();
+            mainUserFrame.setLocationRelativeTo(this);
+            mainUserFrame.setVisible(true);
         } catch (ParseException ex) {
             Logger.getLogger(ConfirmReservationInfoForm.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalArgumentException ex) {
@@ -182,8 +194,8 @@ public class ConfirmReservationInfoForm extends javax.swing.JFrame {
         } catch (DaoException ex) {
             Logger.getLogger(ConfirmReservationInfoForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
+
     }//GEN-LAST:event_confirmButtonActionPerformed
 
     /**
