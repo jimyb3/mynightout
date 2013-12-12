@@ -5,9 +5,8 @@
  */
 package mynightout.ui;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JCheckBox;
+import javax.swing.JFrame;
 
 /**
  *
@@ -15,10 +14,17 @@ import javax.swing.JCheckBox;
  */
 public class SetNightClubDaysClosedForm extends javax.swing.JFrame {
 
+    private String clubName;
+
     /**
      * Creates new form SetNightClubDaysClosedForm
      */
     public SetNightClubDaysClosedForm() {
+        initComponents();
+    }
+
+    public SetNightClubDaysClosedForm(String nightClubName) {
+        clubName = nightClubName;
         initComponents();
     }
 
@@ -153,6 +159,10 @@ public class SetNightClubDaysClosedForm extends javax.swing.JFrame {
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
+        JFrame mainNightClubFrame = new NightclubMainFrame(clubName);
+        this.dispose();
+        mainNightClubFrame.setLocationRelativeTo(this);
+        mainNightClubFrame.setVisible(true);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
@@ -166,7 +176,7 @@ public class SetNightClubDaysClosedForm extends javax.swing.JFrame {
         dayList[4] = fridayCheckBox;
         dayList[5] = saturdayCheckBox;
         dayList[6] = sundayCheckBox;
-        ConfirmNightClubDaysClosedForm cncdcf = new ConfirmNightClubDaysClosedForm();
+        ConfirmNightClubDaysClosedForm cncdcf = new ConfirmNightClubDaysClosedForm(clubName);
 
         for (int i = 0; i <= 6; i++) {
             if (dayList[i].isSelected()) {

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import javax.swing.JFrame;
@@ -39,8 +38,10 @@ public class NightclubLoginForm extends javax.swing.JFrame {
         clubPasswordField = new javax.swing.JTextField();
         enterButton = new javax.swing.JButton();
         resetButton = new javax.swing.JButton();
+        goToMainFrameButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login καταστήματος");
 
         jLabel1.setText("Όνομα καταστήματος");
 
@@ -60,6 +61,13 @@ public class NightclubLoginForm extends javax.swing.JFrame {
             }
         });
 
+        goToMainFrameButton.setText("Αρχική");
+        goToMainFrameButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goToMainFrameButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -67,45 +75,48 @@ public class NightclubLoginForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
+                        .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel1))
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(clubPasswordField)
-                            .addComponent(clubNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(clubNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(clubPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(enterButton)
-                        .addGap(40, 40, 40)
-                        .addComponent(resetButton)))
-                .addContainerGap(63, Short.MAX_VALUE))
+                        .addGap(27, 27, 27)
+                        .addComponent(enterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(resetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(goToMainFrameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(clubNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(clubPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(enterButton)
-                    .addComponent(resetButton))
-                .addContainerGap(24, Short.MAX_VALUE))
+                    .addComponent(resetButton)
+                    .addComponent(goToMainFrameButton))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
-clubNameField.setText("");
-clubPasswordField.setText("");
+        clubNameField.setText("");
+        clubPasswordField.setText("");
     }//GEN-LAST:event_resetButtonActionPerformed
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
@@ -113,18 +124,31 @@ clubPasswordField.setText("");
         try {
             Nightclub club = controller.login(clubNameField.getText(), clubPasswordField.getText());
             JOptionPane.showMessageDialog(null, "welcome", "Success", JOptionPane.INFORMATION_MESSAGE);
-            //emfanish tou cellar
-            JFrame cellarFrame=new ShowCellarForm();
+            String clubName = clubNameField.getText();
+            JFrame mainNightClubFrame = new NightclubMainFrame(clubName);
             this.dispose();
-            cellarFrame.setLocationRelativeTo(this);
-            cellarFrame.setVisible(true);
-            
+            mainNightClubFrame.setLocationRelativeTo(this);
+            mainNightClubFrame.setVisible(true);
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
         }
-    } 
-    /**                               
+    }
+
+    private void goToMainFrameButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        this.dispose();
+        JFrame mainFrame = new MainFrame();
+        mainFrame.setLocationRelativeTo(this);
+        mainFrame.setVisible(true);
+    }
+
+    /**
     }//GEN-LAST:event_enterButtonActionPerformed
+
+    private void goToMainFrameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goToMainFrameButtonActionPerformed
+        //
+     * TODO add your handling code here:
+    }//GEN-LAST:event_goToMainFrameButtonActionPerformed
  
      * @param args the command line arguments
      */
@@ -165,6 +189,7 @@ clubPasswordField.setText("");
     private javax.swing.JTextField clubNameField;
     private javax.swing.JTextField clubPasswordField;
     private javax.swing.JButton enterButton;
+    private javax.swing.JButton goToMainFrameButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton resetButton;

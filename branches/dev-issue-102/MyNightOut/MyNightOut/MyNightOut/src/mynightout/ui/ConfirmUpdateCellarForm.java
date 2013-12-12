@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import javax.swing.JFrame;
@@ -16,10 +15,17 @@ import mynightout.controllers.UpdateCellarController;
  */
 public class ConfirmUpdateCellarForm extends javax.swing.JFrame {
 
+    private String clubName;
+
     /**
      * Creates new form ConfirmUpdateCellarForm
      */
     public ConfirmUpdateCellarForm() {
+        initComponents();
+    }
+
+    public ConfirmUpdateCellarForm(String nightClubName) {
+        clubName = nightClubName;
         initComponents();
     }
 
@@ -189,7 +195,7 @@ public class ConfirmUpdateCellarForm extends javax.swing.JFrame {
     private void noButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        DisplayCellarForm dcf=new DisplayCellarForm();
+        DisplayCellarForm dcf = new DisplayCellarForm(clubName);
         dcf.cellarTable.setValueAt(vodkaValueLabel.getText(), 0, 1);
         dcf.cellarTable.setValueAt(whiskeyValueLabel.getText(), 1, 1);
         dcf.cellarTable.setValueAt(wineValueLabel.getText(), 2, 1);
@@ -198,24 +204,26 @@ public class ConfirmUpdateCellarForm extends javax.swing.JFrame {
         dcf.cellarTable.setValueAt(tequilaValueLabel.getText(), 5, 1);
         dcf.cellarTable.setValueAt(beerValueLabel.getText(), 6, 1);
         dcf.secretClubNameLabel.setText(nightClubNameLabel.getText());
+        dcf.setLocationRelativeTo(this);
         dcf.setVisible(true);
-        
+
     }//GEN-LAST:event_noButtonActionPerformed
 
     private void yesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesButtonActionPerformed
         // TODO add your handling code here:
-        UpdateCellarController ucc=new UpdateCellarController();
-        
-        try{        
+        UpdateCellarController ucc = new UpdateCellarController();
+
+        try {
             ucc.updateCellar(nightClubNameLabel.getText(), Integer.parseInt(vodkaValueLabel.getText()), Integer.parseInt(whiskeyValueLabel.getText()), Integer.parseInt(wineValueLabel.getText()), Integer.parseInt(liqueurValueLabel.getText()), Integer.parseInt(rumValueLabel.getText()), Integer.parseInt(tequilaValueLabel.getText()), Integer.parseInt(beerValueLabel.getText()));
-            JOptionPane.showMessageDialog(null, "Η ενημέρωση έγινε με επιτυχία.", "Success",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Η ενημέρωση έγινε με επιτυχία.", "Success", JOptionPane.INFORMATION_MESSAGE);
             this.dispose();
-            JFrame mainFrame = new MainFrame();
-            mainFrame.setLocationRelativeTo(this);
-            mainFrame.setVisible(true);
-        } catch(Exception e){
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",JOptionPane.INFORMATION_MESSAGE);
-        }   
+            JFrame mainNightClubFrame = new NightclubMainFrame(clubName);
+            this.dispose();
+            mainNightClubFrame.setLocationRelativeTo(this);
+            mainNightClubFrame.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_yesButtonActionPerformed
 
     /**

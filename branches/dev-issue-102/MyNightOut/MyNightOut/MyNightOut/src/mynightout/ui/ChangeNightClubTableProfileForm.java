@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import mynightout.presenters.CreateNightClubTableProfilePresenter;
@@ -14,10 +13,17 @@ import mynightout.presenters.CreateNightClubTableProfilePresenter;
  */
 public class ChangeNightClubTableProfileForm extends javax.swing.JFrame {
 
+    private String clubName;
+
     /**
      * Creates new form createTableView
      */
     public ChangeNightClubTableProfileForm() {
+        initComponents();
+    }
+
+    public ChangeNightClubTableProfileForm(String nightClubName) {
+        clubName = nightClubName;
         initComponents();
     }
 
@@ -167,8 +173,8 @@ public class ChangeNightClubTableProfileForm extends javax.swing.JFrame {
     private void OkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        CreateNightClubTableProfilePresenter ctpp=new CreateNightClubTableProfilePresenter();
-        ctpp.createNightClubTableProfile(new TableProfileForm(), Integer.parseInt(row1TextField.getText()),
+        CreateNightClubTableProfilePresenter ctpp = new CreateNightClubTableProfilePresenter();
+        ctpp.createNightClubTableProfile(new TableProfileForm(clubName), Integer.parseInt(row1TextField.getText()),
                 Integer.parseInt(row2TextField.getText()), Integer.parseInt(row3TextField.getText()),
                 Integer.parseInt(row4TextField.getText()), Integer.parseInt(row5TextField.getText()),
                 Integer.parseInt(row6TextField.getText()), nightClubNameTextField.getText());

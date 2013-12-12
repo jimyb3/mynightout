@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import javax.swing.JFrame;
@@ -16,10 +15,17 @@ import mynightout.controllers.SetNightClubDaysClosedController;
  */
 public class ConfirmNightClubDaysClosedForm extends javax.swing.JFrame {
 
+    private String clubName;
+
     /**
      * Creates new form ConfirmNightClubDaysClosedForm
      */
     public ConfirmNightClubDaysClosedForm() {
+        initComponents();
+    }
+
+    public ConfirmNightClubDaysClosedForm(String nightClubName) {
+        clubName = nightClubName;
         initComponents();
     }
 
@@ -155,25 +161,25 @@ public class ConfirmNightClubDaysClosedForm extends javax.swing.JFrame {
     private void noButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        SetNightClubDaysClosedForm sncdcf=new SetNightClubDaysClosedForm();
+        SetNightClubDaysClosedForm sncdcf = new SetNightClubDaysClosedForm(clubName);
         sncdcf.setLocationRelativeTo(this);
         sncdcf.setVisible(true);
     }//GEN-LAST:event_noButtonActionPerformed
 
     private void yesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesButtonActionPerformed
         // TODO add your handling code here:
-        try{
-            SetNightClubDaysClosedController sncdcc=new SetNightClubDaysClosedController();
+        try {
+            SetNightClubDaysClosedController sncdcc = new SetNightClubDaysClosedController();
             sncdcc.setClubClosedDates(nightClubNameLabel.getText(), secretLabel.getText());
-            JOptionPane.showMessageDialog(null, "Ορίστηκαν σωστά οι μέρες που θα είναι κλειστό", "Success",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ορίστηκαν σωστά οι μέρες που θα είναι κλειστό", "Success", JOptionPane.INFORMATION_MESSAGE);
+            JFrame mainNightClubFrame = new NightclubMainFrame(clubName);
             this.dispose();
-            JFrame mainFrame = new MainFrame();
-            mainFrame.setLocationRelativeTo(this);
-            mainFrame.setVisible(true);
-        } catch(Exception e){
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",JOptionPane.INFORMATION_MESSAGE);
-        }   
-        
+            mainNightClubFrame.setLocationRelativeTo(this);
+            mainNightClubFrame.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
+        }
+
     }//GEN-LAST:event_yesButtonActionPerformed
 
     /**

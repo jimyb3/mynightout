@@ -41,6 +41,7 @@ public class UserLoginForm extends javax.swing.JFrame {
         passWordField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
         setResizable(false);
 
         enterButton.setText("Enter");
@@ -115,11 +116,11 @@ public class UserLoginForm extends javax.swing.JFrame {
             User user = controller.login(userNameField.getText(), passWordField.getText());
             JOptionPane.showMessageDialog(null, "welcome", "Success", JOptionPane.INFORMATION_MESSAGE);
             //Είσοδος στην κατηγορία καταστημάτων.
-            JFrame storeCategory=new StoreCategory();
+            JFrame storeCategory = new StoreCategory();
             this.dispose();
             storeCategory.setLocationRelativeTo(this);
             storeCategory.setVisible(true);
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -129,7 +130,7 @@ public class UserLoginForm extends javax.swing.JFrame {
         userNameField.setText("");
         passWordField.setText("");
     }//GEN-LAST:event_resetButtonActionPerformed
- public static void main(String args[]) {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

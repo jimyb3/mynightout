@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import javax.swing.JFrame;
@@ -50,7 +49,7 @@ public class SelectTableProfileForm extends javax.swing.JFrame {
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        JFrame mainFrame=new MainFrame();
+        JFrame mainFrame = new MainFrame();
         this.dispose();
         mainFrame.setLocationRelativeTo(this);
         mainFrame.setVisible(true);

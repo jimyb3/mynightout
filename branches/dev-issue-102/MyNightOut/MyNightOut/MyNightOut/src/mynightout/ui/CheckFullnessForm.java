@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.controllers.CheckFullnessController;
 import mynightout.dao.NightClubDao;
@@ -18,10 +18,17 @@ import mynightout.entity.Nightclub;
  */
 public class CheckFullnessForm extends javax.swing.JFrame {
 
+    private String clubName;
+
     /**
      * Creates new form CheckFullnessForm
      */
     public CheckFullnessForm() {
+        initComponents();
+    }
+
+    public CheckFullnessForm(String nightClubName) {
+        clubName = nightClubName;
         initComponents();
     }
 
@@ -86,13 +93,17 @@ public class CheckFullnessForm extends javax.swing.JFrame {
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         // TODO add your handling code here:
-          CheckFullnessController controller=new CheckFullnessController(new NightClubDao());
-        
-          try {
-             Nightclub nightClub=controller.checkFullness(nightClubTextField.getText());
-             JOptionPane.showMessageDialog(null, "Δεν είναι πλήρης, 54/100", "Success",JOptionPane.INFORMATION_MESSAGE);
+        CheckFullnessController controller = new CheckFullnessController(new NightClubDao());
+
+        try {
+            Nightclub nightClub = controller.checkFullness(nightClubTextField.getText());
+            JOptionPane.showMessageDialog(null, "Δεν είναι πλήρης, 54/100", "Success", JOptionPane.INFORMATION_MESSAGE);
+            JFrame mainNightClubFrame = new NightclubMainFrame(clubName);
+            this.dispose();
+            mainNightClubFrame.setLocationRelativeTo(this);
+            mainNightClubFrame.setVisible(true);
         } catch (Exception e) {      //minima la8ous apo th vash (den vgazei mhmyma)
-         JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_okButtonActionPerformed
 

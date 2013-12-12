@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import javax.swing.JFrame;
@@ -14,10 +13,17 @@ import javax.swing.JFrame;
  */
 public class DisplayCellarForm extends javax.swing.JFrame {
 
+    private String clubName;
+
     /**
      * Creates new form DisplayCellarForm
      */
     public DisplayCellarForm() {
+        initComponents();
+    }
+
+    public DisplayCellarForm(String nightClubName) {
+        clubName = nightClubName;
         initComponents();
     }
 
@@ -119,15 +125,15 @@ public class DisplayCellarForm extends javax.swing.JFrame {
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         // TODO add your handling code here:
+        JFrame mainNightClubFrame = new NightclubMainFrame(clubName);
         this.dispose();
-        JFrame mainFrame=new MainFrame();
-        mainFrame.setLocationRelativeTo(this);
-        mainFrame.setVisible(true);
+        mainNightClubFrame.setLocationRelativeTo(this);
+        mainNightClubFrame.setVisible(true);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void updateCellarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCellarButtonActionPerformed
         // TODO add your handling code here:
-        ConfirmUpdateCellarForm cucf=new ConfirmUpdateCellarForm();
+        ConfirmUpdateCellarForm cucf = new ConfirmUpdateCellarForm(clubName);
         cucf.vodkaValueLabel.setText(cellarTable.getValueAt(0, 1).toString());
         cucf.whiskeyValueLabel.setText(cellarTable.getValueAt(1, 1).toString());
         cucf.wineValueLabel.setText(cellarTable.getValueAt(2, 1).toString());
@@ -137,6 +143,7 @@ public class DisplayCellarForm extends javax.swing.JFrame {
         cucf.beerValueLabel.setText(cellarTable.getValueAt(6, 1).toString());
         cucf.nightClubNameLabel.setText(secretClubNameLabel.getText());
         this.dispose();
+        cucf.setLocationRelativeTo(this);
         cucf.setVisible(true);
     }//GEN-LAST:event_updateCellarButtonActionPerformed
 

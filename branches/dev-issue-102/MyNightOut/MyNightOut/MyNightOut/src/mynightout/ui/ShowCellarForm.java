@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import java.util.Vector;
@@ -17,10 +16,17 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ShowCellarForm extends javax.swing.JFrame {
 
+    private String clubName;
+
     /**
      * Creates new form ShowCellarForm
      */
     public ShowCellarForm() {
+        initComponents();
+    }
+
+    public ShowCellarForm(String nightClubName) {
+        clubName = nightClubName;
         initComponents();
     }
 
@@ -100,22 +106,21 @@ public class ShowCellarForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseButtonActionPerformed
-        JFrame mainFrame = new MainFrame();
+        JFrame mainNightClubFrame = new NightclubMainFrame(clubName);
         this.dispose();
-        mainFrame.setLocationRelativeTo(this);
-        mainFrame.setVisible(true);   // TODO add your handling code here:
+        mainNightClubFrame.setLocationRelativeTo(this);
+        mainNightClubFrame.setVisible(true);
     }//GEN-LAST:event_CloseButtonActionPerformed
 
     private void ShowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowButtonActionPerformed
-       
-      
+
         Vector<String> tableHeaders = new Vector<String>();
         tableHeaders.add("Όνομα Φιάλης");
         tableHeaders.add("Ποσότητα");
-        Vector<String> firstRow=new Vector<String>();
-        Vector<String> secondRow=new Vector<String>(); 
-        Vector<String> thirdRow=new Vector<String>();
-        Vector<Vector> tableData=new Vector<Vector>();
+        Vector<String> firstRow = new Vector<String>();
+        Vector<String> secondRow = new Vector<String>();
+        Vector<String> thirdRow = new Vector<String>();
+        Vector<Vector> tableData = new Vector<Vector>();
         firstRow.add("Bacardi");
         firstRow.add("3");
         tableData.add(firstRow);
@@ -125,24 +130,18 @@ public class ShowCellarForm extends javax.swing.JFrame {
         thirdRow.add("Johny Walker Red");
         thirdRow.add("2");
         tableData.add(thirdRow);
-        cellarTable.setModel(new 
-        DefaultTableModel(tableData,tableHeaders)); // TODO add your handling code here:
+        cellarTable.setModel(new DefaultTableModel(tableData, tableHeaders)); // TODO add your handling code here:
     }//GEN-LAST:event_ShowButtonActionPerformed
 
-  
     public static void main(String args[]) {
-             
-                
-     java.awt.EventQueue.invokeLater(new Runnable() {
-        public void run() {
-         new ShowCellarForm().setVisible(true);
-       
-          
-          }
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ShowCellarForm().setVisible(true);
+
+            }
         });
-    
-      
-   
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

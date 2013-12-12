@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
+
+import javax.swing.JFrame;
 
 /**
  *
@@ -12,10 +13,17 @@ package mynightout.ui;
  */
 public class ShowSupplierForm extends javax.swing.JFrame {
 
+    private String clubName;
+
     /**
      * Creates new form ShowSupplierForm
      */
     public ShowSupplierForm() {
+        initComponents();
+    }
+
+    public ShowSupplierForm(String nightClubName) {
+        clubName = nightClubName;
         initComponents();
     }
 
@@ -49,8 +57,18 @@ public class ShowSupplierForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(SuppliersTable);
 
         showSuppliersButton.setText("OK");
+        showSuppliersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showSuppliersButtonActionPerformed(evt);
+            }
+        });
 
         CancelButton.setText("ΑΚΥΡΩΣΗ");
+        CancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,6 +98,20 @@ public class ShowSupplierForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void showSuppliersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showSuppliersButtonActionPerformed
+        JFrame mainNightClubFrame = new NightclubMainFrame(clubName);
+        this.dispose();
+        mainNightClubFrame.setLocationRelativeTo(this);
+        mainNightClubFrame.setVisible(true);
+    }//GEN-LAST:event_showSuppliersButtonActionPerformed
+
+    private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
+        JFrame mainNightClubFrame = new NightclubMainFrame(clubName);
+        this.dispose();
+        mainNightClubFrame.setLocationRelativeTo(this);
+        mainNightClubFrame.setVisible(true);
+    }//GEN-LAST:event_CancelButtonActionPerformed
 
     /**
      * @param args the command line arguments

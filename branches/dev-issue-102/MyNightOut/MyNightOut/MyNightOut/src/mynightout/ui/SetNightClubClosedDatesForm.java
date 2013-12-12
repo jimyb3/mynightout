@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import javax.swing.JFrame;
 
 /**
  *
@@ -15,10 +15,17 @@ import java.text.SimpleDateFormat;
  */
 public class SetNightClubClosedDatesForm extends javax.swing.JFrame {
 
+    private String clubName;
+
     /**
      * Creates new form SetNightClubClosedDatesForm
      */
     public SetNightClubClosedDatesForm() {
+        initComponents();
+    }
+
+    public SetNightClubClosedDatesForm(String nightClubName) {
+        clubName = nightClubName;
         initComponents();
     }
 
@@ -124,15 +131,17 @@ public class SetNightClubClosedDatesForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        // TODO add your handling code here:
+        JFrame mainNightClubFrame = new NightclubMainFrame(clubName);
         this.dispose();
+        mainNightClubFrame.setLocationRelativeTo(this);
+        mainNightClubFrame.setVisible(true);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        ConfirmNightClubClosedDatesForm cnccdf=new ConfirmNightClubClosedDatesForm();
+        ConfirmNightClubClosedDatesForm cnccdf = new ConfirmNightClubClosedDatesForm(clubName);
         cnccdf.nightClubNameLabel.setText(clubNameTextField.getText());
         cnccdf.closedFromDateLabel.setText(df.format(closedFromDateChooser.getDate()));
         cnccdf.closedThroughDateLabel.setText(df.format(closedThroughDateChooser.getDate()));
