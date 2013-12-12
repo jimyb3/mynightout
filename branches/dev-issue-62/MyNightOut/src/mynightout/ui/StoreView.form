@@ -28,16 +28,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="160" max="-2" attributes="0"/>
+                      <Component id="storeName" min="-2" pref="160" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jButton1" min="-2" pref="102" max="-2" attributes="0"/>
+                              <Component id="backBtn" min="-2" pref="102" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton2" min="-2" pref="101" max="-2" attributes="0"/>
+                              <Component id="reservBtn" min="-2" pref="101" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Component id="StoreDesc" max="32767" attributes="0"/>
@@ -51,13 +51,13 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="41" max="-2" attributes="0"/>
+              <Component id="storeName" min="-2" pref="41" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="StoreDesc" min="-2" pref="292" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton1" max="32767" attributes="0"/>
-                  <Component id="jButton2" max="32767" attributes="0"/>
+                  <Component id="backBtn" max="32767" attributes="0"/>
+                  <Component id="reservBtn" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -66,7 +66,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="storeName">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x3a0;&#x3bb;&#x3b7;&#x3c1;&#x3bf;&#x3c6;&#x3bf;&#x3c1;&#x3af;&#x3b5;&#x3c2; &#x39a;&#x3b1;&#x3c4;&#x3b1;&#x3c3;&#x3c4;&#x3ae;&#x3bc;&#x3b1;&#x3c4;&#x3bf;&#x3c2;"/>
       </Properties>
@@ -97,18 +97,21 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="backBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x3a0;&#x3af;&#x3c3;&#x3c9;"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backBtnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="reservBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x39a;&#x3c1;&#x3ac;&#x3c4;&#x3b7;&#x3c3;&#x3b7;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reservBtnActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
