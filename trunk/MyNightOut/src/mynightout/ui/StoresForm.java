@@ -218,7 +218,7 @@ public StoresForm(String cUserName) {
 
                 public void actionPerformed(ActionEvent e) {
                     String choice = e.getActionCommand();
-                    JOptionPane.showMessageDialog(null, choice, "Success", JOptionPane.INFORMATION_MESSAGE);
+                    //JOptionPane.showMessageDialog(null, choice, "Success", JOptionPane.INFORMATION_MESSAGE);
                     addSubmenue(choice);
                 }
             });
@@ -356,7 +356,7 @@ public StoresForm(String cUserName) {
         NightClubDao getstores = new NightClubDao();
         List allNightClubs = getstores.getAllNightClubs();
 
-        JOptionPane.showMessageDialog(null, mainMenuCodes, "Success", JOptionPane.INFORMATION_MESSAGE);
+        //JOptionPane.showMessageDialog(null, mainMenuCodes, "Success", JOptionPane.INFORMATION_MESSAGE);
 
         if (mainMenuCodes.equals("Stages")) {
 
