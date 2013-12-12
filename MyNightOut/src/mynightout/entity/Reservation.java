@@ -110,61 +110,7 @@ public class Reservation  implements java.io.Serializable {
         this.clubName = clubName;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 31 * hash + (this.id != null ? this.id.hashCode() : 0);
-        hash = 31 * hash + (this.reservationDate != null ? this.reservationDate.hashCode() : 0);
-        hash = 31 * hash + (this.trapezi != null ? this.trapezi.hashCode() : 0);
-        hash = 31 * hash + this.seatNumber;
-        hash = 31 * hash + (this.reservationStatus != null ? this.reservationStatus.hashCode() : 0);
-        hash = 31 * hash + (this.username != null ? this.username.hashCode() : 0);
-        hash = 31 * hash + (this.cancelSuccessful ? 1 : 0);
-        hash = 31 * hash + (this.successCreate ? 1 : 0);
-        hash = 31 * hash + (this.clubName != null ? this.clubName.hashCode() : 0);
-        return hash;
-    }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Reservation other = (Reservation) obj;
-        if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
-            return false;
-        }
-        if (this.reservationDate != other.reservationDate && (this.reservationDate == null || !this.reservationDate.equals(other.reservationDate))) {
-            return false;
-        }
-        if ((this.trapezi == null) ? (other.trapezi != null) : !this.trapezi.equals(other.trapezi)) {
-            return false;
-        }
-        if (this.seatNumber != other.seatNumber) {
-            return false;
-        }
-        if ((this.reservationStatus == null) ? (other.reservationStatus != null) : !this.reservationStatus.equals(other.reservationStatus)) {
-            return false;
-        }
-        if ((this.username == null) ? (other.username != null) : !this.username.equals(other.username)) {
-            return false;
-        }
-        if (this.cancelSuccessful != other.cancelSuccessful) {
-            return false;
-        }
-        if (this.successCreate != other.successCreate) {
-            return false;
-        }
-        if ((this.clubName == null) ? (other.clubName != null) : !this.clubName.equals(other.clubName)) {
-            return false;
-        }
-        return true;
-    }
-
-    
 
 
 }

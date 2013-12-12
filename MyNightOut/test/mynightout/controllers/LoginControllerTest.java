@@ -19,9 +19,9 @@ import static org.junit.Assert.*;
  *
  * @author ioanna
  */
-public class UserLoginControllerTest {
+public class LoginControllerTest {
     
-    public UserLoginControllerTest() {
+    public LoginControllerTest() {
     }
     
     @BeforeClass
@@ -49,7 +49,7 @@ public class UserLoginControllerTest {
         
         String userName = "user1";
         String passWord = "123456";
-        UserLoginController instance = new UserLoginController();
+        LoginController instance = new LoginController();
         User expResult = new User("user1", "123456");
         User result = instance.login(userName, passWord);
         Assert.assertEquals(expResult.getUsername() , result.getUsername()); 
@@ -63,7 +63,7 @@ public class UserLoginControllerTest {
         
         String userName = "user1";
         String passWord = "_-_-_-";
-        UserLoginController instance = new UserLoginController();
+        LoginController instance = new LoginController();
         User expResult = new User("user1", "123456");
         User result = instance.login(userName, passWord);
         //Assert. assertEquals(expResult.getUserName() , result.getUserName());
@@ -74,7 +74,7 @@ public class UserLoginControllerTest {
     public void testFailedLoginNoUsername() {
         String userName = "";
         String passWord = "123456";
-        UserLoginController instance = new UserLoginController();
+        LoginController instance = new LoginController();
         User expResult = new User("user1","123456");
         User result = instance.login(userName, passWord);
     }
@@ -82,7 +82,7 @@ public class UserLoginControllerTest {
     public void testFailedLoginNoPassword() {
         String userName = "user1";
         String passWord = "";
-        UserLoginController instance = new UserLoginController();
+        LoginController instance = new LoginController();
         User expResult = new User("user1","123456");
         User result = instance.login(userName, passWord);
     }
@@ -90,7 +90,7 @@ public class UserLoginControllerTest {
     public void testFailedLoginSmallUsername() {
         String userName = "us";
         String passWord = "123456";
-        UserLoginController instance = new UserLoginController();
+        LoginController instance = new LoginController();
         User expResult = new User("user1","123456");
         User result = instance.login(userName, passWord);
     }
@@ -98,7 +98,7 @@ public class UserLoginControllerTest {
     public void testFailedLoginSmallPassword() {
         String userName = "user1";
         String passWord = "1";
-        UserLoginController instance = new UserLoginController();
+        LoginController instance = new LoginController();
         User expResult = new User("user1","123456");
         User result = instance.login(userName, passWord);
     }
@@ -106,7 +106,7 @@ public class UserLoginControllerTest {
     public void testFailedLoginUsernameTooBig() {
         String userName = "user1234user12345user";
         String passWord = "123456";
-        UserLoginController instance = new UserLoginController();
+        LoginController instance = new LoginController();
         User expResult = new User("user1","123456");
         User result = instance.login(userName, passWord);
     }
@@ -114,7 +114,7 @@ public class UserLoginControllerTest {
     public void testFailedLoginPasswordTooBig() {
         String userName = "user1";
         String passWord = "12345678912345678";
-        UserLoginController instance = new UserLoginController();
+        LoginController instance = new LoginController();
         User expResult = new User("user1","123456");
         User result = instance.login(userName, passWord);
     }

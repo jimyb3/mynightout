@@ -12,12 +12,12 @@ import mynightout.entity.Reservation;
  *
  * @author Maria
  */
-public class MockDeleteDaoSuccess{
-/*
+public class MockDeleteDaoSuccess implements IReservationDaoDelete {
+
     @Override
     public Reservation selectReservation(String clubName,int reservationId) throws DaoException {
         Reservation reservation = new Reservation(clubName,reservationId);
         reservation.setCancelSuccessful(true);
         return reservation;
-    }*/
+    }
 }

@@ -32,12 +32,6 @@ public class Nightclub  implements java.io.Serializable {
     public Nightclub() {
     }
 
-    public Nightclub(String clubName, String clubPassword) {
-        this.clubName = clubName;
-        this.clubPassword = clubPassword;
-    }
-    
-
     public Nightclub(String clubName, String clubPassword, String address, 
             String emailAddress, int seatNumber, String telephoneNum, String categoryId, String clubImage) {
        this.clubName = clubName;
@@ -162,99 +156,6 @@ public class Nightclub  implements java.io.Serializable {
         this.storeFull = storeFull;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 41 * hash + (this.clubId != null ? this.clubId.hashCode() : 0);
-        hash = 41 * hash + (this.clubName != null ? this.clubName.hashCode() : 0);
-        hash = 41 * hash + (this.clubPassword != null ? this.clubPassword.hashCode() : 0);
-        hash = 41 * hash + (this.address != null ? this.address.hashCode() : 0);
-        hash = 41 * hash + (this.email != null ? this.email.hashCode() : 0);
-        hash = 41 * hash + this.seatNumber;
-        hash = 41 * hash + (this.telephoneNum != null ? this.telephoneNum.hashCode() : 0);
-        hash = 41 * hash + (this.category != null ? this.category.hashCode() : 0);
-        hash = 41 * hash + (this.clubImage != null ? this.clubImage.hashCode() : 0);
-        hash = 41 * hash + (this.closedFrom != null ? this.closedFrom.hashCode() : 0);
-        hash = 41 * hash + (this.closedThrough != null ? this.closedThrough.hashCode() : 0);
-        hash = 41 * hash + (this.daysClosed != null ? this.daysClosed.hashCode() : 0);
-        hash = 41 * hash + (this.storeName != null ? this.storeName.hashCode() : 0);
-        hash = 41 * hash + (this.storeFull ? 1 : 0);
-        return hash;
-    }
-
-     @Override
-    public boolean equals(Object obj) {
-    if (obj == null) {
-    return false;
-    }
-    if (getClass() != obj.getClass()) {
-    return false;
-    }
-    final Nightclub other = (Nightclub) obj;
-    if (this.clubId != other.clubId && (this.clubId == null || !this.clubId.equals(other.clubId))) {
-    return false;
-    }
-    if ((this.clubName == null) ? (other.clubName != null) : !this.clubName.equals(other.clubName)) {
-    return false;
-    }
-    if ((this.clubPassword == null) ? (other.clubPassword != null) : !this.clubPassword.equals(other.clubPassword)) {
-    return false;
-    }
-    if ((this.address == null) ? (other.address != null) : !this.address.equals(other.address)) {
-    return false;
-    }
-    if ((this.email == null) ? (other.email != null) : !this.email.equals(other.email)) {
-    return false;
-    }
-    if (this.seatNumber != other.seatNumber) {
-    return false;
-    }
-    if ((this.telephoneNum == null) ? (other.telephoneNum != null) : !this.telephoneNum.equals(other.telephoneNum)) {
-    return false;
-    }
-    if ((this.category == null) ? (other.category != null) : !this.category.equals(other.category)) {
-    return false;
-    }
-    if ((this.clubImage == null) ? (other.clubImage != null) : !this.clubImage.equals(other.clubImage)) {
-    return false;
-    }
-    if (this.closedFrom != other.closedFrom && (this.closedFrom == null || !this.closedFrom.equals(other.closedFrom))) {
-    return false;
-    }
-    if (this.closedThrough != other.closedThrough && (this.closedThrough == null || !this.closedThrough.equals(other.closedThrough))) {
-    return false;
-    }
-    if ((this.daysClosed == null) ? (other.daysClosed != null) : !this.daysClosed.equals(other.daysClosed)) {
-    return false;
-    }
-    if ((this.storeName == null) ? (other.storeName != null) : !this.storeName.equals(other.storeName)) {
-    return false;
-    }
-    if (this.storeFull != other.storeFull) {
-    return false;
-    }
-    return true;
-    }
-    
-    
-    public boolean equalsForLogin(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Nightclub other = (Nightclub) obj;
-        if ((this.clubName == null) ? (other.clubName != null) : !this.clubName.equals(other.clubName)) {
-            return false;
-        }
-        if ((this.clubPassword == null) ? (other.clubPassword != null) : !this.clubPassword.equals(other.clubPassword)) {
-            return false;
-        }
-        return true;
-    }
-
-    
 
 }
 

@@ -12,14 +12,14 @@ import mynightout.entity.User;
  *
  * @author ioanna
  */
-public class UserLoginController {
+public class LoginController {
 
     public User login(String userName, String passWord) {
 
         UserDao currentUser = new UserDao();
         User user = new User(userName, passWord);
 
-        if (user.equalsForLogin(currentUser.isUserDataValid(userName, passWord))) {
+        if (user.equals(currentUser.isUserDataValid(userName, passWord))) {
             try {
                 return user;
 

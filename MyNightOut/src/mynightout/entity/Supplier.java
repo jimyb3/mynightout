@@ -91,57 +91,7 @@ public class Supplier  implements java.io.Serializable {
         this.emailAddress = emailAddress;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 37 * hash + this.supplierId;
-        hash = 37 * hash + (this.firstName != null ? this.firstName.hashCode() : 0);
-        hash = 37 * hash + (this.lastName != null ? this.lastName.hashCode() : 0);
-        hash = 37 * hash + (this.companyName != null ? this.companyName.hashCode() : 0);
-        hash = 37 * hash + (this.address != null ? this.address.hashCode() : 0);
-        hash = 37 * hash + (this.cellphoneNum != null ? this.cellphoneNum.hashCode() : 0);
-        hash = 37 * hash + (this.officephoneNum != null ? this.officephoneNum.hashCode() : 0);
-        hash = 37 * hash + (this.emailAddress != null ? this.emailAddress.hashCode() : 0);
-        return hash;
-    }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Supplier other = (Supplier) obj;
-        if (this.supplierId != other.supplierId) {
-            return false;
-        }
-        if ((this.firstName == null) ? (other.firstName != null) : !this.firstName.equals(other.firstName)) {
-            return false;
-        }
-        if ((this.lastName == null) ? (other.lastName != null) : !this.lastName.equals(other.lastName)) {
-            return false;
-        }
-        if ((this.companyName == null) ? (other.companyName != null) : !this.companyName.equals(other.companyName)) {
-            return false;
-        }
-        if ((this.address == null) ? (other.address != null) : !this.address.equals(other.address)) {
-            return false;
-        }
-        if ((this.cellphoneNum == null) ? (other.cellphoneNum != null) : !this.cellphoneNum.equals(other.cellphoneNum)) {
-            return false;
-        }
-        if ((this.officephoneNum == null) ? (other.officephoneNum != null) : !this.officephoneNum.equals(other.officephoneNum)) {
-            return false;
-        }
-        if ((this.emailAddress == null) ? (other.emailAddress != null) : !this.emailAddress.equals(other.emailAddress)) {
-            return false;
-        }
-        return true;
-    }
-
-    
 
 
 }

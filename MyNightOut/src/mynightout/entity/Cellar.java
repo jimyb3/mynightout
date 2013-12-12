@@ -89,58 +89,6 @@ public class Cellar  implements java.io.Serializable {
         this.beer = beer;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 31 * hash + this.clubId;
-        hash = 31 * hash + this.vodka;
-        hash = 31 * hash + this.whiskey;
-        hash = 31 * hash + this.wine;
-        hash = 31 * hash + this.liqueur;
-        hash = 31 * hash + this.rum;
-        hash = 31 * hash + this.tequila;
-        hash = 31 * hash + this.beer;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Cellar other = (Cellar) obj;
-        if (this.clubId != other.clubId) {
-            return false;
-        }
-        if (this.vodka != other.vodka) {
-            return false;
-        }
-        if (this.whiskey != other.whiskey) {
-            return false;
-        }
-        if (this.wine != other.wine) {
-            return false;
-        }
-        if (this.liqueur != other.liqueur) {
-            return false;
-        }
-        if (this.rum != other.rum) {
-            return false;
-        }
-        if (this.tequila != other.tequila) {
-            return false;
-        }
-        if (this.beer != other.beer) {
-            return false;
-        }
-        return true;
-    }
-    
-    
-
 
 
 

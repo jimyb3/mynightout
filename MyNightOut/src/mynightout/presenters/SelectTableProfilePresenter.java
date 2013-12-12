@@ -18,6 +18,7 @@ import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import mynightout.dao.NightClubDao;
 import mynightout.dao.ReservationDao;
 import mynightout.ui.ConfirmReservationInfoForm;
 import mynightout.ui.SelectTableProfileForm;
@@ -30,12 +31,13 @@ public class SelectTableProfilePresenter {
 
     public void showSelectTableProfile(SelectTableProfileForm form, int row1, int row2, int row3, int row4,
             int row5, int row6, int clubId) throws ParseException {
-
+        
+        final String clubName= new NightClubDao().getNightClubDataByClubId(clubId).getClubName();
         int x = 100;
         int max = Collections.max(Arrays.asList(row1, row2, row3, row4, row5, row6));
         JPanel[] p = new JPanel[7];
         ReservationDao rDao = new ReservationDao();
-        clubId = 1;
+        
         String date = "01/01/2014";
         Format formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date reservationDate = (Date) formatter.parseObject(date);
