@@ -115,10 +115,10 @@ public class UserLoginForm extends javax.swing.JFrame {
             User user = controller.login(userNameField.getText(), passWordField.getText());
             JOptionPane.showMessageDialog(null, "welcome", "Success", JOptionPane.INFORMATION_MESSAGE);
             //Είσοδος στην κατηγορία καταστημάτων.
-            JFrame storeCategory=new StoreCategory();
+            JFrame stores=new StoresForm();
             this.dispose();
-            storeCategory.setLocationRelativeTo(this);
-            storeCategory.setVisible(true);
+            stores.setLocationRelativeTo(this);
+            stores.setVisible(true);
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
