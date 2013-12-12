@@ -285,7 +285,7 @@ public class StoresForm extends javax.swing.JFrame {
                     
                     StoreView storeV = new StoreView();
                     storeV.setVisible(true);
-                    storeV.jLabel1.setText(choice);
+                    storeV.storeName.setText(choice);
                 }
 
             });
@@ -364,19 +364,5 @@ public class StoresForm extends javax.swing.JFrame {
             return nightClubArray;
             //list.add(nightClubArray);
         }
-    }
-
-    private void addItems(String choice) {
-
-        if (choice.equals("P")) {
-            choice = "PIZZA";
-        } else if (choice.equals("B")) {
-            choice = "BURGER";
-        } else if (choice.equals("FJ")) {
-            choice = "FRUIT JUICE";
-        } else if (choice.equals("HB")) {
-            choice = "HOT BEVERAGES";
-        }
-        JOptionPane.showMessageDialog(this, "You have select  " + choice);
     }
 }
