@@ -47,7 +47,6 @@ public class StoreView extends javax.swing.JFrame {
         storeName.setText("Πληροφορίες Καταστήματος");
 
         StorePic.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        StorePic.setText("ΕΙΚΟΝΑ ΚΑΤΑΣΤΗΜΑΤΟΣ");
 
         StoreDesc.setText("ΠΕΡΙΓΡΑΦΗ ΚΑΤΑΣΤΗΜΑΤΟΣ");
 
