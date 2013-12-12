@@ -6,6 +6,8 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import javax.swing.AbstractButton;
@@ -16,6 +18,9 @@ import javax.swing.UIManager;
 import mynightout.dao.NightClubDao;
 import mynightout.entity.Nightclub;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -284,6 +289,21 @@ public class StoresForm extends javax.swing.JFrame {
                     getSubMenu(choice);
                     
                     StoreView storeV = new StoreView();
+                    URL url = null;
+                    try {
+                        url = new URL(new NightClubDao().getNightClubDataByClubName(choice).getClubImage());
+                    } catch (MalformedURLException ex) {
+                        Logger.getLogger(StoresForm.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    Image img = null;
+                    try {
+                        img = ImageIO.read(url);
+                    } catch (IOException ex) {
+                        Logger.getLogger(StoresForm.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    ImageIcon icon = new ImageIcon(img);
+                    storeV.StorePic.setIcon(icon);
+                    storeV.StorePic.setIcon(icon);
                     storeV.setVisible(true);
                     storeV.storeName.setText(choice);
                 }
