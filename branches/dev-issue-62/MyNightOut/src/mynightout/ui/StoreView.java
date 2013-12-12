@@ -141,6 +141,6 @@ public class StoreView extends javax.swing.JFrame {
     public javax.swing.JLabel StorePic;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -280,8 +280,12 @@ public class StoresForm extends javax.swing.JFrame {
 
                 public void actionPerformed(ActionEvent e) {
                     String choice = e.getActionCommand();
-
+                    
                     getSubMenu(choice);
+                    
+                    StoreView storeV = new StoreView();
+                    storeV.setVisible(true);
+                    storeV.jLabel1.setText(choice);
                 }
 
             });
