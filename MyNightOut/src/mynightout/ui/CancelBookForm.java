@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import javax.swing.JFrame;
@@ -18,10 +17,17 @@ import mynightout.entity.ReservationPk;
  */
 public class CancelBookForm extends javax.swing.JFrame {
 
+    private String currentUserName;
+
     /**
      * Creates new form CancelBookForm
      */
     public CancelBookForm() {
+        initComponents();
+    }
+
+    public CancelBookForm(String cUserName) {
+        currentUserName = cUserName;
         initComponents();
     }
 
@@ -129,27 +135,30 @@ public class CancelBookForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        // TODO add your handling code here:
-        CancelBookController controller=new CancelBookController();
-        int reservationId=Integer.parseInt(reservationIdTextField.getText());
-        
+        CancelBookController controller = new CancelBookController();
+        int reservationId = Integer.parseInt(reservationIdTextField.getText());
+
         mesageLabel.setText(new UserDao().getUserDataByUsername(userNameTextField.getText()).getCustomerLastname());
-        try{
-            ReservationPk cancelReservation=controller.cancelReservation(userNameTextField.getText(), reservationId);
-            JOptionPane.showMessageDialog(null, "Reservation canceled with id: " + reservationId, "Success",JOptionPane.INFORMATION_MESSAGE);
-        } catch(Exception e){
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",JOptionPane.INFORMATION_MESSAGE);
-        }   
+        try {
+            ReservationPk cancelReservation = controller.cancelReservation(userNameTextField.getText(), reservationId);
+            JOptionPane.showMessageDialog(null, "Reservation canceled with id: " + reservationId, "Success", JOptionPane.INFORMATION_MESSAGE);
+            JFrame mainUserFrame = new UserMainForm(currentUserName);
+            this.dispose();
+            mainUserFrame.setLocationRelativeTo(this);
+            mainUserFrame.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_okButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         // TODO add your handling code here:
         userNameTextField.setText("");
         reservationIdTextField.setText("");
-        JFrame mainFrame=new MainFrame();
+        JFrame mainUserFrame = new UserMainForm(currentUserName);
         this.dispose();
-        mainFrame.setLocationRelativeTo(this);
-        mainFrame.setVisible(true);
+        mainUserFrame.setLocationRelativeTo(this);
+        mainUserFrame.setVisible(true);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void reservationIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationIdTextFieldActionPerformed

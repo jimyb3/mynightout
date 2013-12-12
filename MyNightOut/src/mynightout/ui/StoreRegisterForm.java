@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.presenters.Presenter;
 
@@ -23,9 +23,10 @@ public class StoreRegisterForm extends javax.swing.JFrame implements IStoreRegis
     }
 
     @Override
-    public void display(String msg){
-            JOptionPane.showMessageDialog(this, msg);
-        }
+    public void display(String msg) {
+        JOptionPane.showMessageDialog(this, msg);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -220,11 +221,15 @@ public class StoreRegisterForm extends javax.swing.JFrame implements IStoreRegis
 
     private void RegisterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterButtonActionPerformed
         // TODO add your handling code here:
-        Presenter prsreg=new Presenter();
-        
-        prsreg.sendEmail(this, DesUserTextField.getText(), DesPassTextField.getText(), CompanyTextField.getText() ,AdressTextField.getText() ,  
-                PostcodeTextField.getText() , Tel1TextField.getText() ,Tel2TextField.getText(),MobileTextField.getText() , FaxTextField.getText()  , 
-              EmailTextField.getText() );
+        Presenter prsreg = new Presenter();
+
+        prsreg.sendEmail(this, DesUserTextField.getText(), DesPassTextField.getText(), CompanyTextField.getText(), AdressTextField.getText(),
+                PostcodeTextField.getText(), Tel1TextField.getText(), Tel2TextField.getText(), MobileTextField.getText(), FaxTextField.getText(),
+                EmailTextField.getText());
+        JFrame mainFrame = new MainFrame();
+        this.dispose();
+        mainFrame.setLocationRelativeTo(this);
+        mainFrame.setVisible(true);
     }//GEN-LAST:event_RegisterButtonActionPerformed
 
     /**

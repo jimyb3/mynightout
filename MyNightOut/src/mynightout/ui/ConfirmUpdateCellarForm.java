@@ -15,14 +15,17 @@ import mynightout.controllers.UpdateCellarController;
  * @author Dimitris
  */
 public class ConfirmUpdateCellarForm extends javax.swing.JFrame {
-
+private String currentClubName;
     /**
      * Creates new form ConfirmUpdateCellarForm
      */
     public ConfirmUpdateCellarForm() {
         initComponents();
     }
-
+public ConfirmUpdateCellarForm(String nightClubName) {
+    currentClubName = nightClubName;
+        initComponents();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -187,9 +190,9 @@ public class ConfirmUpdateCellarForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void noButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noButtonActionPerformed
-        // TODO add your handling code here:
+
         this.dispose();
-        DisplayCellarForm dcf=new DisplayCellarForm();
+        DisplayCellarForm dcf=new DisplayCellarForm(currentClubName);
         dcf.cellarTable.setValueAt(vodkaValueLabel.getText(), 0, 1);
         dcf.cellarTable.setValueAt(whiskeyValueLabel.getText(), 1, 1);
         dcf.cellarTable.setValueAt(wineValueLabel.getText(), 2, 1);
@@ -198,6 +201,7 @@ public class ConfirmUpdateCellarForm extends javax.swing.JFrame {
         dcf.cellarTable.setValueAt(tequilaValueLabel.getText(), 5, 1);
         dcf.cellarTable.setValueAt(beerValueLabel.getText(), 6, 1);
         dcf.secretClubNameLabel.setText(nightClubNameLabel.getText());
+        dcf.setLocationRelativeTo(this);
         dcf.setVisible(true);
         
     }//GEN-LAST:event_noButtonActionPerformed
@@ -209,10 +213,10 @@ public class ConfirmUpdateCellarForm extends javax.swing.JFrame {
         try{        
             ucc.updateCellar(nightClubNameLabel.getText(), Integer.parseInt(vodkaValueLabel.getText()), Integer.parseInt(whiskeyValueLabel.getText()), Integer.parseInt(wineValueLabel.getText()), Integer.parseInt(liqueurValueLabel.getText()), Integer.parseInt(rumValueLabel.getText()), Integer.parseInt(tequilaValueLabel.getText()), Integer.parseInt(beerValueLabel.getText()));
             JOptionPane.showMessageDialog(null, "Η ενημέρωση έγινε με επιτυχία.", "Success",JOptionPane.INFORMATION_MESSAGE);
+            JFrame mainNightClubFrame=new NightclubMainForm(currentClubName);
             this.dispose();
-            JFrame mainFrame = new MainFrame();
-            mainFrame.setLocationRelativeTo(this);
-            mainFrame.setVisible(true);
+            mainNightClubFrame.setLocationRelativeTo(this);
+            mainNightClubFrame.setVisible(true);
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",JOptionPane.INFORMATION_MESSAGE);
         }   

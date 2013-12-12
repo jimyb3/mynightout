@@ -15,14 +15,17 @@ import mynightout.controllers.SetNightClubDaysClosedController;
  * @author Dimitris
  */
 public class ConfirmNightClubDaysClosedForm extends javax.swing.JFrame {
-
+private String currentClubName;
     /**
      * Creates new form ConfirmNightClubDaysClosedForm
      */
     public ConfirmNightClubDaysClosedForm() {
         initComponents();
     }
-
+public ConfirmNightClubDaysClosedForm(String nightClubName) {
+        currentClubName = nightClubName;
+        initComponents();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -155,7 +158,7 @@ public class ConfirmNightClubDaysClosedForm extends javax.swing.JFrame {
     private void noButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        SetNightClubDaysClosedForm sncdcf=new SetNightClubDaysClosedForm();
+        SetNightClubDaysClosedForm sncdcf=new SetNightClubDaysClosedForm(currentClubName);
         sncdcf.setLocationRelativeTo(this);
         sncdcf.setVisible(true);
     }//GEN-LAST:event_noButtonActionPerformed
@@ -166,10 +169,10 @@ public class ConfirmNightClubDaysClosedForm extends javax.swing.JFrame {
             SetNightClubDaysClosedController sncdcc=new SetNightClubDaysClosedController();
             sncdcc.setClubClosedDates(nightClubNameLabel.getText(), secretLabel.getText());
             JOptionPane.showMessageDialog(null, "Ορίστηκαν σωστά οι μέρες που θα είναι κλειστό", "Success",JOptionPane.INFORMATION_MESSAGE);
+           JFrame mainNightClubFrame=new NightclubMainForm(currentClubName);
             this.dispose();
-            JFrame mainFrame = new MainFrame();
-            mainFrame.setLocationRelativeTo(this);
-            mainFrame.setVisible(true);
+            mainNightClubFrame.setLocationRelativeTo(this);
+            mainNightClubFrame.setVisible(true);
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",JOptionPane.INFORMATION_MESSAGE);
         }   

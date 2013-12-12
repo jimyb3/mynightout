@@ -16,14 +16,17 @@ import mynightout.entity.Tables;
  * @author Dimitris
  */
 public class TableProfileForm extends javax.swing.JFrame implements ISelectTableForm{
-
+private String currentClubName;
     /**
      * Creates new form SelectTableReservationForm
      */
     public TableProfileForm() {
         initComponents();
     }
-    
+    public TableProfileForm(String nightClubName) {
+    currentClubName = nightClubName;
+        initComponents();
+    }
     public void begin(){
         
     
@@ -141,9 +144,9 @@ public class TableProfileForm extends javax.swing.JFrame implements ISelectTable
     }// </editor-fold>//GEN-END:initComponents
 
     private void noButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noButtonActionPerformed
-        // TODO add your handling code here:
+        
         this.dispose();
-        ChangeNightClubTableProfileForm ctpf=new ChangeNightClubTableProfileForm();
+        ChangeNightClubTableProfileForm ctpf=new ChangeNightClubTableProfileForm(currentClubName);
         ctpf.setLocationRelativeTo(this);
         ctpf.setVisible(true);
     }//GEN-LAST:event_noButtonActionPerformed
@@ -162,9 +165,9 @@ public class TableProfileForm extends javax.swing.JFrame implements ISelectTable
                 Integer.parseInt(jLabel7.getText())))){
             this.dispose(); 
             JOptionPane.showMessageDialog(null, "Περάστηκαν οι αλλαγές.", "Success",JOptionPane.INFORMATION_MESSAGE);
-            JFrame mainFrame=new MainFrame();
-            mainFrame.setLocationRelativeTo(this);
-            mainFrame.setVisible(true);
+            JFrame mainNightClubFrame=new NightclubMainForm(currentClubName);
+            mainNightClubFrame.setLocationRelativeTo(this);
+            mainNightClubFrame.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(null, "Πρόβλημα", "Failure",JOptionPane.INFORMATION_MESSAGE);
             
