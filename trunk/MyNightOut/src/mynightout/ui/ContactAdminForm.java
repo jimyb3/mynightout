@@ -6,7 +6,7 @@
 
 package mynightout.ui;
 
-import javax.swing.JOptionPane;
+import javax.swing.JFrame;
 import mynightout.presenters.Presenter;
 
 /**
@@ -204,8 +204,10 @@ public class ContactAdminForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
-        // TODO add your handling code here:
+        JFrame mainFrame = new MainFrame();
         this.dispose();
+        mainFrame.setLocationRelativeTo(this);
+        mainFrame.setVisible(true);
     }//GEN-LAST:event_BackButtonActionPerformed
 
     private void ReserveHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReserveHelpActionPerformed

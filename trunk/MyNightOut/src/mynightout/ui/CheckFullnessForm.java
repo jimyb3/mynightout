@@ -7,14 +7,12 @@
 package mynightout.ui;
 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.controllers.CheckFullnessController;
 import mynightout.dao.NightClubDao;
 import mynightout.dao.ReservationDao;
 import mynightout.dao.TablesDao;
-import mynightout.exceptions.DaoException;
 import mynightout.entity.Nightclub;
 
 /**
@@ -22,14 +20,17 @@ import mynightout.entity.Nightclub;
  * @author panos
  */
 public class CheckFullnessForm extends javax.swing.JFrame {
-
+private String currentClubName;
     /**
      * Creates new form CheckFullnessForm
      */
     public CheckFullnessForm() {
         initComponents();
     }
-
+ public CheckFullnessForm(String nightClubName) {
+     currentClubName = nightClubName;
+        initComponents();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,6 +49,7 @@ public class CheckFullnessForm extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,6 +70,13 @@ public class CheckFullnessForm extends javax.swing.JFrame {
 
         jLabel5.setText("Αριθμός Κρατήσεων");
 
+        backButton.setText("Πίσω");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -78,11 +87,14 @@ public class CheckFullnessForm extends javax.swing.JFrame {
                         .addGap(193, 193, 193)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(nightClubLabel)
-                            .addComponent(okButton)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(okButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(backButton))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel4)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(166, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 10, Short.MAX_VALUE)
                 .addComponent(jLabel5)
@@ -123,7 +135,9 @@ public class CheckFullnessForm extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(okButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(okButton)
+                    .addComponent(backButton))
                 .addGap(41, 41, 41))
         );
 
@@ -169,7 +183,14 @@ public class CheckFullnessForm extends javax.swing.JFrame {
          JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",JOptionPane.INFORMATION_MESSAGE);
         
     }//GEN-LAST:event_okButtonActionPerformed
-          }
+}
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        JFrame mainNightClubForm=new NightclubMainForm(currentClubName);
+            this.dispose();
+            mainNightClubForm.setLocationRelativeTo(this);
+            mainNightClubForm.setVisible(true);
+    }//GEN-LAST:event_backButtonActionPerformed
+          
    
     
     
@@ -208,6 +229,7 @@ public class CheckFullnessForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

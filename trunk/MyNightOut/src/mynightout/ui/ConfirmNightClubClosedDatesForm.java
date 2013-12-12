@@ -21,14 +21,17 @@ import mynightout.controllers.SetNightClubClosedDatesController;
  * @author Dimitris
  */
 public class ConfirmNightClubClosedDatesForm extends javax.swing.JFrame {
-
+private String currentClubName;
     /**
      * Creates new form ConfirmNightClubClosedDatesForm
      */
     public ConfirmNightClubClosedDatesForm() {
         initComponents();
     }
-
+public ConfirmNightClubClosedDatesForm(String nightClubName) {
+       currentClubName = nightClubName;
+        initComponents();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -148,12 +151,13 @@ public class ConfirmNightClubClosedDatesForm extends javax.swing.JFrame {
     private void noButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        SetNightClubClosedDatesForm snccdf=new SetNightClubClosedDatesForm();
+        SetNightClubClosedDatesForm snccdf=new SetNightClubClosedDatesForm(currentClubName);
+        snccdf.setLocationRelativeTo(this);
         snccdf.setVisible(true);
     }//GEN-LAST:event_noButtonActionPerformed
 
     private void yesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesButtonActionPerformed
-        // TODO add your handling code here:
+        
         Format formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date closedFromDate=new Date();
         Date closedThroughDate=new Date();
@@ -167,10 +171,10 @@ public class ConfirmNightClubClosedDatesForm extends javax.swing.JFrame {
             SetNightClubClosedDatesController snccdc=new SetNightClubClosedDatesController();
             snccdc.setClubClosedDates(nightClubNameLabel.getText(), closedFromDate, closedThroughDate);
             JOptionPane.showMessageDialog(null, "Ορίστηκαν σωστά οι νέες ημερομηνίες!", "Success",JOptionPane.INFORMATION_MESSAGE);
+            JFrame mainNightClubFrame=new NightclubMainForm(currentClubName);
             this.dispose();
-            JFrame mainFrame = new MainFrame();
-            mainFrame.setLocationRelativeTo(this);
-            mainFrame.setVisible(true);
+            mainNightClubFrame.setLocationRelativeTo(this);
+            mainNightClubFrame.setVisible(true);
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",JOptionPane.INFORMATION_MESSAGE);
         }   
