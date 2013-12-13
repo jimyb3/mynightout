@@ -29,6 +29,9 @@ public class CreateBookForm extends javax.swing.JFrame {
         initComponents();
         Date date = new Date();
         this.reservationDateChooser.setDate(date);
+        //TODO reservationNightClubSelection.setModel();
+        //index? to clubid?
+        
     }
 
     public CreateBookForm(String cUserName) {
@@ -161,9 +164,12 @@ public class CreateBookForm extends javax.swing.JFrame {
 
         try {
             try {
+                //String currentUserName="asd";
+                //reservationCustomerNameLabel.setText(currentUserName);
                 int seatNumber = Integer.parseInt(reservationPartyNumberTextField.getText());
 
-                Reservation createReservation = controller.createReservationNew(1, 2,
+                Reservation createReservation = controller.createReservationNew(1,
+                        this.reservationNightClubSelection.getSelectedIndex(),
                         this.reservationDateChooser.getDate(), "θέση τραπεζιού",
                         seatNumber, "active");
                 JOptionPane.showMessageDialog(null, "Η καταχώρηση ήταν επιτυχής",
