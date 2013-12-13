@@ -23,7 +23,6 @@ public class EditUserInformationController {
             UserDao currentUser = new UserDao();
             User user = currentUser.getUserDataByUsername(currentUserName);
             return user;
-
         } catch (Exception e) {
             throw new IllegalArgumentException("Πρόβλημα στην βάση");
         }
