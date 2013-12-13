@@ -6,7 +6,6 @@
 package mynightout.controllers;
 
 import mynightout.dao.MockDeleteDaoFailure;
-import mynightout.dao.MockDeleteDaoSuccess;
 import mynightout.dao.NightClubDao;
 import mynightout.entity.Reservation;
 import mynightout.entity.ReservationPk;
@@ -52,214 +51,426 @@ public class DeleteReservationControllerTest {
     /**
      * Test of DeleteReservation method, of class DeleteReservationController.
      */
-    /*@Test
+   
+     @Test (expected=NullPointerException.class)
+    public void testDeleteReservationSuccess(){
+        System.out.println("deleteReservation");
+        int reservationId = 5;
+        String clubName="marias";
+        int clubId= new NightClubDao(). getNightClubDataByClubName(clubName).getClubId();
+        DeleteReservationController instance = new DeleteReservationController();
+        ReservationPk result = instance.deleteReservation(clubName,reservationId);
+       
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(clubId);
+        expResult.setReservationId(reservationId);
+       
+        Assert.assertEquals(expResult.getClubId(), result.getClubId());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
+   
+        
+        //  Assert.assertEquals(clubId,result.getClubId());
+     ///   Assert.assertEquals(reservationId, result.getReservationId());
+       
+    
+    }
+    
+    
+    
+    @Test (expected=IllegalArgumentException.class)
     public void testDeleteReservationWithNegativeNumber(){
         System.out.println("DeleteReservation");
         int reservationId = -1;
         String clubName="marias";
-        int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
-        //DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
+       int clubId= new NightClubDao(). getNightClubDataByClubName(clubName).getClubId();
+        DeleteReservationController instance = new DeleteReservationController();
+        ReservationPk result = instance.deleteReservation(clubName,reservationId);
+       
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(clubId);
+        expResult.setReservationId(reservationId);
+       
+        Assert.assertEquals(expResult.getClubId(), result.getClubId());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
+   
+        
+
+
+       // DeleteReservationController instance = new DeleteReservationController();
         //ReservationPk result = instance.deleteReservation(clubName,reservationId);
         //Assert.assertEquals(clubId,result.getClubId());
         //Assert.assertEquals(reservationId, result.getReservationId());
-        //Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
-        // fail("The test case is a prototype.");
-    }*/
+       
+    }
 
     /**
      * Test of deleteReservation method, of class DeleteReservationController.
      */
-     /*@Test
+    @Test (expected=NullPointerException.class)
     public void testDeleteReservationWithWrongBoth() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId = -1;
         String clubName="mar";
-        //DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
-        //Reservation result = instance.deleteReservation(clubName,reservationId);
-       // Assert.assertEquals(clubName,result.getClubName());
+        int clubId= new NightClubDao(). getNightClubDataByClubName(clubName).getClubId();
+        DeleteReservationController instance = new DeleteReservationController();
+        ReservationPk result = instance.deleteReservation(clubName,reservationId);
+       
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(clubId);
+        expResult.setReservationId(reservationId);
+       
+        Assert.assertEquals(expResult.getClubId(), result.getClubId());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
+   
+        
+
+
+       // DeleteReservationController instance = new DeleteReservationController();
+        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
+        //Assert.assertEquals(clubId,result.getClubId());
         //Assert.assertEquals(reservationId, result.getReservationId());
-        //Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
-        // fail("The test case is a prototype.");
-    }*/
-    /*@Test
-    public void testDeleteReservationWithCorrectNumber(){
-        System.out.println("deleteReservation");
-        int reservationId = 5;
-        String clubName="marias";
-        //DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoSuccess());
-        //Reservation result = instance.deleteReservation(clubName,reservationId);
-        //Assert.assertEquals(clubName,result.getClubName());
-        //Assert.assertEquals(reservationId, result.getReservationId());
-       // Assert.assertEquals(false, result.isCancelSuccessful());
-    }*/
+        
+    }
+   
     
-      /*@Test
+      @Test (expected=IllegalArgumentException.class)
     public void testDeleteReservationWithZero() throws Exception {
         System.out.println("deleteReservation");
         
         int reservationId = 0;
         String clubName="marias";
-        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
-        Reservation result = instance.deleteReservation(clubName,reservationId);
-        Assert.assertEquals(clubName,result.getClubName());
-        Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(false, result.isCancelSuccessful());
+      int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
+       
+        DeleteReservationController instance = new DeleteReservationController();
+       ReservationPk result = instance.deleteReservation(clubName,reservationId);
+       
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(clubId);
+        expResult.setReservationId(reservationId);
+       
+        Assert.assertEquals(expResult.getClubId(), result.getClubId());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
+   
+        
+
+
+       // DeleteReservationController instance = new DeleteReservationController();
+        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
+        //Assert.assertEquals(clubId,result.getClubId());
+        //Assert.assertEquals(reservationId, result.getReservationId());
     }
-     @Test
+     @Test (expected=IllegalArgumentException.class)
     public void testDeleteReservationWithHugeId() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId = 1000000000;
         String clubName="marias";
-        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
-        Reservation result = instance.deleteReservation(clubName,reservationId);
-        Assert.assertEquals(clubName,result.getClubName());
-        Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
-        // fail("The test case is a prototype.");
+        int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
+     
+        DeleteReservationController instance = new DeleteReservationController();
+       ReservationPk result = instance.deleteReservation(clubName,reservationId);
+       
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(clubId);
+        expResult.setReservationId(reservationId);
+       
+        Assert.assertEquals(expResult.getClubId(), result.getClubId());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
+   
+        
+
+
+       // DeleteReservationController instance = new DeleteReservationController();
+        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
+        //Assert.assertEquals(clubId,result.getClubId());
+        //Assert.assertEquals(reservationId, result.getReservationId());
     }
     
-     @Test
+     @Test(expected=IllegalArgumentException.class)
     public void testDeleteReservationWithHugeIdAndSmallName() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId = 1000000000;
         String clubName="mar";
-        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
-        Reservation result = instance.deleteReservation(clubName,reservationId);
-        Assert.assertEquals(clubName,result.getClubName());
-        Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
-        // fail("The test case is a prototype.");
+          int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
+      
+        DeleteReservationController instance = new DeleteReservationController();
+       ReservationPk result = instance.deleteReservation(clubName,reservationId);
+       
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(clubId);
+        expResult.setReservationId(reservationId);
+       
+        Assert.assertEquals(expResult.getClubId(), result.getClubId());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
+   
+        
+
+
+       // DeleteReservationController instance = new DeleteReservationController();
+        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
+        //Assert.assertEquals(clubId,result.getClubId());
+        //Assert.assertEquals(reservationId, result.getReservationId());
+        
     }
-      @Test
+      @Test(expected=IllegalArgumentException.class)
     public void testDeleteReservationWithBothHuge() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId = 1000000000;
         String clubName="mariaskkkkkklllw";
-        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
-        Reservation result = instance.deleteReservation(clubName,reservationId);
-        Assert.assertEquals(clubName,result.getClubName());
-        Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
-        // fail("The test case is a prototype.");
+         int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
+      
+        DeleteReservationController instance = new DeleteReservationController();
+       ReservationPk result = instance.deleteReservation(clubName,reservationId);
+       
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(clubId);
+        expResult.setReservationId(reservationId);
+       
+        Assert.assertEquals(expResult.getClubId(), result.getClubId());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
+   
+        
+
+
+       // DeleteReservationController instance = new DeleteReservationController();
+        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
+        //Assert.assertEquals(clubId,result.getClubId());
+        //Assert.assertEquals(reservationId, result.getReservationId());
     }
     
-      @Test
+      @Test (expected=IllegalArgumentException.class)
     public void testDeleteReservationWithHugeNameAndSmallId() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId = -5;
         String clubName="mariaskkkkkklllw";
-        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
-        Reservation result = instance.deleteReservation(clubName,reservationId);
-        Assert.assertEquals(clubName,result.getClubName());
-        Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
-        // fail("The test case is a prototype.");
+         int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
+       
+        DeleteReservationController instance = new DeleteReservationController();
+       ReservationPk result = instance.deleteReservation(clubName,reservationId);
+       
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(clubId);
+        expResult.setReservationId(reservationId);
+       
+        Assert.assertEquals(expResult.getClubId(), result.getClubId());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
+   
+        
+
+
+       // DeleteReservationController instance = new DeleteReservationController();
+        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
+        //Assert.assertEquals(clubId,result.getClubId());
+        //Assert.assertEquals(reservationId, result.getReservationId());
     }
-    @Test
+    @Test (expected=IllegalArgumentException.class)
     public void testDeleteReservationWithSmallName() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId = 10;
         String clubName="mar";
-        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
-        Reservation result = instance.deleteReservation(clubName,reservationId);
-        Assert.assertEquals(clubName,result.getClubName());
-        Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
-        // fail("The test case is a prototype.");
+        int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
+       
+        DeleteReservationController instance = new DeleteReservationController();
+       ReservationPk result = instance.deleteReservation(clubName,reservationId);
+       
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(clubId);
+        expResult.setReservationId(reservationId);
+       
+        Assert.assertEquals(expResult.getClubId(), result.getClubId());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
+   
+        
+
+
+       // DeleteReservationController instance = new DeleteReservationController();
+        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
+        //Assert.assertEquals(clubId,result.getClubId());
+        //Assert.assertEquals(reservationId, result.getReservationId());
     }
     
-      @Test
+      @Test (expected=IllegalArgumentException.class)
     public void testDeleteReservationWithHugeName() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId = 10;
         String clubName="mariaskkkkkklllw";
-        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
-        Reservation result = instance.deleteReservation(clubName,reservationId);
-        Assert.assertEquals(clubName,result.getClubName());
-        Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
-        // fail("The test case is a prototype.");
+      int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
+       
+        DeleteReservationController instance = new DeleteReservationController();
+       ReservationPk result = instance.deleteReservation(clubName,reservationId);
+       
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(clubId);
+        expResult.setReservationId(reservationId);
+       
+        Assert.assertEquals(expResult.getClubId(), result.getClubId());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
+   
+        
+
+
+       // DeleteReservationController instance = new DeleteReservationController();
+        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
+        //Assert.assertEquals(clubId,result.getClubId());
+        //Assert.assertEquals(reservationId, result.getReservationId());
     }
     
-      @Test
+      @Test (expected=IllegalArgumentException.class)
     public void testDeleteReservationWithZeroIdAndSmallName() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId = 0;
         String clubName="mar";
-        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
-        Reservation result = instance.deleteReservation(clubName,reservationId);
-        Assert.assertEquals(clubName,result.getClubName());
-        Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
-        // fail("The test case is a prototype.");
+         int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
+         
+        DeleteReservationController instance = new DeleteReservationController();
+       ReservationPk result = instance.deleteReservation(clubName,reservationId);
+       
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(clubId);
+        expResult.setReservationId(reservationId);
+       
+        Assert.assertEquals(expResult.getClubId(), result.getClubId());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
+   
+        
+
+
+       // DeleteReservationController instance = new DeleteReservationController();
+        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
+        //Assert.assertEquals(clubId,result.getClubId());
+        //Assert.assertEquals(reservationId, result.getReservationId());
     }
     
-      @Test
+      @Test (expected=IllegalArgumentException.class)
     public void testDeleteReservationWithHugeNameAndZeroId() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId =0;
         String clubName="mariaskkkkkklllw";
-        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
-        Reservation result = instance.deleteReservation(clubName,reservationId);
-        Assert.assertEquals(clubName,result.getClubName());
-        Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
-        // fail("The test case is a prototype.");
+       int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
+       
+        DeleteReservationController instance = new DeleteReservationController();
+       ReservationPk result = instance.deleteReservation(clubName,reservationId);
+       
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(clubId);
+        expResult.setReservationId(reservationId);
+       
+        Assert.assertEquals(expResult.getClubId(), result.getClubId());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
+   
+        
+
+
+       // DeleteReservationController instance = new DeleteReservationController();
+        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
+        //Assert.assertEquals(clubId,result.getClubId());
+        //Assert.assertEquals(reservationId, result.getReservationId());
     }
-      @Test
+      @Test (expected=NullPointerException.class)
        public void testDeleteReservationWithZeroIdAndEmptyName() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId;
         reservationId = 0;
         String clubName=null;
-        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
-        Reservation result = instance.deleteReservation(clubName,reservationId);
-        Assert.assertEquals(clubName,result.getClubName());
-        Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
-        // fail("The test case is a prototype.");
+        int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
+        
+        DeleteReservationController instance = new DeleteReservationController();
+       ReservationPk result = instance.deleteReservation(clubName,reservationId);
+       
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(clubId);
+        expResult.setReservationId(reservationId);
+       
+        Assert.assertEquals(expResult.getClubId(), result.getClubId());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
+   
+        
+
+
+       // DeleteReservationController instance = new DeleteReservationController();
+        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
+        //Assert.assertEquals(clubId,result.getClubId());
+        //Assert.assertEquals(reservationId, result.getReservationId());
     }
        
     
-      @Test
+      @Test (expected=NullPointerException.class)
        public void testDeleteReservationWithSmallIdAndEmptyName() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId;
         reservationId = -1;
         String clubName=null;
-        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
-        Reservation result = instance.deleteReservation(clubName,reservationId);
-        Assert.assertEquals(clubName,result.getClubName());
-        Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
-        // fail("The test case is a prototype.");
+        int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
+      
+        DeleteReservationController instance = new DeleteReservationController();
+       ReservationPk result = instance.deleteReservation(clubName,reservationId);
+       
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(clubId);
+        expResult.setReservationId(reservationId);
+       
+        Assert.assertEquals(expResult.getClubId(), result.getClubId());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
+   
+        
+
+
+       // DeleteReservationController instance = new DeleteReservationController();
+        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
+        //Assert.assertEquals(clubId,result.getClubId());
+        //Assert.assertEquals(reservationId, result.getReservationId());
     }   
-        @Test
+        @Test (expected=NullPointerException.class)
        public void testDeleteReservationWithHugeIdAndEmptyName() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId;
         reservationId = 1000000000;
         String clubName=null;
-        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
-        Reservation result = instance.deleteReservation(clubName,reservationId);
-        Assert.assertEquals(clubName,result.getClubName());
-        Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
-        // fail("The test case is a prototype.");
+       int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
+         
+        DeleteReservationController instance = new DeleteReservationController();
+       ReservationPk result = instance.deleteReservation(clubName,reservationId);
+       
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(clubId);
+        expResult.setReservationId(reservationId);
+       
+        Assert.assertEquals(expResult.getClubId(), result.getClubId());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
+   
+        
+
+
+       // DeleteReservationController instance = new DeleteReservationController();
+        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
+        //Assert.assertEquals(clubId,result.getClubId());
+        //Assert.assertEquals(reservationId, result.getReservationId());
     }   
-        @Test
+        @Test (expected=NullPointerException.class)
        public void testDeleteReservationWithEmptyName() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId;
         reservationId = 10;
         String clubName=null;
-        DeleteReservationController instance = new DeleteReservationController(new MockDeleteDaoFailure());
-        Reservation result = instance.deleteReservation(clubName,reservationId);
-        Assert.assertEquals(clubName,result.getClubName());
-        Assert.assertEquals(reservationId, result.getReservationId());
-        Assert.assertEquals(false, result.isCancelSuccessful());// TODO review the generated test code and remove the default call to fail.
-        // fail("The test case is a prototype.");
-    }   */
+        int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
+      
+        DeleteReservationController instance = new DeleteReservationController();
+       ReservationPk result = instance.deleteReservation(clubName,reservationId);
+       
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(clubId);
+        expResult.setReservationId(reservationId);
+       
+        Assert.assertEquals(expResult.getClubId(), result.getClubId());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
+   
+        
+
+
+       // DeleteReservationController instance = new DeleteReservationController();
+        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
+        //Assert.assertEquals(clubId,result.getClubId());
+        //Assert.assertEquals(reservationId, result.getReservationId());
+    }   
        
 }
 
