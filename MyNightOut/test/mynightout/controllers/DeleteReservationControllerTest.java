@@ -47,7 +47,8 @@ public class DeleteReservationControllerTest {
     /**
      * Test of deleteReservation method, of class DeleteReservationController.
      */
-    
+    @Test
+    public void testDeleteReservationWithNegativeNumber(){}
 
     /**
      * Test of DeleteReservation method, of class DeleteReservationController.
