@@ -50,6 +50,7 @@ public class UserMainForm extends javax.swing.JFrame {
         SelectTableButton = new javax.swing.JButton();
         showStoresButton = new javax.swing.JButton();
         logOutButton = new javax.swing.JButton();
+        editUserInformationButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -112,6 +113,13 @@ public class UserMainForm extends javax.swing.JFrame {
             }
         });
 
+        editUserInformationButton.setText("Προβολή/επεξεργασία στοιχείων");
+        editUserInformationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editUserInformationButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -122,7 +130,9 @@ public class UserMainForm extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
-                                .addComponent(userNameLabel))
+                                .addComponent(userNameLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(editUserInformationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -146,7 +156,9 @@ public class UserMainForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(userNameLabel)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userNameLabel)
+                    .addComponent(editUserInformationButton))
                 .addGap(18, 18, 18)
                 .addComponent(showStoresButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -162,7 +174,7 @@ public class UserMainForm extends javax.swing.JFrame {
                     .addComponent(SelectTableButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(logOutButton)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -231,6 +243,13 @@ public class UserMainForm extends javax.swing.JFrame {
         mainFrame.setVisible(true);
     }//GEN-LAST:event_logOutButtonActionPerformed
 
+    private void editUserInformationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editUserInformationButtonActionPerformed
+        JFrame editUserInfoForm = new EditUserInformationForm(currentUserName);
+        this.dispose();
+        editUserInfoForm.setLocationRelativeTo(this);
+        editUserInfoForm.setVisible(true);
+    }//GEN-LAST:event_editUserInformationButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -271,6 +290,7 @@ public class UserMainForm extends javax.swing.JFrame {
     private javax.swing.JButton cancelReservationButton;
     private javax.swing.JButton confirmReservationButton;
     private javax.swing.JButton createReservationButton;
+    private javax.swing.JButton editUserInformationButton;
     private javax.swing.JButton logOutButton;
     private javax.swing.JButton reservationEditButton;
     private javax.swing.JButton showStoresButton;
