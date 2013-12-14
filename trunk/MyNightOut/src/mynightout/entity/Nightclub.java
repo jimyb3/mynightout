@@ -15,7 +15,6 @@ public class Nightclub  implements java.io.Serializable {
      private String clubPassword;
      private String address;
      private String email;
-     private int seatNumber;
      private String telephoneNum;
      private String category;
      private String clubImage;
@@ -39,12 +38,11 @@ public class Nightclub  implements java.io.Serializable {
     
 
     public Nightclub(String clubName, String clubPassword, String address, 
-            String emailAddress, int seatNumber, String telephoneNum, String categoryId, String clubImage) {
+            String emailAddress, String telephoneNum, String categoryId, String clubImage) {
        this.clubName = clubName;
        this.clubPassword = clubPassword;
        this.address = address;
        this.email = emailAddress;
-       this.seatNumber = seatNumber;
        this.telephoneNum = telephoneNum;
        this.category = categoryId;
        this.clubImage = clubImage;
@@ -96,13 +94,7 @@ public class Nightclub  implements java.io.Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    public int getSeatNumber() {
-        return this.seatNumber;
-    }
     
-    public void setSeatNumber(int seatNumber) {
-        this.seatNumber = seatNumber;
-    }
     public String getTelephoneNum() {
         return this.telephoneNum;
     }
@@ -170,7 +162,6 @@ public class Nightclub  implements java.io.Serializable {
         hash = 41 * hash + (this.clubPassword != null ? this.clubPassword.hashCode() : 0);
         hash = 41 * hash + (this.address != null ? this.address.hashCode() : 0);
         hash = 41 * hash + (this.email != null ? this.email.hashCode() : 0);
-        hash = 41 * hash + this.seatNumber;
         hash = 41 * hash + (this.telephoneNum != null ? this.telephoneNum.hashCode() : 0);
         hash = 41 * hash + (this.category != null ? this.category.hashCode() : 0);
         hash = 41 * hash + (this.clubImage != null ? this.clubImage.hashCode() : 0);
@@ -204,9 +195,6 @@ public class Nightclub  implements java.io.Serializable {
     return false;
     }
     if ((this.email == null) ? (other.email != null) : !this.email.equals(other.email)) {
-    return false;
-    }
-    if (this.seatNumber != other.seatNumber) {
     return false;
     }
     if ((this.telephoneNum == null) ? (other.telephoneNum != null) : !this.telephoneNum.equals(other.telephoneNum)) {

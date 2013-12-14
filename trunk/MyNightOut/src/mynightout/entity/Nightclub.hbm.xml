@@ -19,9 +19,6 @@
     <property name="email" type="string">
       <column length="60" name="Email" not-null="true"/>
     </property>
-    <property name="seatNumber" type="int">
-      <column name="Seat_number" not-null="true"/>
-    </property>
     <property name="telephoneNum" type="string">
       <column length="10" name="Telephone_num" not-null="true"/>
     </property>

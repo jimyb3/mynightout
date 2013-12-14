@@ -56,6 +56,8 @@ public NightclubMainForm(String nightClubName) {
         });
 
         exitButton.setText("Κλείσιμο");
+        exitButton.setFocusPainted(false);
+        exitButton.setFocusable(false);
         exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitButtonActionPerformed(evt);
@@ -63,6 +65,8 @@ public NightclubMainForm(String nightClubName) {
         });
 
         checkFullnessButton.setText("Πληρότητα Καταστήματος");
+        checkFullnessButton.setFocusPainted(false);
+        checkFullnessButton.setFocusable(false);
         checkFullnessButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkFullnessButtonActionPerformed(evt);
@@ -74,6 +78,8 @@ public NightclubMainForm(String nightClubName) {
         clubNameLabel.setText("clubName");
 
         setDaysClosedButton.setText("Μέρες κλειστό");
+        setDaysClosedButton.setFocusPainted(false);
+        setDaysClosedButton.setFocusable(false);
         setDaysClosedButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setDaysClosedButtonActionPerformed(evt);
@@ -81,6 +87,8 @@ public NightclubMainForm(String nightClubName) {
         });
 
         deleteButton.setText("Διαγραφή κράτησης");
+        deleteButton.setFocusPainted(false);
+        deleteButton.setFocusable(false);
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteButtonActionPerformed(evt);
@@ -88,6 +96,8 @@ public NightclubMainForm(String nightClubName) {
         });
 
         setClosedDatesButton.setText("Διάστημα κλειστό");
+        setClosedDatesButton.setFocusPainted(false);
+        setClosedDatesButton.setFocusable(false);
         setClosedDatesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setClosedDatesButtonActionPerformed(evt);
@@ -103,6 +113,8 @@ public NightclubMainForm(String nightClubName) {
         });
 
         showSuppliersButton.setText("Εμφάνιση προμηθευτών");
+        showSuppliersButton.setFocusPainted(false);
+        showSuppliersButton.setFocusable(false);
         showSuppliersButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showSuppliersButtonActionPerformed(evt);
@@ -110,6 +122,8 @@ public NightclubMainForm(String nightClubName) {
         });
 
         displayCellarButton.setText("Εμφάνιση/επεξεργασία κάβας");
+        displayCellarButton.setFocusPainted(false);
+        displayCellarButton.setFocusable(false);
         displayCellarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 displayCellarButtonActionPerformed(evt);
@@ -117,6 +131,8 @@ public NightclubMainForm(String nightClubName) {
         });
 
         changeNightClubTableProfileButton.setText("Αλλαγή στην κάτοψη");
+        changeNightClubTableProfileButton.setFocusPainted(false);
+        changeNightClubTableProfileButton.setFocusable(false);
         changeNightClubTableProfileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 changeNightClubTableProfileButtonActionPerformed(evt);
@@ -124,6 +140,8 @@ public NightclubMainForm(String nightClubName) {
         });
 
         jButton1.setText("Αποσύνδεση");
+        jButton1.setFocusPainted(false);
+        jButton1.setFocusable(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -153,7 +171,7 @@ public NightclubMainForm(String nightClubName) {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(111, Short.MAX_VALUE))
+                                .addContainerGap(112, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(displayCellarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -189,7 +207,7 @@ public NightclubMainForm(String nightClubName) {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(exitButton)
                     .addComponent(jButton1))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         pack();

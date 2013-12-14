@@ -28,7 +28,7 @@ public class ReservationDao implements IReservationDao {
     @Override
     public Reservation selectReservation(ReservationPk res, Date reservationDate,
             String trapezi, int seatNumber, String reservationStatus) throws DaoException {
-        return new Reservation(res, reservationDate, trapezi, seatNumber, "active");
+        return new Reservation(res, reservationDate, trapezi, "active");
     }
 
     //ΚΡΑΤΗΣΗ
@@ -47,7 +47,7 @@ public class ReservationDao implements IReservationDao {
             res.setUserId(userId);
             res.setClubId(clubId);
 
-            Reservation newReservation = new Reservation(res, reservationDate, trapezi, seatNumber, "active");
+            Reservation newReservation = new Reservation(res, reservationDate, trapezi, "active");
             session.save(newReservation);
             session.getTransaction().commit();
             session.close();
@@ -190,5 +190,28 @@ public class ReservationDao implements IReservationDao {
             session.beginTransaction().rollback();
             return null;
         }
+    }
+
+    public Reservation getReservationDataByReservationId(int reservationId, int userId) {
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            String hqlReservation = "from Reservation re where re.id.reservationId='" + reservationId + "' and re.id.userId='" + userId + "' and re.reservationStatus=\'active\'";
+            Query w = session.createQuery(hqlReservation);
+            List resultList = w.list();
+            session.getTransaction().commit();
+            session.close();
+            Reservation Reservation = new Reservation();
+            for (Object o : resultList) {
+                Reservation = (Reservation) o;
+            }
+            return Reservation;
+        } catch (HibernateException he) {
+            he.printStackTrace();
+            session.beginTransaction().rollback();
+            return null;
+        }
+
     }
 }

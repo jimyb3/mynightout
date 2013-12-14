@@ -6,10 +6,17 @@
 package mynightout.ui;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
+import mynightout.dao.NightClubDao;
+import mynightout.dao.ReservationDao;
 import mynightout.dao.TablesDao;
+import mynightout.entity.Reservation;
 import mynightout.entity.Tables;
 import mynightout.presenters.SelectTableProfilePresenter;
 
@@ -70,6 +77,8 @@ public class UserMainForm extends javax.swing.JFrame {
         });
 
         cancelReservationButton.setText("Ακύρωση κράτησης");
+        cancelReservationButton.setFocusPainted(false);
+        cancelReservationButton.setFocusable(false);
         cancelReservationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelReservationButtonActionPerformed(evt);
@@ -77,6 +86,8 @@ public class UserMainForm extends javax.swing.JFrame {
         });
 
         createReservationButton.setText("Δημιουργία κράτησης");
+        createReservationButton.setFocusPainted(false);
+        createReservationButton.setFocusable(false);
         createReservationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createReservationButtonActionPerformed(evt);
@@ -100,6 +111,8 @@ public class UserMainForm extends javax.swing.JFrame {
         });
 
         showStoresButton.setText("Προβολή καταστημάτων");
+        showStoresButton.setFocusPainted(false);
+        showStoresButton.setFocusable(false);
         showStoresButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showStoresButtonActionPerformed(evt);
@@ -107,6 +120,8 @@ public class UserMainForm extends javax.swing.JFrame {
         });
 
         logOutButton.setText("Αποσύνδεση");
+        logOutButton.setFocusPainted(false);
+        logOutButton.setFocusable(false);
         logOutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logOutButtonActionPerformed(evt);
@@ -114,6 +129,8 @@ public class UserMainForm extends javax.swing.JFrame {
         });
 
         editUserInformationButton.setText("Προβολή/επεξεργασία στοιχείων");
+        editUserInformationButton.setFocusPainted(false);
+        editUserInformationButton.setFocusable(false);
         editUserInformationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editUserInformationButtonActionPerformed(evt);
@@ -192,8 +209,32 @@ public class UserMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_reservationEditButtonActionPerformed
 
     private void cancelReservationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelReservationButtonActionPerformed
-        JFrame cancelBookFrame = new CancelBookForm(currentUserName);
+        CancelBookForm cancelBookFrame = new CancelBookForm(currentUserName);
+        cancelBookFrame.userNameLabel.setText(currentUserName);
         this.dispose();
+        ReservationDao reservation = new ReservationDao();
+        List resultList = reservation.getUserReservations(currentUserName);
+        Vector<String> tableHeaders = new Vector<String>();
+        Vector tableData = new Vector();
+        tableHeaders.add("Id κράτησης");
+        tableHeaders.add("Club Name");
+        tableHeaders.add("Reservation Date");
+        tableHeaders.add("Τραπέζι");
+        String DATE_FORMAT = "dd/MM/yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+        
+        for (Object o : resultList) {
+            Reservation res = (Reservation) o;
+            Vector<Object> oneRow = new Vector<Object>();
+            String clubName = new NightClubDao().getNightClubDataByClubId(res.getId().getClubId()).getClubName();
+            oneRow.add(res.getId().getReservationId());
+            oneRow.add(clubName);
+            String reservationDate = sdf.format(res.getReservationDate());
+            oneRow.add(reservationDate);
+            oneRow.add(res.getTrapezi());
+            tableData.add(oneRow);
+        }
+        cancelBookFrame.userReservationsTable.setModel(new DefaultTableModel(tableData, tableHeaders));
         cancelBookFrame.setLocationRelativeTo(this);
         cancelBookFrame.setVisible(true);
     }//GEN-LAST:event_cancelReservationButtonActionPerformed
