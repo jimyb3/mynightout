@@ -51,6 +51,8 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         loginButton.setText("Είσοδος χρήστη");
+        loginButton.setFocusPainted(false);
+        loginButton.setFocusable(false);
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginButtonActionPerformed(evt);
@@ -58,6 +60,8 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         createStoreButton.setText("Δημιουργία Καταστήματος");
+        createStoreButton.setFocusPainted(false);
+        createStoreButton.setFocusable(false);
         createStoreButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createStoreButtonActionPerformed(evt);
@@ -65,6 +69,8 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         faqButton.setText("FAQ/Help");
+        faqButton.setFocusPainted(false);
+        faqButton.setFocusable(false);
         faqButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 faqButtonActionPerformed(evt);
@@ -72,6 +78,8 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         nightclubLoginButton.setText("Είσοδος επιχειρηματία");
+        nightclubLoginButton.setFocusPainted(false);
+        nightclubLoginButton.setFocusable(false);
         nightclubLoginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nightclubLoginButtonActionPerformed(evt);
@@ -108,7 +116,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(createStoreButton)
                     .addComponent(faqButton))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();

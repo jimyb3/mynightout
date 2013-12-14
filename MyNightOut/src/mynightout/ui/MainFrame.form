@@ -60,7 +60,7 @@
                   <Component id="createStoreButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="faqButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="37" max="32767" attributes="0"/>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,6 +69,8 @@
     <Component class="javax.swing.JButton" name="loginButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x395;&#x3af;&#x3c3;&#x3bf;&#x3b4;&#x3bf;&#x3c2; &#x3c7;&#x3c1;&#x3ae;&#x3c3;&#x3c4;&#x3b7;"/>
+        <Property name="focusPainted" type="boolean" value="false"/>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginButtonActionPerformed"/>
@@ -77,6 +79,8 @@
     <Component class="javax.swing.JButton" name="createStoreButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x394;&#x3b7;&#x3bc;&#x3b9;&#x3bf;&#x3c5;&#x3c1;&#x3b3;&#x3af;&#x3b1; &#x39a;&#x3b1;&#x3c4;&#x3b1;&#x3c3;&#x3c4;&#x3ae;&#x3bc;&#x3b1;&#x3c4;&#x3bf;&#x3c2;"/>
+        <Property name="focusPainted" type="boolean" value="false"/>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createStoreButtonActionPerformed"/>
@@ -85,6 +89,8 @@
     <Component class="javax.swing.JButton" name="faqButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="FAQ/Help"/>
+        <Property name="focusPainted" type="boolean" value="false"/>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="faqButtonActionPerformed"/>
@@ -93,6 +99,8 @@
     <Component class="javax.swing.JButton" name="nightclubLoginButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x395;&#x3af;&#x3c3;&#x3bf;&#x3b4;&#x3bf;&#x3c2; &#x3b5;&#x3c0;&#x3b9;&#x3c7;&#x3b5;&#x3b9;&#x3c1;&#x3b7;&#x3bc;&#x3b1;&#x3c4;&#x3af;&#x3b1;"/>
+        <Property name="focusPainted" type="boolean" value="false"/>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nightclubLoginButtonActionPerformed"/>
