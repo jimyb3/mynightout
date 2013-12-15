@@ -11,7 +11,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import mynightout.controllers.DeleteReservationController;
-import mynightout.dao.ReservationDaoDelete;
 import mynightout.entity.ReservationPk;
 
 
@@ -20,7 +19,10 @@ import mynightout.entity.ReservationPk;
  * @author Maria
  */
 public class DeleteReservationForm extends javax.swing.JFrame {
-private String currentClubName;
+//private Vector<Vector<String>> data;
+//private Vector<String> header;
+    
+    private String currentClubName;
     /**
      * Creates new form DeleteReservationForm
      */
@@ -171,7 +173,9 @@ public DeleteReservationForm(String nightClubName) {
     }//GEN-LAST:event_OkButtonActionPerformed
 
     private void ShowReservationsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowReservationsButtonActionPerformed
-      Vector<String> tableHeaders = new Vector<String>();
+       ReservationPk res=new ReservationPk();
+        
+        Vector<String> tableHeaders = new Vector<String>();
         tableHeaders.add("Όνομα Χρήστη");
         tableHeaders.add("ID Κράτησης");
         Vector<String> firstRow=new Vector<String>();
