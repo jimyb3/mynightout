@@ -57,7 +57,7 @@ public class DeleteReservationControllerTest {
     public void testDeleteReservationSuccess(){
         System.out.println("deleteReservation");
         int reservationId = 5;
-        String clubName="marias";
+        String clubName="Vogue";
         int clubId=new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
         DeleteReservationController instance = new DeleteReservationController();
        
@@ -80,7 +80,7 @@ public class DeleteReservationControllerTest {
     public void testDeleteReservationWithNegativeNumber(){
         System.out.println("DeleteReservation");
         int reservationId = -1;
-        String clubName="marias";
+        String clubName="Vogue";
         int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
         DeleteReservationController instance = new DeleteReservationController();
      
@@ -108,7 +108,7 @@ public class DeleteReservationControllerTest {
     @Test (expected=NullPointerException.class)
     public void testDeleteReservationWithWrongBoth() throws Exception {
         System.out.println("DeleteReservation");
-        String clubName="mar";
+        String clubName="Vo";
         int clubId= new NightClubDao(). getNightClubDataByClubName(clubName).getClubId();
         int reservationId = -1;
         DeleteReservationController instance = new DeleteReservationController();
@@ -137,7 +137,7 @@ public class DeleteReservationControllerTest {
         System.out.println("deleteReservation");
         
         int reservationId = 0;
-        String clubName="marias";
+        String clubName="Vogue";
       int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
        
         DeleteReservationController instance = new DeleteReservationController();
@@ -162,7 +162,7 @@ public class DeleteReservationControllerTest {
     public void testDeleteReservationWithHugeId() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId = 1999999999;
-        String clubName="marias";
+        String clubName="Vogue";
         int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
      
         DeleteReservationController instance = new DeleteReservationController();
@@ -214,7 +214,7 @@ public class DeleteReservationControllerTest {
     public void testDeleteReservationWithBothHuge() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId = 1999999999;
-        String clubName="mariaskkkkkklllw";
+        String clubName="Vokkkkkklllw";
          int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
       
         DeleteReservationController instance = new DeleteReservationController();
@@ -265,7 +265,7 @@ public class DeleteReservationControllerTest {
     public void testDeleteReservationWithSmallName() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId = 10;
-        String clubName="mar";
+        String clubName="Vog";
         int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
        
         DeleteReservationController instance = new DeleteReservationController();
@@ -317,7 +317,7 @@ public class DeleteReservationControllerTest {
     public void testDeleteReservationWithZeroIdAndSmallName() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId = 0;
-        String clubName="mar";
+        String clubName="Vog";
          int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
          
         DeleteReservationController instance = new DeleteReservationController();
