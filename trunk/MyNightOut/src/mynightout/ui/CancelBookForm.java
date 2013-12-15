@@ -148,7 +148,7 @@ public class CancelBookForm extends javax.swing.JFrame {
         ConfirmCancelReservationForm ccrf = new ConfirmCancelReservationForm();
         ccrf.userNameLabel.setText(currentUserName);
         try {
-            Reservation reservation = new ReservationDao().getReservationDataByReservationId(reservationId, userId);
+            Reservation reservation = new ReservationDao().getReservationDataByReservationIdAndUserId(reservationId, userId);
             String DATE_FORMAT = "dd/MM/yyyy";
             SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
             String reservationDate = sdf.format(reservation.getReservationDate());

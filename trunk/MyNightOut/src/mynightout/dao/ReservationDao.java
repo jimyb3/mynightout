@@ -192,7 +192,7 @@ public class ReservationDao implements IReservationDao {
         }
     }
 
-    public Reservation getReservationDataByReservationId(int reservationId, int userId) {
+    public Reservation getReservationDataByReservationIdAndUserId(int reservationId, int userId) {
 
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
@@ -212,6 +212,28 @@ public class ReservationDao implements IReservationDao {
             session.beginTransaction().rollback();
             return null;
         }
-
     }
+    
+    public Reservation getReservationDataByReservationIdAndClubId(int reservationId, int clubId) {
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            String hqlReservation = "from Reservation re where re.id.reservationId='" + reservationId + "' and re.id.clubId='" + clubId + "' and re.reservationStatus=\'active\'";
+            Query w = session.createQuery(hqlReservation);
+            List resultList = w.list();
+            session.getTransaction().commit();
+            session.close();
+            Reservation Reservation = new Reservation();
+            for (Object o : resultList) {
+                Reservation = (Reservation) o;
+            }
+            return Reservation;
+        } catch (HibernateException he) {
+            he.printStackTrace();
+            session.beginTransaction().rollback();
+            return null;
+        }
+    }
+    
 }
