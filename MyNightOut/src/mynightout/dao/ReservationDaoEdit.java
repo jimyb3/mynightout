@@ -20,6 +20,6 @@ public class ReservationDaoEdit implements IReservationDaoEdit {
             String trapezi, int seatNumber, String reservationStatus) {
 
         return new Reservation(res, reservationDate, 
-            trapezi, seatNumber, reservationStatus);
+            trapezi, reservationStatus);
     }
 }

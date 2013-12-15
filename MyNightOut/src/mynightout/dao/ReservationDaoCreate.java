@@ -20,6 +20,6 @@ public class ReservationDaoCreate implements IReservationDaoCreate {
     public Reservation createReservation(ReservationPk res, Date reservationDate, 
             String trapezi, int seatNumber, String reservationStatus) throws DaoException {
         return new Reservation(res, reservationDate, 
-            trapezi, seatNumber, reservationStatus);
+            trapezi, reservationStatus);
     }
 }
