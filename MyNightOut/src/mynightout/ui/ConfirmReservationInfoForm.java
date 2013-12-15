@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.controllers.CreateBookController;
 import mynightout.dao.NightClubDao;
+import mynightout.dao.UserDao;
 import mynightout.exceptions.DaoException;
 
 /**
@@ -165,15 +166,18 @@ public class ConfirmReservationInfoForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        
+
+        JFrame createBookFrame = new CreateBookForm(currentUserName);
         this.dispose();
-       
+        createBookFrame.setLocationRelativeTo(this);
+        createBookFrame.setVisible(true);
+
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
         // TODO add your handling code here:
         int clubId = new NightClubDao().getNightClubDataByClubName(nightClubNameLabel.getText()).getClubId();
-        int userId = 1;
+        int userId = new UserDao().getUserDataByUsername(this.currentUserName).getUserId();;
 
         String date = "01/01/2014";
 
