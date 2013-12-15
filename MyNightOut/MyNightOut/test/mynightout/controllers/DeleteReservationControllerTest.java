@@ -58,27 +58,18 @@ public class DeleteReservationControllerTest {
         System.out.println("deleteReservation");
         int reservationId = 5;
         String clubName="marias";
-        int clubId= new NightClubDao(). getNightClubDataByClubName(clubName).getClubId();
+        int clubId=new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
         DeleteReservationController instance = new DeleteReservationController();
-       
        
         ReservationPk expResult = new ReservationPk();
         expResult.setUserId(clubId);
         expResult.setReservationId(reservationId);
         
         ReservationPk result = instance.deleteReservation(clubName, reservationId);
-        Assert.assertEquals(expResult.getClubId(), result.getClubId());
-        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
-   
-     
-       
- 
-      
-       
         
-       
-        //  Assert.assertEquals(clubId,result.getClubId());
-     ///   Assert.assertEquals(reservationId, result.getReservationId());
+        Assert.assertEquals(expResult.getClubId(), result.getClubId());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId()); 
+    
        
     
     }
@@ -90,7 +81,7 @@ public class DeleteReservationControllerTest {
         System.out.println("DeleteReservation");
         int reservationId = -1;
         String clubName="marias";
-       int clubId= new NightClubDao(). getNightClubDataByClubName(clubName).getClubId();
+        int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
         DeleteReservationController instance = new DeleteReservationController();
      
        
@@ -117,9 +108,9 @@ public class DeleteReservationControllerTest {
     @Test (expected=NullPointerException.class)
     public void testDeleteReservationWithWrongBoth() throws Exception {
         System.out.println("DeleteReservation");
-        int reservationId = -1;
         String clubName="mar";
         int clubId= new NightClubDao(). getNightClubDataByClubName(clubName).getClubId();
+        int reservationId = -1;
         DeleteReservationController instance = new DeleteReservationController();
      
        
@@ -141,7 +132,7 @@ public class DeleteReservationControllerTest {
     }
    
     
-      @Test (expected=IllegalArgumentException.class)
+      @Test (expected=NullPointerException.class)
     public void testDeleteReservationWithZero() throws Exception {
         System.out.println("deleteReservation");
         
@@ -170,7 +161,7 @@ public class DeleteReservationControllerTest {
      @Test (expected=IllegalArgumentException.class)
     public void testDeleteReservationWithHugeId() throws Exception {
         System.out.println("DeleteReservation");
-        int reservationId = 1000000000;
+        int reservationId = 1999999999;
         String clubName="marias";
         int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
      
@@ -196,7 +187,7 @@ public class DeleteReservationControllerTest {
      @Test(expected=IllegalArgumentException.class)
     public void testDeleteReservationWithHugeIdAndSmallName() throws Exception {
         System.out.println("DeleteReservation");
-        int reservationId = 1000000000;
+        int reservationId = 1999999999;
         String clubName="mar";
           int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
       
@@ -222,7 +213,7 @@ public class DeleteReservationControllerTest {
       @Test(expected=IllegalArgumentException.class)
     public void testDeleteReservationWithBothHuge() throws Exception {
         System.out.println("DeleteReservation");
-        int reservationId = 1000000000;
+        int reservationId = 1999999999;
         String clubName="mariaskkkkkklllw";
          int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
       
@@ -322,7 +313,7 @@ public class DeleteReservationControllerTest {
         //Assert.assertEquals(reservationId, result.getReservationId());
     }
     
-      @Test (expected=IllegalArgumentException.class)
+      @Test(expected=NullPointerException.class)
     public void testDeleteReservationWithZeroIdAndSmallName() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId = 0;
@@ -348,7 +339,7 @@ public class DeleteReservationControllerTest {
         //Assert.assertEquals(reservationId, result.getReservationId());
     }
     
-      @Test (expected=IllegalArgumentException.class)
+      @Test (expected=NullPointerException.class)//(expected=IllegalArgumentException.class)
     public void testDeleteReservationWithHugeNameAndZeroId() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId =0;
@@ -430,7 +421,7 @@ public class DeleteReservationControllerTest {
        public void testDeleteReservationWithHugeIdAndEmptyName() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId;
-        reservationId = 1000000000;
+        reservationId =1999999999;
         String clubName=null;
        int clubId= new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
          
