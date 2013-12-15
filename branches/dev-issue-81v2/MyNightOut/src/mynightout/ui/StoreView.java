@@ -38,7 +38,6 @@ public class StoreView extends javax.swing.JFrame {
 
         storeName = new javax.swing.JLabel();
         StorePic = new javax.swing.JLabel();
-        StoreDesc = new javax.swing.JTextField();
         backBtn = new javax.swing.JButton();
         reservBtn = new javax.swing.JButton();
 
@@ -47,8 +46,6 @@ public class StoreView extends javax.swing.JFrame {
         storeName.setText("Πληροφορίες Καταστήματος");
 
         StorePic.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-
-        StoreDesc.setText("ΠΕΡΙΓΡΑΦΗ ΚΑΤΑΣΤΗΜΑΤΟΣ");
 
         backBtn.setText("Πίσω");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -77,31 +74,23 @@ public class StoreView extends javax.swing.JFrame {
                         .addGap(31, 31, 31))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(reservBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())
-                            .addComponent(StoreDesc)))))
+                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(reservBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(storeName, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(StoreDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(316, 316, 316)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(backBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(reservBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addComponent(StorePic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        StoreDesc.getAccessibleContext().setAccessibleName("");
-        StoreDesc.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -164,7 +153,6 @@ public class StoreView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTextField StoreDesc;
     public javax.swing.JLabel StorePic;
     private javax.swing.JButton backBtn;
     private javax.swing.JButton reservBtn;

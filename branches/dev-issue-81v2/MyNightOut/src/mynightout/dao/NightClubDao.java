@@ -114,7 +114,7 @@ public class NightClubDao implements INightClubDao {
             q.executeUpdate();
             session.getTransaction().commit();
             session.close();
-            Nightclub nightClub = new Nightclub(clubName, clubPassword, address, email, seatNumber, telephoneNum, category, clubImage);
+            Nightclub nightClub = new Nightclub(clubName, clubPassword, address, email, telephoneNum, category, clubImage);
             return nightClub;
         } catch (HibernateException he) {
             he.printStackTrace();

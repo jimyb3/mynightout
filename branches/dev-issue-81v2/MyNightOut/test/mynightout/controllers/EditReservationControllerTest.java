@@ -49,7 +49,11 @@ public class EditReservationControllerTest {
      *
      * @throws java.lang.Exception
      */
-    /*@Test
+    
+    @Test
+    public void testEditReservationWithCorrectInfo(){}
+    
+    /*
     public void testEditReservationWithCorrectInfo() throws Exception {
         System.out.println("editReservation");
         //Μετατρέπουμε το string σε date
