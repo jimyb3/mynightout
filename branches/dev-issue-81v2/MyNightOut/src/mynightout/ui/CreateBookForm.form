@@ -8,6 +8,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowActivated" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowActivated"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -29,7 +32,6 @@
                       <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
                       <Component id="reservationOkButton" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="reservationCustomerNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -48,6 +50,10 @@
                       <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
                       <Component id="reservationButtonClose" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="reservationCustomerNameLabel" min="-2" pref="329" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace pref="61" max="32767" attributes="0"/>
           </Group>
@@ -56,8 +62,9 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="reservationCustomerNameLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="59" max="32767" attributes="0"/>
+              <EmptySpace pref="48" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="reservationNightClubSelectionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="reservationNightClubSelection" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -113,7 +120,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="reservationCustomerNameLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#x3b5;&#x3b4;&#x3ce; &#x3b5;&#x3bc;&#x3c6;&#x3b1;&#x3bd;&#x3b9;&#x3b6;&#x3b5;&#x3b9; &#x3c4;&#x3bf; &#x3bf;&#x3bd;&#x3bf;&#x3bc;&#x3b1; &#x3c4;&#x3bf;&#x3c5; &#x3c0;&#x3b5;&#x3bb;&#x3b1;&#x3c4;&#x3b7;"/>
+        <Property name="text" type="java.lang.String" value="&#x39f;&#x3bd;&#x3bf;&#x3bc;&#x3b1; &#x3a0;&#x3b5;&#x3bb;&#x3b1;&#x3c4;&#x3b7;"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="reservationPartyNumberLabel">

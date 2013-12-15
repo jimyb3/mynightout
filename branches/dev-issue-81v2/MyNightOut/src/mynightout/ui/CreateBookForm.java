@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import mynightout.controllers.CreateBookController;
 import mynightout.dao.ReservationDaoCreate;
 import mynightout.entity.Reservation;
+import mynightout.dao.UserDao;
 
 /**
  *
@@ -31,7 +32,7 @@ public class CreateBookForm extends javax.swing.JFrame {
         this.reservationDateChooser.setDate(date);
         //TODO reservationNightClubSelection.setModel();
         //index? to clubid?
-        
+
     }
 
     public CreateBookForm(String cUserName) {
@@ -59,6 +60,11 @@ public class CreateBookForm extends javax.swing.JFrame {
         reservationDateChooser = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         reservationOkButton.setText("Καταχώρηση Κράτησης");
         reservationOkButton.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +77,7 @@ public class CreateBookForm extends javax.swing.JFrame {
 
         reservationNightClubSelection.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Επιλέξτε Καταστημα...", "Μας πήραν είδηση..", "Ραντεβού", "13 Φεγγάρια", "Item 4", "Item 5" }));
 
-        reservationCustomerNameLabel.setText("εδώ εμφανιζει το ονομα του πελατη");
+        reservationCustomerNameLabel.setText("Ονομα Πελατη");
 
         reservationPartyNumberLabel.setText("Αριθμός Ατόμων");
 
@@ -95,7 +101,6 @@ public class CreateBookForm extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(124, 124, 124)
                         .addComponent(reservationOkButton))
-                    .addComponent(reservationCustomerNameLabel)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,14 +114,18 @@ public class CreateBookForm extends javax.swing.JFrame {
                             .addComponent(reservationDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(163, 163, 163)
-                        .addComponent(reservationButtonClose)))
+                        .addComponent(reservationButtonClose))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(reservationCustomerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(reservationCustomerNameLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(reservationNightClubSelectionLabel)
                     .addComponent(reservationNightClubSelection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -159,34 +168,38 @@ public class CreateBookForm extends javax.swing.JFrame {
         CreateBookController controller = new CreateBookController();
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        Date reservationDate = new Date();
-        String c = sdf.format(reservationDate);
-
-        try {
+        //Date reservationDate = new Date();
+        //String c = sdf.format(reservationDate);
+        //String test=UserDao.getUserDataByUsername(currentUserName).getCustomerLastname();
+       // try {
             try {
-                //String currentUserName="asd";
-                //reservationCustomerNameLabel.setText(currentUserName);
-                int seatNumber = Integer.parseInt(reservationPartyNumberTextField.getText());
-
+                /*int seatNumber = Integer.parseInt(reservationPartyNumberTextField.getText());
+                
                 Reservation createReservation = controller.createReservationNew(1,
-                        this.reservationNightClubSelection.getSelectedIndex(),
-                        this.reservationDateChooser.getDate(), "θέση τραπεζιού",
-                        seatNumber, "active");
+                this.reservationNightClubSelection.getSelectedIndex(),
+                this.reservationDateChooser.getDate(), "θέση τραπεζιού",
+                seatNumber, "active");
                 JOptionPane.showMessageDialog(null, "Η καταχώρηση ήταν επιτυχής",
-                        "Success", JOptionPane.INFORMATION_MESSAGE);
-                JFrame mainUserFrame = new UserMainForm(currentUserName);
+                "Success", JOptionPane.INFORMATION_MESSAGE);*/
+                //String test=UserDao.getUserDataByUsername(currentUserName).getCustomerLastname();
+                ConfirmReservationInfoForm crif = new ConfirmReservationInfoForm(currentUserName);
+                crif.customerLastNameLabel.setText(new UserDao().getUserDataByUsername(currentUserName).getCustomerLastname());
+                crif.customerNameLabel.setText(new UserDao().getUserDataByUsername(currentUserName).getCustomerName());
+                crif.nightClubNameLabel.setText("Vogue");
+                crif.reservationDateLabel.setText(sdf.format(reservationDateChooser.getDate()));
+                crif.reservationTableLabel.setText("Α3");
                 this.dispose();
-                mainUserFrame.setLocationRelativeTo(this);
-                mainUserFrame.setVisible(true);
+                crif.setLocationRelativeTo(this);
+                crif.setVisible(true);
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",
                         JOptionPane.INFORMATION_MESSAGE);
             }
-        } catch (Exception e) {
+            /*        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(),
-                    "Failure", JOptionPane.INFORMATION_MESSAGE);
-        }
+            "Failure", JOptionPane.INFORMATION_MESSAGE);
+            }*/
 
 
     }//GEN-LAST:event_reservationOkButtonActionPerformed
@@ -199,6 +212,13 @@ public class CreateBookForm extends javax.swing.JFrame {
         mainUserFrame.setVisible(true);
 
     }//GEN-LAST:event_reservationButtonCloseActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+
+        this.reservationCustomerNameLabel.setText("Ονομα Πελατη : "+new UserDao().getUserDataByUsername(currentUserName).getCustomerLastname()
+                +","+new UserDao().getUserDataByUsername(currentUserName).getCustomerName());
+
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
