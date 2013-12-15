@@ -62,7 +62,7 @@ public class DeleteReservationControllerTest {
         DeleteReservationController instance = new DeleteReservationController();
        
         ReservationPk expResult = new ReservationPk();
-        expResult.setUserId(clubId);
+        expResult.setClubId(clubId);
         expResult.setReservationId(reservationId);
         
         ReservationPk result = instance.deleteReservation(clubName, reservationId);
@@ -86,7 +86,7 @@ public class DeleteReservationControllerTest {
      
        
         ReservationPk expResult = new ReservationPk();
-        expResult.setUserId(clubId);
+        expResult.setClubId(clubId);
         expResult.setReservationId(reservationId);
         ReservationPk result = instance.deleteReservation(clubName, reservationId);
         Assert.assertEquals(expResult.getClubId(), result.getClubId());
@@ -115,7 +115,7 @@ public class DeleteReservationControllerTest {
      
        
         ReservationPk expResult = new ReservationPk();
-        expResult.setUserId(clubId);
+        expResult.setClubId(clubId);
         expResult.setReservationId(reservationId);
         ReservationPk result = instance.deleteReservation(clubName, reservationId);
         Assert.assertEquals(expResult.getClubId(), result.getClubId());
@@ -144,7 +144,7 @@ public class DeleteReservationControllerTest {
      
        
         ReservationPk expResult = new ReservationPk();
-        expResult.setUserId(clubId);
+        expResult.setClubId(clubId);
         expResult.setReservationId(reservationId);
         ReservationPk result = instance.deleteReservation(clubName, reservationId);
         Assert.assertEquals(expResult.getClubId(), result.getClubId());
@@ -169,7 +169,7 @@ public class DeleteReservationControllerTest {
     
        
         ReservationPk expResult = new ReservationPk();
-        expResult.setUserId(clubId);
+        expResult.setClubId(clubId);
         expResult.setReservationId(reservationId);
         ReservationPk result = instance.deleteReservation(clubName, reservationId);
         Assert.assertEquals(expResult.getClubId(), result.getClubId());
@@ -195,7 +195,7 @@ public class DeleteReservationControllerTest {
      
        
         ReservationPk expResult = new ReservationPk();
-        expResult.setUserId(clubId);
+        expResult.setClubId(clubId);
         expResult.setReservationId(reservationId);
         ReservationPk result = instance.deleteReservation(clubName, reservationId);
         Assert.assertEquals(expResult.getClubId(), result.getClubId());
@@ -221,7 +221,7 @@ public class DeleteReservationControllerTest {
      
        
         ReservationPk expResult = new ReservationPk();
-        expResult.setUserId(clubId);
+        expResult.setClubId(clubId);
         expResult.setReservationId(reservationId);
         ReservationPk result = instance.deleteReservation(clubName, reservationId);
         Assert.assertEquals(expResult.getClubId(), result.getClubId());
@@ -247,7 +247,7 @@ public class DeleteReservationControllerTest {
   
        
         ReservationPk expResult = new ReservationPk();
-        expResult.setUserId(clubId);
+        expResult.setClubId(clubId);
         expResult.setReservationId(reservationId);
         ReservationPk result = instance.deleteReservation(clubName, reservationId);
         Assert.assertEquals(expResult.getClubId(), result.getClubId());
@@ -272,7 +272,7 @@ public class DeleteReservationControllerTest {
      
        
         ReservationPk expResult = new ReservationPk();
-        expResult.setUserId(clubId);
+        expResult.setClubId(clubId);
         expResult.setReservationId(reservationId);
         ReservationPk result = instance.deleteReservation(clubName, reservationId);
         Assert.assertEquals(expResult.getClubId(), result.getClubId());
@@ -298,7 +298,7 @@ public class DeleteReservationControllerTest {
    
        
         ReservationPk expResult = new ReservationPk();
-        expResult.setUserId(clubId);
+        expResult.setClubId(clubId);
         expResult.setReservationId(reservationId);
         ReservationPk result = instance.deleteReservation(clubName, reservationId);
         Assert.assertEquals(expResult.getClubId(), result.getClubId());
@@ -324,7 +324,7 @@ public class DeleteReservationControllerTest {
    
        
         ReservationPk expResult = new ReservationPk();
-        expResult.setUserId(clubId);
+        expResult.setClubId(clubId);
         expResult.setReservationId(reservationId);
         ReservationPk result = instance.deleteReservation(clubName, reservationId); 
         Assert.assertEquals(expResult.getClubId(), result.getClubId());
@@ -349,7 +349,7 @@ public class DeleteReservationControllerTest {
         DeleteReservationController instance = new DeleteReservationController();
     
         ReservationPk expResult = new ReservationPk();
-        expResult.setUserId(clubId);
+        expResult.setClubId(clubId);
         expResult.setReservationId(reservationId);
         ReservationPk result = instance.deleteReservation(clubName, reservationId); 
         Assert.assertEquals(expResult.getClubId(), result.getClubId());
@@ -375,7 +375,7 @@ public class DeleteReservationControllerTest {
    
        
         ReservationPk expResult = new ReservationPk();
-        expResult.setUserId(clubId);
+        expResult.setClubId(clubId);
         expResult.setReservationId(reservationId);
         ReservationPk result = instance.deleteReservation(clubName, reservationId);
         Assert.assertEquals(expResult.getClubId(), result.getClubId());
@@ -403,7 +403,7 @@ public class DeleteReservationControllerTest {
    
        
         ReservationPk expResult = new ReservationPk();
-        expResult.setUserId(clubId);
+        expResult.setClubId(clubId);
         expResult.setReservationId(reservationId);
         ReservationPk result = instance.deleteReservation(clubName, reservationId);
         Assert.assertEquals(expResult.getClubId(), result.getClubId());
@@ -429,7 +429,7 @@ public class DeleteReservationControllerTest {
        
        
         ReservationPk expResult = new ReservationPk();
-        expResult.setUserId(clubId);
+        expResult.setClubId(clubId);
         expResult.setReservationId(reservationId);
         ReservationPk result = instance.deleteReservation(clubName, reservationId);
         Assert.assertEquals(expResult.getClubId(), result.getClubId());
@@ -455,7 +455,7 @@ public class DeleteReservationControllerTest {
      
        
         ReservationPk expResult = new ReservationPk();
-        expResult.setUserId(clubId);
+        expResult.setClubId(clubId);
         expResult.setReservationId(reservationId);
         ReservationPk result = instance.deleteReservation(clubName, reservationId);
         Assert.assertEquals(expResult.getClubId(), result.getClubId());
