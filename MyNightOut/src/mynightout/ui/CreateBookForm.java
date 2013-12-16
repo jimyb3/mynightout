@@ -5,14 +5,24 @@
  */
 package mynightout.ui;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.controllers.CreateBookController;
+import mynightout.dao.NightClubDao;
 import mynightout.dao.ReservationDaoCreate;
+import mynightout.dao.TablesDao;
 import mynightout.entity.Reservation;
 import mynightout.dao.UserDao;
+import mynightout.entity.Nightclub;
+import mynightout.entity.Tables;
+import mynightout.presenters.SelectTableProfilePresenter;
 
 /**
  *
@@ -28,16 +38,26 @@ public class CreateBookForm extends javax.swing.JFrame {
     public CreateBookForm() {
 
         initComponents();
-        Date date = new Date();
-        this.reservationDateChooser.setDate(date);
-        //TODO reservationNightClubSelection.setModel();
-        //index? to clubid?
+ 
+        
 
     }
 
     public CreateBookForm(String cUserName) {
         currentUserName = cUserName;
         initComponents();
+        Date date = new Date();
+        
+        this.reservationDateChooser.setDate(date);
+        Nightclub nightClub = new Nightclub();
+        NightClubDao getstores = new NightClubDao();
+        List allNightClubs = getstores.getAllNightClubs();
+        
+         for (Object o : allNightClubs) {
+            nightClub = (Nightclub) o;
+            this.reservationNightClubSelection.addItem(nightClub.getClubName());
+
+        }
     }
 
     /**
@@ -53,8 +73,8 @@ public class CreateBookForm extends javax.swing.JFrame {
         reservationNightClubSelectionLabel = new javax.swing.JLabel();
         reservationNightClubSelection = new javax.swing.JComboBox();
         reservationCustomerNameLabel = new javax.swing.JLabel();
-        reservationPartyNumberLabel = new javax.swing.JLabel();
-        reservationPartyNumberTextField = new javax.swing.JTextField();
+        reservationTableLabel = new javax.swing.JLabel();
+        reservationTableSelectorTextField = new javax.swing.JTextField();
         reservationDateLabel = new javax.swing.JLabel();
         reservationButtonClose = new javax.swing.JButton();
         reservationDateChooser = new com.toedter.calendar.JDateChooser();
@@ -75,11 +95,18 @@ public class CreateBookForm extends javax.swing.JFrame {
 
         reservationNightClubSelectionLabel.setText("Επιλογή Καταστήματος");
 
-        reservationNightClubSelection.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Επιλέξτε Καταστημα...", "Μας πήραν είδηση..", "Ραντεβού", "13 Φεγγάρια", "Item 4", "Item 5" }));
+        reservationNightClubSelection.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Επιλέξτε Καταστημα..." }));
 
         reservationCustomerNameLabel.setText("Ονομα Πελατη");
 
-        reservationPartyNumberLabel.setText("Αριθμός Ατόμων");
+        reservationTableLabel.setText("Επιλογή Τραπεζιού");
+
+        reservationTableSelectorTextField.setText("Κάντε Click για επιλογή");
+        reservationTableSelectorTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                reservationTableSelectorTextFieldMouseClicked(evt);
+            }
+        });
 
         reservationDateLabel.setText("Επιλογή Ημερομηνίας");
 
@@ -105,20 +132,22 @@ public class CreateBookForm extends javax.swing.JFrame {
                         .addGap(62, 62, 62)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(reservationNightClubSelectionLabel)
-                            .addComponent(reservationPartyNumberLabel)
+                            .addComponent(reservationTableLabel)
                             .addComponent(reservationDateLabel))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(reservationPartyNumberTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(reservationNightClubSelection, 0, 150, Short.MAX_VALUE)
-                            .addComponent(reservationDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(163, 163, 163)
-                        .addComponent(reservationButtonClose))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(reservationDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(reservationNightClubSelection, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(reservationTableSelectorTextField)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(reservationCustomerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                        .addComponent(reservationCustomerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)))
+                .addGap(54, 54, 54))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(163, 163, 163)
+                .addComponent(reservationButtonClose)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,19 +158,18 @@ public class CreateBookForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(reservationNightClubSelectionLabel)
                     .addComponent(reservationNightClubSelection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(reservationPartyNumberLabel)
-                    .addComponent(reservationPartyNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(reservationDateLabel)
-                        .addGap(52, 52, 52)
-                        .addComponent(reservationOkButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(reservationButtonClose))
+                    .addComponent(reservationDateLabel)
                     .addComponent(reservationDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(reservationTableLabel)
+                    .addComponent(reservationTableSelectorTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addComponent(reservationOkButton)
+                .addGap(18, 18, 18)
+                .addComponent(reservationButtonClose)
                 .addGap(24, 24, 24))
         );
 
@@ -171,7 +199,7 @@ public class CreateBookForm extends javax.swing.JFrame {
         //Date reservationDate = new Date();
         //String c = sdf.format(reservationDate);
         //String test=UserDao.getUserDataByUsername(currentUserName).getCustomerLastname();
-       // try {
+        try {
             try {
                 /*int seatNumber = Integer.parseInt(reservationPartyNumberTextField.getText());
                 
@@ -185,7 +213,7 @@ public class CreateBookForm extends javax.swing.JFrame {
                 ConfirmReservationInfoForm crif = new ConfirmReservationInfoForm(currentUserName);
                 crif.customerLastNameLabel.setText(new UserDao().getUserDataByUsername(currentUserName).getCustomerLastname());
                 crif.customerNameLabel.setText(new UserDao().getUserDataByUsername(currentUserName).getCustomerName());
-                crif.nightClubNameLabel.setText("Vogue");
+                crif.nightClubNameLabel.setText((String) this.reservationNightClubSelection.getSelectedItem());
                 crif.reservationDateLabel.setText(sdf.format(reservationDateChooser.getDate()));
                 crif.reservationTableLabel.setText("Α3");
                 this.dispose();
@@ -196,10 +224,10 @@ public class CreateBookForm extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",
                         JOptionPane.INFORMATION_MESSAGE);
             }
-            /*        } catch (Exception e) {
+                    } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(),
             "Failure", JOptionPane.INFORMATION_MESSAGE);
-            }*/
+            }
 
 
     }//GEN-LAST:event_reservationOkButtonActionPerformed
@@ -219,6 +247,24 @@ public class CreateBookForm extends javax.swing.JFrame {
                 +","+new UserDao().getUserDataByUsername(currentUserName).getCustomerName());
 
     }//GEN-LAST:event_formWindowActivated
+
+    private void reservationTableSelectorTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservationTableSelectorTextFieldMouseClicked
+        
+        //TODO OR NOT TODO 
+        SelectTableProfilePresenter stpfp= new SelectTableProfilePresenter();
+        try {
+            int cId = new NightClubDao().getNightClubDataByClubName((String) this.reservationNightClubSelection.getSelectedItem()).getClubId();
+            Tables tbl = new TablesDao().getClubsTables(currentUserName);
+            stpfp.showSelectTableProfile(new SelectTableProfileForm(
+                    (String) this.reservationNightClubSelection.getSelectedItem()),
+                    tbl.getFirstRow(),tbl.getSecondRow(),
+                    tbl.getThirdRow(),tbl.getFourthRow(),
+                    tbl.getFifthRow(),tbl.getSixthRow(),
+                    cId);
+        } catch (ParseException ex) {
+            Logger.getLogger(CreateBookForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_reservationTableSelectorTextFieldMouseClicked
 
     /**
      * @param args the command line arguments
@@ -263,7 +309,7 @@ public class CreateBookForm extends javax.swing.JFrame {
     private javax.swing.JComboBox reservationNightClubSelection;
     private javax.swing.JLabel reservationNightClubSelectionLabel;
     private javax.swing.JButton reservationOkButton;
-    private javax.swing.JLabel reservationPartyNumberLabel;
-    private javax.swing.JTextField reservationPartyNumberTextField;
+    private javax.swing.JLabel reservationTableLabel;
+    private javax.swing.JTextField reservationTableSelectorTextField;
     // End of variables declaration//GEN-END:variables
 }

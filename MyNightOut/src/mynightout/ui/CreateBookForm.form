@@ -36,26 +36,28 @@
                       <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="reservationNightClubSelectionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="reservationPartyNumberLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="reservationTableLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="reservationDateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="reservationPartyNumberTextField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="reservationNightClubSelection" pref="150" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="reservationDateChooser" max="32767" attributes="0"/>
+                          <Component id="reservationNightClubSelection" alignment="0" max="32767" attributes="0"/>
+                          <Component id="reservationTableSelectorTextField" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
-                      <Component id="reservationButtonClose" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="reservationCustomerNameLabel" min="-2" pref="329" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="61" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
+              <Component id="reservationButtonClose" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,22 +71,20 @@
                   <Component id="reservationNightClubSelectionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="reservationNightClubSelection" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="reservationPartyNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="reservationPartyNumberTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="reservationDateLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="reservationOkButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="reservationButtonClose" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="reservationDateChooser" min="-2" max="-2" attributes="0"/>
+                  <Component id="reservationDateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="reservationDateChooser" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="reservationTableLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="reservationTableSelectorTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <Component id="reservationOkButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="reservationButtonClose" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -107,13 +107,8 @@
     <Component class="javax.swing.JComboBox" name="reservationNightClubSelection">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="6">
+          <StringArray count="1">
             <StringItem index="0" value="&#x395;&#x3c0;&#x3b9;&#x3bb;&#x3ad;&#x3be;&#x3c4;&#x3b5; &#x39a;&#x3b1;&#x3c4;&#x3b1;&#x3c3;&#x3c4;&#x3b7;&#x3bc;&#x3b1;..."/>
-            <StringItem index="1" value="&#x39c;&#x3b1;&#x3c2; &#x3c0;&#x3ae;&#x3c1;&#x3b1;&#x3bd; &#x3b5;&#x3af;&#x3b4;&#x3b7;&#x3c3;&#x3b7;.."/>
-            <StringItem index="2" value="&#x3a1;&#x3b1;&#x3bd;&#x3c4;&#x3b5;&#x3b2;&#x3bf;&#x3cd;"/>
-            <StringItem index="3" value="13 &#x3a6;&#x3b5;&#x3b3;&#x3b3;&#x3ac;&#x3c1;&#x3b9;&#x3b1;"/>
-            <StringItem index="4" value="Item 4"/>
-            <StringItem index="5" value="Item 5"/>
           </StringArray>
         </Property>
       </Properties>
@@ -123,12 +118,18 @@
         <Property name="text" type="java.lang.String" value="&#x39f;&#x3bd;&#x3bf;&#x3bc;&#x3b1; &#x3a0;&#x3b5;&#x3bb;&#x3b1;&#x3c4;&#x3b7;"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="reservationPartyNumberLabel">
+    <Component class="javax.swing.JLabel" name="reservationTableLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&#x391;&#x3c1;&#x3b9;&#x3b8;&#x3bc;&#x3cc;&#x3c2; &#x391;&#x3c4;&#x3cc;&#x3bc;&#x3c9;&#x3bd;"/>
+        <Property name="text" type="java.lang.String" value="&#x395;&#x3c0;&#x3b9;&#x3bb;&#x3bf;&#x3b3;&#x3ae; &#x3a4;&#x3c1;&#x3b1;&#x3c0;&#x3b5;&#x3b6;&#x3b9;&#x3bf;&#x3cd;"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="reservationPartyNumberTextField">
+    <Component class="javax.swing.JTextField" name="reservationTableSelectorTextField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x39a;&#x3ac;&#x3bd;&#x3c4;&#x3b5; Click &#x3b3;&#x3b9;&#x3b1; &#x3b5;&#x3c0;&#x3b9;&#x3bb;&#x3bf;&#x3b3;&#x3ae;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="reservationTableSelectorTextFieldMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="reservationDateLabel">
       <Properties>
