@@ -6,10 +6,13 @@
 
 package mynightout.ui;
 
+import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.controllers.CheckFullnessController;
 import mynightout.dao.NightClubDao;
-import mynightout.exceptions.DaoException;
+import mynightout.dao.ReservationDao;
+import mynightout.dao.TablesDao;
 import mynightout.entity.Nightclub;
 
 /**
@@ -17,14 +20,17 @@ import mynightout.entity.Nightclub;
  * @author panos
  */
 public class CheckFullnessForm extends javax.swing.JFrame {
-
+private String currentClubName;
     /**
      * Creates new form CheckFullnessForm
      */
     public CheckFullnessForm() {
         initComponents();
     }
-
+ public CheckFullnessForm(String nightClubName) {
+     currentClubName = nightClubName;
+        initComponents();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,6 +43,13 @@ public class CheckFullnessForm extends javax.swing.JFrame {
         okButton = new javax.swing.JButton();
         nightClubLabel = new javax.swing.JLabel();
         nightClubTextField = new javax.swing.JTextField();
+        reservationDateChooser = new com.toedter.calendar.JDateChooser();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,7 +62,20 @@ public class CheckFullnessForm extends javax.swing.JFrame {
 
         nightClubLabel.setText("Όνομα Καταστήματος");
 
-        nightClubTextField.setText("jTextField1");
+        reservationDateChooser.setDateFormatString("dd/MM/yyyy");
+
+        jLabel3.setText("Ημερομηνία");
+
+        jLabel4.setText("Αριθμός Τραπεζιών");
+
+        jLabel5.setText("Αριθμός Κρατήσεων");
+
+        backButton.setText("Πίσω");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -61,21 +87,57 @@ public class CheckFullnessForm extends javax.swing.JFrame {
                         .addGap(193, 193, 193)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(nightClubLabel)
-                            .addComponent(okButton)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(okButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(backButton))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(nightClubTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(103, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jLabel4)))
+                .addContainerGap(166, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 10, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(178, 178, 178))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(reservationDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                            .addComponent(nightClubTextField))
+                        .addGap(145, 145, 145))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(nightClubLabel)
-                .addGap(31, 31, 31)
-                .addComponent(nightClubTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(okButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(nightClubTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(reservationDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(okButton)
+                    .addComponent(backButton))
                 .addGap(41, 41, 41))
         );
 
@@ -89,16 +151,51 @@ public class CheckFullnessForm extends javax.swing.JFrame {
           CheckFullnessController controller=new CheckFullnessController(new NightClubDao());
         
           try {
-             Nightclub nightClub=controller.checkFullness(nightClubTextField.getText());
-             JOptionPane.showMessageDialog(null, "Δεν είναι πλήρης, 54/100", "Success",JOptionPane.INFORMATION_MESSAGE);
+            Nightclub clubName=controller.checkFullness(nightClubTextField.getText());
+            TablesDao td=new TablesDao();
+            ReservationDao res = new ReservationDao();
+            Nightclub nightClub = new Nightclub();
+            NightClubDao getstores = new NightClubDao();
+            List allNightClubs = getstores.getAllNightClubs();
+            int clubID = 0;
+             
+             for (Object o : allNightClubs) {
+                nightClub = (Nightclub) o;
+                if (nightClub.getClubName().equals(nightClubTextField.getText())) {
+
+                    clubID = nightClub.getClubId();
+                }
+             }
+             
+             jLabel1.setText(Integer.toString(res.numberOfReservationTablesByDate(clubID,reservationDateChooser.getDate())));
+             jLabel2.setText(Integer.toString(td.numberOfTablesByClubId(clubID)));
+             
+             if((res.numberOfReservationTablesByDate(clubID,reservationDateChooser.getDate()) <= (td.numberOfTablesByClubId(clubID)))){
+                 
+                 JOptionPane.showMessageDialog(null, "Δεν είναι πλήρης.", "Success",JOptionPane.INFORMATION_MESSAGE);
+                    
+             }
+             else{
+                 JOptionPane.showMessageDialog(null, "Πλήρης.", "Success",JOptionPane.INFORMATION_MESSAGE);
+             }
+                 
         } catch (Exception e) {      //minima la8ous apo th vash (den vgazei mhmyma)
          JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",JOptionPane.INFORMATION_MESSAGE);
-        }
+        
     }//GEN-LAST:event_okButtonActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
+}
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        JFrame mainNightClubForm=new NightclubMainForm(currentClubName);
+            this.dispose();
+            mainNightClubForm.setLocationRelativeTo(this);
+            mainNightClubForm.setVisible(true);
+    }//GEN-LAST:event_backButtonActionPerformed
+          
+   
+    
+    
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -132,8 +229,15 @@ public class CheckFullnessForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel nightClubLabel;
     private javax.swing.JTextField nightClubTextField;
     private javax.swing.JButton okButton;
+    private com.toedter.calendar.JDateChooser reservationDateChooser;
     // End of variables declaration//GEN-END:variables
 }

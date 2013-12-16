@@ -1,24 +1,41 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 17 ??? 2013 4:36:29 ?? by Hibernate Tools 3.6.0 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 ??? 2013 5:28:21 ?? by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
-    <class name="mynightout.entity.Nightclub" table="nightclub" catalog="mynightout">
-        <id name="clubId" type="java.lang.Integer">
-            <column name="Club_id" />
-            <generator class="identity" />
-        </id>
-        <property name="clubName" type="string">
-            <column name="Club_name" length="30" not-null="true" />
-        </property>
-        <property name="clubPassword" type="string">
-            <column name="Club_password" length="15" not-null="true" />
-        </property>
-        <property name="seatNumber" type="int">
-            <column name="Seat_number" not-null="true" />
-        </property>
-        <property name="telephoneNum" type="string">
-            <column name="Telephone_num" length="10" not-null="true" />
-        </property>
-    </class>
+  <class catalog="mynightout" name="mynightout.entity.Nightclub" table="nightclub">
+    <id name="clubId" type="java.lang.Integer">
+      <column name="Club_id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="clubName" type="string">
+      <column length="30" name="Club_name" not-null="true"/>
+    </property>
+    <property name="clubPassword" type="string">
+      <column length="15" name="Club_password" not-null="true"/>
+    </property>
+    <property name="address" type="string">
+      <column length="50" name="Address" not-null="true"/>
+    </property>
+    <property name="email" type="string">
+      <column length="60" name="Email" not-null="true"/>
+    </property>
+    <property name="telephoneNum" type="string">
+      <column length="10" name="Telephone_num" not-null="true"/>
+    </property>
+    <property name="category" type="string">
+      <column length="1" name="Category" not-null="true"/>
+    </property>
+    <property name="clubImage" type="string">
+      <column length="200" name="Club_image" not-null="true"/>
+    </property>
+    <property name="closedFrom" type="date">
+      <column length="10" name="Closed_from" not-null="true"/>
+    </property>
+    <property name="closedThrough" type="date">
+      <column length="10" name="Closed_through" not-null="true"/>
+    </property>
+    <property name="daysClosed" type="string">
+      <column length="13" name="Days_closed" not-null="true"/>
+    </property>
+  </class>
 </hibernate-mapping>

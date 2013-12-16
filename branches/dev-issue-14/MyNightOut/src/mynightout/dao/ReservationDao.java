@@ -5,15 +5,13 @@
  */
 package mynightout.dao;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import mynightout.entity.User;
 import mynightout.exceptions.DaoException;
 import mynightout.entity.Reservation;
-import mynightout.entity.Nightclub;
+import mynightout.entity.ReservationPk;
 import mynightout.util.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -28,22 +26,28 @@ import org.hibernate.Session;
 public class ReservationDao implements IReservationDao {
 
     @Override
-    public Reservation selectReservation(String userName, int reservationId) throws DaoException {
-        return new Reservation(userName, reservationId);
+    public Reservation selectReservation(ReservationPk res, Date reservationDate,
+            String trapezi, int seatNumber, String reservationStatus) throws DaoException {
+        return new Reservation(res, reservationDate, trapezi, "active");
     }
+
     //ΚΡΑΤΗΣΗ
     //δημιουργεί νεα κράτηση στη βάση
     //ορίσματα : userName, nightClubName, reservationDate, seatNumber
     //επιστρέφει αντικείμενο Reservation με τα χαρακτηριστικά της νέας κράτησης, εαν προστέθηκε στη βάση η εγγραφή
     //αλλιώς, null
-    public Reservation insertReservationData(String userName, String nightClubName, Date reservationDate, int seatNumber) {
+    public Reservation insertReservationData(String userName, String nightClubName, Date reservationDate, String trapezi, int seatNumber) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        
+
         try {
             session.beginTransaction();
-            int userId = new UserDao().getUserIdByUsername(userName);
-            int clubId = new NightClubDao().getNightClubIdByNightClubName(nightClubName);
-            Reservation newReservation = new Reservation(userId, clubId, reservationDate, seatNumber, "active");
+            int userId = new UserDao().getUserDataByUsername(userName).getUserId();
+            int clubId = new NightClubDao().getNightClubDataByClubName(nightClubName).getClubId();
+            ReservationPk res = new ReservationPk();
+            res.setUserId(userId);
+            res.setClubId(clubId);
+
+            Reservation newReservation = new Reservation(res, reservationDate, trapezi, "active");
             session.save(newReservation);
             session.getTransaction().commit();
             session.close();
@@ -58,11 +62,12 @@ public class ReservationDao implements IReservationDao {
     //επιστρέφει μια λίστα που περιέχει όλες τις active=δεν έχουν ακυρωθεί, κρατήσεις τος χρήστη
     //αν κάτι πάει στραβά, επιστρέφει NULL
     //παίρνει ως όρισμα το userName, με βάση αυτό βρίσκει τις κρατήσεις
+
     public List getUserReservations(String userName) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            int userId = new UserDao().getUserIdByUsername(userName);
-            String hql = "select res.clubId, res.reservationDate  from Reservation res where res.userId='" + userId + "' and res.reservationStatus=\'active\'";
+            int userId = new UserDao().getUserDataByUsername(userName).getUserId();
+            String hql = "from Reservation re where re.id.userId='" + userId + "' and re.reservationStatus=\'active\'";
             session.beginTransaction();
             Query q = session.createQuery(hql);
             List reservationsList = q.list();
@@ -80,45 +85,155 @@ public class ReservationDao implements IReservationDao {
     //ο χρηστης ακυρώνει κάποια κράτηση
     //ορίσματα username και reservationId
     // επιστρέφει true αν έγινε η ακύρωση, αλλιώς false
-    public boolean cancelReservationByUser(String userName, int reservationId) {
+
+    public ReservationPk cancelReservationByUser(ReservationPk reservation) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
+            ReservationPk rpk = new ReservationPk();
             session.beginTransaction();
-            int userId = new UserDao().getUserIdByUsername(userName);           
-            String hql = "update Reservation set reservationStatus ='inactive' where userId='"+userId+"' and reservationId='"+reservationId+"'";
-            Query q = session. createQuery(hql);           
+            String hql = "update Reservation re set re.reservationStatus ='inactive' "
+                    + "where re.id.userId='" + reservation.getUserId() + "' and re.id.reservationId='" + reservation.getReservationId() + "'";
+            Query q = session.createQuery(hql);
             q.executeUpdate();
             session.getTransaction().commit();
             session.close();
-            return true;
+            rpk.setUserId(reservation.getUserId());
+            rpk.setReservationId(reservation.getReservationId());
+            return rpk;
         } catch (HibernateException he) {
             he.printStackTrace();
             session.beginTransaction().rollback();
-            return false;
+            return null;
         }
-       
+
     }
+
     //ΔΙΑΓΡΑΦΗ ΚΡΑΤΗΣΗΣ
     //ο καταστηματάρχης διαγράφει κάποια κράτηση
     //ορίσματα clubName και reservationId
     //επιστρέφει true αν έγινε η ακύρωση, αλλιώς false
-    public boolean cancelReservationByNightClub(String clubName, int reservationId) {
+    public ReservationPk cancelReservationByNightClub(ReservationPk reservation) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            int clubId = new NightClubDao().getNightClubIdByNightClubName(clubName);           
-            String hql = "update Reservation set reservationStatus ='inactive' where clubId='"+clubId+"' and reservationId='"+reservationId+"'";
-            Query q = session. createQuery(hql);           
+            ReservationPk rpk = new ReservationPk();
+            String hql = "update Reservation re set re.reservationStatus ='inactive' "
+                    + "where re.id.clubId='" + reservation.getClubId() + "' and re.id.reservationId='" + reservation.getReservationId() + "'";
+            Query q = session.createQuery(hql);
             q.executeUpdate();
             session.getTransaction().commit();
             session.close();
-            return true;
+            rpk.setClubId(reservation.getClubId());
+            rpk.setReservationId(reservation.getReservationId());
+            return rpk;
         } catch (HibernateException he) {
             he.printStackTrace();
             session.beginTransaction().rollback();
-            return false;
+            return null;
         }
-       
+
     }
 
+    public int numberOfReservationTablesByDate(int clubId, Date reservationDate) {
+        int numberOfTables = 0;
+        String DATE_FORMAT = "yyyy/MM/dd";
+        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+
+            String hql = "from Reservation re "
+                    + "where re.id.clubId='" + clubId + "' and re.reservationDate='" + sdf.format(reservationDate) + "' and re.reservationStatus=\'active\'";
+            Query w = session.createQuery(hql);
+            List resultList = w.list();
+            session.getTransaction().commit();
+            session.close();
+
+            Reservation re = new Reservation();
+            for (Object o : resultList) {
+                numberOfTables = numberOfTables + 1;
+                re = (Reservation) o;
+
+            }
+            return numberOfTables;
+        } catch (HibernateException he) {
+            he.printStackTrace();
+            session.beginTransaction().rollback();
+            return numberOfTables;
+        }
+    }
+
+    public List listWithReservationTablesByDate(int clubId, Date reservationDate) {
+
+        String DATE_FORMAT = "yyyy/MM/dd";
+        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+
+            String hql = "from Reservation re where re.id.clubId='" + clubId + "' "
+                    + "and re.reservationDate='" + sdf.format(reservationDate) + "' "
+                    + "and re.reservationStatus=\'active\'";
+            Query w = session.createQuery(hql);
+            List resultList = w.list();
+            session.getTransaction().commit();
+            session.close();
+            List<String> tablesList = new ArrayList<String>();
+            Reservation re = new Reservation();
+            for (Object o : resultList) {
+                re = (Reservation) o;
+                tablesList.add(re.getTrapezi());
+            }
+            return tablesList;
+        } catch (HibernateException he) {
+            he.printStackTrace();
+            session.beginTransaction().rollback();
+            return null;
+        }
+    }
+
+    public Reservation getReservationDataByReservationIdAndUserId(int reservationId, int userId) {
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            String hqlReservation = "from Reservation re where re.id.reservationId='" + reservationId + "' and re.id.userId='" + userId + "' and re.reservationStatus=\'active\'";
+            Query w = session.createQuery(hqlReservation);
+            List resultList = w.list();
+            session.getTransaction().commit();
+            session.close();
+            Reservation Reservation = new Reservation();
+            for (Object o : resultList) {
+                Reservation = (Reservation) o;
+            }
+            return Reservation;
+        } catch (HibernateException he) {
+            he.printStackTrace();
+            session.beginTransaction().rollback();
+            return null;
+        }
+    }
+    
+    public Reservation getReservationDataByReservationIdAndClubId(int reservationId, int clubId) {
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            String hqlReservation = "from Reservation re where re.id.reservationId='" + reservationId + "' and re.id.clubId='" + clubId + "' and re.reservationStatus=\'active\'";
+            Query w = session.createQuery(hqlReservation);
+            List resultList = w.list();
+            session.getTransaction().commit();
+            session.close();
+            Reservation Reservation = new Reservation();
+            for (Object o : resultList) {
+                Reservation = (Reservation) o;
+            }
+            return Reservation;
+        } catch (HibernateException he) {
+            he.printStackTrace();
+            session.beginTransaction().rollback();
+            return null;
+        }
+    }
+    
 }

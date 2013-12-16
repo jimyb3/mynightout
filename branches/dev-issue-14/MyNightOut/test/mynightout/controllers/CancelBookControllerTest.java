@@ -6,7 +6,9 @@
 
 package mynightout.controllers;
 
+import mynightout.dao.UserDao;
 import mynightout.entity.Reservation;
+import mynightout.entity.ReservationPk;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -46,89 +48,122 @@ public class CancelBookControllerTest {
     public void testSuccessfulCancel() {
         System.out.println("cancelSuccessfulReservation");
         String userName = "user1";
-        int reservationId = 5;
+        int userId=new UserDao().getUserDataByUsername(userName).getUserId();
+        int reservationId = 6;
         CancelBookController instance = new CancelBookController();
-        Reservation expResult = new Reservation("user1",5);
-        Reservation result = instance.cancelReservation(userName, reservationId);
-        Assert.assertEquals(expResult.getUsername(), result.getUsername());
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(userId);
+        expResult.setReservationId(reservationId);
+        
+        ReservationPk result = instance.cancelReservation(userName, reservationId);
+        Assert.assertEquals(expResult.getUserId(), result.getUserId());
         Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
         
     }
     
-    @Test (expected=IndexOutOfBoundsException.class)
+    @Test(expected=NullPointerException.class)
     public void testFailedCancelNoUserName() {
         System.out.println("cancelReservation");
-        String userName = "";
-        int reservationId = -1;
+        String userName = null;
+        int userId=new UserDao().getUserDataByUsername(userName).getUserId();
+        int reservationId = 5;
+        
         CancelBookController instance = new CancelBookController();
-        Reservation expResult = new Reservation("user1",5);
-        Reservation result = instance.cancelReservation(userName, reservationId);
-        Assert.assertEquals(expResult.getUsername(), result.getUsername());
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(userId);
+        expResult.setReservationId(reservationId);
+        ReservationPk result = instance.cancelReservation(userName, reservationId);
+        
+        Assert.assertEquals(expResult.getUserId(), result.getUserId());
         Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
         
     }
     
-    @Test (expected=IndexOutOfBoundsException.class)
+    @Test (expected=NullPointerException.class)
     public void testFailedCancelWithBigUserName() {
         System.out.println("cancelReservation");
         String userName = "qwertyuiopasdfgh";
+        int userId=new UserDao().getUserDataByUsername(userName).getUserId();
         int reservationId = 1;
-        CancelBookController instance = new CancelBookController();
-        Reservation expResult = new Reservation("user1",5);
-        Reservation result = instance.cancelReservation(userName, reservationId);
-        Assert.assertEquals(expResult.getUsername(), result.getUsername());
-        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
         
+        CancelBookController instance = new CancelBookController();
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(userId);
+        expResult.setReservationId(reservationId);
+        ReservationPk result = instance.cancelReservation(userName, reservationId);
+        
+        Assert.assertEquals(expResult.getUserId(), result.getUserId());
+        Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
     }
     
-    @Test (expected=IndexOutOfBoundsException.class)
+    @Test (expected=IllegalArgumentException.class)
     public void testFailedCancelWithBigReservationId() {
         System.out.println("cancelReservation");
-        String userName = "jim";
+        String userName = "user1";
+        int userId=new UserDao().getUserDataByUsername(userName).getUserId();
         int reservationId = 1999999999;
+        
         CancelBookController instance = new CancelBookController();
-        Reservation expResult = new Reservation("user1",5);
-        Reservation result = instance.cancelReservation(userName, reservationId);
-        Assert.assertEquals(expResult.getUsername(), result.getUsername());
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(userId);
+        expResult.setReservationId(reservationId);
+        ReservationPk result = instance.cancelReservation(userName, reservationId);
+        
+        Assert.assertEquals(expResult.getUserId(), result.getUserId());
         Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
         
     }
     
-    @Test (expected=IndexOutOfBoundsException.class)
+    @Test (expected=NullPointerException.class)
     public void testFailedCancelWithBigReservationIdAndUserName() {
         System.out.println("cancelReservation");
         String userName = "qwertyuiopasdfgh";
+        int userId=new UserDao().getUserDataByUsername(userName).getUserId();
         int reservationId = 1999999999;
+        
         CancelBookController instance = new CancelBookController();
-        Reservation expResult = new Reservation("user1",5);
-        Reservation result = instance.cancelReservation(userName, reservationId);
-        Assert.assertEquals(expResult.getUsername(), result.getUsername());
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(userId);
+        expResult.setReservationId(reservationId);
+        ReservationPk result = instance.cancelReservation(userName, reservationId);
+        
+        Assert.assertEquals(expResult.getUserId(), result.getUserId());
         Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
         
     }
     
-    @Test (expected=IndexOutOfBoundsException.class)
+    @Test(expected=NullPointerException.class)
     public void testFailedCancelWithSmallReservationIdAndBigUserName() {
         System.out.println("cancelReservation");
         String userName = "qwertyuiopasdfgh";
+        int userId=new UserDao().getUserDataByUsername(userName).getUserId();
         int reservationId = -1;
+        
         CancelBookController instance = new CancelBookController();
-        Reservation expResult = new Reservation("user1",5);
-        Reservation result = instance.cancelReservation(userName, reservationId);
-        Assert.assertEquals(expResult.getUsername(), result.getUsername());
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(userId);
+        expResult.setReservationId(reservationId);
+        ReservationPk result = instance.cancelReservation(userName, reservationId);
+        
+        Assert.assertEquals(expResult.getUserId(), result.getUserId());
         Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
         
     }
     
-    @Test (expected=IndexOutOfBoundsException.class)
+    @Test (expected=NullPointerException.class)
     public void testFailedCancelWithBigReservationIdNoUserName() {
         System.out.println("cancelReservation");
         String userName = "";
+        int userId=new UserDao().getUserDataByUsername(userName).getUserId();
         int reservationId = 1999999999;
+        
         CancelBookController instance = new CancelBookController();
-        Reservation expResult = new Reservation("user1",5);
-        Reservation result = instance.cancelReservation(userName, reservationId);
-        Assert.assertEquals(expResult.getUsername(), result.getUsername());
+        ReservationPk expResult = new ReservationPk();
+        expResult.setUserId(userId);
+        expResult.setReservationId(reservationId);
+        ReservationPk result = instance.cancelReservation(userName, reservationId);
+        
+        Assert.assertEquals(expResult.getUserId(), result.getUserId());
         Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
         
     }

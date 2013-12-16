@@ -16,13 +16,18 @@ import mynightout.dao.ReservationDaoEdit;
  */
 public class EditReservationForm extends javax.swing.JFrame {
 
+    private String currentUserName;
+
     /**
      * Creates new form EditReservationForm
      */
-    public EditReservationForm() {
+    public EditReservationForm(String cUserName) {
+        currentUserName = cUserName;
         initComponents();
     }
-
+public EditReservationForm() {
+        initComponents();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -223,10 +228,10 @@ public class EditReservationForm extends javax.swing.JFrame {
     }//GEN-LAST:event_customerNameActionPerformed
 
     private void cancelbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelbuttonActionPerformed
-        JFrame mainFrame = new MainFrame();
+        JFrame mainUserFrame = new UserMainForm(currentUserName);
         this.dispose();
-        mainFrame.setLocationRelativeTo(this);
-        mainFrame.setVisible(true);   // TODO add your handling code here:
+        mainUserFrame.setLocationRelativeTo(this);
+        mainUserFrame.setVisible(true);
     }//GEN-LAST:event_cancelbuttonActionPerformed
 
     private void reservationDateNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationDateNewActionPerformed
@@ -239,7 +244,10 @@ public class EditReservationForm extends javax.swing.JFrame {
         EditReservationController controller = new EditReservationController(new ReservationDaoEdit());
 
         JOptionPane.showMessageDialog(null, "Τα νέα στοιχεία της κράτησης ειναι :" + reservationDateNew.getText() + "  " + numberOfPeopleNew.getText());
-
+        JFrame mainUserFrame = new UserMainForm(currentUserName);
+        this.dispose();
+        mainUserFrame.setLocationRelativeTo(this);
+        mainUserFrame.setVisible(true);
     }//GEN-LAST:event_editbuttonActionPerformed
 
     private void numOfPeopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numOfPeopleActionPerformed

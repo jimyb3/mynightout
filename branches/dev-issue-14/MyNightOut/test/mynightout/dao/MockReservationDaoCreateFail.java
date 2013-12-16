@@ -13,9 +13,9 @@ import mynightout.entity.Reservation;
  *
  * @author Miltos
  */
-public class MockReservationDaoCreateFail implements IReservationDaoCreate {
+public class MockReservationDaoCreateFail{
 
-    @Override
+    /*@Override
     public Reservation createReservation(int userId, int clubId, 
             Date reservationDate, int seatNumber, String reservationStatus)
             throws DaoException {
@@ -26,5 +26,5 @@ public class MockReservationDaoCreateFail implements IReservationDaoCreate {
         reservation.setReservationId(12345);
         reservation.setSuccessCreate(false);
         return reservation;
-    }
+    }*/
 }

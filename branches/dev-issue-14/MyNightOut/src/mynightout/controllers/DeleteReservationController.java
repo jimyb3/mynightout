@@ -6,9 +6,10 @@
 package mynightout.controllers;
 
 import mynightout.dao.IReservationDaoDelete;
+import mynightout.dao.NightClubDao;
 import mynightout.dao.ReservationDao;
-import mynightout.exceptions.DaoException;
 import mynightout.entity.Reservation;
+import mynightout.entity.ReservationPk;
 
 /**
  *
@@ -23,26 +24,21 @@ public class DeleteReservationController {
 
     }
 
-    public Reservation deleteReservation(String clubName,int reservationId) {
-       ReservationDao changeReservationStatus = new ReservationDao();
-       
-        if (changeReservationStatus.cancelReservationByNightClub(clubName,reservationId)) {
-          try 
-          {
-                Reservation reservation = new Reservation(clubName, reservationId);
-                return reservation;
-            } 
-          catch (Exception e)
-            {
-                throw e;
+    public ReservationPk deleteReservation(String clubName, int reservationId) {
+        ReservationDao changeReservationStatus = new ReservationDao();
+        ReservationPk res = new ReservationPk();
+        res.setReservationId(reservationId);
+        int clubId = new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
+        res.setClubId(clubId);
+        if (res.equals(changeReservationStatus.cancelReservationByNightClub(res))) {
+            try {
+                return res;
+            } catch (Exception e) {
+                throw new IllegalArgumentException("Πρόβλημα στην βάση");
             }
-        } else
-        {
+        } else {
             throw new IllegalArgumentException("Η διαγραφή δεν έγινε");
-         }
-       
-       
+        }
 
-     
-  }
+    }
 }

@@ -10,21 +10,24 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.controllers.DeleteReservationController;
 import mynightout.dao.ReservationDaoDelete;
-import mynightout.entity.Reservation;
+import mynightout.entity.ReservationPk;
 
 /**
  *
  * @author Maria
  */
 public class DeleteReservationForm extends javax.swing.JFrame {
-
+private String currentClubName;
     /**
      * Creates new form DeleteReservationForm
      */
     public DeleteReservationForm() {
         initComponents();
     }
-
+public DeleteReservationForm(String nightClubName) {
+    currentClubName = nightClubName;
+        initComponents();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -117,11 +120,10 @@ public class DeleteReservationForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
-        JFrame mainFrame=new MainFrame();
-        this.dispose();
-        mainFrame.setLocationRelativeTo(this);
-        mainFrame.setVisible(true);
-        // TODO add your handling code here:
+       JFrame mainNightClubFrame=new NightclubMainForm(currentClubName);
+            this.dispose();
+            mainNightClubFrame.setLocationRelativeTo(this);
+            mainNightClubFrame.setVisible(true);
     }//GEN-LAST:event_CancelActionPerformed
 
     private void GivenIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GivenIdActionPerformed
@@ -133,9 +135,13 @@ public class DeleteReservationForm extends javax.swing.JFrame {
         try{
             int reservationId=Integer.parseInt(GivenId.getText());
            //int clubName=Integer.parseInt(givenClubName.getText());
-            Reservation deleteReservation=controller.deleteReservation( givenClubName.getText(),reservationId);
+            ReservationPk deleteReservation=controller.deleteReservation( givenClubName.getText(),reservationId);
             JOptionPane.showMessageDialog(null,"Το Id της διεγραμένης κράτησης ειναι :" +GivenId.getText(),
                 "Success",JOptionPane.INFORMATION_MESSAGE);
+            JFrame mainNightClubFrame=new NightclubMainForm(currentClubName);
+            this.dispose();
+            mainNightClubFrame.setLocationRelativeTo(this);
+            mainNightClubFrame.setVisible(true);
         }
         catch (Exception e)
         {

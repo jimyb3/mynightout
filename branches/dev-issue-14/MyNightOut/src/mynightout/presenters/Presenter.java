@@ -6,6 +6,7 @@
 
 package mynightout.presenters;
 
+import javax.swing.JOptionPane;
 import mynightout.controllers.EmailSenderController;
 import mynightout.ui.ContactAdminForm;
 import mynightout.ui.IContactAdminForm;
@@ -25,13 +26,17 @@ public class Presenter implements IPresenter{
         
         String to = "mynightoutdevelopers@gmail.com";
         
+        try{
+            
         if(EmailSenderController.sendMail("mynightouttest@gmail.com", "dge457hdw3", userMessage, to, subMessage )){
             System.out.println("Επιτυχής Αποστολή!");
-            form.display("Επιτυχής Αποστολή!");
-        }
-        else{
+            JOptionPane.showMessageDialog(null, "Επιτυχής αποστολή ", "Success",JOptionPane.INFORMATION_MESSAGE);
+          }
+        }catch (Exception e){
+        
             System.out.println("Παρουσιάστηκε κάποιο πρόβλημα.");
-            form.display("Παρουσιάστηκε κάποιο πρόβλημα, ξαναπροσπαθήστε.");
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
+                                  
         }
         
         
@@ -56,21 +61,29 @@ public class Presenter implements IPresenter{
         
         String to = "mynightoutdevelopers@gmail.com";
         
-        if(EmailSenderController.sendMail("mynightouttest@gmail.com", "dge457hdw3", userMessage, to, subMessage)){
+        try{
+            
+        if(EmailSenderController.sendMail("mynightouttest@gmail.com", "dge457hdw3", userMessage, to, subMessage))
+        {
             System.out.println("Επιτυχής Αποστολή!");
-            form.display("Επιτυχής Αποστολή!");
-        }
-        else{
-            System.out.println("Παρουσιάστηκε κάποιο πρόβλημα.");
-            form.display("Παρουσιάστηκε κάποιο πρόβλημα, ξαναπροσπαθήστε.");
+            JOptionPane.showMessageDialog(null, "Επιτυχής αποστολή ", "Success",JOptionPane.INFORMATION_MESSAGE);
         }
         
+               
+        } catch (Exception e){
+            
+            System.out.println("Παρουσιάστηκε κάποιο πρόβλημα.");
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
+           
+            
+        }
+        }
             
         }
 
    
-        
-    }
+  
+    
     
     
 

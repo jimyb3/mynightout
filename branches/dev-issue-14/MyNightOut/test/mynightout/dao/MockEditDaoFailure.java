@@ -13,14 +13,14 @@ import mynightout.entity.Reservation;
  *
  * @author Maria
  */
-public class MockEditDaoFailure implements IReservationDaoEdit {
+public class MockEditDaoFailure{
 
-    @Override
+    /*@Override
     public Reservation selectReservation(int userId, int clubId,
             Date reservationDate, int seatNumber)
             throws DaoException {
         Reservation reservation = new Reservation(userId, clubId, reservationDate, seatNumber);
         reservation.setCancelSuccessful(false);
         return reservation;
-    }
+    }*/
 }

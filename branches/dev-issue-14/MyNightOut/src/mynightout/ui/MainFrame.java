@@ -5,9 +5,15 @@
  */
 package mynightout.ui;
 
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
-import mynightout.controllers.EditReservationController;
-import mynightout.dao.ReservationDaoEdit;
+import mynightout.controllers.DisplayCellarController;
+import mynightout.dao.TablesDao;
+import mynightout.entity.Cellar;
+import mynightout.entity.Tables;
+import mynightout.presenters.SelectTableProfilePresenter;
 
 /**
  *
@@ -31,95 +37,52 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cancelReservationButton = new javax.swing.JButton();
-        exitButton = new javax.swing.JButton();
         loginButton = new javax.swing.JButton();
-        checkFullnessButton = new javax.swing.JButton();
         createStoreButton = new javax.swing.JButton();
-        createReservationButton = new javax.swing.JButton();
-        editButton = new javax.swing.JButton();
-        deleteButton = new javax.swing.JButton();
-        FAQButton = new javax.swing.JButton();
-        showCellarForm = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        faqButton = new javax.swing.JButton();
+        nightclubLoginButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyNightOut");
-
-        cancelReservationButton.setText("Ακύρωση Κράτησης");
-        cancelReservationButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelReservationButtonActionPerformed(evt);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
-        exitButton.setText("Κλείσιμο");
-        exitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitButtonActionPerformed(evt);
-            }
-        });
-
-        loginButton.setText("Login");
+        loginButton.setText("Είσοδος χρήστη");
+        loginButton.setFocusPainted(false);
+        loginButton.setFocusable(false);
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginButtonActionPerformed(evt);
             }
         });
 
-        checkFullnessButton.setText("Πληρότητα Καταστήματος");
-        checkFullnessButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkFullnessButtonActionPerformed(evt);
-            }
-        });
-
         createStoreButton.setText("Δημιουργία Καταστήματος");
+        createStoreButton.setFocusPainted(false);
+        createStoreButton.setFocusable(false);
         createStoreButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createStoreButtonActionPerformed(evt);
             }
         });
 
-        createReservationButton.setText("Δημιουργία Κράτησης");
-        createReservationButton.addActionListener(new java.awt.event.ActionListener() {
+        faqButton.setText("FAQ/Help");
+        faqButton.setFocusPainted(false);
+        faqButton.setFocusable(false);
+        faqButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createReservationButtonActionPerformed(evt);
+                faqButtonActionPerformed(evt);
             }
         });
 
-        editButton.setText("Επεξεργασία Κράτησης");
-        editButton.addActionListener(new java.awt.event.ActionListener() {
+        nightclubLoginButton.setText("Είσοδος επιχειρηματία");
+        nightclubLoginButton.setFocusPainted(false);
+        nightclubLoginButton.setFocusable(false);
+        nightclubLoginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editButtonActionPerformed(evt);
-            }
-        });
-
-        deleteButton.setText("Διαγραφή Κράτησης");
-        deleteButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteButtonActionPerformed(evt);
-            }
-        });
-
-        FAQButton.setText("FAQ/Help");
-        FAQButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FAQButtonActionPerformed(evt);
-            }
-        });
-
-        showCellarForm.setText("Εμφάνιση Κελαριού");
-        showCellarForm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showCellarFormActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Εμφάνιση Προμηθευτών");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                nightclubLoginButtonActionPerformed(evt);
             }
         });
 
@@ -130,117 +93,41 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(cancelReservationButton)
-                        .addGap(5, 5, 5)
-                        .addComponent(exitButton)
-                        .addGap(5, 5, 5)
-                        .addComponent(loginButton))
+                        .addGap(51, 51, 51)
+                        .addComponent(createStoreButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(faqButton)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(checkFullnessButton)
-                        .addGap(5, 5, 5)
-                        .addComponent(createStoreButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(createReservationButton)
-                        .addGap(5, 5, 5)
-                        .addComponent(editButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(FAQButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(deleteButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(showCellarForm)
-                            .addComponent(jButton1))))
-                .addGap(41, 41, 41))
+                        .addContainerGap()
+                        .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nightclubLoginButton, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))
+                .addGap(10, 10, 10))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cancelReservationButton)
-                    .addComponent(exitButton)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nightclubLoginButton)
                     .addComponent(loginButton))
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkFullnessButton)
-                    .addComponent(createStoreButton))
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(createReservationButton)
-                    .addComponent(editButton))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(deleteButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(FAQButton)))
-                .addGap(18, 18, 18)
-                .addComponent(showCellarForm)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(createStoreButton)
+                    .addComponent(faqButton))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cancelReservationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelReservationButtonActionPerformed
-        // TODO add your handling code here:
-        JFrame cancelBookFrame = new CancelBookForm();
-        this.dispose();
-        cancelBookFrame.setLocationRelativeTo(this);
-        cancelBookFrame.setVisible(true);
-    }//GEN-LAST:event_cancelReservationButtonActionPerformed
-
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        JFrame loginFrame = new LoginForm();
+        JFrame loginFrame = new UserLoginForm();
         this.dispose();
         loginFrame.setLocationRelativeTo(this);
         loginFrame.setVisible(true);
     }//GEN-LAST:event_loginButtonActionPerformed
-
-    private void checkFullnessButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkFullnessButtonActionPerformed
-        // TODO add your handling code here:
-        JFrame checkFullnessFrame = new CheckFullnessForm();
-        this.dispose();
-        checkFullnessFrame.setLocationRelativeTo(this);
-        checkFullnessFrame.setVisible(true);
-    }//GEN-LAST:event_checkFullnessButtonActionPerformed
-
-    private void createReservationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createReservationButtonActionPerformed
-
-        JFrame createBookFrame = new CreateBookForm();
-        dispose();
-        createBookFrame.setLocationRelativeTo(this);
-        createBookFrame.setVisible(true);
-
-    }//GEN-LAST:event_createReservationButtonActionPerformed
-
-    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-     JFrame editReservationFrame=new EditReservationForm();
-     this.dispose();
-     editReservationFrame.setLocationRelativeTo(this);
-     editReservationFrame.setVisible(true);  // TODO add your handling code here:
-    }//GEN-LAST:event_editButtonActionPerformed
-
-    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-     JFrame deleteReservationFrame=new DeleteReservationForm();
-     this.dispose();
-     deleteReservationFrame.setLocationRelativeTo(this);
-     deleteReservationFrame.setVisible(true);   // TODO add your handling code here:
-    }//GEN-LAST:event_deleteButtonActionPerformed
-
-    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_exitButtonActionPerformed
 
     private void createStoreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createStoreButtonActionPerformed
         // TODO add your handling code here:
@@ -250,27 +137,24 @@ public class MainFrame extends javax.swing.JFrame {
         StoreRegisterForm.setVisible(true);
     }//GEN-LAST:event_createStoreButtonActionPerformed
 
-    private void FAQButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FAQButtonActionPerformed
+    private void faqButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_faqButtonActionPerformed
         // TODO add your handling code here:
         JFrame contactAdminForm=new ContactAdminForm();
-     
+     this.dispose();
      contactAdminForm.setLocationRelativeTo(this);
      contactAdminForm.setVisible(true);
-    }//GEN-LAST:event_FAQButtonActionPerformed
+    }//GEN-LAST:event_faqButtonActionPerformed
 
-    private void showCellarFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCellarFormActionPerformed
-      JFrame showCellarFrame=new ShowCellarForm();
-      this.dispose();
-      showCellarFrame.setLocationRelativeTo(this);
-      showCellarFrame.setVisible(true); // TODO add your handling code here:
-    }//GEN-LAST:event_showCellarFormActionPerformed
+    private void nightclubLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nightclubLoginButtonActionPerformed
+        JFrame clubLoginFrame = new NightclubLoginForm();
+        this.dispose();
+        clubLoginFrame.setLocationRelativeTo(this);
+        clubLoginFrame.setVisible(true);
+    }//GEN-LAST:event_nightclubLoginButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      JFrame showSuppliersFrame=new ShowSupplierForm();
-      this.dispose();
-      showSuppliersFrame.setLocationRelativeTo(this);
-      showSuppliersFrame.setVisible(true);// TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        this.setLocationRelativeTo(null);
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -308,16 +192,9 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton FAQButton;
-    private javax.swing.JButton cancelReservationButton;
-    private javax.swing.JButton checkFullnessButton;
-    private javax.swing.JButton createReservationButton;
     private javax.swing.JButton createStoreButton;
-    private javax.swing.JButton deleteButton;
-    private javax.swing.JButton editButton;
-    private javax.swing.JButton exitButton;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton faqButton;
     private javax.swing.JButton loginButton;
-    private javax.swing.JButton showCellarForm;
+    private javax.swing.JButton nightclubLoginButton;
     // End of variables declaration//GEN-END:variables
 }

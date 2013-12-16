@@ -7,6 +7,7 @@ package mynightout.dao;
 
 import java.util.Date;
 import mynightout.entity.Reservation;
+import mynightout.entity.ReservationPk;
 
 /**
  *
@@ -15,9 +16,10 @@ import mynightout.entity.Reservation;
 public class ReservationDaoEdit implements IReservationDaoEdit {
 
     @Override
-    public Reservation selectReservation(int userId, int clubId,
-            Date reservationDate, int seatNumber) {
+    public Reservation selectReservation(ReservationPk res, Date reservationDate, 
+            String trapezi, int seatNumber, String reservationStatus) {
 
-        return new Reservation(userId, clubId, reservationDate, seatNumber);
+        return new Reservation(res, reservationDate, 
+            trapezi, reservationStatus);
     }
 }

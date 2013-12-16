@@ -6,7 +6,7 @@
 
 package mynightout.ui;
 
-import javax.swing.JOptionPane;
+import javax.swing.JFrame;
 import mynightout.presenters.Presenter;
 
 /**
@@ -41,12 +41,14 @@ public class ContactAdminForm extends javax.swing.JFrame {
         ReserveHelp = new javax.swing.JButton();
         LogHelp = new javax.swing.JButton();
         FAQPanel = new javax.swing.JPanel();
-        FAQHelp = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        faqTextArea = new javax.swing.JTextArea();
         Other = new javax.swing.JButton();
         SendHelpPanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        HelpText = new javax.swing.JTextField();
         SendHelp = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        helpTextArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,27 +80,19 @@ public class ContactAdminForm extends javax.swing.JFrame {
             }
         });
 
-        FAQHelp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FAQHelpActionPerformed(evt);
-            }
-        });
+        faqTextArea.setColumns(20);
+        faqTextArea.setRows(5);
+        jScrollPane1.setViewportView(faqTextArea);
 
         javax.swing.GroupLayout FAQPanelLayout = new javax.swing.GroupLayout(FAQPanel);
         FAQPanel.setLayout(FAQPanelLayout);
         FAQPanelLayout.setHorizontalGroup(
             FAQPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FAQPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(FAQHelp, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
         );
         FAQPanelLayout.setVerticalGroup(
             FAQPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FAQPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(FAQHelp, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane1)
         );
 
         Other.setText("Άλλο:");
@@ -117,19 +111,23 @@ public class ContactAdminForm extends javax.swing.JFrame {
             }
         });
 
+        helpTextArea.setColumns(20);
+        helpTextArea.setRows(5);
+        jScrollPane2.setViewportView(helpTextArea);
+
         javax.swing.GroupLayout SendHelpPanelLayout = new javax.swing.GroupLayout(SendHelpPanel);
         SendHelpPanel.setLayout(SendHelpPanelLayout);
         SendHelpPanelLayout.setHorizontalGroup(
             SendHelpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SendHelpPanelLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jLabel3)
-                .addContainerGap(80, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SendHelpPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(SendHelp)
                 .addGap(133, 133, 133))
-            .addComponent(HelpText, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(SendHelpPanelLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(jLabel3)
+                .addContainerGap(80, Short.MAX_VALUE))
+            .addComponent(jScrollPane2)
         );
         SendHelpPanelLayout.setVerticalGroup(
             SendHelpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,8 +135,8 @@ public class ContactAdminForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(HelpText, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                .addGap(11, 11, 11)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SendHelp))
         );
 
@@ -195,7 +193,7 @@ public class ContactAdminForm extends javax.swing.JFrame {
                         .addGap(33, 33, 33)
                         .addComponent(FAQPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                         .addComponent(SendHelpPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(75, 75, 75))
         );
@@ -204,21 +202,23 @@ public class ContactAdminForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
-        // TODO add your handling code here:
+        JFrame mainFrame = new MainFrame();
         this.dispose();
+        mainFrame.setLocationRelativeTo(this);
+        mainFrame.setVisible(true);
     }//GEN-LAST:event_BackButtonActionPerformed
 
     private void ReserveHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReserveHelpActionPerformed
         // TODO add your handling code here:
 
-        this.FAQHelp.setText("Βεβαιωθείτε οτι δώσατε σωστά στοιχεία μαγαζιού και κράτησης και εισήλθατε με έγκυρο λογαριασμό.");
+        this.faqTextArea.setText("Βεβαιωθείτε οτι δώσατε σωστά στοιχεία \nμαγαζιού και κράτησης και εισήλθατε με \nέγκυρο λογαριασμό.");
 
         this.FAQPanel.setVisible(true);
     }//GEN-LAST:event_ReserveHelpActionPerformed
 
     private void LogHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogHelpActionPerformed
         // TODO add your handling code here:
-        this.FAQHelp.setText("Βεβαιωθείτε οτι δώσατε σωστό όνομα χρήστη και κωδικό. Αν δεν θυμάστε τα στοιχεία σας επικοινωνήστε με τους διαχειριστές του συστήματος για ανάκτηση των στοιχείων σας.");
+        this.faqTextArea.setText("Βεβαιωθείτε οτι δώσατε σωστό όνομα χρήστη \nκαι κωδικό. Αν δεν θυμάστε τα στοιχεία \nσας επικοινωνήστε με τους διαχειριστές \nτου συστήματος για ανάκτηση \nτων στοιχείων σας.");
         this.FAQPanel.setVisible(true);
 
     }//GEN-LAST:event_LogHelpActionPerformed
@@ -232,13 +232,9 @@ public class ContactAdminForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         Presenter prsreg=new Presenter();
         
-        prsreg.sendHelp(this, HelpText.getText());
+        prsreg.sendHelp(this, helpTextArea.getText());
         
     }//GEN-LAST:event_SendHelpActionPerformed
-
-    private void FAQHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FAQHelpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FAQHelpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,17 +273,19 @@ public class ContactAdminForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackButton;
-    private javax.swing.JTextField FAQHelp;
     private javax.swing.JPanel FAQPanel;
-    private javax.swing.JTextField HelpText;
     private javax.swing.JButton LogHelp;
     private javax.swing.JButton Other;
     private javax.swing.JButton ReserveHelp;
     private javax.swing.JButton SendHelp;
     private javax.swing.JPanel SendHelpPanel;
+    private javax.swing.JTextArea faqTextArea;
+    private javax.swing.JTextArea helpTextArea;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 
     public void display(String επιτυχής_Αποστολή) {

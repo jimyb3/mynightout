@@ -8,7 +8,6 @@ package mynightout.ui;
 
 import java.util.Vector;
 import javax.swing.JFrame;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,14 +15,17 @@ import javax.swing.table.DefaultTableModel;
  * @author Maria
  */
 public class ShowCellarForm extends javax.swing.JFrame {
-
+private String currentClubName;
     /**
      * Creates new form ShowCellarForm
      */
-    public ShowCellarForm() {
+    public ShowCellarForm(String nightClubName) {
+    currentClubName = nightClubName;
         initComponents();
     }
-
+ public ShowCellarForm() {    
+        initComponents();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -100,10 +102,10 @@ public class ShowCellarForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseButtonActionPerformed
-        JFrame mainFrame = new MainFrame();
-        this.dispose();
-        mainFrame.setLocationRelativeTo(this);
-        mainFrame.setVisible(true);   // TODO add your handling code here:
+        JFrame mainNightClubFrame=new NightclubMainForm(currentClubName);
+            this.dispose();
+            mainNightClubFrame.setLocationRelativeTo(this);
+            mainNightClubFrame.setVisible(true);
     }//GEN-LAST:event_CloseButtonActionPerformed
 
     private void ShowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowButtonActionPerformed
@@ -112,10 +114,10 @@ public class ShowCellarForm extends javax.swing.JFrame {
         Vector<String> tableHeaders = new Vector<String>();
         tableHeaders.add("Όνομα Φιάλης");
         tableHeaders.add("Ποσότητα");
-        Vector firstRow=new Vector();
-        Vector secondRow=new Vector(); 
-        Vector thirdRow=new Vector();
-        Vector tableData=new Vector();
+        Vector<String> firstRow=new Vector<String>();
+        Vector<String> secondRow=new Vector<String>(); 
+        Vector<String> thirdRow=new Vector<String>();
+        Vector<Vector> tableData=new Vector<Vector>();
         firstRow.add("Bacardi");
         firstRow.add("3");
         tableData.add(firstRow);
