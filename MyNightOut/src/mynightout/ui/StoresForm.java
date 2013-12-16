@@ -73,7 +73,6 @@ public StoresForm(String cUserName) {
         jsc_item = new javax.swing.JScrollPane();
         pnl_button = new javax.swing.JPanel();
         btn_back = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -119,9 +118,6 @@ public StoresForm(String cUserName) {
         });
         pnl_main.add(btn_back, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 120, 50));
 
-        jLabel1.setText("jLabel1");
-        pnl_main.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -165,7 +161,6 @@ public StoresForm(String cUserName) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_back;
     private javax.swing.JButton btn_exit;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jsc_item;
     private javax.swing.JPanel pnl_button;
     private javax.swing.JPanel pnl_main;
@@ -303,6 +298,8 @@ public StoresForm(String cUserName) {
                     getSubMenu(choice);
 
                     StoreView storeV = new StoreView();
+                    
+                    
                     URL url = null;
                     try {
                         url = new URL(new NightClubDao().getNightClubDataByClubName(choice).getClubImage());
@@ -315,11 +312,40 @@ public StoresForm(String cUserName) {
                     } catch (IOException ex) {
                         Logger.getLogger(StoresForm.class.getName()).log(Level.SEVERE, null, ex);
                     }
+                    
+                    
+                    String storeAddress = null;
+                    try {
+                        
+                        storeAddress = new NightClubDao().getNightClubDataByClubName(choice).getAddress();
+                        
+                    } catch (Exception ex) {
+                        Logger.getLogger(StoresForm.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
+                    
+                    String storeContact = null;
+                    try {
+                        
+                        storeContact = new NightClubDao().getNightClubDataByClubName(choice).getEmail();
+                        
+                    } catch (Exception ex) {
+                        Logger.getLogger(StoresForm.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
+                   
+                    
+                    
+                    
                     ImageIcon icon = new ImageIcon(img);
                     storeV.StorePic.setIcon(icon);
                     storeV.StorePic.setIcon(icon);
                     storeV.setVisible(true);
                     storeV.storeName.setText(choice);
+                    storeV.addressTOLabel.setText(storeAddress);
+                    storeV.contactTOLabel.setText(storeContact);
+                    
+                    
                 }
 
             });
