@@ -58,6 +58,7 @@ public class UserMainForm extends javax.swing.JFrame {
         showStoresButton = new javax.swing.JButton();
         logOutButton = new javax.swing.JButton();
         editUserInformationButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -137,6 +138,13 @@ public class UserMainForm extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("View User's History");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -164,9 +172,11 @@ public class UserMainForm extends javax.swing.JFrame {
                                             .addComponent(confirmReservationButton)
                                             .addComponent(SelectTableButton, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(logOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(logOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -189,6 +199,8 @@ public class UserMainForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(createReservationButton)
                     .addComponent(SelectTableButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(logOutButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -291,6 +303,13 @@ public class UserMainForm extends javax.swing.JFrame {
         editUserInfoForm.setVisible(true);
     }//GEN-LAST:event_editUserInformationButtonActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JFrame UserHistoryForm = new UserHistoryForm(currentUserName);
+        this.dispose();
+        UserHistoryForm.setLocationRelativeTo(this);
+        UserHistoryForm.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -332,6 +351,7 @@ public class UserMainForm extends javax.swing.JFrame {
     private javax.swing.JButton confirmReservationButton;
     private javax.swing.JButton createReservationButton;
     private javax.swing.JButton editUserInformationButton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton logOutButton;
     private javax.swing.JButton reservationEditButton;
     private javax.swing.JButton showStoresButton;
