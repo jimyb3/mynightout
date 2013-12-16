@@ -6,9 +6,18 @@
 
 package mynightout.ui;
 
+import java.util.List;
+import java.util.Vector;
+import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
+import mynightout.dao.NightClubDao;
+import mynightout.dao.ReservationDao;
+import mynightout.entity.Nightclub;
+import mynightout.entity.Reservation;
+
 /**
  *
- * @author Fuzzaki
+ * @author Grigoris
  */
 public class UserHistoryForm extends javax.swing.JFrame {
 
@@ -18,7 +27,10 @@ public class UserHistoryForm extends javax.swing.JFrame {
     public UserHistoryForm() {
         initComponents();
     }
-
+    public UserHistoryForm(String cUserName) {
+        currentUserName = cUserName;
+        initComponents();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,9 +75,19 @@ public class UserHistoryForm extends javax.swing.JFrame {
 
         UserMainFromButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         UserMainFromButton.setText("User Main Menu");
+        UserMainFromButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserMainFromButtonActionPerformed(evt);
+            }
+        });
 
         fetchButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         fetchButton.setText("Get History");
+        fetchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fetchButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,6 +131,34 @@ public class UserHistoryForm extends javax.swing.JFrame {
     private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
         this.dispose();
     }//GEN-LAST:event_ExitButtonActionPerformed
+    private String currentUserName;
+    private void fetchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fetchButtonActionPerformed
+        ReservationDao reservation = new ReservationDao();
+        List resultList=reservation.getUserReservations(currentUserName);
+        Vector<String> tableHeaders = new Vector<String>();
+        Vector tableData = new Vector();
+        tableHeaders.add("Club Name"); 
+        tableHeaders.add("Reservation Date");
+        
+        for(Object o: resultList){
+        Reservation res=(Reservation) o;
+        Vector<Object> oneRow = new Vector<Object>();
+        Nightclub clubName=new NightClubDao().getNightClubDataByClubId(res.id.getClubId());
+        oneRow.add(clubName);
+        oneRow.add(res.getReservationDate());
+        tableData.add(oneRow);
+        }
+        resultTable.setModel(new DefaultTableModel(tableData, tableHeaders));
+
+    }//GEN-LAST:event_fetchButtonActionPerformed
+
+    private void UserMainFromButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserMainFromButtonActionPerformed
+        JFrame UserMainForm = new UserMainForm(currentUserName);
+        this.dispose();
+        UserMainForm.setLocationRelativeTo(this);
+        UserMainForm.setVisible(true);
+
+    }//GEN-LAST:event_UserMainFromButtonActionPerformed
 
     /**
      * @param args the command line arguments

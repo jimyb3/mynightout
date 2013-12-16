@@ -112,6 +112,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="User Main Menu"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UserMainFromButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="fetchButton">
       <Properties>
@@ -120,6 +123,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Get History"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fetchButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

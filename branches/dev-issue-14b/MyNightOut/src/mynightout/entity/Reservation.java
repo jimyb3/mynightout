@@ -10,7 +10,7 @@ import java.util.Date;
 public class Reservation  implements java.io.Serializable {
 
 
-     private ReservationPk id;
+     public ReservationPk id;
      private Date reservationDate;
      private String trapezi;
      private String reservationStatus;
