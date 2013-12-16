@@ -33,21 +33,21 @@ public class CreateBookController {
      *
      */
     public Reservation createReservationNew(int userId, int clubId,
-            Date reservationDate, String trapezi, int seatNumber, String reservationStatus)
+            Date reservationDate, String trapezi, String reservationStatus)
             throws IllegalArgumentException, DaoException {
 
-        /*
-         if (customerName.length() < 3) {
-         throw new IllegalArgumentException("Customer name should be at least three characters long");
+        
+         if (trapezi.length() < 3) {
+         throw new IllegalArgumentException("Υπαρχει σφαλμα στην επιλογη τραπεζιου");
          }
-         */
+         
         if (0 == clubId){
             throw new IllegalArgumentException("Πρεπει να επιλεξεται καποιο καταστημα");
         }
-        if (seatNumber > 5) {
-            throw new IllegalArgumentException("Καθε τραπεζι εχει 5 θεσεις");
-            // TODO edw prepei na ginei pio sun8eto problepsi gia parapanw trapezia
-        }
+        /*        if (seatNumber > 5) {
+        throw new IllegalArgumentException("Καθε τραπεζι εχει 5 θεσεις");
+        // TODO edw prepei na ginei pio sun8eto problepsi gia parapanw trapezia
+        }*/
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date tempDate = new Date();
@@ -74,7 +74,7 @@ public class CreateBookController {
             res.setClubId(clubId);
             res.setUserId(userId);
             return createBookDao.createReservation(res, reservationDate,
-                    trapezi, seatNumber, reservationStatus);
+                    trapezi, reservationStatus);
         } catch (DaoException e) {
             throw e;
         }
