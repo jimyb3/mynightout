@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import javax.swing.JFrame;
@@ -20,8 +19,7 @@ public class ContactAdminForm extends javax.swing.JFrame {
      */
     public ContactAdminForm() {
         initComponents();
-        
-        
+
         this.FAQPanel.setVisible(false);
         this.SendHelpPanel.setVisible(false);
     }
@@ -202,7 +200,7 @@ public class ContactAdminForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackButtonActionPerformed
-        JFrame mainFrame = new MainFrame();
+        MainFrame mainFrame = new MainFrame();
         this.dispose();
         mainFrame.setLocationRelativeTo(this);
         mainFrame.setVisible(true);
@@ -230,10 +228,10 @@ public class ContactAdminForm extends javax.swing.JFrame {
 
     private void SendHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendHelpActionPerformed
         // TODO add your handling code here:
-        Presenter prsreg=new Presenter();
-        
+        Presenter prsreg = new Presenter();
+
         prsreg.sendHelp(this, helpTextArea.getText());
-        
+
     }//GEN-LAST:event_SendHelpActionPerformed
 
     /**

@@ -19,10 +19,7 @@
     </property>
     <property name="trapezi" type="string">
       <column length="4" name="Trapezi" not-null="true"/>
-    </property>
-    <property name="seatNumber" type="int">
-      <column name="Seat_number" not-null="true"/>
-    </property>
+    </property>   
     <property name="reservationStatus" type="string">
       <column length="12" name="Reservation_status" not-null="true"/>
     </property>

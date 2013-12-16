@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import java.text.Format;
@@ -21,17 +20,21 @@ import mynightout.controllers.SetNightClubClosedDatesController;
  * @author Dimitris
  */
 public class ConfirmNightClubClosedDatesForm extends javax.swing.JFrame {
-private String currentClubName;
+
+    private String currentClubName;
+
     /**
      * Creates new form ConfirmNightClubClosedDatesForm
      */
     public ConfirmNightClubClosedDatesForm() {
         initComponents();
     }
-public ConfirmNightClubClosedDatesForm(String nightClubName) {
-       currentClubName = nightClubName;
+
+    public ConfirmNightClubClosedDatesForm(String nightClubName) {
+        currentClubName = nightClubName;
         initComponents();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -151,34 +154,34 @@ public ConfirmNightClubClosedDatesForm(String nightClubName) {
     private void noButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        SetNightClubClosedDatesForm snccdf=new SetNightClubClosedDatesForm(currentClubName);
+        SetNightClubClosedDatesForm snccdf = new SetNightClubClosedDatesForm(currentClubName);
         snccdf.setLocationRelativeTo(this);
         snccdf.setVisible(true);
     }//GEN-LAST:event_noButtonActionPerformed
 
     private void yesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesButtonActionPerformed
-        
+
         Format formatter = new SimpleDateFormat("dd/MM/yyyy");
-        Date closedFromDate=new Date();
-        Date closedThroughDate=new Date();
+        Date closedFromDate = new Date();
+        Date closedThroughDate = new Date();
         try {
-           closedFromDate = (Date) formatter.parseObject(closedFromDateLabel.getText());
-           closedThroughDate = (Date) formatter.parseObject(closedThroughDateLabel.getText());
+            closedFromDate = (Date) formatter.parseObject(closedFromDateLabel.getText());
+            closedThroughDate = (Date) formatter.parseObject(closedThroughDateLabel.getText());
         } catch (ParseException ex) {
             Logger.getLogger(ConfirmNightClubClosedDatesForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-        try{
-            SetNightClubClosedDatesController snccdc=new SetNightClubClosedDatesController();
+        try {
+            SetNightClubClosedDatesController snccdc = new SetNightClubClosedDatesController();
             snccdc.setClubClosedDates(nightClubNameLabel.getText(), closedFromDate, closedThroughDate);
-            JOptionPane.showMessageDialog(null, "Ορίστηκαν σωστά οι νέες ημερομηνίες!", "Success",JOptionPane.INFORMATION_MESSAGE);
-            JFrame mainNightClubFrame=new NightclubMainForm(currentClubName);
+            JOptionPane.showMessageDialog(null, "Ορίστηκαν σωστά οι νέες ημερομηνίες!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            NightclubMainForm mainNightClubFrame = new NightclubMainForm(currentClubName);
             this.dispose();
             mainNightClubFrame.setLocationRelativeTo(this);
             mainNightClubFrame.setVisible(true);
-        } catch(Exception e){
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",JOptionPane.INFORMATION_MESSAGE);
-        }   
-        
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
+        }
+
     }//GEN-LAST:event_yesButtonActionPerformed
 
     /**

@@ -28,7 +28,7 @@ public class ReservationDao implements IReservationDao {
     @Override
     public Reservation selectReservation(ReservationPk res, Date reservationDate,
             String trapezi, int seatNumber, String reservationStatus) throws DaoException {
-        return new Reservation(res, reservationDate, trapezi, seatNumber, "active");
+        return new Reservation(res, reservationDate, trapezi, "active");
     }
 
     //ΚΡΑΤΗΣΗ
@@ -36,7 +36,7 @@ public class ReservationDao implements IReservationDao {
     //ορίσματα : userName, nightClubName, reservationDate, seatNumber
     //επιστρέφει αντικείμενο Reservation με τα χαρακτηριστικά της νέας κράτησης, εαν προστέθηκε στη βάση η εγγραφή
     //αλλιώς, null
-    public Reservation insertReservationData(String userName, String nightClubName, Date reservationDate, String trapezi, int seatNumber) {
+    public Reservation insertReservationData(String userName, String nightClubName, Date reservationDate, String trapezi) {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         try {
@@ -47,7 +47,7 @@ public class ReservationDao implements IReservationDao {
             res.setUserId(userId);
             res.setClubId(clubId);
 
-            Reservation newReservation = new Reservation(res, reservationDate, trapezi, seatNumber, "active");
+            Reservation newReservation = new Reservation(res, reservationDate, trapezi, "active");
             session.save(newReservation);
             session.getTransaction().commit();
             session.close();

@@ -13,7 +13,6 @@ public class Reservation  implements java.io.Serializable {
      private ReservationPk id;
      private Date reservationDate;
      private String trapezi;
-     private int seatNumber;
      private String reservationStatus;
      //βοηθητικές μεταβλητές για τα test αυτά θα σταματήσουν να χρησιμοποιούνται
     //όταν γίνει η κανονική συνδεση με τη βαση.
@@ -30,11 +29,10 @@ public class Reservation  implements java.io.Serializable {
         this.username=username;
     }
     public Reservation(ReservationPk id, Date reservationDate, 
-            String trapezi, int seatNumber, String reservationStatus) {
+            String trapezi, String reservationStatus) {
        this.id = id;
        this.reservationDate = reservationDate;
        this.trapezi = trapezi;
-       this.seatNumber = seatNumber;
        this.reservationStatus = reservationStatus;
     }
 
@@ -63,13 +61,7 @@ public class Reservation  implements java.io.Serializable {
     public void setTrapezi(String trapezi) {
         this.trapezi = trapezi;
     }
-    public int getSeatNumber() {
-        return this.seatNumber;
-    }
     
-    public void setSeatNumber(int seatNumber) {
-        this.seatNumber = seatNumber;
-    }
     public String getReservationStatus() {
         return this.reservationStatus;
     }
@@ -116,7 +108,6 @@ public class Reservation  implements java.io.Serializable {
         hash = 31 * hash + (this.id != null ? this.id.hashCode() : 0);
         hash = 31 * hash + (this.reservationDate != null ? this.reservationDate.hashCode() : 0);
         hash = 31 * hash + (this.trapezi != null ? this.trapezi.hashCode() : 0);
-        hash = 31 * hash + this.seatNumber;
         hash = 31 * hash + (this.reservationStatus != null ? this.reservationStatus.hashCode() : 0);
         hash = 31 * hash + (this.username != null ? this.username.hashCode() : 0);
         hash = 31 * hash + (this.cancelSuccessful ? 1 : 0);
@@ -141,9 +132,6 @@ public class Reservation  implements java.io.Serializable {
             return false;
         }
         if ((this.trapezi == null) ? (other.trapezi != null) : !this.trapezi.equals(other.trapezi)) {
-            return false;
-        }
-        if (this.seatNumber != other.seatNumber) {
             return false;
         }
         if ((this.reservationStatus == null) ? (other.reservationStatus != null) : !this.reservationStatus.equals(other.reservationStatus)) {

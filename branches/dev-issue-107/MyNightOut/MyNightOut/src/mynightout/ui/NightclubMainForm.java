@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import javax.swing.JFrame;
@@ -15,17 +14,21 @@ import mynightout.entity.Cellar;
  * @author ioanna
  */
 public class NightclubMainForm extends javax.swing.JFrame {
-private String currentClubName;
+
+    private String currentClubName;
+
     /**
      * Creates new form NightclubMainFrame
      */
     public NightclubMainForm() {
         initComponents();
     }
-public NightclubMainForm(String nightClubName) {
-    currentClubName = nightClubName;
+
+    public NightclubMainForm(String nightClubName) {
+        currentClubName = nightClubName;
         initComponents();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -196,11 +199,11 @@ public NightclubMainForm(String nightClubName) {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
-         this.dispose();
+        this.dispose();
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void checkFullnessButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkFullnessButtonActionPerformed
-        JFrame checkFullnessFrame = new CheckFullnessForm(currentClubName);
+        CheckFullnessForm checkFullnessFrame = new CheckFullnessForm(currentClubName);
         this.dispose();
         checkFullnessFrame.setLocationRelativeTo(this);
         checkFullnessFrame.setVisible(true);
@@ -211,45 +214,45 @@ public NightclubMainForm(String nightClubName) {
     }//GEN-LAST:event_formWindowActivated
 
     private void setDaysClosedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setDaysClosedButtonActionPerformed
-        SetNightClubDaysClosedForm sncdcf=new SetNightClubDaysClosedForm(currentClubName);
+        SetNightClubDaysClosedForm sncdcf = new SetNightClubDaysClosedForm(currentClubName);
         this.dispose();
         sncdcf.setLocationRelativeTo(this);
         sncdcf.setVisible(true);
     }//GEN-LAST:event_setDaysClosedButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        JFrame deleteReservationFrame=new DeleteReservationForm(currentClubName);
-     this.dispose();
-     deleteReservationFrame.setLocationRelativeTo(this);
-     deleteReservationFrame.setVisible(true);
+        DeleteReservationForm deleteReservationFrame = new DeleteReservationForm(currentClubName);
+        this.dispose();
+        deleteReservationFrame.setLocationRelativeTo(this);
+        deleteReservationFrame.setVisible(true);
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void setClosedDatesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setClosedDatesButtonActionPerformed
-        SetNightClubClosedDatesForm snccdf=new SetNightClubClosedDatesForm(currentClubName);
+        SetNightClubClosedDatesForm snccdf = new SetNightClubClosedDatesForm(currentClubName);
         snccdf.setLocationRelativeTo(this);
         this.dispose();
         snccdf.setVisible(true);
     }//GEN-LAST:event_setClosedDatesButtonActionPerformed
 
     private void showCellarFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCellarFormActionPerformed
-        JFrame showCellarFrame=new ShowCellarForm(currentClubName);
-      this.dispose();
-      showCellarFrame.setLocationRelativeTo(this);
-      showCellarFrame.setVisible(true);
+        ShowCellarForm showCellarFrame = new ShowCellarForm(currentClubName);
+        this.dispose();
+        showCellarFrame.setLocationRelativeTo(this);
+        showCellarFrame.setVisible(true);
     }//GEN-LAST:event_showCellarFormActionPerformed
 
     private void showSuppliersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showSuppliersButtonActionPerformed
-        JFrame showSuppliersFrame=new ShowSupplierForm(currentClubName);
-      this.dispose();
-      showSuppliersFrame.setLocationRelativeTo(this);
-      showSuppliersFrame.setVisible(true);
+        ShowSupplierForm showSuppliersFrame = new ShowSupplierForm(currentClubName);
+        this.dispose();
+        showSuppliersFrame.setLocationRelativeTo(this);
+        showSuppliersFrame.setVisible(true);
     }//GEN-LAST:event_showSuppliersButtonActionPerformed
 
     private void displayCellarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayCellarButtonActionPerformed
-        String clubName="Vogue";
-        DisplayCellarController dcc= new DisplayCellarController();
-        Cellar cellar=dcc.displayCellar(clubName);
-        DisplayCellarForm dcf=new DisplayCellarForm(currentClubName);
+        String clubName = "Vogue";
+        DisplayCellarController dcc = new DisplayCellarController();
+        Cellar cellar = dcc.displayCellar(clubName);
+        DisplayCellarForm dcf = new DisplayCellarForm(currentClubName);
         this.dispose();
         dcf.cellarTable.setValueAt(cellar.getVodka(), 0, 1);
         dcf.cellarTable.setValueAt(cellar.getWhiskey(), 1, 1);
@@ -264,17 +267,17 @@ public NightclubMainForm(String nightClubName) {
     }//GEN-LAST:event_displayCellarButtonActionPerformed
 
     private void changeNightClubTableProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeNightClubTableProfileButtonActionPerformed
-         this.dispose();
-        ChangeNightClubTableProfileForm ctpf=new ChangeNightClubTableProfileForm(currentClubName);
+        this.dispose();
+        ChangeNightClubTableProfileForm ctpf = new ChangeNightClubTableProfileForm(currentClubName);
         ctpf.setLocationRelativeTo(this);
         ctpf.setVisible(true);
     }//GEN-LAST:event_changeNightClubTableProfileButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JFrame mainForm=new MainFrame();
-            this.dispose();
-            mainForm.setLocationRelativeTo(this);
-            mainForm.setVisible(true);
+        MainFrame mainForm = new MainFrame();
+        this.dispose();
+        mainForm.setLocationRelativeTo(this);
+        mainForm.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

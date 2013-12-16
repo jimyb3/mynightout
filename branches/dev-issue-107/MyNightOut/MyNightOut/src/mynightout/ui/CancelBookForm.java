@@ -54,18 +54,6 @@ public class CancelBookForm extends javax.swing.JFrame {
 
         reservationIdLabel.setText("Αριθμός κράτησης:");
 
-        userNameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userNameTextFieldActionPerformed(evt);
-            }
-        });
-
-        reservationIdTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reservationIdTextFieldActionPerformed(evt);
-            }
-        });
-
         okButton.setText("ΟΚ");
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,7 +130,7 @@ public class CancelBookForm extends javax.swing.JFrame {
         try {
             ReservationPk cancelReservation = controller.cancelReservation(userNameTextField.getText(), reservationId);
             JOptionPane.showMessageDialog(null, "Reservation canceled with id: " + reservationId, "Success", JOptionPane.INFORMATION_MESSAGE);
-            JFrame mainUserFrame = new UserMainForm(currentUserName);
+            UserMainForm mainUserFrame = new UserMainForm(currentUserName);
             this.dispose();
             mainUserFrame.setLocationRelativeTo(this);
             mainUserFrame.setVisible(true);
@@ -155,19 +143,11 @@ public class CancelBookForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         userNameTextField.setText("");
         reservationIdTextField.setText("");
-        JFrame mainUserFrame = new UserMainForm(currentUserName);
+        UserMainForm mainUserFrame = new UserMainForm(currentUserName);
         this.dispose();
         mainUserFrame.setLocationRelativeTo(this);
         mainUserFrame.setVisible(true);
     }//GEN-LAST:event_cancelButtonActionPerformed
-
-    private void reservationIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationIdTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_reservationIdTextFieldActionPerformed
-
-    private void userNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_userNameTextFieldActionPerformed
 
     /**
      * @param args the command line arguments

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import javax.swing.JFrame;
@@ -17,17 +16,21 @@ import mynightout.entity.ReservationPk;
  * @author Maria
  */
 public class DeleteReservationForm extends javax.swing.JFrame {
-private String currentClubName;
+
+    private String currentClubName;
+
     /**
      * Creates new form DeleteReservationForm
      */
     public DeleteReservationForm() {
         initComponents();
     }
-public DeleteReservationForm(String nightClubName) {
-    currentClubName = nightClubName;
+
+    public DeleteReservationForm(String nightClubName) {
+        currentClubName = nightClubName;
         initComponents();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -120,10 +123,10 @@ public DeleteReservationForm(String nightClubName) {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
-       JFrame mainNightClubFrame=new NightclubMainForm(currentClubName);
-            this.dispose();
-            mainNightClubFrame.setLocationRelativeTo(this);
-            mainNightClubFrame.setVisible(true);
+        NightclubMainForm mainNightClubFrame = new NightclubMainForm(currentClubName);
+        this.dispose();
+        mainNightClubFrame.setLocationRelativeTo(this);
+        mainNightClubFrame.setVisible(true);
     }//GEN-LAST:event_CancelActionPerformed
 
     private void GivenIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GivenIdActionPerformed
@@ -131,22 +134,20 @@ public DeleteReservationForm(String nightClubName) {
     }//GEN-LAST:event_GivenIdActionPerformed
 
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
-        DeleteReservationController controller=new DeleteReservationController(new ReservationDaoDelete());
-        try{
-            int reservationId=Integer.parseInt(GivenId.getText());
-           //int clubName=Integer.parseInt(givenClubName.getText());
-            ReservationPk deleteReservation=controller.deleteReservation( givenClubName.getText(),reservationId);
-            JOptionPane.showMessageDialog(null,"Το Id της διεγραμένης κράτησης ειναι :" +GivenId.getText(),
-                "Success",JOptionPane.INFORMATION_MESSAGE);
-            JFrame mainNightClubFrame=new NightclubMainForm(currentClubName);
+        DeleteReservationController controller = new DeleteReservationController(new ReservationDaoDelete());
+        try {
+            int reservationId = Integer.parseInt(GivenId.getText());
+            //int clubName=Integer.parseInt(givenClubName.getText());
+            ReservationPk deleteReservation = controller.deleteReservation(givenClubName.getText(), reservationId);
+            JOptionPane.showMessageDialog(null, "Το Id της διεγραμένης κράτησης ειναι :" + GivenId.getText(),
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
+            NightclubMainForm mainNightClubFrame = new NightclubMainForm(currentClubName);
             this.dispose();
             mainNightClubFrame.setLocationRelativeTo(this);
             mainNightClubFrame.setVisible(true);
-        }
-        catch (Exception e)
-        {
-            JOptionPane.showMessageDialog(null,e.getMessage(),
-                "Failure",JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(),
+                    "Failure", JOptionPane.INFORMATION_MESSAGE);
         }
 
     }//GEN-LAST:event_DeleteActionPerformed

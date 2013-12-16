@@ -101,20 +101,20 @@ public class NightClubDao implements INightClubDao {
     //επιστρέφει true αν έγινε η ενημέρωση, alliws false
     // todo : είναι σωστό που επστρέφει boolean ?
     //todo : θα έχει περισσότερα πεδία το Nightclub αργότερα
-    public Nightclub updateNightClubData(String clubName, String clubPassword, int seatNumber, String telephoneNum,
+    public Nightclub updateNightClubData(String clubName, String clubPassword, String telephoneNum,
             String address, String email, String category, String clubImage) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             int clubId = new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
-            String hql = "update Nightclub set clubPassword = '" + clubPassword + "', seatNumber = '" + seatNumber + "',"
+            String hql = "update Nightclub set clubPassword = '" + clubPassword + "', "
                     + " telephoneNum = '" + telephoneNum + "', address='" + address + "', email='" + email + "', category='" + category + "',"
                     + " clubImage='" + clubImage + "'  where clubId='" + clubId + "'";
             Query q = session.createQuery(hql);
             q.executeUpdate();
             session.getTransaction().commit();
             session.close();
-            Nightclub nightClub = new Nightclub(clubName, clubPassword, address, email, seatNumber, telephoneNum, category, clubImage);
+            Nightclub nightClub = new Nightclub(clubName, clubPassword, address, email, telephoneNum, category, clubImage);
             return nightClub;
         } catch (HibernateException he) {
             he.printStackTrace();
@@ -199,8 +199,8 @@ public class NightClubDao implements INightClubDao {
     public Nightclub updateNightClubClosedDates(int clubId, Date closedFrom, Date closedThrough) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
-        String closedFromDate=df.format(closedFrom);
-        String closedThroughDate=df.format(closedThrough);
+        String closedFromDate = df.format(closedFrom);
+        String closedThroughDate = df.format(closedThrough);
         try {
             session.beginTransaction();
             String hql = "update Nightclub set closedFrom='" + closedFromDate + "',  closedThrough='" + closedThroughDate + "'"

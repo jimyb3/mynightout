@@ -226,7 +226,7 @@ public class StoreRegisterForm extends javax.swing.JFrame implements IStoreRegis
         prsreg.sendEmail(this, DesUserTextField.getText(), DesPassTextField.getText(), CompanyTextField.getText(), AdressTextField.getText(),
                 PostcodeTextField.getText(), Tel1TextField.getText(), Tel2TextField.getText(), MobileTextField.getText(), FaxTextField.getText(),
                 EmailTextField.getText());
-        JFrame mainFrame = new MainFrame();
+        MainFrame mainFrame = new MainFrame();
         this.dispose();
         mainFrame.setLocationRelativeTo(this);
         mainFrame.setVisible(true);

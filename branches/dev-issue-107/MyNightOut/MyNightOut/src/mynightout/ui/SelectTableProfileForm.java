@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import javax.swing.JFrame;
@@ -13,17 +12,21 @@ import javax.swing.JFrame;
  * @author Dimitris
  */
 public class SelectTableProfileForm extends javax.swing.JFrame {
-private String currentUserName;
+
+    private String currentUserName;
+
     /**
      * Creates new form SelectTableProfileForm
      */
     public SelectTableProfileForm() {
         initComponents();
     }
-public SelectTableProfileForm(String cUserName) {
+
+    public SelectTableProfileForm(String cUserName) {
         currentUserName = cUserName;
         initComponents();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,11 +54,9 @@ public SelectTableProfileForm(String cUserName) {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        // TODO add your handling code here:
-       JFrame mainUserFrame = new UserMainForm(currentUserName);
+
         this.dispose();
-        mainUserFrame.setLocationRelativeTo(this);
-        mainUserFrame.setVisible(true);
+
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**

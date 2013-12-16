@@ -5,7 +5,6 @@
  */
 package mynightout.ui;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.controllers.NightclubLoginController;
 import mynightout.entity.Nightclub;
@@ -123,8 +122,7 @@ public class NightclubLoginForm extends javax.swing.JFrame {
         try {
             Nightclub club = controller.login(clubNameField.getText(), clubPasswordField.getText());
             JOptionPane.showMessageDialog(null, "welcome", "Success", JOptionPane.INFORMATION_MESSAGE);
-            //emfanish tou cellar
-            JFrame nightclubMainForm = new NightclubMainForm(clubNameField.getText());
+            NightclubMainForm nightclubMainForm = new NightclubMainForm(clubNameField.getText());
             this.dispose();
             nightclubMainForm.setLocationRelativeTo(this);
             nightclubMainForm.setVisible(true);
@@ -135,7 +133,7 @@ public class NightclubLoginForm extends javax.swing.JFrame {
     }
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        JFrame mainFrame = new MainFrame();
+        MainFrame mainFrame = new MainFrame();
         this.dispose();
         mainFrame.setLocationRelativeTo(this);
         mainFrame.setVisible(true);

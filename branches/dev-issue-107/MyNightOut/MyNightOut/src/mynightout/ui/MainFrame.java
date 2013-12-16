@@ -26,6 +26,7 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -41,14 +42,10 @@ public class MainFrame extends javax.swing.JFrame {
         createStoreButton = new javax.swing.JButton();
         faqButton = new javax.swing.JButton();
         nightclubLoginButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyNightOut");
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
 
         loginButton.setText("Είσοδος χρήστη");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
@@ -78,6 +75,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Εγγραφή");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -85,16 +89,19 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(createStoreButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(faqButton)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nightclubLoginButton, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))
+                        .addComponent(nightclubLoginButton, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(createStoreButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(faqButton)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(10, 10, 10))
         );
         layout.setVerticalGroup(
@@ -108,14 +115,16 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(createStoreButton)
                     .addComponent(faqButton))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        JFrame loginFrame = new UserLoginForm();
+        UserLoginForm loginFrame = new UserLoginForm();
         this.dispose();
         loginFrame.setLocationRelativeTo(this);
         loginFrame.setVisible(true);
@@ -123,30 +132,33 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void createStoreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createStoreButtonActionPerformed
         // TODO add your handling code here:
-        JFrame StoreRegisterForm = new StoreRegisterForm();
+        StoreRegisterForm storeRegisterForm = new StoreRegisterForm();
         this.dispose();
-        StoreRegisterForm.setLocationRelativeTo(this);
-        StoreRegisterForm.setVisible(true);
+        storeRegisterForm.setLocationRelativeTo(this);
+        storeRegisterForm.setVisible(true);
     }//GEN-LAST:event_createStoreButtonActionPerformed
 
     private void faqButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_faqButtonActionPerformed
         // TODO add your handling code here:
-        JFrame contactAdminForm=new ContactAdminForm();
-     this.dispose();
-     contactAdminForm.setLocationRelativeTo(this);
-     contactAdminForm.setVisible(true);
+        ContactAdminForm contactAdminForm = new ContactAdminForm();
+        this.dispose();
+        contactAdminForm.setLocationRelativeTo(this);
+        contactAdminForm.setVisible(true);
     }//GEN-LAST:event_faqButtonActionPerformed
 
     private void nightclubLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nightclubLoginButtonActionPerformed
-        JFrame clubLoginFrame = new NightclubLoginForm();
+        NightclubLoginForm clubLoginFrame = new NightclubLoginForm();
         this.dispose();
         clubLoginFrame.setLocationRelativeTo(this);
         clubLoginFrame.setVisible(true);
     }//GEN-LAST:event_nightclubLoginButtonActionPerformed
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        this.setLocationRelativeTo(null);
-    }//GEN-LAST:event_formWindowOpened
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+        CreateNewUserForm newUserForm = new CreateNewUserForm();
+        newUserForm.setLocationRelativeTo(this);
+        newUserForm.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,6 +198,7 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton createStoreButton;
     private javax.swing.JButton faqButton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton loginButton;
     private javax.swing.JButton nightclubLoginButton;
     // End of variables declaration//GEN-END:variables

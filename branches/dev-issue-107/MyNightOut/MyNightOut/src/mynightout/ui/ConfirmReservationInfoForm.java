@@ -183,7 +183,7 @@ public class ConfirmReservationInfoForm extends javax.swing.JFrame {
             CreateBookController cbc = new CreateBookController();
             cbc.createReservationNew(userId, clubId, reservationDate, reservationTableLabel.getText(), 5, "active");
             JOptionPane.showMessageDialog(null, "Έγινε η καταχώρηση της νέας κράτησης", "Success", JOptionPane.INFORMATION_MESSAGE);
-            JFrame mainUserFrame = new UserMainForm(currentUserName);
+            UserMainForm mainUserFrame = new UserMainForm(currentUserName);
             this.dispose();
             mainUserFrame.setLocationRelativeTo(this);
             mainUserFrame.setVisible(true);
