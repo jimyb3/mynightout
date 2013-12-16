@@ -92,13 +92,6 @@ public class DeleteReservationControllerTest {
         Assert.assertEquals(expResult.getClubId(), result.getClubId());
         Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
    
-        
-
-
-       // DeleteReservationController instance = new DeleteReservationController();
-        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
-        //Assert.assertEquals(clubId,result.getClubId());
-        //Assert.assertEquals(reservationId, result.getReservationId());
        
     }
 
@@ -124,11 +117,6 @@ public class DeleteReservationControllerTest {
         
 
 
-       // DeleteReservationController instance = new DeleteReservationController();
-        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
-        //Assert.assertEquals(clubId,result.getClubId());
-        //Assert.assertEquals(reservationId, result.getReservationId());
-        
     }
    
     
@@ -152,11 +140,6 @@ public class DeleteReservationControllerTest {
    
         
 
-
-       // DeleteReservationController instance = new DeleteReservationController();
-        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
-        //Assert.assertEquals(clubId,result.getClubId());
-        //Assert.assertEquals(reservationId, result.getReservationId());
     }
      @Test (expected=IllegalArgumentException.class)
     public void testDeleteReservationWithHugeId() throws Exception {
@@ -176,13 +159,7 @@ public class DeleteReservationControllerTest {
         Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
    
         
-
-
-       // DeleteReservationController instance = new DeleteReservationController();
-        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
-        //Assert.assertEquals(clubId,result.getClubId());
-        //Assert.assertEquals(reservationId, result.getReservationId());
-    }
+ }
     
      @Test(expected=IllegalArgumentException.class)
     public void testDeleteReservationWithHugeIdAndSmallName() throws Exception {
@@ -204,10 +181,7 @@ public class DeleteReservationControllerTest {
         
 
 
-       // DeleteReservationController instance = new DeleteReservationController();
-        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
-        //Assert.assertEquals(clubId,result.getClubId());
-        //Assert.assertEquals(reservationId, result.getReservationId());
+  
         
     }
       @Test(expected=IllegalArgumentException.class)
@@ -229,11 +203,6 @@ public class DeleteReservationControllerTest {
    
         
 
-
-       // DeleteReservationController instance = new DeleteReservationController();
-        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
-        //Assert.assertEquals(clubId,result.getClubId());
-        //Assert.assertEquals(reservationId, result.getReservationId());
     }
     
       @Test (expected=IllegalArgumentException.class)
@@ -253,13 +222,7 @@ public class DeleteReservationControllerTest {
         Assert.assertEquals(expResult.getClubId(), result.getClubId());
         Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
    
-        
-
-
-       // DeleteReservationController instance = new DeleteReservationController();
-        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
-        //Assert.assertEquals(clubId,result.getClubId());
-        //Assert.assertEquals(reservationId, result.getReservationId());
+       
     }
     @Test (expected=IllegalArgumentException.class)
     public void testDeleteReservationWithSmallName() throws Exception {
@@ -281,10 +244,6 @@ public class DeleteReservationControllerTest {
         
 
 
-       // DeleteReservationController instance = new DeleteReservationController();
-        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
-        //Assert.assertEquals(clubId,result.getClubId());
-        //Assert.assertEquals(reservationId, result.getReservationId());
     }
     
       @Test (expected=IllegalArgumentException.class)
@@ -306,11 +265,6 @@ public class DeleteReservationControllerTest {
    
         
 
-
-       // DeleteReservationController instance = new DeleteReservationController();
-        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
-        //Assert.assertEquals(clubId,result.getClubId());
-        //Assert.assertEquals(reservationId, result.getReservationId());
     }
     
       @Test(expected=NullPointerException.class)
@@ -333,10 +287,7 @@ public class DeleteReservationControllerTest {
         
 
 
-       // DeleteReservationController instance = new DeleteReservationController();
-        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
-        //Assert.assertEquals(clubId,result.getClubId());
-        //Assert.assertEquals(reservationId, result.getReservationId());
+   
     }
     
       @Test (expected=NullPointerException.class)//(expected=IllegalArgumentException.class)
@@ -355,13 +306,6 @@ public class DeleteReservationControllerTest {
         Assert.assertEquals(expResult.getClubId(), result.getClubId());
         Assert.assertEquals(expResult.getReservationId(),result.getReservationId());
    
-        
-
-
-       // DeleteReservationController instance = new DeleteReservationController();
-        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
-        //Assert.assertEquals(clubId,result.getClubId());
-        //Assert.assertEquals(reservationId, result.getReservationId());
     }
       @Test (expected=NullPointerException.class)
        public void testDeleteReservationWithZeroIdAndEmptyName() throws Exception {
@@ -384,10 +328,6 @@ public class DeleteReservationControllerTest {
         
 
 
-       // DeleteReservationController instance = new DeleteReservationController();
-        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
-        //Assert.assertEquals(clubId,result.getClubId());
-        //Assert.assertEquals(reservationId, result.getReservationId());
     }
        
     
@@ -411,11 +351,6 @@ public class DeleteReservationControllerTest {
    
         
 
-
-       // DeleteReservationController instance = new DeleteReservationController();
-        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
-        //Assert.assertEquals(clubId,result.getClubId());
-        //Assert.assertEquals(reservationId, result.getReservationId());
     }   
         @Test (expected=NullPointerException.class)
        public void testDeleteReservationWithHugeIdAndEmptyName() throws Exception {
@@ -438,10 +373,7 @@ public class DeleteReservationControllerTest {
         
 
 
-       // DeleteReservationController instance = new DeleteReservationController();
-        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
-        //Assert.assertEquals(clubId,result.getClubId());
-        //Assert.assertEquals(reservationId, result.getReservationId());
+       
     }   
         @Test (expected=NullPointerException.class)
        public void testDeleteReservationWithEmptyName() throws Exception {
@@ -464,10 +396,7 @@ public class DeleteReservationControllerTest {
         
 
 
-       // DeleteReservationController instance = new DeleteReservationController();
-        //ReservationPk result = instance.deleteReservation(clubName,reservationId);
-        //Assert.assertEquals(clubId,result.getClubId());
-        //Assert.assertEquals(reservationId, result.getReservationId());
+      
     }   
     
 }
