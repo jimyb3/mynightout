@@ -144,7 +144,7 @@ public class UserHistoryForm extends javax.swing.JFrame {
         Reservation res=(Reservation) o;
         Vector<Object> oneRow = new Vector<Object>();
         Nightclub clubName=new NightClubDao().getNightClubDataByClubId(res.id.getClubId());
-        oneRow.add(clubName);
+        oneRow.add(clubName.getClubName());
         oneRow.add(res.getReservationDate());
         tableData.add(oneRow);
         }
