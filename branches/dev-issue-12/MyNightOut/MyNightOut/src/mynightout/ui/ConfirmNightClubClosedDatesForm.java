@@ -56,6 +56,7 @@ public class ConfirmNightClubClosedDatesForm extends javax.swing.JFrame {
         nightClubNameLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         messageLabel1.setText("Το κατάστημα θα παραμείνει κλειστό για τις παρακάτω ημερομηνίες:");
 

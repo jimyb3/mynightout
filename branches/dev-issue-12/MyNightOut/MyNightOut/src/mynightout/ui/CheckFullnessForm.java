@@ -53,6 +53,7 @@ public class CheckFullnessForm extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         okButton.setText("OK");
         okButton.addActionListener(new java.awt.event.ActionListener() {

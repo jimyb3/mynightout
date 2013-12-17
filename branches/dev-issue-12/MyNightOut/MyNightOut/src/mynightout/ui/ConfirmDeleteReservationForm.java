@@ -56,6 +56,7 @@ public class ConfirmDeleteReservationForm extends javax.swing.JFrame {
         customerLastNameLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         yesButton.setText("Ναι");
         yesButton.addActionListener(new java.awt.event.ActionListener() {
