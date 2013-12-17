@@ -151,7 +151,7 @@ public class CreateBookForm extends javax.swing.JFrame {
          * τη φορμα, και το status απλά θα το θέτουμε.
          *
          *
-         */
+         
 
         CreateBookController controller = new CreateBookController();
 
@@ -180,7 +180,7 @@ public class CreateBookForm extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(),
                     "Failure", JOptionPane.INFORMATION_MESSAGE);
-        }
+        }*/
 
 
     }//GEN-LAST:event_reservationOkButtonActionPerformed

@@ -36,13 +36,11 @@ public class ReservationDao implements IReservationDao {
     //ορίσματα : userName, nightClubName, reservationDate, seatNumber
     //επιστρέφει αντικείμενο Reservation με τα χαρακτηριστικά της νέας κράτησης, εαν προστέθηκε στη βάση η εγγραφή
     //αλλιώς, null
-    public Reservation insertReservationData(String userName, String nightClubName, Date reservationDate, String trapezi) {
+    public Reservation insertReservationData(int userId, int clubId, Date reservationDate, String trapezi) {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         try {
             session.beginTransaction();
-            int userId = new UserDao().getUserDataByUsername(userName).getUserId();
-            int clubId = new NightClubDao().getNightClubDataByClubName(nightClubName).getClubId();
             ReservationPk res = new ReservationPk();
             res.setUserId(userId);
             res.setClubId(clubId);
