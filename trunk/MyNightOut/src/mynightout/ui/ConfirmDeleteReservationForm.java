@@ -185,7 +185,7 @@ public class ConfirmDeleteReservationForm extends javax.swing.JFrame {
             deleteReservationFrame.clubNameLabel.setText(clubNameLabel.getText());
             this.dispose();
             ReservationDao reservation = new ReservationDao();
-            List resultList = reservation.getClubReservations(clubNameLabel.getText());
+            List resultList = reservation.getClubCurrentReservations(clubNameLabel.getText());
             Vector<String> tableHeaders = new Vector<String>();
             Vector tableData = new Vector();
             tableHeaders.add("Id κράτησης");

@@ -211,7 +211,7 @@ public class UserMainForm extends javax.swing.JFrame {
         cancelBookFrame.userNameLabel.setText(currentUserName);
         this.dispose();
         ReservationDao reservation = new ReservationDao();
-        List resultList = reservation.getUserReservations(currentUserName);
+        List resultList = reservation.getUserCurrentReservations(currentUserName);
         Vector<String> tableHeaders = new Vector<String>();
         Vector tableData = new Vector();
         tableHeaders.add("Id κράτησης");

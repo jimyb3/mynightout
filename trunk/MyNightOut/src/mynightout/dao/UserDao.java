@@ -5,6 +5,8 @@
  */
 package mynightout.dao;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import mynightout.exceptions.DaoException;
 import mynightout.entity.User;
@@ -96,7 +98,7 @@ public class UserDao implements IUserDao {
         }
 
     }
-    
+
     public User getUserDataById(int userId) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
