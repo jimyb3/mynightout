@@ -141,7 +141,7 @@ public class DeleteReservationForm extends javax.swing.JFrame {
             ReservationPk deleteReservation=controller.deleteReservation( givenClubName.getText(),reservationId);
             JOptionPane.showMessageDialog(null,"Το Id της διεγραμένης κράτησης ειναι :" +GivenId.getText(),
                 "Success",JOptionPane.INFORMATION_MESSAGE);
-            JFrame mainNightClubFrame=new NightclubMainForm(currentClubName);
+            NightclubMainForm mainNightClubFrame=new NightclubMainForm(currentClubName);
             this.dispose();
             mainNightClubFrame.setLocationRelativeTo(this);
             mainNightClubFrame.setVisible(true);
