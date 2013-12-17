@@ -45,8 +45,6 @@ public class SetNightClubClosedDatesForm extends javax.swing.JFrame {
         closedThroughLabel = new javax.swing.JLabel();
         okButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
-        clubNameLabel = new javax.swing.JLabel();
-        clubNameTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,8 +67,6 @@ public class SetNightClubClosedDatesForm extends javax.swing.JFrame {
                 cancelButtonActionPerformed(evt);
             }
         });
-
-        clubNameLabel.setText("Όνομα καταστήματος:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,22 +91,13 @@ public class SetNightClubClosedDatesForm extends javax.swing.JFrame {
                                     .addComponent(closedFromDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(messageLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(clubNameLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(clubNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(messageLabel)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(clubNameLabel)
-                    .addComponent(clubNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addContainerGap(61, Short.MAX_VALUE)
                 .addComponent(messageLabel)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -142,7 +129,7 @@ public class SetNightClubClosedDatesForm extends javax.swing.JFrame {
         this.dispose();
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         ConfirmNightClubClosedDatesForm cnccdf = new ConfirmNightClubClosedDatesForm(currentClubName);
-        cnccdf.nightClubNameLabel.setText(clubNameTextField.getText());
+        cnccdf.nightClubNameLabel.setText(currentClubName);
         cnccdf.closedFromDateLabel.setText(df.format(closedFromDateChooser.getDate()));
         cnccdf.closedThroughDateLabel.setText(df.format(closedThroughDateChooser.getDate()));
         cnccdf.setLocationRelativeTo(this);
@@ -190,8 +177,6 @@ public class SetNightClubClosedDatesForm extends javax.swing.JFrame {
     private javax.swing.JLabel closedFromLabel;
     private com.toedter.calendar.JDateChooser closedThroughDateChooser;
     private javax.swing.JLabel closedThroughLabel;
-    private javax.swing.JLabel clubNameLabel;
-    private javax.swing.JTextField clubNameTextField;
     private javax.swing.JLabel messageLabel;
     private javax.swing.JButton okButton;
     // End of variables declaration//GEN-END:variables

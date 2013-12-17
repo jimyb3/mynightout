@@ -51,8 +51,6 @@ public class ChangeNightClubTableProfileForm extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        nightClubNameTextField = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -91,8 +89,6 @@ public class ChangeNightClubTableProfileForm extends javax.swing.JFrame {
         jLabel7.setText("Πληκτρολογήστε τον αριθμό τραπεζιών για καθε σειρά που έχει το καταστημά σας");
         jLabel7.setAutoscrolls(true);
 
-        jLabel8.setText("Όνομα καταστηματος");
-
         backButton.setText("Πίσω");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,29 +104,22 @@ public class ChangeNightClubTableProfileForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(nightClubNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel5))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(row4TextField, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(row3TextField, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(row2TextField, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(row1TextField, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(row5TextField)
-                                    .addComponent(row6TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(row4TextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(row3TextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(row2TextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(row1TextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(row5TextField)
+                            .addComponent(row6TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 96, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -143,12 +132,8 @@ public class ChangeNightClubTableProfileForm extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nightClubNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addGap(1, 1, 1)
-                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(row1TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -190,7 +175,7 @@ public class ChangeNightClubTableProfileForm extends javax.swing.JFrame {
         ctpp.createNightClubTableProfile(new TableProfileForm(currentClubName), Integer.parseInt(row1TextField.getText()),
                 Integer.parseInt(row2TextField.getText()), Integer.parseInt(row3TextField.getText()),
                 Integer.parseInt(row4TextField.getText()), Integer.parseInt(row5TextField.getText()),
-                Integer.parseInt(row6TextField.getText()), nightClubNameTextField.getText());
+                Integer.parseInt(row6TextField.getText()), currentClubName);
     }//GEN-LAST:event_OkButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -245,8 +230,6 @@ public class ChangeNightClubTableProfileForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField nightClubNameTextField;
     private javax.swing.JTextField row1TextField;
     private javax.swing.JTextField row2TextField;
     private javax.swing.JTextField row3TextField;

@@ -45,8 +45,6 @@ public class SetNightClubDaysClosedForm extends javax.swing.JFrame {
         saturdayCheckBox = new javax.swing.JCheckBox();
         sundayCheckBox = new javax.swing.JCheckBox();
         messageLabel = new javax.swing.JLabel();
-        clubNameLabel = new javax.swing.JLabel();
-        clubNameTextField = new javax.swing.JTextField();
         okButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
 
@@ -74,8 +72,6 @@ public class SetNightClubDaysClosedForm extends javax.swing.JFrame {
         sundayCheckBox.setName("1"); // NOI18N
 
         messageLabel.setText("Επέλεξε τις μέρες που θα είναι κλειστό το κατάστημα.");
-
-        clubNameLabel.setText("Όνομα καταστήματος:");
 
         okButton.setText("ΟΚ");
         okButton.addActionListener(new java.awt.event.ActionListener() {
@@ -112,11 +108,6 @@ public class SetNightClubDaysClosedForm extends javax.swing.JFrame {
                                     .addComponent(mondayCheckBox)))
                             .addComponent(messageLabel)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(clubNameLabel)
-                        .addGap(30, 30, 30)
-                        .addComponent(clubNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(82, 82, 82)
                         .addComponent(okButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(86, 86, 86)
@@ -126,11 +117,7 @@ public class SetNightClubDaysClosedForm extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(clubNameLabel)
-                    .addComponent(clubNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(72, 72, 72)
                 .addComponent(messageLabel)
                 .addGap(18, 18, 18)
                 .addComponent(mondayCheckBox)
@@ -209,7 +196,7 @@ public class SetNightClubDaysClosedForm extends javax.swing.JFrame {
         if (sundayCheckBox.isSelected()) {
             cncdcf.jLabel7.setText(sundayCheckBox.getText());
         }
-        cncdcf.nightClubNameLabel.setText(clubNameTextField.getText());
+        cncdcf.nightClubNameLabel.setText(currentClubName);
         cncdcf.secretLabel.setText(daysClosed);
         cncdcf.setLocationRelativeTo(this);
         this.dispose();
@@ -253,8 +240,6 @@ public class SetNightClubDaysClosedForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
-    private javax.swing.JLabel clubNameLabel;
-    private javax.swing.JTextField clubNameTextField;
     private javax.swing.JCheckBox fridayCheckBox;
     private javax.swing.JLabel messageLabel;
     private javax.swing.JCheckBox mondayCheckBox;

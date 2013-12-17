@@ -267,9 +267,9 @@ public class NightclubMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_showSuppliersButtonActionPerformed
 
     private void displayCellarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayCellarButtonActionPerformed
-        String clubName = "Vogue";
+        
         DisplayCellarController dcc = new DisplayCellarController();
-        Cellar cellar = dcc.displayCellar(clubName);
+        Cellar cellar = dcc.displayCellar(currentClubName);
         DisplayCellarForm dcf = new DisplayCellarForm(currentClubName);
         this.dispose();
         dcf.cellarTable.setValueAt(cellar.getVodka(), 0, 1);
@@ -279,7 +279,7 @@ public class NightclubMainForm extends javax.swing.JFrame {
         dcf.cellarTable.setValueAt(cellar.getRum(), 4, 1);
         dcf.cellarTable.setValueAt(cellar.getTequila(), 5, 1);
         dcf.cellarTable.setValueAt(cellar.getBeer(), 6, 1);
-        dcf.secretClubNameLabel.setText(clubName);
+        dcf.secretClubNameLabel.setText(currentClubName);
         dcf.setLocationRelativeTo(this);
         dcf.setVisible(true);
     }//GEN-LAST:event_displayCellarButtonActionPerformed
