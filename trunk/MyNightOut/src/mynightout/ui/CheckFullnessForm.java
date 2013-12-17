@@ -44,8 +44,6 @@ public class CheckFullnessForm extends javax.swing.JFrame {
     private void initComponents() {
 
         okButton = new javax.swing.JButton();
-        nightClubLabel = new javax.swing.JLabel();
-        nightClubTextField = new javax.swing.JTextField();
         reservationDateChooser = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -62,8 +60,6 @@ public class CheckFullnessForm extends javax.swing.JFrame {
                 okButtonActionPerformed(evt);
             }
         });
-
-        nightClubLabel.setText("Όνομα Καταστήματος");
 
         reservationDateChooser.setDateFormatString("dd/MM/yyyy");
 
@@ -88,12 +84,9 @@ public class CheckFullnessForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(193, 193, 193)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nightClubLabel)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(okButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(backButton))))
+                        .addComponent(okButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(backButton))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel4)))
@@ -113,19 +106,13 @@ public class CheckFullnessForm extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(reservationDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-                            .addComponent(nightClubTextField))
+                        .addComponent(reservationDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(145, 145, 145))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(nightClubLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(nightClubTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
+                .addGap(123, 123, 123)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel5))
@@ -154,7 +141,7 @@ public class CheckFullnessForm extends javax.swing.JFrame {
         CheckFullnessController controller = new CheckFullnessController(new NightClubDao());
 
         try {
-            Nightclub clubName = controller.checkFullness(nightClubTextField.getText());
+            Nightclub clubName = controller.checkFullness(currentClubName);
             TablesDao td = new TablesDao();
             ReservationDao res = new ReservationDao();
             Nightclub nightClub = new Nightclub();
@@ -164,7 +151,7 @@ public class CheckFullnessForm extends javax.swing.JFrame {
 
             for (Object o : allNightClubs) {
                 nightClub = (Nightclub) o;
-                if (nightClub.getClubName().equals(nightClubTextField.getText())) {
+                if (nightClub.getClubName().equals(currentClubName)) {
 
                     clubID = nightClub.getClubId();
                 }
@@ -232,8 +219,6 @@ public class CheckFullnessForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel nightClubLabel;
-    private javax.swing.JTextField nightClubTextField;
     private javax.swing.JButton okButton;
     private com.toedter.calendar.JDateChooser reservationDateChooser;
     // End of variables declaration//GEN-END:variables
