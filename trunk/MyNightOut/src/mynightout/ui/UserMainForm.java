@@ -245,14 +245,7 @@ public class UserMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_createReservationButtonActionPerformed
 
     private void confirmReservationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmReservationButtonActionPerformed
-        ConfirmReservationInfoForm crif = new ConfirmReservationInfoForm(currentUserName);
-        crif.customerLastNameLabel.setText("Λαλακίδης");
-        crif.customerNameLabel.setText("Λαλάκης");
-        crif.nightClubNameLabel.setText("Vogue");
-        crif.reservationDateLabel.setText("01/01/2014");
-        crif.reservationTableLabel.setText("Α3");
-        this.dispose();
-        crif.setVisible(true);
+        
     }//GEN-LAST:event_confirmReservationButtonActionPerformed
 
     private void showStoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showStoresButtonActionPerformed
