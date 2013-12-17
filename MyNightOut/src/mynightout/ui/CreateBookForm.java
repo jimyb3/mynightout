@@ -168,7 +168,7 @@ public class CreateBookForm extends javax.swing.JFrame {
                         seatNumber, "active");
                 JOptionPane.showMessageDialog(null, "Η καταχώρηση ήταν επιτυχής",
                         "Success", JOptionPane.INFORMATION_MESSAGE);
-                JFrame mainUserFrame = new UserMainForm(currentUserName);
+                UserMainForm mainUserFrame = new UserMainForm(currentUserName);
                 this.dispose();
                 mainUserFrame.setLocationRelativeTo(this);
                 mainUserFrame.setVisible(true);
@@ -187,7 +187,7 @@ public class CreateBookForm extends javax.swing.JFrame {
 
     private void reservationButtonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationButtonCloseActionPerformed
 
-        JFrame mainUserFrame = new UserMainForm(currentUserName);
+        UserMainForm mainUserFrame = new UserMainForm(currentUserName);
         this.dispose();
         mainUserFrame.setLocationRelativeTo(this);
         mainUserFrame.setVisible(true);

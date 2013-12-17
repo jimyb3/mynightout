@@ -48,7 +48,7 @@ public class CreateBookController {
             res.setClubId(clubId);
             res.setUserId(userId);
             return createBookDao.createReservation(res, reservationDate, 
-                    trapezi, seatNumber, reservationStatus);
+                    trapezi, reservationStatus);
         } catch (DaoException e) {
             throw e;
         }

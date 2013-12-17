@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import java.util.List;
@@ -20,17 +19,21 @@ import mynightout.entity.Nightclub;
  * @author panos
  */
 public class CheckFullnessForm extends javax.swing.JFrame {
-private String currentClubName;
+
+    private String currentClubName;
+
     /**
      * Creates new form CheckFullnessForm
      */
     public CheckFullnessForm() {
         initComponents();
     }
- public CheckFullnessForm(String nightClubName) {
-     currentClubName = nightClubName;
+
+    public CheckFullnessForm(String nightClubName) {
+        currentClubName = nightClubName;
         initComponents();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -148,54 +151,48 @@ private String currentClubName;
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         // TODO add your handling code here:
-          CheckFullnessController controller=new CheckFullnessController(new NightClubDao());
-        
-          try {
-            Nightclub clubName=controller.checkFullness(nightClubTextField.getText());
-            TablesDao td=new TablesDao();
+        CheckFullnessController controller = new CheckFullnessController(new NightClubDao());
+
+        try {
+            Nightclub clubName = controller.checkFullness(nightClubTextField.getText());
+            TablesDao td = new TablesDao();
             ReservationDao res = new ReservationDao();
             Nightclub nightClub = new Nightclub();
             NightClubDao getstores = new NightClubDao();
             List allNightClubs = getstores.getAllNightClubs();
             int clubID = 0;
-             
-             for (Object o : allNightClubs) {
+
+            for (Object o : allNightClubs) {
                 nightClub = (Nightclub) o;
                 if (nightClub.getClubName().equals(nightClubTextField.getText())) {
 
                     clubID = nightClub.getClubId();
                 }
-             }
-             
-             jLabel1.setText(Integer.toString(res.numberOfReservationTablesByDate(clubID,reservationDateChooser.getDate())));
-             jLabel2.setText(Integer.toString(td.numberOfTablesByClubId(clubID)));
-             
-             if((res.numberOfReservationTablesByDate(clubID,reservationDateChooser.getDate()) <= (td.numberOfTablesByClubId(clubID)))){
-                 
-                 JOptionPane.showMessageDialog(null, "Δεν είναι πλήρης.", "Success",JOptionPane.INFORMATION_MESSAGE);
-                    
-             }
-             else{
-                 JOptionPane.showMessageDialog(null, "Πλήρης.", "Success",JOptionPane.INFORMATION_MESSAGE);
-             }
-                 
+            }
+
+            jLabel1.setText(Integer.toString(res.numberOfReservationTablesByDate(clubID, reservationDateChooser.getDate())));
+            jLabel2.setText(Integer.toString(td.numberOfTablesByClubId(clubID)));
+
+            if ((res.numberOfReservationTablesByDate(clubID, reservationDateChooser.getDate()) <= (td.numberOfTablesByClubId(clubID)))) {
+
+                JOptionPane.showMessageDialog(null, "Δεν είναι πλήρης.", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Πλήρης.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            }
+
         } catch (Exception e) {      //minima la8ous apo th vash (den vgazei mhmyma)
-         JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",JOptionPane.INFORMATION_MESSAGE);
-        
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
+
     }//GEN-LAST:event_okButtonActionPerformed
-}
+    }
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        JFrame mainNightClubForm=new NightclubMainForm(currentClubName);
-            this.dispose();
-            mainNightClubForm.setLocationRelativeTo(this);
-            mainNightClubForm.setVisible(true);
+        NightclubMainForm mainNightClubForm = new NightclubMainForm(currentClubName);
+        this.dispose();
+        mainNightClubForm.setLocationRelativeTo(this);
+        mainNightClubForm.setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
-          
-   
-    
-    
-    
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

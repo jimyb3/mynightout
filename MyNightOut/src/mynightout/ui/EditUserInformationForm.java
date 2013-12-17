@@ -5,10 +5,11 @@
  */
 package mynightout.ui;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.controllers.EditUserInformationController;
+import mynightout.dao.UserDao;
 import mynightout.entity.User;
+import mynightout.util.JTextFieldLimit;
 
 /**
  *
@@ -23,11 +24,24 @@ public class EditUserInformationForm extends javax.swing.JFrame {
      */
     public EditUserInformationForm() {
         initComponents();
+        userNameField.setDocument(new JTextFieldLimit(15));
+        passwordField.setDocument(new JTextFieldLimit(15));
+        customerNameField.setDocument(new JTextFieldLimit(30));
+        customerLastNameField.setDocument(new JTextFieldLimit(30));
+        telephoneNumField.setDocument(new JTextFieldLimit(10));
+        eMailField.setDocument(new JTextFieldLimit(40));
+
     }
 
     public EditUserInformationForm(String cUserName) {
         currentUserName = cUserName;
         initComponents();
+        userNameField.setDocument(new JTextFieldLimit(15));
+        passwordField.setDocument(new JTextFieldLimit(15));
+        customerNameField.setDocument(new JTextFieldLimit(30));
+        customerLastNameField.setDocument(new JTextFieldLimit(30));
+        telephoneNumField.setDocument(new JTextFieldLimit(10));
+        eMailField.setDocument(new JTextFieldLimit(40));
     }
 
     /**
@@ -57,6 +71,7 @@ public class EditUserInformationForm extends javax.swing.JFrame {
         eMailField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -143,7 +158,7 @@ public class EditUserInformationForm extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(enableInformationEditingButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,17 +204,14 @@ public class EditUserInformationForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        JFrame mainUserFrame = new UserMainForm(currentUserName);
+        UserMainForm mainUserFrame = new UserMainForm(currentUserName);
         this.dispose();
         mainUserFrame.setLocationRelativeTo(this);
         mainUserFrame.setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void enableInformationEditingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enableInformationEditingButtonActionPerformed
-        userNameField.setEditable(true);
         passwordField.setEditable(true);
-        customerNameField.setEditable(true);
-        customerLastNameField.setEditable(true);
         telephoneNumField.setEditable(true);
         eMailField.setEditable(true);
         saveChangesButton.setEnabled(true);
@@ -209,7 +221,8 @@ public class EditUserInformationForm extends javax.swing.JFrame {
         currentUserNameLabel.setText(currentUserName);
         EditUserInformationController controller = new EditUserInformationController();
         try {
-            User user = controller.getUserInfo(currentUserName);
+            UserDao currentUser = new UserDao();
+            User user = currentUser.getUserDataByUsername(currentUserName);
             userNameField.setText(user.getUsername());
             passwordField.setText(user.getPassword());
             customerNameField.setText(user.getCustomerName());

@@ -13,17 +13,21 @@ import javax.swing.JFrame;
  * @author Dimitris
  */
 public class SetNightClubDaysClosedForm extends javax.swing.JFrame {
-private String currentClubName;
+
+    private String currentClubName;
+
     /**
      * Creates new form SetNightClubDaysClosedForm
      */
     public SetNightClubDaysClosedForm() {
         initComponents();
     }
- public SetNightClubDaysClosedForm(String nightClubName) {
-     currentClubName = nightClubName;
+
+    public SetNightClubDaysClosedForm(String nightClubName) {
+        currentClubName = nightClubName;
         initComponents();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -153,10 +157,10 @@ private String currentClubName;
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-       JFrame mainNightClubFrame=new NightclubMainForm(currentClubName);
-            this.dispose();
-            mainNightClubFrame.setLocationRelativeTo(this);
-            mainNightClubFrame.setVisible(true);
+        NightclubMainForm mainNightClubFrame = new NightclubMainForm(currentClubName);
+        this.dispose();
+        mainNightClubFrame.setLocationRelativeTo(this);
+        mainNightClubFrame.setVisible(true);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed

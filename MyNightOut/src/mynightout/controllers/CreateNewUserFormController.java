@@ -13,18 +13,10 @@ import mynightout.util.EmailValidator;
  *
  * @author ioanna
  */
-public class EditUserInformationController {
+public class CreateNewUserFormController {
 
-    //private String currentUserName;
-    //  public EditUserInformationController(String cUserName) {
-    //    currentUserName = cUserName;
-    //}
-   
-
-    public User saveChanges(String userName, String password, String customerName,
-            String customerLastname, String telephoneNum, String email) {
-        
-        if (userName.isEmpty() || password.isEmpty() || customerName.isEmpty() || customerLastname.isEmpty() || telephoneNum.isEmpty() || email.isEmpty()) {
+    public User createUser(String userName, String passWord, String customerName, String customerLastname, String telephoneNum, String emailAddress) {
+        if (userName.isEmpty() || passWord.isEmpty() || customerName.isEmpty() || customerLastname.isEmpty() || telephoneNum.isEmpty() || emailAddress.isEmpty()) {
             throw new IllegalArgumentException("Έχετε κενά πεδία");
         }
         for (int i = 0; i < telephoneNum.length(); i++) {
@@ -33,15 +25,16 @@ public class EditUserInformationController {
             }
         }
         EmailValidator validator = new EmailValidator();
-        if (!validator.validate(email)) {
+        if (!validator.validate(emailAddress)) {
             throw new IllegalArgumentException("Παρακαλώ ελέγξτε το email που εισάγατε");
         }
+
         try {
             UserDao currentUser = new UserDao();
-            User user = currentUser.updateUserData(userName, password, customerName, customerLastname, telephoneNum, email);
+            User user = currentUser.insertNewUserData(userName, passWord, customerName, customerLastname, telephoneNum, emailAddress);
             return user;
         } catch (Exception e) {
-            throw new IllegalArgumentException("Πρόβλημα στην βάση, ελέγξτε τα δεδομένα που εισάγατε");
+            throw new IllegalArgumentException("Παρακαλώ , ελέγξτε τα δεδομένα που εισάγατε");
         }
 
     }

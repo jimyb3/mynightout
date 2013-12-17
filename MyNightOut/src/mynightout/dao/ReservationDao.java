@@ -36,7 +36,7 @@ public class ReservationDao implements IReservationDao {
     //ορίσματα : userName, nightClubName, reservationDate, seatNumber
     //επιστρέφει αντικείμενο Reservation με τα χαρακτηριστικά της νέας κράτησης, εαν προστέθηκε στη βάση η εγγραφή
     //αλλιώς, null
-    public Reservation insertReservationData(String userName, String nightClubName, Date reservationDate, String trapezi, int seatNumber) {
+    public Reservation insertReservationData(String userName, String nightClubName, Date reservationDate, String trapezi) {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         try {
