@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import javax.swing.JFrame;
@@ -13,18 +12,21 @@ import javax.swing.JFrame;
  * @author Maria
  */
 public class ShowSupplierForm extends javax.swing.JFrame {
-private String currentClubName;
+
+    private String currentClubName;
+
     /**
      * Creates new form ShowSupplierForm
      */
     public ShowSupplierForm(String nightClubName) {
-    currentClubName = nightClubName;
+        currentClubName = nightClubName;
         initComponents();
     }
-    
-public ShowSupplierForm() {
+
+    public ShowSupplierForm() {
         initComponents();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -102,10 +104,10 @@ public ShowSupplierForm() {
     }//GEN-LAST:event_showSuppliersButtonActionPerformed
 
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
-        JFrame mainNightClubFrame=new NightclubMainForm(currentClubName);
-            this.dispose();
-            mainNightClubFrame.setLocationRelativeTo(this);
-            mainNightClubFrame.setVisible(true);
+        NightclubMainForm mainNightClubFrame = new NightclubMainForm(currentClubName);
+        this.dispose();
+        mainNightClubFrame.setLocationRelativeTo(this);
+        mainNightClubFrame.setVisible(true);
     }//GEN-LAST:event_CancelButtonActionPerformed
 
     /**

@@ -228,7 +228,7 @@ public EditReservationForm() {
     }//GEN-LAST:event_customerNameActionPerformed
 
     private void cancelbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelbuttonActionPerformed
-        JFrame mainUserFrame = new UserMainForm(currentUserName);
+        UserMainForm mainUserFrame = new UserMainForm(currentUserName);
         this.dispose();
         mainUserFrame.setLocationRelativeTo(this);
         mainUserFrame.setVisible(true);
@@ -244,7 +244,7 @@ public EditReservationForm() {
         EditReservationController controller = new EditReservationController(new ReservationDaoEdit());
 
         JOptionPane.showMessageDialog(null, "Τα νέα στοιχεία της κράτησης ειναι :" + reservationDateNew.getText() + "  " + numberOfPeopleNew.getText());
-        JFrame mainUserFrame = new UserMainForm(currentUserName);
+        UserMainForm mainUserFrame = new UserMainForm(currentUserName);
         this.dispose();
         mainUserFrame.setLocationRelativeTo(this);
         mainUserFrame.setVisible(true);

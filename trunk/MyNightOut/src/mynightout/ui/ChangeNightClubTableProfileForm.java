@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import javax.swing.JFrame;
@@ -14,17 +13,21 @@ import mynightout.presenters.CreateNightClubTableProfilePresenter;
  * @author Dimitris
  */
 public class ChangeNightClubTableProfileForm extends javax.swing.JFrame {
-private String currentClubName;
+
+    private String currentClubName;
+
     /**
      * Creates new form createTableView
      */
     public ChangeNightClubTableProfileForm() {
         initComponents();
     }
-public ChangeNightClubTableProfileForm(String nightClubName) {
-    currentClubName = nightClubName;
+
+    public ChangeNightClubTableProfileForm(String nightClubName) {
+        currentClubName = nightClubName;
         initComponents();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -183,7 +186,7 @@ public ChangeNightClubTableProfileForm(String nightClubName) {
     private void OkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        CreateNightClubTableProfilePresenter ctpp=new CreateNightClubTableProfilePresenter();
+        CreateNightClubTableProfilePresenter ctpp = new CreateNightClubTableProfilePresenter();
         ctpp.createNightClubTableProfile(new TableProfileForm(currentClubName), Integer.parseInt(row1TextField.getText()),
                 Integer.parseInt(row2TextField.getText()), Integer.parseInt(row3TextField.getText()),
                 Integer.parseInt(row4TextField.getText()), Integer.parseInt(row5TextField.getText()),
@@ -191,10 +194,10 @@ public ChangeNightClubTableProfileForm(String nightClubName) {
     }//GEN-LAST:event_OkButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        JFrame mainNightClubFrame=new NightclubMainForm(currentClubName);
-            this.dispose();
-            mainNightClubFrame.setLocationRelativeTo(this);
-            mainNightClubFrame.setVisible(true);
+        NightclubMainForm mainNightClubFrame = new NightclubMainForm(currentClubName);
+        this.dispose();
+        mainNightClubFrame.setLocationRelativeTo(this);
+        mainNightClubFrame.setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
 
     /**

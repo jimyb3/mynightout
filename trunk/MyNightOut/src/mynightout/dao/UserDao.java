@@ -5,11 +5,9 @@
  */
 package mynightout.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 import mynightout.exceptions.DaoException;
 import mynightout.entity.User;
-import mynightout.entity.Reservation;
 import mynightout.util.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;

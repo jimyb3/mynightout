@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import java.text.ParseException;
@@ -149,16 +148,16 @@ public class StoreView extends javax.swing.JFrame {
 
     private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
         // TODO add your handling code here:
-        
+
         this.dispose();
-        
+
     }//GEN-LAST:event_backBtnActionPerformed
 
     private void reservBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservBtnActionPerformed
         // TODO add your handling code here:
-        String choice = storeName.getText(); 
+        String choice = storeName.getText();
         SelectTableProfilePresenter stpp = new SelectTableProfilePresenter();
-        
+
         int clubId = new NightClubDao().getNightClubDataByClubName(choice).getClubId();
         TablesDao td = new TablesDao();
         Tables t = td.getClubsTables(choice);

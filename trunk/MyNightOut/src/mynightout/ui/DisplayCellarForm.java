@@ -121,7 +121,7 @@ public DisplayCellarForm(String nightClubName) {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        JFrame mainNightClubFrame=new NightclubMainForm(currentClubName);
+        NightclubMainForm mainNightClubFrame=new NightclubMainForm(currentClubName);
             this.dispose();
             mainNightClubFrame.setLocationRelativeTo(this);
             mainNightClubFrame.setVisible(true);

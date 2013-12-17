@@ -125,11 +125,11 @@ public class UserLoginForm extends javax.swing.JFrame {
             User user = controller.login(userNameField.getText(), passWordField.getText());
             JOptionPane.showMessageDialog(null, "welcome", "Success", JOptionPane.INFORMATION_MESSAGE);
             String cUserName = userNameField.getText();
-            JFrame userMain=new UserMainForm(cUserName);
+            UserMainForm userMain = new UserMainForm(cUserName);
             this.dispose();
             userMain.setLocationRelativeTo(this);
             userMain.setVisible(true);
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -141,12 +141,12 @@ public class UserLoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_resetButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        JFrame mainFrame=new MainFrame();
-            this.dispose();
-            mainFrame.setLocationRelativeTo(this);
-            mainFrame.setVisible(true);
+        MainFrame mainFrame = new MainFrame();
+        this.dispose();
+        mainFrame.setLocationRelativeTo(this);
+        mainFrame.setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
- public static void main(String args[]) {
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

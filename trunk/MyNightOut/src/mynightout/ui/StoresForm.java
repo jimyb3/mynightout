@@ -40,15 +40,14 @@ public class StoresForm extends javax.swing.JFrame {
     private final static Color fontColor = new Color(0, 51, 255);  // font colot
     public static String mainMenuDesc[] = {"Stages", "Clubs/Bars", "Alternative"};
     private static List list;
-    
+
     private String currentUserName;
-    
-public StoresForm(String cUserName) {
+
+    public StoresForm(String cUserName) {
         currentUserName = cUserName;
         initComponents();
     }
-    
-    
+
     public StoresForm() {
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
@@ -140,7 +139,7 @@ public StoresForm(String cUserName) {
     private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
         //System.exit(0);
         this.dispose();
-        JFrame mainUserFrame = new UserMainForm(currentUserName);
+        UserMainForm mainUserFrame = new UserMainForm(currentUserName);
         this.dispose();
         mainUserFrame.setLocationRelativeTo(this);
         mainUserFrame.setVisible(true);
@@ -383,7 +382,6 @@ public StoresForm(String cUserName) {
         List allNightClubs = getstores.getAllNightClubs();
 
         //JOptionPane.showMessageDialog(null, mainMenuCodes, "Success", JOptionPane.INFORMATION_MESSAGE);
-
         if (mainMenuCodes.equals("Stages")) {
 
             for (Object o : allNightClubs) {

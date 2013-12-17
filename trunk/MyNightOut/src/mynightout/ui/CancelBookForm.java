@@ -170,7 +170,7 @@ public class CancelBookForm extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         reservationIdTextField.setText("");
-        JFrame mainUserFrame = new UserMainForm(currentUserName);
+        UserMainForm mainUserFrame = new UserMainForm(currentUserName);
         this.dispose();
         mainUserFrame.setLocationRelativeTo(this);
         mainUserFrame.setVisible(true);

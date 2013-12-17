@@ -202,7 +202,7 @@ public class UserMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void reservationEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationEditButtonActionPerformed
-        JFrame editReservationFrame = new EditReservationForm(currentUserName);
+        EditReservationForm editReservationFrame = new EditReservationForm(currentUserName);
         this.dispose();
         editReservationFrame.setLocationRelativeTo(this);
         editReservationFrame.setVisible(true);
@@ -240,7 +240,7 @@ public class UserMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelReservationButtonActionPerformed
 
     private void createReservationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createReservationButtonActionPerformed
-        JFrame createBookFrame = new CreateBookForm(currentUserName);
+        CreateBookForm createBookFrame = new CreateBookForm(currentUserName);
         this.dispose();
         createBookFrame.setLocationRelativeTo(this);
         createBookFrame.setVisible(true);
@@ -258,21 +258,21 @@ public class UserMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_confirmReservationButtonActionPerformed
 
     private void showStoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showStoresButtonActionPerformed
-        JFrame nightClubs = new StoresForm(currentUserName);
+        StoresForm nightClubs = new StoresForm(currentUserName);
         this.dispose();
         nightClubs.setLocationRelativeTo(this);
         nightClubs.setVisible(true);
     }//GEN-LAST:event_showStoresButtonActionPerformed
 
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
-        JFrame mainFrame = new MainFrame();
+        MainFrame mainFrame = new MainFrame();
         this.dispose();
         mainFrame.setLocationRelativeTo(this);
         mainFrame.setVisible(true);
     }//GEN-LAST:event_logOutButtonActionPerformed
 
     private void editUserInformationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editUserInformationButtonActionPerformed
-        JFrame editUserInfoForm = new EditUserInformationForm(currentUserName);
+        EditUserInformationForm editUserInfoForm = new EditUserInformationForm(currentUserName);
         this.dispose();
         editUserInfoForm.setLocationRelativeTo(this);
         editUserInfoForm.setVisible(true);

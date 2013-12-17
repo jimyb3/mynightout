@@ -213,7 +213,7 @@ public ConfirmUpdateCellarForm(String nightClubName) {
         try{        
             ucc.updateCellar(nightClubNameLabel.getText(), Integer.parseInt(vodkaValueLabel.getText()), Integer.parseInt(whiskeyValueLabel.getText()), Integer.parseInt(wineValueLabel.getText()), Integer.parseInt(liqueurValueLabel.getText()), Integer.parseInt(rumValueLabel.getText()), Integer.parseInt(tequilaValueLabel.getText()), Integer.parseInt(beerValueLabel.getText()));
             JOptionPane.showMessageDialog(null, "Η ενημέρωση έγινε με επιτυχία.", "Success",JOptionPane.INFORMATION_MESSAGE);
-            JFrame mainNightClubFrame=new NightclubMainForm(currentClubName);
+            NightclubMainForm mainNightClubFrame=new NightclubMainForm(currentClubName);
             this.dispose();
             mainNightClubFrame.setLocationRelativeTo(this);
             mainNightClubFrame.setVisible(true);

@@ -17,5 +17,5 @@ import mynightout.entity.ReservationPk;
 public interface IReservationDaoCreate {
 
     Reservation createReservation(ReservationPk res, Date reservationDate, 
-            String trapezi, int seatNumber, String reservationStatus) throws DaoException;
+            String trapezi, String reservationStatus) throws DaoException;
 }
