@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+                      <Component id="messageLabel" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="whiskeyLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="vodkaLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="wineLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="liqueurLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="rumLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="tequilaLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="beerLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="yesButton" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="vodkaValueLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="whiskeyValueLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="wineValueLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="liqueurValueLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="rumValueLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="tequilaValueLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="beerValueLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="noButton" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="clubNameLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="nightClubNameLabel" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="131" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="clubNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="nightClubNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="messageLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="vodkaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="vodkaValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="whiskeyLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="whiskeyValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="wineLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="wineValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="liqueurLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="liqueurValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="rumLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rumValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="tequilaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tequilaValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="beerLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="beerValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="yesButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="noButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="messageLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x39f;&#x3b9; &#x3c0;&#x3b1;&#x3c1;&#x3b1;&#x3ba;&#x3ac;&#x3c4;&#x3c9; &#x3c4;&#x3b9;&#x3bc;&#x3ad;&#x3c2; &#x3b5;&#x3af;&#x3bd;&#x3b1;&#x3b9; &#x3c3;&#x3c9;&#x3c3;&#x3c4;&#x3ad;&#x3c2;;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="vodkaLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Vodka"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="whiskeyLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Whiskey"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="wineLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Wine"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="liqueurLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Liqueur"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="rumLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Rum"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="tequilaLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tequila"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="beerLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Beer"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="vodkaValueLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="whiskeyValueLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel2"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="wineValueLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel3"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="liqueurValueLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel4"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="rumValueLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel5"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="tequilaValueLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel6"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="beerValueLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel7"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="yesButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x39d;&#x3b1;&#x3b9;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="yesButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="noButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x38c;&#x3c7;&#x3b9;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="noButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="clubNameLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x38c;&#x3bd;&#x3bf;&#x3bc;&#x3b1; &#x3ba;&#x3b1;&#x3c4;&#x3b1;&#x3c3;&#x3c4;&#x3ae;&#x3bc;&#x3b1;&#x3c4;&#x3bf;&#x3c2;:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="nightClubNameLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="NightClubName"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+  </SubComponents>
+</Form>
