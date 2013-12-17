@@ -304,10 +304,35 @@ public class UserMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_editUserInformationButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JFrame UserHistoryForm = new UserHistoryForm(currentUserName);
+        UserHistoryForm userHistoryForm = new UserHistoryForm(currentUserName);
+        userHistoryForm.userNameLabel.setText(currentUserName);
         this.dispose();
-        UserHistoryForm.setLocationRelativeTo(this);
-        UserHistoryForm.setVisible(true);
+        ReservationDao reservation = new ReservationDao();
+        List resultList = reservation.getUserReservations(currentUserName);
+        Vector<String> tableHeaders = new Vector<String>();
+        Vector tableData = new Vector();
+        tableHeaders.add("Id κράτησης");
+        tableHeaders.add("Club Name");
+        tableHeaders.add("Reservation Date");
+        tableHeaders.add("Τραπέζι");
+        String DATE_FORMAT = "dd/MM/yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+        
+        for (Object o : resultList) {
+            Reservation res = (Reservation) o;
+            Vector<Object> oneRow = new Vector<Object>();
+            String clubName = new NightClubDao().getNightClubDataByClubId(res.getId().getClubId()).getClubName();
+            oneRow.add(res.getId().getReservationId());
+            oneRow.add(clubName);
+            String reservationDate = sdf.format(res.getReservationDate());
+            oneRow.add(reservationDate);
+            oneRow.add(res.getTrapezi());
+            tableData.add(oneRow);
+        }
+        userHistoryForm.userReservationsTable.setModel(new DefaultTableModel(tableData, tableHeaders));
+        userHistoryForm.setLocationRelativeTo(this);
+        userHistoryForm.setVisible(true);
+                                    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

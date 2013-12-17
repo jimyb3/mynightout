@@ -131,7 +131,7 @@ public DeleteReservationForm(String nightClubName) {
     }//GEN-LAST:event_GivenIdActionPerformed
 
     private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
-        DeleteReservationController controller=new DeleteReservationController(new ReservationDaoDelete());
+        DeleteReservationController controller=new DeleteReservationController();
         try{
             int reservationId=Integer.parseInt(GivenId.getText());
            //int clubName=Integer.parseInt(givenClubName.getText());
