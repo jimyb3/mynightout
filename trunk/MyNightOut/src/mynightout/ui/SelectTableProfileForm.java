@@ -52,10 +52,7 @@ public SelectTableProfileForm(String cUserName) {
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         // TODO add your handling code here:
-       JFrame mainUserFrame = new UserMainForm(currentUserName);
         this.dispose();
-        mainUserFrame.setLocationRelativeTo(this);
-        mainUserFrame.setVisible(true);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**

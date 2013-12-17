@@ -25,42 +25,44 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Component id="StorePic" min="-2" pref="303" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                      <Component id="contactTOLabel" min="-2" pref="147" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                      <Component id="storeName" min="-2" pref="249" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                      <Component id="contactLabel" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Component id="addressTOLabel" min="-2" pref="167" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="addressLabel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="backBtn" min="-2" pref="102" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="reservBtn" min="-2" pref="101" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                              <Component id="contactTOLabel" min="-2" pref="147" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                              <Component id="storeName" min="-2" pref="249" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
-                              <Component id="contactLabel" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                      <Component id="addressTOLabel" min="-2" pref="167" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="addressLabel" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                      <EmptySpace type="separate" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="reservBtn" min="-2" pref="101" max="-2" attributes="0"/>
+                          <Component id="reservationDateChooser" min="-2" pref="129" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                      <Component id="messageLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -77,10 +79,17 @@
               <Component id="contactLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="contactTOLabel" min="-2" pref="19" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="backBtn" alignment="3" pref="95" max="32767" attributes="0"/>
-                  <Component id="reservBtn" alignment="3" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+              <Component id="messageLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="reservationDateChooser" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="reservBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="backBtn" pref="95" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -167,6 +176,13 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="messageLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x394;&#x3ce;&#x3c3;&#x3b5; &#x3b7;&#x3bc;&#x3b5;&#x3c1;&#x3bf;&#x3bc;&#x3b7;&#x3bd;&#x3af;&#x3b1; &#x3ba;&#x3c1;&#x3ac;&#x3c4;&#x3b7;&#x3c3;&#x3b7;&#x3c2;:"/>
+      </Properties>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="reservationDateChooser">
     </Component>
   </SubComponents>
 </Form>

@@ -30,7 +30,7 @@ import mynightout.ui.SelectTableProfileForm;
 public class SelectTableProfilePresenter {
 
     public void showSelectTableProfile(SelectTableProfileForm form, int row1, int row2, int row3, int row4,
-            int row5, int row6, int clubId) throws ParseException {
+            int row5, int row6, int clubId, Date reservationDate) throws ParseException {
         
         final String clubName= new NightClubDao().getNightClubDataByClubId(clubId).getClubName();
         int x = 100;
@@ -38,9 +38,6 @@ public class SelectTableProfilePresenter {
         JPanel[] p = new JPanel[7];
         ReservationDao rDao = new ReservationDao();
         
-        String date = "01/01/2014";
-        Format formatter = new SimpleDateFormat("dd/MM/yyyy");
-        Date reservationDate = (Date) formatter.parseObject(date);
         String rows = "" + row1 + "," + row2 + "," + row3 + "," + row4 + "," + row5 + "," + row6;
         String[] rowsArray = rows.split(",");
         String letterTable = "Α,Β,Γ,Δ,Ε,Ζ";

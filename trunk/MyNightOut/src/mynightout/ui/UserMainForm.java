@@ -54,7 +54,6 @@ public class UserMainForm extends javax.swing.JFrame {
         cancelReservationButton = new javax.swing.JButton();
         createReservationButton = new javax.swing.JButton();
         confirmReservationButton = new javax.swing.JButton();
-        SelectTableButton = new javax.swing.JButton();
         showStoresButton = new javax.swing.JButton();
         logOutButton = new javax.swing.JButton();
         editUserInformationButton = new javax.swing.JButton();
@@ -87,6 +86,7 @@ public class UserMainForm extends javax.swing.JFrame {
         });
 
         createReservationButton.setText("Δημιουργία κράτησης");
+        createReservationButton.setEnabled(false);
         createReservationButton.setFocusPainted(false);
         createReservationButton.setFocusable(false);
         createReservationButton.addActionListener(new java.awt.event.ActionListener() {
@@ -100,14 +100,6 @@ public class UserMainForm extends javax.swing.JFrame {
         confirmReservationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmReservationButtonActionPerformed(evt);
-            }
-        });
-
-        SelectTableButton.setText("Επιλογή τραπεζιού");
-        SelectTableButton.setEnabled(false);
-        SelectTableButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SelectTableButtonActionPerformed(evt);
             }
         });
 
@@ -168,9 +160,7 @@ public class UserMainForm extends javax.swing.JFrame {
                                             .addComponent(cancelReservationButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(createReservationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(confirmReservationButton)
-                                            .addComponent(SelectTableButton, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addComponent(confirmReservationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -196,9 +186,7 @@ public class UserMainForm extends javax.swing.JFrame {
                         .addComponent(cancelReservationButton))
                     .addComponent(confirmReservationButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(createReservationButton)
-                    .addComponent(SelectTableButton))
+                .addComponent(createReservationButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -268,19 +256,6 @@ public class UserMainForm extends javax.swing.JFrame {
         this.dispose();
         crif.setVisible(true);
     }//GEN-LAST:event_confirmReservationButtonActionPerformed
-
-    private void SelectTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectTableButtonActionPerformed
-        SelectTableProfilePresenter stpp = new SelectTableProfilePresenter();
-        int clubId = 1;
-        TablesDao td = new TablesDao();
-        Tables t = td.getClubsTables("Vogue");
-        try {
-            this.dispose();
-            stpp.showSelectTableProfile(new SelectTableProfileForm(currentUserName), t.getFirstRow(), t.getSecondRow(), t.getThirdRow(), t.getFourthRow(), t.getFifthRow(), t.getSixthRow(), clubId);
-        } catch (ParseException ex) {
-            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_SelectTableButtonActionPerformed
 
     private void showStoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showStoresButtonActionPerformed
         JFrame nightClubs = new StoresForm(currentUserName);
@@ -371,7 +346,6 @@ public class UserMainForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton SelectTableButton;
     private javax.swing.JButton cancelReservationButton;
     private javax.swing.JButton confirmReservationButton;
     private javax.swing.JButton createReservationButton;

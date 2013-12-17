@@ -47,10 +47,7 @@
                                           <Component id="createReservationButton" min="-2" pref="163" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="confirmReservationButton" max="32767" attributes="0"/>
-                                          <Component id="SelectTableButton" min="-2" pref="159" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="confirmReservationButton" min="-2" pref="159" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -89,10 +86,7 @@
                   <Component id="confirmReservationButton" min="-2" pref="57" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="createReservationButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="SelectTableButton" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="createReservationButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -130,6 +124,7 @@
     <Component class="javax.swing.JButton" name="createReservationButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x394;&#x3b7;&#x3bc;&#x3b9;&#x3bf;&#x3c5;&#x3c1;&#x3b3;&#x3af;&#x3b1; &#x3ba;&#x3c1;&#x3ac;&#x3c4;&#x3b7;&#x3c3;&#x3b7;&#x3c2;"/>
+        <Property name="enabled" type="boolean" value="false"/>
         <Property name="focusPainted" type="boolean" value="false"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
@@ -144,15 +139,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmReservationButtonActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="SelectTableButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="&#x395;&#x3c0;&#x3b9;&#x3bb;&#x3bf;&#x3b3;&#x3ae; &#x3c4;&#x3c1;&#x3b1;&#x3c0;&#x3b5;&#x3b6;&#x3b9;&#x3bf;&#x3cd;"/>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SelectTableButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="showStoresButton">
