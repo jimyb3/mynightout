@@ -30,7 +30,7 @@ import mynightout.ui.SelectTableProfileForm;
  */
 public class SelectTableProfilePresenter {
 
-    public void showSelectTableProfile(SelectTableProfileForm form, int row1, int row2, int row3, int row4,
+    public void showSelectTableProfile(final SelectTableProfileForm form, int row1, int row2, int row3, int row4,
             int row5, int row6, int clubId, final Date reservationDate, final String userName) throws ParseException {
         
         final String clubName= new NightClubDao().getNightClubDataByClubId(clubId).getClubName();
@@ -85,7 +85,7 @@ public class SelectTableProfilePresenter {
                         @Override
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                             String table = evt.getActionCommand();//Παίρνουμε πίσω το text που δώσαμε.
-                            ConfirmReservationInfoForm crif = new ConfirmReservationInfoForm();
+                            ConfirmReservationInfoForm crif = new ConfirmReservationInfoForm(userName);
                             User currentUser=new UserDao().getUserDataByUsername(userName);
                             crif.reservationTableLabel.setText(table);
                             crif.customerLastNameLabel.setText(currentUser.getCustomerLastname());
@@ -95,6 +95,7 @@ public class SelectTableProfilePresenter {
                             SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
                             crif.reservationDateLabel.setText(sdf.format(reservationDate));
                             crif.setVisible(true);
+                            form.dispose();
                         }
                     });
                 }

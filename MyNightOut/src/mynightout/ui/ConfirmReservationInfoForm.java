@@ -11,10 +11,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.controllers.CreateBookController;
 import mynightout.dao.NightClubDao;
+import mynightout.dao.UserDao;
 import mynightout.exceptions.DaoException;
 
 /**
@@ -173,25 +173,20 @@ public class ConfirmReservationInfoForm extends javax.swing.JFrame {
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
         // TODO add your handling code here:
         int clubId = new NightClubDao().getNightClubDataByClubName(nightClubNameLabel.getText()).getClubId();
-        int userId = 1;
+        int userId = new UserDao().getUserDataByUsername(currentUserName).getUserId();
 
-        String date = "01/01/2014";
+        String date = reservationDateLabel.getText();
 
         Format formatter = new SimpleDateFormat("dd/MM/yyyy");
         try {
             Date reservationDate = (Date) formatter.parseObject(date);
             CreateBookController cbc = new CreateBookController();
-            cbc.createReservationNew(userId, clubId, reservationDate, reservationTableLabel.getText(), 5, "active");
+            cbc.createReservationNew(userId, clubId, reservationDate, reservationTableLabel.getText());
             JOptionPane.showMessageDialog(null, "Έγινε η καταχώρηση της νέας κράτησης", "Success", JOptionPane.INFORMATION_MESSAGE);
-            UserMainForm mainUserFrame = new UserMainForm(currentUserName);
             this.dispose();
-            mainUserFrame.setLocationRelativeTo(this);
-            mainUserFrame.setVisible(true);
         } catch (ParseException ex) {
             Logger.getLogger(ConfirmReservationInfoForm.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalArgumentException ex) {
-            Logger.getLogger(ConfirmReservationInfoForm.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (DaoException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(ConfirmReservationInfoForm.class.getName()).log(Level.SEVERE, null, ex);
         }
 

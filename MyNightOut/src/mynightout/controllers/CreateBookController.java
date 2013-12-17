@@ -8,7 +8,7 @@ package mynightout.controllers;
 import java.util.Date;
 import mynightout.entity.Reservation;
 import mynightout.exceptions.DaoException;
-import mynightout.dao.IReservationDaoCreate;
+import mynightout.dao.ReservationDao;
 import mynightout.entity.ReservationPk;
 
 /**
@@ -17,7 +17,6 @@ import mynightout.entity.ReservationPk;
  */
 public class CreateBookController {
 
-    private IReservationDaoCreate createBookDao;
 
     public CreateBookController() {
         
@@ -28,8 +27,8 @@ public class CreateBookController {
      * 
      */
     public Reservation createReservationNew(int userId, int clubId, 
-            Date reservationDate, String trapezi, int seatNumber, String reservationStatus)
-            throws IllegalArgumentException, DaoException {
+            Date reservationDate, String trapezi)
+            throws IllegalArgumentException, Exception {
 
         
         /*
@@ -37,19 +36,16 @@ public class CreateBookController {
             throw new IllegalArgumentException("Customer name should be at least three characters long");
         }
         */
-        if (seatNumber > 5) {
-            throw new IllegalArgumentException("Each table has only 5 seats");
-            // TODO edw prepei na ginei pio sun8eto problepsi gia parapanw trapezia
-        }
+        
 
         // TODO elenxo gia imerominia pou exei perasei
         try {
             ReservationPk res=new ReservationPk();
             res.setClubId(clubId);
             res.setUserId(userId);
-            return createBookDao.createReservation(res, reservationDate, 
-                    trapezi, reservationStatus);
-        } catch (DaoException e) {
+            return new ReservationDao().insertReservationData(userId, clubId, 
+            reservationDate, trapezi);
+        } catch (Exception e) {
             throw e;
         }
     }
