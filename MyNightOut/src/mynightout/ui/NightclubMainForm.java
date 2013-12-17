@@ -245,7 +245,7 @@ public class NightclubMainForm extends javax.swing.JFrame {
         deleteReservationFrame.clubNameLabel.setText(currentClubName);
         this.dispose();
         ReservationDao reservation = new ReservationDao();
-        List resultList = reservation.getClubReservations(currentClubName);
+        List resultList = reservation.getClubCurrentReservations(currentClubName);
         Vector<String> tableHeaders = new Vector<String>();
         Vector tableData = new Vector();
         tableHeaders.add("Id κράτησης");

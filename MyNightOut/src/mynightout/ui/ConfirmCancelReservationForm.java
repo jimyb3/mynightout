@@ -170,7 +170,7 @@ public class ConfirmCancelReservationForm extends javax.swing.JFrame {
             cancelBookFrame.userNameLabel.setText(userNameLabel.getText());
             this.dispose();
             ReservationDao reservation = new ReservationDao();
-            List resultList = reservation.getUserReservations(userNameLabel.getText());
+            List resultList = reservation.getUserCurrentReservations(userNameLabel.getText());
             Vector<String> tableHeaders = new Vector<String>();
             Vector tableData = new Vector();
             tableHeaders.add("Id κράτησης");
