@@ -14,6 +14,7 @@ import mynightout.dao.ReservationDao;
 import mynightout.dao.UserDao;
 import mynightout.entity.Cellar;
 import mynightout.entity.Reservation;
+import mynightout.presenters.EditSupplierPresenter;
 
 /**
  *
@@ -56,6 +57,7 @@ public class NightclubMainForm extends javax.swing.JFrame {
         displayCellarButton = new javax.swing.JButton();
         changeNightClubTableProfileButton = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
+        editSuppliersButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -158,6 +160,13 @@ public class NightclubMainForm extends javax.swing.JFrame {
             }
         });
 
+        editSuppliersButton.setText("Επεξεργασία προμηθευτών");
+        editSuppliersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editSuppliersButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -178,12 +187,13 @@ public class NightclubMainForm extends javax.swing.JFrame {
                             .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(displayCellarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(showCellarForm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(changeNightClubTableProfileButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
                             .addComponent(setClosedDatesButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(0, 40, Short.MAX_VALUE))
+                            .addComponent(showCellarForm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(editSuppliersButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(displayCellarButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(changeNightClubTableProfileButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(logoutButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(0, 24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,11 +218,13 @@ public class NightclubMainForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(deleteButton)
                     .addComponent(displayCellarButton))
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(editSuppliersButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(exitButton)
-                    .addComponent(logoutButton))
-                .addContainerGap(82, Short.MAX_VALUE))
+                    .addComponent(logoutButton)
+                    .addComponent(exitButton))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         pack();
@@ -327,6 +339,13 @@ public class NightclubMainForm extends javax.swing.JFrame {
         mainForm.setVisible(true);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
+    private void editSuppliersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSuppliersButtonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        EditSupplierPresenter ed=new EditSupplierPresenter();
+        ed.editSupplier(new EditSupplierForm(), currentClubName);
+    }//GEN-LAST:event_editSuppliersButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -368,6 +387,7 @@ public class NightclubMainForm extends javax.swing.JFrame {
     private javax.swing.JLabel clubNameLabel;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton displayCellarButton;
+    private javax.swing.JButton editSuppliersButton;
     private javax.swing.JButton exitButton;
     private javax.swing.JButton logoutButton;
     private javax.swing.JLabel messageLabel;

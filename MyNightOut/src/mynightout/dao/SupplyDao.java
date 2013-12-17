@@ -6,6 +6,7 @@
 package mynightout.dao;
 
 import java.util.List;
+import mynightout.entity.Supply;
 import mynightout.entity.SupplyPk;
 import mynightout.util.HibernateUtil;
 import org.hibernate.HibernateException;
@@ -18,17 +19,19 @@ import org.hibernate.Session;
  */
 public class SupplyDao {
 
-    public SupplyPk insertNewSupply(int clubId, int supplierId) {
+    public Supply insertNewSupply(int clubId, int supplierId) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
             SupplyPk sup = new SupplyPk();
             sup.setClubId(clubId);
             sup.setSupplierId(supplierId);
-            session.save(sup);
+            Supply su=new Supply();
+            su.setId(sup);
+            session.save(su);
             session.getTransaction().commit();
             session.close();
-            return sup;
+            return su;
         } catch (HibernateException he) {
             he.printStackTrace();
             session.beginTransaction().rollback();
@@ -40,9 +43,9 @@ public class SupplyDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            String hql = "delete SupplyPk su where su.clubId='" + clubId + "'";
+            String hql = "delete Supply su where su.id.clubId='" + clubId + "'";
             Query q = session.createQuery(hql);
-            if (q.executeUpdate() > 0) {
+            if (q.executeUpdate() >= 0) {
                 session.getTransaction().commit();
                 session.close();
                 return true;

@@ -26,7 +26,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -44,15 +44,16 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="displayCellarButton" max="32767" attributes="0"/>
-                          <Component id="showCellarForm" alignment="0" max="32767" attributes="0"/>
-                          <Component id="changeNightClubTableProfileButton" alignment="0" pref="181" max="32767" attributes="0"/>
                           <Component id="setClosedDatesButton" alignment="0" max="32767" attributes="0"/>
-                          <Component id="logoutButton" max="32767" attributes="0"/>
+                          <Component id="showCellarForm" alignment="0" max="32767" attributes="0"/>
+                          <Component id="editSuppliersButton" alignment="0" max="32767" attributes="0"/>
+                          <Component id="displayCellarButton" alignment="0" max="32767" attributes="0"/>
+                          <Component id="changeNightClubTableProfileButton" alignment="0" max="32767" attributes="0"/>
+                          <Component id="logoutButton" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="0" pref="40" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="24" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -84,12 +85,14 @@
                   <Component id="deleteButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="displayCellarButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="editSuppliersButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="exitButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="logoutButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="exitButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="82" max="32767" attributes="0"/>
+              <EmptySpace pref="73" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -203,6 +206,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logoutButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="editSuppliersButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x395;&#x3c0;&#x3b5;&#x3be;&#x3b5;&#x3c1;&#x3b3;&#x3b1;&#x3c3;&#x3af;&#x3b1; &#x3c0;&#x3c1;&#x3bf;&#x3bc;&#x3b7;&#x3b8;&#x3b5;&#x3c5;&#x3c4;&#x3ce;&#x3bd;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editSuppliersButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
