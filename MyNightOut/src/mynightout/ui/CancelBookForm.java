@@ -52,16 +52,11 @@ public class CancelBookForm extends javax.swing.JFrame {
         userReservationsTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         userNameLabel.setText("Username:");
 
         reservationIdLabel.setText("Αριθμός κράτησης:");
-
-        reservationIdTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reservationIdTextFieldActionPerformed(evt);
-            }
-        });
 
         okButton.setText("ΟΚ");
         okButton.addActionListener(new java.awt.event.ActionListener() {
