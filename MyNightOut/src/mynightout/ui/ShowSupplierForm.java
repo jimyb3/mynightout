@@ -37,13 +37,14 @@ public class ShowSupplierForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        SuppliersTable = new javax.swing.JTable();
-        showSuppliersButton = new javax.swing.JButton();
-        CancelButton = new javax.swing.JButton();
+        suppliersTable = new javax.swing.JTable();
+        backButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        clubName = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        SuppliersTable.setModel(new javax.swing.table.DefaultTableModel(
+        suppliersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -54,21 +55,28 @@ public class ShowSupplierForm extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(SuppliersTable);
+        jScrollPane1.setViewportView(suppliersTable);
+        if (suppliersTable.getColumnModel().getColumnCount() > 0) {
+            suppliersTable.getColumnModel().getColumn(0).setResizable(false);
+            suppliersTable.getColumnModel().getColumn(0).setHeaderValue("Title 1");
+            suppliersTable.getColumnModel().getColumn(1).setResizable(false);
+            suppliersTable.getColumnModel().getColumn(1).setHeaderValue("Title 2");
+            suppliersTable.getColumnModel().getColumn(2).setResizable(false);
+            suppliersTable.getColumnModel().getColumn(2).setHeaderValue("Title 3");
+            suppliersTable.getColumnModel().getColumn(3).setResizable(false);
+            suppliersTable.getColumnModel().getColumn(3).setHeaderValue("Title 4");
+        }
 
-        showSuppliersButton.setText("OK");
-        showSuppliersButton.addActionListener(new java.awt.event.ActionListener() {
+        backButton.setText("Πίσω");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showSuppliersButtonActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
 
-        CancelButton.setText("ΑΚΥΡΩΣΗ");
-        CancelButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelButtonActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("Προμηθευτές του :");
+
+        clubName.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,38 +85,39 @@ public class ShowSupplierForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(192, 192, 192)
+                        .addComponent(backButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(204, 204, 204)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(CancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(showSuppliersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(89, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(clubName)))
+                .addContainerGap(265, Short.MAX_VALUE))
+            .addComponent(jScrollPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(clubName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(showSuppliersButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(CancelButton))
+                .addGap(18, 18, 18)
+                .addComponent(backButton)
+                .addGap(20, 20, 20))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void showSuppliersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showSuppliersButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_showSuppliersButtonActionPerformed
-
-    private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelButtonActionPerformed
-        NightclubMainForm mainNightClubFrame = new NightclubMainForm(currentClubName);
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         this.dispose();
-        mainNightClubFrame.setLocationRelativeTo(this);
-        mainNightClubFrame.setVisible(true);
-    }//GEN-LAST:event_CancelButtonActionPerformed
+        NightclubMainForm mainForm = new NightclubMainForm(currentClubName);
+        mainForm.setLocationRelativeTo(this);
+        mainForm.setVisible(true);
+    }//GEN-LAST:event_backButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,9 +155,10 @@ public class ShowSupplierForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CancelButton;
-    private javax.swing.JTable SuppliersTable;
+    private javax.swing.JButton backButton;
+    public javax.swing.JLabel clubName;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton showSuppliersButton;
+    public javax.swing.JTable suppliersTable;
     // End of variables declaration//GEN-END:variables
 }
