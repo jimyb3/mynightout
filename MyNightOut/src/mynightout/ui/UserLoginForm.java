@@ -123,7 +123,7 @@ public class UserLoginForm extends javax.swing.JFrame {
         UserLoginController controller = new UserLoginController();
         try {
             User user = controller.login(userNameField.getText(), passWordField.getText());
-            JOptionPane.showMessageDialog(null, "welcome", "Success", JOptionPane.INFORMATION_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "welcome", "Success", JOptionPane.INFORMATION_MESSAGE);
             String cUserName = userNameField.getText();
             UserMainForm userMain = new UserMainForm(cUserName);
             this.dispose();
