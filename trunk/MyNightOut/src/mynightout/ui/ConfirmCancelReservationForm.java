@@ -53,6 +53,7 @@ public class ConfirmCancelReservationForm extends javax.swing.JFrame {
         userNameLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         messageLabel.setText("Θα ακυρώσεις την κράτηση με τα παρακάτω στοιχεία.");
 

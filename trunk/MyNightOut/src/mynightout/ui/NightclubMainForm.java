@@ -57,6 +57,7 @@ public class NightclubMainForm extends javax.swing.JFrame {
         displayCellarButton = new javax.swing.JButton();
         changeNightClubTableProfileButton = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
+        showReservationHistoryButton = new javax.swing.JButton();
         editSuppliersButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -160,6 +161,13 @@ public class NightclubMainForm extends javax.swing.JFrame {
             }
         });
 
+        showReservationHistoryButton.setText("Ιστορικό κρατήσεων");
+        showReservationHistoryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showReservationHistoryButtonActionPerformed(evt);
+            }
+        });
+
         editSuppliersButton.setText("Επεξεργασία προμηθευτών");
         editSuppliersButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,6 +188,7 @@ public class NightclubMainForm extends javax.swing.JFrame {
                         .addComponent(clubNameLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(showReservationHistoryButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(checkFullnessButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(setDaysClosedButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(showSuppliersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -187,13 +196,13 @@ public class NightclubMainForm extends javax.swing.JFrame {
                             .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(setClosedDatesButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(displayCellarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(showCellarForm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(editSuppliersButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(displayCellarButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(changeNightClubTableProfileButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(logoutButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(0, 24, Short.MAX_VALUE))
+                            .addComponent(changeNightClubTableProfileButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                            .addComponent(setClosedDatesButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(editSuppliersButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(0, 40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,13 +227,15 @@ public class NightclubMainForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(deleteButton)
                     .addComponent(displayCellarButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editSuppliersButton)
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(showReservationHistoryButton)
+                    .addComponent(editSuppliersButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(logoutButton)
-                    .addComponent(exitButton))
-                .addContainerGap(73, Short.MAX_VALUE))
+                    .addComponent(exitButton)
+                    .addComponent(logoutButton))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         pack();
@@ -267,11 +278,11 @@ public class NightclubMainForm extends javax.swing.JFrame {
         tableHeaders.add("Τραπέζι");
         String DATE_FORMAT = "dd/MM/yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
-        
+
         for (Object o : resultList) {
             Reservation res = (Reservation) o;
             Vector<Object> oneRow = new Vector<Object>();
-            String customerName = new UserDao().getUserDataById(res.getId().getUserId()).getCustomerName();        
+            String customerName = new UserDao().getUserDataById(res.getId().getUserId()).getCustomerName();
             String customerLastName = new UserDao().getUserDataById(res.getId().getUserId()).getCustomerLastname();
             oneRow.add(res.getId().getReservationId());
             oneRow.add(customerName);
@@ -308,7 +319,7 @@ public class NightclubMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_showSuppliersButtonActionPerformed
 
     private void displayCellarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayCellarButtonActionPerformed
-        
+
         DisplayCellarController dcc = new DisplayCellarController();
         Cellar cellar = dcc.displayCellar(currentClubName);
         DisplayCellarForm dcf = new DisplayCellarForm(currentClubName);
@@ -339,10 +350,44 @@ public class NightclubMainForm extends javax.swing.JFrame {
         mainForm.setVisible(true);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
-    private void editSuppliersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSuppliersButtonActionPerformed
-        // TODO add your handling code here:
+    private void showReservationHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showReservationHistoryButtonActionPerformed
+        NightclubReservationsHistoryForm historyForm = new NightclubReservationsHistoryForm(currentClubName);
+        historyForm.clubName.setText(currentClubName);
         this.dispose();
-        EditSupplierPresenter ed=new EditSupplierPresenter();
+        ReservationDao reservation = new ReservationDao();
+        List resultList = reservation.getClubReservations(currentClubName);
+        Vector<String> tableHeaders = new Vector<String>();
+        Vector tableData = new Vector();
+        tableHeaders.add("Id κράτησης");
+        tableHeaders.add("Όνομα πελάτη");
+        tableHeaders.add("Επίθετο πελάτη");
+        tableHeaders.add("Reservation Date");
+        tableHeaders.add("Τραπέζι");
+        String DATE_FORMAT = "dd/MM/yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+
+        for (Object o : resultList) {
+            Reservation res = (Reservation) o;
+            Vector<Object> oneRow = new Vector<Object>();
+            String customerName = new UserDao().getUserDataById(res.getId().getUserId()).getCustomerName();
+            String customerLastName = new UserDao().getUserDataById(res.getId().getUserId()).getCustomerLastname();
+            oneRow.add(res.getId().getReservationId());
+            oneRow.add(customerName);
+            oneRow.add(customerLastName);
+            String reservationDate = sdf.format(res.getReservationDate());
+            oneRow.add(reservationDate);
+            oneRow.add(res.getTrapezi());
+            tableData.add(oneRow);
+        }
+        historyForm.clubReservationsTable.setModel(new DefaultTableModel(tableData, tableHeaders));
+        historyForm.setLocationRelativeTo(this);
+        historyForm.setVisible(true);
+
+    }//GEN-LAST:event_showReservationHistoryButtonActionPerformed
+
+    private void editSuppliersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSuppliersButtonActionPerformed
+        this.dispose();
+        EditSupplierPresenter ed = new EditSupplierPresenter();
         ed.editSupplier(new EditSupplierForm(), currentClubName);
     }//GEN-LAST:event_editSuppliersButtonActionPerformed
 
@@ -394,6 +439,7 @@ public class NightclubMainForm extends javax.swing.JFrame {
     private javax.swing.JButton setClosedDatesButton;
     private javax.swing.JButton setDaysClosedButton;
     private javax.swing.JButton showCellarForm;
+    private javax.swing.JButton showReservationHistoryButton;
     private javax.swing.JButton showSuppliersButton;
     // End of variables declaration//GEN-END:variables
 }
