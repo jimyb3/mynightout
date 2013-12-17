@@ -5,10 +5,15 @@
  */
 package mynightout.ui;
 
+import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.controllers.DeleteReservationController;
+import mynightout.dao.NightClubDao;
+import mynightout.dao.ReservationDao;
 import mynightout.dao.ReservationDaoDelete;
+import mynightout.dao.UserDao;
+import mynightout.entity.Reservation;
 import mynightout.entity.ReservationPk;
 
 /**
@@ -40,42 +45,47 @@ public class DeleteReservationForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Cancel = new javax.swing.JButton();
-        GivenId = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        Delete = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        givenClubName = new javax.swing.JTextField();
+        clubNameLabel = new javax.swing.JLabel();
+        reservationIdLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        clubReservationsTable = new javax.swing.JTable();
+        mesageLabel = new javax.swing.JLabel();
+        cancelButton = new javax.swing.JButton();
+        okButton = new javax.swing.JButton();
+        reservationIdTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Cancel.setText("Cancel");
-        Cancel.addActionListener(new java.awt.event.ActionListener() {
+        clubNameLabel.setText("Clubname:");
+
+        reservationIdLabel.setText("Αριθμός κράτησης:");
+
+        clubReservationsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(clubReservationsTable);
+
+        mesageLabel.setText("Δώστε το Id της κράτησης.");
+
+        cancelButton.setText("Άκυρο");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelActionPerformed(evt);
+                cancelButtonActionPerformed(evt);
             }
         });
 
-        GivenId.addActionListener(new java.awt.event.ActionListener() {
+        okButton.setText("ΟΚ");
+        okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GivenIdActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("ID");
-
-        Delete.setText("Delete");
-        Delete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeleteActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setText("Όνομα Μαγαζιού");
-
-        givenClubName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                givenClubNameActionPerformed(evt);
+                okButtonActionPerformed(evt);
             }
         });
 
@@ -86,75 +96,81 @@ public class DeleteReservationForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(GivenId, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
-                            .addComponent(givenClubName)))
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Cancel)
-                            .addComponent(Delete))))
-                .addContainerGap(103, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(clubNameLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(127, 127, 127)
+                        .addComponent(mesageLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(reservationIdLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(reservationIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(okButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cancelButton)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(clubNameLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(mesageLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(givenClubName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(reservationIdLabel)
+                    .addComponent(reservationIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(GivenId, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(Delete)
-                .addGap(18, 18, 18)
-                .addComponent(Cancel)
-                .addGap(93, 93, 93))
+                    .addComponent(okButton)
+                    .addComponent(cancelButton))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
-        NightclubMainForm mainNightClubFrame = new NightclubMainForm(currentClubName);
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        // TODO add your handling code here:
+
+        reservationIdTextField.setText("");
+        NightclubMainForm nightclubMainFrame = new NightclubMainForm(currentClubName);
         this.dispose();
-        mainNightClubFrame.setLocationRelativeTo(this);
-        mainNightClubFrame.setVisible(true);
-    }//GEN-LAST:event_CancelActionPerformed
+        nightclubMainFrame.setLocationRelativeTo(this);
+        nightclubMainFrame.setVisible(true);
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
-    private void GivenIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GivenIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_GivenIdActionPerformed
-
-    private void DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteActionPerformed
-        DeleteReservationController controller=new DeleteReservationController();
-        try{
-            int reservationId=Integer.parseInt(GivenId.getText());
-           //int clubName=Integer.parseInt(givenClubName.getText());
-            ReservationPk deleteReservation=controller.deleteReservation( givenClubName.getText(),reservationId);
-            JOptionPane.showMessageDialog(null,"Το Id της διεγραμένης κράτησης ειναι :" +GivenId.getText(),
-                "Success",JOptionPane.INFORMATION_MESSAGE);
-            NightclubMainForm mainNightClubFrame=new NightclubMainForm(currentClubName);
+    private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
+        int clubId = new NightClubDao().getNightClubDataByClubName(currentClubName).getClubId();
+        int reservationId = Integer.parseInt(reservationIdTextField.getText());
+        ConfirmDeleteReservationForm cdrf = new ConfirmDeleteReservationForm();
+        cdrf.clubNameLabel.setText(currentClubName);
+        try {
+            Reservation reservation = new ReservationDao().getReservationDataByReservationIdAndUserId(reservationId, clubId);
+            String DATE_FORMAT = "dd/MM/yyyy";
+            SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+            String reservationDate = sdf.format(reservation.getReservationDate());
+            cdrf.customerNameDataLabel.setText(new UserDao().getUserDataById(reservation.getId().getUserId()).getCustomerName());
+            cdrf.customerLastNameDataLabel.setText(new UserDao().getUserDataById(reservation.getId().getUserId()).getCustomerLastname());
+            cdrf.reservationDateDataLabel.setText(reservationDate);
+            cdrf.reservationIdDataLabel.setText(Integer.toString(reservation.getId().getReservationId()));
+            cdrf.trapeziDataLabel.setText(reservation.getTrapezi());
+            cdrf.setLocationRelativeTo(this);
             this.dispose();
-            mainNightClubFrame.setLocationRelativeTo(this);
-            mainNightClubFrame.setVisible(true);
+            cdrf.setVisible(true);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(),
-                    "Failure", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Έδωσες λάθος id κράτησης!", "Failure", JOptionPane.INFORMATION_MESSAGE);
         }
-
-    }//GEN-LAST:event_DeleteActionPerformed
-
-    private void givenClubNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_givenClubNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_givenClubNameActionPerformed
+    }//GEN-LAST:event_okButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,11 +208,13 @@ public class DeleteReservationForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Cancel;
-    private javax.swing.JButton Delete;
-    private javax.swing.JTextField GivenId;
-    private javax.swing.JTextField givenClubName;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton cancelButton;
+    public javax.swing.JLabel clubNameLabel;
+    public javax.swing.JTable clubReservationsTable;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JLabel mesageLabel;
+    private javax.swing.JButton okButton;
+    private javax.swing.JLabel reservationIdLabel;
+    private javax.swing.JTextField reservationIdTextField;
     // End of variables declaration//GEN-END:variables
 }

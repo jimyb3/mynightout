@@ -156,7 +156,6 @@ public class CancelBookForm extends javax.swing.JFrame {
             ccrf.reservationDateDataLabel.setText(reservationDate);
             ccrf.reservationIdDataLabel.setText(Integer.toString(reservation.getId().getReservationId()));
             ccrf.trapeziDataLabel.setText(reservation.getTrapezi());
-            ccrf.userNameLabel.setText(currentUserName);
             ccrf.setLocationRelativeTo(this);
             this.dispose();
             ccrf.setVisible(true);

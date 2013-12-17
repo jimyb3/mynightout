@@ -96,6 +96,28 @@ public class UserDao implements IUserDao {
         }
 
     }
+    
+    public User getUserDataById(int userId) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            String hql = "from User user where user.userId='" + userId + "'";
+            Query q = session.createQuery(hql);
+            List userDataList = q.list();
+            session.getTransaction().commit();
+            session.close();
+            User user = new User();
+            for (Object o : userDataList) {
+                user = (User) o;
+            }
+            return user;
+        } catch (HibernateException he) {
+            he.printStackTrace();
+            session.beginTransaction().rollback();
+            return null;
+        }
+
+    }
 //ΔΙΑΧΕΙΡΙΣΗ ΠΡΟΣΩΠΙΚΩΝ ΣΤΟΙΧΕΙΩΝ
     //ορίσματα : userName, password, customerName, customerLastname, telephoneNum
     //επιστρέφει true αν έγινε η ενημέρωση, alliws false
