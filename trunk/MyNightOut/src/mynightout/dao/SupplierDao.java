@@ -8,7 +8,7 @@ package mynightout.dao;
 
 import java.util.List;
 import mynightout.exceptions.DaoException;
-import mynightout.model.Supplier;
+import mynightout.entity.Supplier;
 import mynightout.util.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -19,12 +19,9 @@ import org.hibernate.Session;
  *
  * @author Maria
  */
-public class SupplierDao implements ISupplierDao{
+public class SupplierDao{
   
-    @Override   
-    public Supplier selectSupplier(String firstName, String lastName, String companyName, String address, int  cellPhoneNumber, int officePhoneNumber, String email) throws DaoException{
-    return new Supplier(firstName,lastName,companyName,address,cellPhoneNumber,officePhoneNumber,email);
-    }
+   
     
     public List getAllSuppliers() {
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -35,6 +32,27 @@ public class SupplierDao implements ISupplierDao{
             List supplierList = q.list();
             session.getTransaction().commit();
             return supplierList;
+        } catch (HibernateException he) {
+            he.printStackTrace();
+            session.beginTransaction().rollback();
+            return null;
+        }
+    }
+    
+    public Supplier getSupplierDataById(int supplierId) {
+         Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            session.beginTransaction();
+            String hql = "from Supplier sup where sup.supplierId='" + supplierId + "'";
+            Query w = session.createQuery(hql);
+            List resultList = w.list();
+            session.getTransaction().commit();
+            session.close();
+            Supplier supplier = new Supplier();
+            for (Object o : resultList) {
+                supplier = (Supplier) o;
+            }
+            return supplier;
         } catch (HibernateException he) {
             he.printStackTrace();
             session.beginTransaction().rollback();

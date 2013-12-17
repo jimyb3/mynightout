@@ -8,12 +8,17 @@ package mynightout.ui;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Vector;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import mynightout.controllers.DisplayCellarController;
+import mynightout.dao.NightClubDao;
 import mynightout.dao.ReservationDao;
+import mynightout.dao.SupplierDao;
+import mynightout.dao.SupplyDao;
 import mynightout.dao.UserDao;
 import mynightout.entity.Cellar;
 import mynightout.entity.Reservation;
+import mynightout.entity.Supply;
 import mynightout.presenters.EditSupplierPresenter;
 
 /**
@@ -125,7 +130,6 @@ public class NightclubMainForm extends javax.swing.JFrame {
         });
 
         showSuppliersButton.setText("Εμφάνιση προμηθευτών");
-        showSuppliersButton.setEnabled(false);
         showSuppliersButton.setFocusPainted(false);
         showSuppliersButton.setFocusable(false);
         showSuppliersButton.addActionListener(new java.awt.event.ActionListener() {
@@ -314,7 +318,49 @@ public class NightclubMainForm extends javax.swing.JFrame {
     private void showSuppliersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showSuppliersButtonActionPerformed
         ShowSupplierForm showSuppliersFrame = new ShowSupplierForm(currentClubName);
         this.dispose();
+        //showSuppliersFrame.setLocationRelativeTo(this);
+        //showSuppliersFrame.setVisible(true);
+        
+        
+        //NightclubReservationsHistoryForm historyForm = new NightclubReservationsHistoryForm(currentClubName);
+        showSuppliersFrame.clubName.setText(currentClubName);
+        //this.dispose();
+        SupplyDao supplyDao = new SupplyDao();
+        NightClubDao nightClub = new NightClubDao();
+        List resultList = supplyDao.getSupplyByClubId(nightClub.getNightClubDataByClubName(currentClubName).getClubId());
+        
+        Vector<String> tableHeaders = new Vector<String>();
+        Vector tableData = new Vector();
+        tableHeaders.add("Id");
+        tableHeaders.add("Όνομα");
+        tableHeaders.add("Επίθετο");
+        tableHeaders.add("Eπιχείρηση");
+        tableHeaders.add("Διεύθυνση");
+        tableHeaders.add("Κινητό");
+        tableHeaders.add("Εταιρικό τηλέφωνο");
+        tableHeaders.add("e-mail");
+        
+        for (Object o : resultList) {
+            Supply supply = (Supply) o;
+            Vector<Object> oneRow = new Vector<Object>();
+            int supplierId = supply.getId().getSupplierId();
+            oneRow.add(supplierId);
+            oneRow.add(new SupplierDao().getSupplierDataById(supplierId).getFirstName());
+            oneRow.add(new SupplierDao().getSupplierDataById(supplierId).getLastName());
+            oneRow.add(new SupplierDao().getSupplierDataById(supplierId).getCompanyName());
+            oneRow.add(new SupplierDao().getSupplierDataById(supplierId).getAddress());
+            oneRow.add(new SupplierDao().getSupplierDataById(supplierId).getCellphoneNum());
+            oneRow.add(new SupplierDao().getSupplierDataById(supplierId).getOfficephoneNum());
+            oneRow.add(new SupplierDao().getSupplierDataById(supplierId).getEmailAddress());
+            tableData.add(oneRow);
+            
+        }
+        
+        showSuppliersFrame.suppliersTable.setModel(new DefaultTableModel(tableData, tableHeaders));
+        showSuppliersFrame.suppliersTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        showSuppliersFrame.suppliersTable.sizeColumnsToFit(5);
         showSuppliersFrame.setLocationRelativeTo(this);
+        
         showSuppliersFrame.setVisible(true);
     }//GEN-LAST:event_showSuppliersButtonActionPerformed
 
