@@ -8,7 +8,6 @@ package mynightout.presenters;
 import java.awt.Container;
 import java.awt.event.ActionListener;
 import java.net.URL;
-import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -20,6 +19,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import mynightout.dao.NightClubDao;
 import mynightout.dao.ReservationDao;
+import mynightout.dao.UserDao;
+import mynightout.entity.User;
 import mynightout.ui.ConfirmReservationInfoForm;
 import mynightout.ui.SelectTableProfileForm;
 
@@ -30,7 +31,7 @@ import mynightout.ui.SelectTableProfileForm;
 public class SelectTableProfilePresenter {
 
     public void showSelectTableProfile(SelectTableProfileForm form, int row1, int row2, int row3, int row4,
-            int row5, int row6, int clubId, Date reservationDate) throws ParseException {
+            int row5, int row6, int clubId, final Date reservationDate, final String userName) throws ParseException {
         
         final String clubName= new NightClubDao().getNightClubDataByClubId(clubId).getClubName();
         int x = 100;
@@ -85,11 +86,14 @@ public class SelectTableProfilePresenter {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                             String table = evt.getActionCommand();//Παίρνουμε πίσω το text που δώσαμε.
                             ConfirmReservationInfoForm crif = new ConfirmReservationInfoForm();
+                            User currentUser=new UserDao().getUserDataByUsername(userName);
                             crif.reservationTableLabel.setText(table);
-                            crif.customerLastNameLabel.setText("Λαλακίδης");
-                            crif.customerNameLabel.setText("Λαλάκης");
-                            crif.nightClubNameLabel.setText("Vogue");
-                            crif.reservationDateLabel.setText("01/01/2014");
+                            crif.customerLastNameLabel.setText(currentUser.getCustomerLastname());
+                            crif.customerNameLabel.setText(currentUser.getCustomerName());
+                            crif.nightClubNameLabel.setText(clubName);
+                            String DATE_FORMAT = "dd/MM/yyyy";
+                            SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+                            crif.reservationDateLabel.setText(sdf.format(reservationDate));
                             crif.setVisible(true);
                         }
                     });

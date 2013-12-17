@@ -121,7 +121,7 @@ public class NightclubLoginForm extends javax.swing.JFrame {
         NightclubLoginController controller = new NightclubLoginController();
         try {
             Nightclub club = controller.login(clubNameField.getText(), clubPasswordField.getText());
-            JOptionPane.showMessageDialog(null, "welcome", "Success", JOptionPane.INFORMATION_MESSAGE);
+            //JOptionPane.showMessageDialog(null, "welcome", "Success", JOptionPane.INFORMATION_MESSAGE);
             NightclubMainForm nightclubMainForm = new NightclubMainForm(clubNameField.getText());
             this.dispose();
             nightclubMainForm.setLocationRelativeTo(this);

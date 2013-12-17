@@ -18,11 +18,17 @@ import mynightout.presenters.SelectTableProfilePresenter;
  * @author Mustaine
  */
 public class StoreView extends javax.swing.JFrame {
-
+    
+    private String currentUserName;
     /**
      * Creates new form StoreView
      */
     public StoreView() {
+        initComponents();
+    }
+    
+    public StoreView(String cUserName) {
+        currentUserName = cUserName;
         initComponents();
     }
 
@@ -164,7 +170,7 @@ public class StoreView extends javax.swing.JFrame {
         try {
                 stpp.showSelectTableProfile(new SelectTableProfileForm(), t.getFirstRow(), 
                         t.getSecondRow(), t.getThirdRow(), t.getFourthRow(), t.getFifthRow(), 
-                        t.getSixthRow(), clubId, reservationDateChooser.getDate());
+                        t.getSixthRow(), clubId, reservationDateChooser.getDate(), currentUserName);
             } catch (ParseException ex) {
                 Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
             }

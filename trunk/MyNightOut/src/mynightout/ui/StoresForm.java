@@ -296,7 +296,7 @@ public class StoresForm extends javax.swing.JFrame {
 
                     getSubMenu(choice);
 
-                    StoreView storeV = new StoreView();
+                    StoreView storeV = new StoreView(currentUserName);
                     
                     
                     URL url = null;
