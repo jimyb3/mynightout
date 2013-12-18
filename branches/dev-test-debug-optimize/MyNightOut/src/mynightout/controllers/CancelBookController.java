@@ -17,7 +17,7 @@ import mynightout.entity.ReservationPk;
 public class CancelBookController {
 
     /**
-     * Ένας απλός Controller. Ελέγχει αν ο αριθμός κράτησης που δώθηκε είναι
+     * Ένας απλός Controllexceptionr. Ελέγχει αν ο αριθμός κράτησης που δώθηκε είναι
      * έγκυρος(θα πρέπει να είναι θετικός και όχι μεγαλύτερος του 100), και αν
      * το μήκος του ονόματος που δόθηκε είναι πάνω από 3 χαρακτήρες. Αν αυτά
      * ισχύουν τότε θα διαγράφει την κράτηση.
@@ -26,7 +26,7 @@ public class CancelBookController {
      * @param reservationId ο αριθμός της κράτησης
      * @return διαγράφει την κράτηση
      * @throws IllegalArgumentException αν κάποια από τις παραμέτρους δεν ήταν
-     * σωστή DaoException αν απέτυχε η επικοινωνία με τη βάση
+ σωστή DaoExcexceptionption αν απέτυχε η επικοινωνία με τη βάση
      */
     public ReservationPk cancelReservation(String userName, int reservationId) {
         
@@ -47,14 +47,14 @@ public class CancelBookController {
         }
             
         ReservationDao changeReservationStatus = new ReservationDao();
-        ReservationPk res = new ReservationPk();
-        res.setReservationId(reservationId);
+        ReservationPk reservation = new ReservationPk();
+        reservation.setReservationId(reservationId);
         int userId = new UserDao().getUserDataByUsername(userName).getUserId();
-        res.setUserId(userId);
-        if (res.equals(changeReservationStatus.cancelReservationByUser(res))) {
+        reservation.setUserId(userId);
+        if (reservation.equals(changeReservationStatus.cancelReservationByUser(reservation))) {
             try {
-                return res;
-            } catch (Exception e) {
+                return reservation;
+            } catch (Exception exception) {
                 throw new IllegalArgumentException("Πρόβλημα στην βάση");
             }
         } else {

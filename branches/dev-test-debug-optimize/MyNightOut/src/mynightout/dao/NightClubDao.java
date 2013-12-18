@@ -21,12 +21,7 @@ import org.hibernate.Session;
  *
  * @author panos
  */
-public class NightClubDao implements INightClubDao {
-
-    @Override
-    public Nightclub selectNightClub(String storeName) throws DaoException {
-        return new Nightclub();
-    }
+public class NightClubDao{
 //ΕΜΦΑΝΙΣΗ ΚΑΤΑΣΤΗΜΑΤΟΣ
 //επιστρέφει List με clubName, seatNumber, telephoneNum για όλα τα καταστήματα της βάσης
     //αν κάτι πάει στραβα επιστρέφει null

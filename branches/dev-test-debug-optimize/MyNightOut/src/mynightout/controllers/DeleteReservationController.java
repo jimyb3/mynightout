@@ -5,10 +5,8 @@
  */
 package mynightout.controllers;
 
-import mynightout.dao.IReservationDaoDelete;
 import mynightout.dao.NightClubDao;
 import mynightout.dao.ReservationDao;
-import mynightout.entity.Reservation;
 import mynightout.entity.ReservationPk;
 
 /**
