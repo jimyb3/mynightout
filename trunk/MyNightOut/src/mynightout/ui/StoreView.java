@@ -7,6 +7,7 @@ package mynightout.ui;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -171,26 +172,27 @@ public class StoreView extends javax.swing.JFrame {
     private void reservBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservBtnActionPerformed
         // TODO add your handling code here:
         String choice = storeName.getText();
-
-        if (new NightClubDao().isNightClubOpenByDate(choice, reservationDateChooser.getDate()) && new NightClubDao().isNightClubOpenByWeekDay(choice, reservationDateChooser.getDate())) {
-            SelectTableProfilePresenter stpp = new SelectTableProfilePresenter();
-
-            int clubId = new NightClubDao().getNightClubDataByClubName(choice).getClubId();
-            TablesDao td = new TablesDao();
-            Tables t = td.getClubsTables(choice);
-            try {
-                stpp.showSelectTableProfile(new SelectTableProfileForm(), t.getFirstRow(),
-                        t.getSecondRow(), t.getThirdRow(), t.getFourthRow(), t.getFifthRow(),
-                        t.getSixthRow(), clubId, reservationDateChooser.getDate(), currentUserName);
-            } catch (ParseException ex) {
-                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        if (reservationDateChooser.getDate() == null || reservationDateChooser.getDate().before(new Date())) {
+            JOptionPane.showMessageDialog(null, "Έχεις εισάγει λάθος ημερομηνία.", "Failure", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            String DATE_FORMAT = "dd/MM/yyyy";
-            SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
-            JOptionPane.showMessageDialog(null, "Το κατάστημα είναι κλειστό στις "+sdf.format(reservationDateChooser.getDate()), "Failure", JOptionPane.INFORMATION_MESSAGE);
-            
+            if (new NightClubDao().isNightClubOpenByDate(choice, reservationDateChooser.getDate()) && new NightClubDao().isNightClubOpenByWeekDay(choice, reservationDateChooser.getDate())) {
+                SelectTableProfilePresenter stpp = new SelectTableProfilePresenter();
 
+                int clubId = new NightClubDao().getNightClubDataByClubName(choice).getClubId();
+                TablesDao td = new TablesDao();
+                Tables t = td.getClubsTables(choice);
+                try {
+                    stpp.showSelectTableProfile(new SelectTableProfileForm(), t.getFirstRow(),
+                            t.getSecondRow(), t.getThirdRow(), t.getFourthRow(), t.getFifthRow(),
+                            t.getSixthRow(), clubId, reservationDateChooser.getDate(), currentUserName);
+                } catch (ParseException ex) {
+                    Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                String DATE_FORMAT = "dd/MM/yyyy";
+                SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+                JOptionPane.showMessageDialog(null, "Το κατάστημα είναι κλειστό στις " + sdf.format(reservationDateChooser.getDate()), "Failure", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
     }//GEN-LAST:event_reservBtnActionPerformed
 
