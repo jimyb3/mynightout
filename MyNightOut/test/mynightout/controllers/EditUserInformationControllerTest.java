@@ -49,12 +49,13 @@ public class EditUserInformationControllerTest {
         String password = "testPassword";
         String customerName = "testCustomerName";
         String customerLastname = "testCustomeLastname";
-        String telephoneNum = "testTelephone";
-        String email = "testEmail";
+        String telephoneNum = "1234567890";
+        String email = "correct@email.com";
         EditUserInformationController instance = new EditUserInformationController();
-        User expResult = null;
-        User result = instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
-        Assert.assertEquals(expResult, result);
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result);
 
     }
 
@@ -65,12 +66,13 @@ public class EditUserInformationControllerTest {
         String password = null;
         String customerName = "testCustomerName";
         String customerLastname = "testCustomeLastname";
-        String telephoneNum = "testTelephone";
-        String email = "testEmail";
+        String telephoneNum = "1234567890";
+        String email = "correct@email.com";
         EditUserInformationController instance = new EditUserInformationController();
-        User expResult = null;
-        User result = instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
-        Assert.assertEquals(expResult, result);
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result);
 
     }
 
@@ -81,12 +83,13 @@ public class EditUserInformationControllerTest {
         String password = "testPassword";
         String customerName = null;
         String customerLastname = "testCustomeLastname";
-        String telephoneNum = "testTelephone";
-        String email = "testEmail";
+        String telephoneNum = "1234567890";
+        String email = "correct@email.com";
         EditUserInformationController instance = new EditUserInformationController();
-        User expResult = null;
-        User result = instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
-        Assert.assertEquals(expResult, result);
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result);
 
     }
 
@@ -97,12 +100,13 @@ public class EditUserInformationControllerTest {
         String password = "testPassword";
         String customerName = "testCustomeName";
         String customerLastname = null;
-        String telephoneNum = "testTelephone";
-        String email = "testEmail";
+        String telephoneNum = "1234567890";
+        String email = "correct@email.com";
         EditUserInformationController instance = new EditUserInformationController();
-        User expResult = null;
-        User result = instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
-        Assert.assertEquals(expResult, result);
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result);
 
     }
 
@@ -114,11 +118,12 @@ public class EditUserInformationControllerTest {
         String customerName = "testCustomerName";
         String customerLastname = "testCustomeLastname";
         String telephoneNum = null;
-        String email = "testEmail";
+        String email = "correct@email.com";
         EditUserInformationController instance = new EditUserInformationController();
-        User expResult = null;
-        User result = instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
-        Assert.assertEquals(expResult, result);
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result);
 
     }
 
@@ -129,12 +134,13 @@ public class EditUserInformationControllerTest {
         String password = "testPassword";
         String customerName = "testCustomeName";
         String customerLastname = "testCustomeLastname";
-        String telephoneNum = "testTelephone";
+        String telephoneNum = "1234567890";
         String email = null;
         EditUserInformationController instance = new EditUserInformationController();
-        User expResult = null;
-        User result = instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
-        Assert.assertEquals(expResult, result);
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result);
 
     }
 
@@ -145,12 +151,18 @@ public class EditUserInformationControllerTest {
         String password = "testPassword";
         String customerName = "testCustomerName";
         String customerLastname = "testCustomeLastname";
-        String telephoneNum = "testTelephone";
-        String email = "testEmail";
+        String telephoneNum = "1234567890";
+        String email = "correct@email.com";
         EditUserInformationController instance = new EditUserInformationController();
-        User expResult = null;
-        User result = instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
-        Assert.assertEquals(expResult, result);
+        //User expResult = new User("testUsername", password, customerName, customerLastname, telephoneNum, email);
+       /* expResult.setUsername(userName);
+         expResult.setCustomerName(customerName);
+         expResult.setCustomerLastname(customerLastname);
+         expResult.setTelephoneNum(telephoneNum);
+         expResult.setEmail(email);*/
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result);
 
     }
 
@@ -161,12 +173,13 @@ public class EditUserInformationControllerTest {
         String password = "";
         String customerName = "testCustomerName";
         String customerLastname = "testCustomeLastname";
-        String telephoneNum = "testTelephone";
-        String email = "testEmail";
+        String telephoneNum = "1234567890";
+        String email = "correct@email.com";
         EditUserInformationController instance = new EditUserInformationController();
-        User expResult = null;
-        User result = instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
-        Assert.assertEquals(expResult, result);
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result);
 
     }
 
@@ -177,12 +190,13 @@ public class EditUserInformationControllerTest {
         String password = "testPassword";
         String customerName = "";
         String customerLastname = "testCustomeLastname";
-        String telephoneNum = "testTelephone";
-        String email = "testEmail";
+        String telephoneNum = "1234567890";
+        String email = "correct@email.com";
         EditUserInformationController instance = new EditUserInformationController();
-        User expResult = null;
-        User result = instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
-        Assert.assertEquals(expResult, result);
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -192,12 +206,13 @@ public class EditUserInformationControllerTest {
         String password = "testPassword";
         String customerName = "testCustomeName";
         String customerLastname = "";
-        String telephoneNum = "testTelephone";
-        String email = "testEmail";
+        String telephoneNum = "1234567890";
+        String email = "correct@email.com";
         EditUserInformationController instance = new EditUserInformationController();
-        User expResult = null;
-        User result = instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
-        Assert.assertEquals(expResult, result);
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -208,11 +223,12 @@ public class EditUserInformationControllerTest {
         String customerName = "testCustomerName";
         String customerLastname = "testCustomeLastname";
         String telephoneNum = "";
-        String email = "testEmail";
+        String email = "correct@email.com";
         EditUserInformationController instance = new EditUserInformationController();
-        User expResult = null;
-        User result = instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
-        Assert.assertEquals(expResult, result);
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -222,12 +238,13 @@ public class EditUserInformationControllerTest {
         String password = "testPassword";
         String customerName = "testCustomeName";
         String customerLastname = "testCustomeLastname";
-        String telephoneNum = "testTelephone";
+        String telephoneNum = "1234567890";
         String email = "";
         EditUserInformationController instance = new EditUserInformationController();
-        User expResult = null;
-        User result = instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
-        Assert.assertEquals(expResult, result);
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result);
     }
 
     @Test
@@ -248,19 +265,26 @@ public class EditUserInformationControllerTest {
     @Test(expected = IllegalArgumentException.class)
     public void testSaveChangesWithWrongEmail() {
         System.out.println("testSaveChangesWithNoEmail");
-        String userName = "lalala";
-        String password = new UserDao().getUserDataByUsername(userName).getPassword();
-        String customerName = new UserDao().getUserDataByUsername(userName).getCustomerName();
-        String customerLastname = new UserDao().getUserDataByUsername(userName).getCustomerLastname();
-        String telephoneNum = new UserDao().getUserDataByUsername(userName).getTelephoneNum();
-        String email = "wrong@test.";
+        /*String userName = "lalala";
+         String password = new UserDao().getUserDataByUsername(userName).getPassword();
+         String customerName = new UserDao().getUserDataByUsername(userName).getCustomerName();
+         String customerLastname = new UserDao().getUserDataByUsername(userName).getCustomerLastname();
+         String telephoneNum = new UserDao().getUserDataByUsername(userName).getTelephoneNum();*/
+        String userName = "testUserName";
+        String password = "testPassword";
+        String customerName = "testCustomeName";
+        String customerLastname = "testCustomeLastname";
+        String telephoneNum = "1234567890";
+        String email = "wrong@email.";
         EditUserInformationController instance = new EditUserInformationController();
-        User expResult = new User(userName, password, customerName, customerLastname, telephoneNum, email);
-        User result = instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
-        Assert.assertEquals(expResult, result);
+        //User expResult = new User(userName, password, customerName, customerLastname, telephoneNum, email);
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result);
     }
 
     @Test//(expected = IllegalArgumentException.class)
+    //apo ti stigmi pou trexei to testSaveChangesSuccessfull auto to test mporei na fugei
     public void testSaveChangesWithCorrectEmail() {
         System.out.println("testSaveChangesWithNoEmail");
         String userName = "lalala";
@@ -268,25 +292,225 @@ public class EditUserInformationControllerTest {
         String customerName = new UserDao().getUserDataByUsername(userName).getCustomerName();
         String customerLastname = new UserDao().getUserDataByUsername(userName).getCustomerLastname();
         String telephoneNum = new UserDao().getUserDataByUsername(userName).getTelephoneNum();
-        String email = "wrong@test.com";
+        String email = "test2@yahoo.gr";
         EditUserInformationController instance = new EditUserInformationController();
-        User expResult = new User(userName, password, customerName, customerLastname, telephoneNum, email);
-        User result = instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
-        Assert.assertEquals(expResult, result);
+        //User expResult = new User(userName, password, customerName, customerLastname, telephoneNum, email);
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testSaveChangesWrongTelephone() {
         System.out.println("testSaveChangesSuccessfull");
-        String userName = "lalala";
-        String password = new UserDao().getUserDataByUsername(userName).getPassword();
-        String customerName = new UserDao().getUserDataByUsername(userName).getCustomerName();
-        String customerLastname = new UserDao().getUserDataByUsername(userName).getCustomerLastname();
+        /*String userName = "lalala";
+         String password = new UserDao().getUserDataByUsername(userName).getPassword();
+         String customerName = new UserDao().getUserDataByUsername(userName).getCustomerName();
+         String customerLastname = new UserDao().getUserDataByUsername(userName).getCustomerLastname();*/
+        String userName = "testUserName";
+        String password = "testPassword";
+        String customerName = "testCustomeName";
+        String customerLastname = "testCustomeLastname";
         String telephoneNum = "1234a67890";
-        String email = new UserDao().getUserDataByUsername(userName).getEmail();
+        String email = "correct@email.com";
         EditUserInformationController instance = new EditUserInformationController();
-        User expResult = new User(userName, password, customerName, customerLastname, telephoneNum, email);
-        User result = instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
-        Assert.assertEquals(expResult, result);
+        //User expResult = new User(userName, password, customerName, customerLastname, telephoneNum, email);
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSaveChangesWithShortUsername() {
+        System.out.println("testSaveChangesWithShortUsername");
+        String userName = "tes";
+        String password = "testPassword";
+        String customerName = "testCustomerName";
+        String customerLastname = "testCustomeLastname";
+        String telephoneNum = "1234567890";
+        String email = "correct@email.com";
+        EditUserInformationController instance = new EditUserInformationController();
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result)
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSaveChangesWithLongUsername() {
+        System.out.println("testSaveChangesWithLongUsername");
+        String userName = "testUserNametestUserNametestUserNametestUserNametestUserName";
+        String password = "testPassword";
+        String customerName = "testCustomerName";
+        String customerLastname = "testCustomeLastname";
+        String telephoneNum = "1234567890";
+        String email = "correct@email.com";
+        EditUserInformationController instance = new EditUserInformationController();
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result)
+    }
+
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void testSaveChangesWithShortPassword() {
+        System.out.println("testSaveChangesWithShortPassword");
+        String userName = "testUserName";
+        String password = "tes";
+        String customerName = "testCustomerName";
+        String customerLastname = "testCustomeLastname";
+        String telephoneNum = "1234567890";
+        String email = "correct@email.com";
+        EditUserInformationController instance = new EditUserInformationController();
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result)
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSaveChangesWithLongPassword() {
+        System.out.println("testSaveChangesWithLongPassword");
+        String userName = "testUserName";
+        String password = "testPasswordtestPasswordtestPasswordtestPasswordtestPassword";
+        String customerName = "testCustomerName";
+        String customerLastname = "testCustomeLastname";
+        String telephoneNum = "1234567890";
+        String email = "correct@email.com";
+        EditUserInformationController instance = new EditUserInformationController();
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result)
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void testSaveChangesWithShortCustomerName() {
+        System.out.println("testSaveChangesWithShortCustomerName");
+        String userName = "testUserName";
+        String password = "testPassword";
+        String customerName = "tes";
+        String customerLastname = "testCustomeLastname";
+        String telephoneNum = "1234567890";
+        String email = "correct@email.com";
+        EditUserInformationController instance = new EditUserInformationController();
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result)
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSaveChangesWithLongCustomerName() {
+        System.out.println("testSaveChangesWithLongCustomerName");
+        String userName = "testUserName";
+        String password = "testPassword";
+        String customerName = "testCustomerNametestCustomerNametestCustomerNametestCustomerName";
+        String customerLastname = "testCustomeLastname";
+        String telephoneNum = "1234567890";
+        String email = "correct@email.com";
+        EditUserInformationController instance = new EditUserInformationController();
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result)
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void testSaveChangesWithShortCustomerLastName() {
+        System.out.println("testSaveChangesWithShortCustomerLastName");
+        String userName = "testUserName";
+        String password = "testPassword";
+        String customerName = "testCustomerName";
+        String customerLastname = "tes";
+        String telephoneNum = "1234567890";
+        String email = "correct@email.com";
+        EditUserInformationController instance = new EditUserInformationController();
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result)
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSaveChangesWithLongCustomerLastName() {
+        System.out.println("testSaveChangesWithLongCustomerLastName");
+        String userName = "testUserName";
+        String password = "testPassword";
+        String customerName = "testCustomerName";
+        String customerLastname = "testCustomeLastnametestCustomeLastnametestCustomeLastnametestCustomeLastname";
+        String telephoneNum = "1234567890";
+        String email = "correct@email.com";
+        EditUserInformationController instance = new EditUserInformationController();
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result)
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void testSaveChangesWithShortTelephone() {
+        System.out.println("testSaveChangesWithShortTelephone");
+        String userName = "testUserName";
+        String password = "testPassword";
+        String customerName = "testCustomerName";
+        String customerLastname = "testCustomeLastname";
+        String telephoneNum = "123456789";
+        String email = "correct@email.com";
+        EditUserInformationController instance = new EditUserInformationController();
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result)
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSaveChangesWithLongTelephone() {
+        System.out.println("testSaveChangesWithLongTelephone");
+        String userName = "testUserName";
+        String password = "testPassword";
+        String customerName = "testCustomerName";
+        String customerLastname = "testCustomeLastname";
+        String telephoneNum = "12345678901";
+        String email = "correct@email.com";
+        EditUserInformationController instance = new EditUserInformationController();
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result)
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSaveChangesWithShortEmail() {
+        System.out.println("testSaveChangesWithShortEmail");
+        String userName = "testUserName";
+        String password = "testPassword";
+        String customerName = "testCustomerName";
+        String customerLastname = "testCustomeLastname";
+        String telephoneNum = "1234567890";
+        String email = "t@e.c";
+        EditUserInformationController instance = new EditUserInformationController();
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result)
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSaveChangesWithLongEmail() {
+        System.out.println("testSaveChangesWithLongEmail");
+        String userName = "testUserName";
+        String password = "testPassword";
+        String customerName = "testCustomerName";
+        String customerLastname = "testCustomeLastname";
+        String telephoneNum = "1234567890";
+        String email = "correct@email.comcorrect@email.comcorrect@email.comcorrect@email.comcorrect@email.com";
+        EditUserInformationController instance = new EditUserInformationController();
+        //User expResult = null;
+        /*User result = */
+        instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        //Assert.assertEquals(expResult, result)
+    }
+    
 }
