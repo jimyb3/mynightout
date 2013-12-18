@@ -12,24 +12,21 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.uispec4j.Trigger;
 import org.uispec4j.UISpec4J;
 import org.uispec4j.UISpecTestCase;
 import org.uispec4j.Window;
 import org.uispec4j.interception.MainClassAdapter;
-import org.uispec4j.interception.WindowHandler;
-import org.uispec4j.interception.WindowInterceptor;
 
 /**
  *
- * @author Mustaine
+ * @author panos
  */
-public class CheckFullnessFormTest extends UISpecTestCase {
+public class CreateBookFormTest extends UISpecTestCase {
     static {
       UISpec4J.init();
     }
     
-    public CheckFullnessFormTest() {
+    public CreateBookFormTest() {
     }
     
     @BeforeClass
@@ -42,16 +39,17 @@ public class CheckFullnessFormTest extends UISpecTestCase {
     
     @Before
     public void setUp() {
-         setAdapter(new MainClassAdapter(CheckFullnessForm.class, new String[0]));
+        setAdapter(new MainClassAdapter(CreateBookForm.class, new String[0]));
     }
     
     @After
     public void tearDown() {
     }
 
-     //-----------------------------GUI Testing---------------------------------------//
+   //-----------------------------GUI Testing---------------------------------------//
     
     
+       
   //Έλεγχος εμφάνισης φόρμας ή αν η φόρμα εμποδίζεται δυναμικά από κάποια 
     //κλάση και εσφαλμένως δεν εμφανίζεται γενικά.
     @Test
@@ -66,31 +64,33 @@ public class CheckFullnessFormTest extends UISpecTestCase {
     
     
     
-    
+     
    //Έλεγχος εμφάνισης των διάφορων JLabels της φόρμας.
     @Test
     public void testalllabels() {
           
         Window window = getMainWindow();
-        
-        assertTrue(window.containsLabel("Αριθμός Κρατήσεων")); 
-        assertTrue(window.containsLabel("Αριθμός Τραπεζιών")); 
-        assertTrue(window.containsLabel("Ημερομηνία")); 
-               
+
+ 	assertTrue(window.containsLabel("εδώ εμφανιζει το ονομα του πελατη"));        
+	assertTrue(window.containsLabel("Επιλογή Καταστήματος"));
+        assertTrue(window.containsLabel("Αριθμός Ατόμων")); 
+	assertTrue(window.containsLabel("Επιλογή Ημερομηνίας"));
+	   
+	     
    }
     
     
     
     
-   /**
-     * Αν εμφανίζoνται κανονικά ολα τα κουμπιά.
-     */
+    //Αν εμφανίζoνται κανονικά ολα τα κουμπιά.
     @Test
     public void testAllButtons() {
         System.out.println("testAllButtons");
         Window window = getMainWindow();
-        assertEquals(true, window.getButton("OK").isVisible());
-        assertEquals(true, window.getButton("Πίσω").isVisible());
+        assertEquals(true, window.getButton("Καταχώρηση Κράτησης").isVisible());
+        assertEquals(true, window.getButton("Άκυρο").isVisible());
     }
+    
+    
     
 }

@@ -22,14 +22,14 @@ import org.uispec4j.interception.WindowInterceptor;
 
 /**
  *
- * @author Mustaine
+ * @author panos
  */
-public class CheckFullnessFormTest extends UISpecTestCase {
+public class DeleteReservationFormTest extends UISpecTestCase {
     static {
       UISpec4J.init();
     }
     
-    public CheckFullnessFormTest() {
+    public DeleteReservationFormTest() {
     }
     
     @BeforeClass
@@ -42,7 +42,7 @@ public class CheckFullnessFormTest extends UISpecTestCase {
     
     @Before
     public void setUp() {
-         setAdapter(new MainClassAdapter(CheckFullnessForm.class, new String[0]));
+         setAdapter(new MainClassAdapter(DeleteReservationForm.class, new String[0]));
     }
     
     @After
@@ -72,25 +72,27 @@ public class CheckFullnessFormTest extends UISpecTestCase {
     public void testalllabels() {
           
         Window window = getMainWindow();
+
+ 	assertTrue(window.containsLabel("Clubname:"));        
+	assertTrue(window.containsLabel("Δώστε το Id της κράτησης."));
+        assertTrue(window.containsLabel("Αριθμός κράτησης:"));
         
-        assertTrue(window.containsLabel("Αριθμός Κρατήσεων")); 
-        assertTrue(window.containsLabel("Αριθμός Τραπεζιών")); 
-        assertTrue(window.containsLabel("Ημερομηνία")); 
-               
+	     
    }
     
     
     
     
-   /**
-     * Αν εμφανίζoνται κανονικά ολα τα κουμπιά.
-     */
+    //Αν εμφανίζoνται κανονικά ολα τα κουμπιά.
     @Test
     public void testAllButtons() {
         System.out.println("testAllButtons");
         Window window = getMainWindow();
-        assertEquals(true, window.getButton("OK").isVisible());
-        assertEquals(true, window.getButton("Πίσω").isVisible());
+        assertEquals(true, window.getButton("ΟΚ").isVisible());
+        assertEquals(true, window.getButton("Άκυρο").isVisible());
     }
+    
+    
+    
     
 }

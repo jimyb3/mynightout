@@ -12,24 +12,21 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.uispec4j.Trigger;
 import org.uispec4j.UISpec4J;
 import org.uispec4j.UISpecTestCase;
 import org.uispec4j.Window;
 import org.uispec4j.interception.MainClassAdapter;
-import org.uispec4j.interception.WindowHandler;
-import org.uispec4j.interception.WindowInterceptor;
 
 /**
  *
- * @author Mustaine
+ * @author panos
  */
-public class CheckFullnessFormTest extends UISpecTestCase {
+public class CreateNewUserFormTest extends UISpecTestCase {
     static {
       UISpec4J.init();
     }
     
-    public CheckFullnessFormTest() {
+    public CreateNewUserFormTest() {
     }
     
     @BeforeClass
@@ -42,17 +39,20 @@ public class CheckFullnessFormTest extends UISpecTestCase {
     
     @Before
     public void setUp() {
-         setAdapter(new MainClassAdapter(CheckFullnessForm.class, new String[0]));
+        setAdapter(new MainClassAdapter(CreateNewUserForm.class, new String[0]));
     }
     
     @After
     public void tearDown() {
     }
-
-     //-----------------------------GUI Testing---------------------------------------//
     
     
-  //Έλεγχος εμφάνισης φόρμας ή αν η φόρμα εμποδίζεται δυναμικά από κάποια 
+    
+//-----------------------------GUI Testing---------------------------------------//
+    
+    
+    
+   //Έλεγχος εμφάνισης φόρμας ή αν η φόρμα εμποδίζεται δυναμικά από κάποια 
     //κλάση και εσφαλμένως δεν εμφανίζεται γενικά.
     @Test
     public void testvisibility() {
@@ -62,35 +62,43 @@ public class CheckFullnessFormTest extends UISpecTestCase {
         assertTrue(window.isVisible());         
         
         
-    }
+    } 
     
     
     
-    
-   //Έλεγχος εμφάνισης των διάφορων JLabels της φόρμας.
+    //Έλεγχος εμφάνισης των διάφορων JLabels της φόρμας.
     @Test
     public void testalllabels() {
           
         Window window = getMainWindow();
         
-        assertTrue(window.containsLabel("Αριθμός Κρατήσεων")); 
-        assertTrue(window.containsLabel("Αριθμός Τραπεζιών")); 
-        assertTrue(window.containsLabel("Ημερομηνία")); 
-               
+	assertTrue(window.containsLabel("Όνομα"));
+        assertTrue(window.containsLabel("Επώνυμο")); 
+	assertTrue(window.containsLabel("Username"));
+	assertTrue(window.containsLabel("Password"));    
+	assertTrue(window.containsLabel("<html>Αριθμός <br></br>τηλεφώνου</html>"));
+        assertTrue(window.containsLabel("E-mail")); 
+	
+        
+        
    }
     
     
     
     
-   /**
-     * Αν εμφανίζoνται κανονικά ολα τα κουμπιά.
-     */
+    //Αν εμφανίζoνται κανονικά ολα τα κουμπιά.
     @Test
     public void testAllButtons() {
         System.out.println("testAllButtons");
         Window window = getMainWindow();
-        assertEquals(true, window.getButton("OK").isVisible());
+        assertEquals(true, window.getButton("Δημιουργία λογαριασμού").isVisible());
+        assertEquals(true, window.getButton("Καθαρισμός πεδίων").isVisible());
         assertEquals(true, window.getButton("Πίσω").isVisible());
+        
     }
+    
+    
+    
+    
     
 }

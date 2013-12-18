@@ -22,14 +22,14 @@ import org.uispec4j.interception.WindowInterceptor;
 
 /**
  *
- * @author Mustaine
+ * @author panos
  */
-public class CheckFullnessFormTest extends UISpecTestCase {
+public class EditReservationFormTest extends UISpecTestCase {
     static {
       UISpec4J.init();
     }
     
-    public CheckFullnessFormTest() {
+    public EditReservationFormTest() {
     }
     
     @BeforeClass
@@ -42,7 +42,7 @@ public class CheckFullnessFormTest extends UISpecTestCase {
     
     @Before
     public void setUp() {
-         setAdapter(new MainClassAdapter(CheckFullnessForm.class, new String[0]));
+         setAdapter(new MainClassAdapter(EditReservationForm.class, new String[0]));
     }
     
     @After
@@ -72,25 +72,34 @@ public class CheckFullnessFormTest extends UISpecTestCase {
     public void testalllabels() {
           
         Window window = getMainWindow();
+
+ 	assertTrue(window.containsLabel("Εδώ βάλτε τα δεδομένα της κράτησης που έχετε κανει"));        
+	assertTrue(window.containsLabel("Εδώ βάλτε τις αλλαηγές που θέλετε να κάνετε"));
+	assertTrue(window.containsLabel("Όνομα πελάτη"));
+	assertTrue(window.containsLabel("Όνομα καταστήματος"));
+	assertTrue(window.containsLabel("ID κράτησης"));
+	assertTrue(window.containsLabel("Ημερομηνία κράτησης"));
+	assertTrue(window.containsLabel("Πλήθος ατόμων"));
+	assertTrue(window.containsLabel("Ημερομηνία κράτησης"));
+	assertTrue(window.containsLabel("Πλήθος ατόμων"));
+	
         
-        assertTrue(window.containsLabel("Αριθμός Κρατήσεων")); 
-        assertTrue(window.containsLabel("Αριθμός Τραπεζιών")); 
-        assertTrue(window.containsLabel("Ημερομηνία")); 
-               
+	     
    }
     
     
     
     
-   /**
-     * Αν εμφανίζoνται κανονικά ολα τα κουμπιά.
-     */
+    //Αν εμφανίζoνται κανονικά ολα τα κουμπιά.
     @Test
     public void testAllButtons() {
         System.out.println("testAllButtons");
         Window window = getMainWindow();
-        assertEquals(true, window.getButton("OK").isVisible());
-        assertEquals(true, window.getButton("Πίσω").isVisible());
+        assertEquals(true, window.getButton("Επεξεργασία").isVisible());
+        assertEquals(true, window.getButton("Ακύρωση").isVisible());
     }
+    
+    
+    
     
 }
