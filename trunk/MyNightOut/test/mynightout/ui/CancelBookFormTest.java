@@ -64,7 +64,7 @@ public class CancelBookFormTest extends UISpecTestCase {
     @Test
     public void testAllLabels() {
         Window window = getMainWindow();
-        assertTrue(window.containsLabel("Δώστε το όνομα που έγινε η κράτηση και τον αριθμό κράτησης."));
+        assertTrue(window.containsLabel("Δώστε το Id της κράτησης."));
         assertTrue(window.containsLabel("Username:"));
         assertTrue(window.containsLabel("Αριθμός κράτησης:"));
     }

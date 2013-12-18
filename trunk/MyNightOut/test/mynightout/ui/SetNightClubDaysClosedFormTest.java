@@ -64,7 +64,7 @@ public class SetNightClubDaysClosedFormTest extends UISpecTestCase {
     public void testAllLabels() {
         System.out.println("testAllLabels");
         Window window = getMainWindow();
-        assertTrue(window.containsLabel("Όνομα καταστήματος:"));
+        //assertTrue(window.containsLabel("Όνομα καταστήματος:"));
         assertTrue(window.containsLabel("Επέλεξε τις μέρες που θα είναι κλειστό το κατάστημα."));
     }
 

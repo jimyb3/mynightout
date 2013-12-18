@@ -19,15 +19,15 @@ import org.uispec4j.interception.MainClassAdapter;
 
 /**
  *
- * @author Dimitris
+ * @author panos
  */
-public class SetNightClubClosedDatesFormTest extends UISpecTestCase {
+public class ConfirmDeleteReservationFormTest extends UISpecTestCase {
     
     static {
         UISpec4J.init();
     }
     
-    public SetNightClubClosedDatesFormTest() {
+    public ConfirmDeleteReservationFormTest() {
     }
     
     @BeforeClass
@@ -40,7 +40,7 @@ public class SetNightClubClosedDatesFormTest extends UISpecTestCase {
     
     @Before
     public void setUp() {
-        setAdapter(new MainClassAdapter(SetNightClubClosedDatesForm.class, new String[0]));
+        setAdapter(new MainClassAdapter(ConfirmDeleteReservationForm.class, new String[0]));
     }
     
     @After
@@ -64,10 +64,15 @@ public class SetNightClubClosedDatesFormTest extends UISpecTestCase {
     public void testAllLabels() {
         System.out.println("testAllLabels");
         Window window = getMainWindow();
-        //assertTrue(window.containsLabel("Όνομα καταστήματος:"));
-        assertTrue(window.containsLabel("Επέλεξε τις ημερομηνίες από πότε-μέχρι θα ειναι κλειστό το κατάστημα."));
-        assertTrue(window.containsLabel("Κλειστό από:"));
-        assertTrue(window.containsLabel("Κλειστό μέχρι:"));
+        
+        assertTrue(window.containsLabel("Id κράτησης:"));
+        assertTrue(window.containsLabel("Όνομα πελάτη:"));
+        assertTrue(window.containsLabel("Επίθετο πελάτη:"));
+        assertTrue(window.containsLabel("Ημερομηνία κράτησης:"));
+        assertTrue(window.containsLabel("Τραπέζι κράτησης:"));
+        assertTrue(window.containsLabel("Θα διαγράψεις την κράτηση με τα παρακάτω στοιχεία."));
+        assertTrue(window.containsLabel("Είναι σωστά τα παραπάνω στοιχεία;"));
+        
     }
 
     /**
@@ -77,8 +82,9 @@ public class SetNightClubClosedDatesFormTest extends UISpecTestCase {
     public void testAllButtons() {
         System.out.println("testAllButtons");
         Window window = getMainWindow();
-        assertEquals(true, window.getButton("ΟΚ").isVisible());
-        assertEquals(true, window.getButton("Άκυρο").isVisible());
+        assertEquals(true, window.getButton("Ναι").isVisible());
+        assertEquals(true, window.getButton("Όχι").isVisible());
     }
+   
     
 }
