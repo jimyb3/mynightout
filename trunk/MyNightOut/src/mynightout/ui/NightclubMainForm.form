@@ -46,7 +46,6 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="displayCellarButton" max="32767" attributes="0"/>
-                          <Component id="showCellarForm" alignment="0" max="32767" attributes="0"/>
                           <Component id="changeNightClubTableProfileButton" alignment="0" pref="181" max="32767" attributes="0"/>
                           <Component id="setClosedDatesButton" alignment="0" max="32767" attributes="0"/>
                           <Component id="logoutButton" max="32767" attributes="0"/>
@@ -77,10 +76,7 @@
                   <Component id="setClosedDatesButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="checkFullnessButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="showCellarForm" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="checkFullnessButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="deleteButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -96,7 +92,7 @@
                   <Component id="exitButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="logoutButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="71" max="32767" attributes="0"/>
+              <EmptySpace pref="72" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -160,15 +156,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setClosedDatesButtonActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="showCellarForm">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="&#x395;&#x3bc;&#x3c6;&#x3ac;&#x3bd;&#x3b9;&#x3c3;&#x3b7; &#x3ba;&#x3b5;&#x3bb;&#x3b1;&#x3c1;&#x3b9;&#x3bf;&#x3cd;"/>
-        <Property name="enabled" type="boolean" value="false"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="showCellarFormActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="showSuppliersButton">

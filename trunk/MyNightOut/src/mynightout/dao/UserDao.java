@@ -19,12 +19,9 @@ import org.hibernate.Session;
  *
  * @author ioanna
  */
-public class UserDao implements IUserDao {
+public class UserDao {
 
-    @Override
-    public User makeLogin(String userName, String passWord) throws DaoException {
-        return new User();
-    }
+    
 //εισαγωγή νέου χρήστη στη βάση
     //ορίσματα :userName, passWord, customerName, customerLastname, telephoneNum
     //επιστρέφει αντικείμενο user με τα χαρακτηριστικά του νέου χρήστη, εαν προστέθηκε στη βάση η εγγραφή

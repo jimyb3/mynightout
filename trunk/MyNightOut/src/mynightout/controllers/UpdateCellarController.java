@@ -20,11 +20,11 @@ public class UpdateCellarController {
             int liqueur, int rum, int tequila, int beer) {
         int clubId = new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
 
-        CellarDao cd = new CellarDao();
+        CellarDao cellar = new CellarDao();
 
         try {
-            return cd.updateClubCellarByClubId(clubId, vodka, whiskey, wine, liqueur, rum, tequila, beer);
-        } catch (Exception e) {
+            return cellar.updateClubCellarByClubId(clubId, vodka, whiskey, wine, liqueur, rum, tequila, beer);
+        } catch (Exception exception) {
             throw new IllegalArgumentException("Πρόβλημα στην βάση.");
         }
     }

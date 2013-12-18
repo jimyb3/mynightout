@@ -23,13 +23,9 @@ import org.hibernate.Session;
  *
  * @author Dimitris
  */
-public class ReservationDao implements IReservationDao {
+public class ReservationDao {
 
-    @Override
-    public Reservation selectReservation(ReservationPk res, Date reservationDate,
-            String trapezi, int seatNumber, String reservationStatus) throws DaoException {
-        return new Reservation(res, reservationDate, trapezi, "active");
-    }
+    
 
     //ΚΡΑΤΗΣΗ
     //δημιουργεί νεα κράτηση στη βάση
