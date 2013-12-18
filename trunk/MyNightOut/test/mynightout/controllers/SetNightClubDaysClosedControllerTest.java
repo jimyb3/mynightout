@@ -6,7 +6,7 @@
 
 package mynightout.controllers;
 
-import junit.framework.AssertionFailedError;
+import mynightout.dao.NightClubDao;
 import mynightout.entity.Nightclub;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -72,9 +72,11 @@ public class SetNightClubDaysClosedControllerTest {
         System.out.println("SetClubClosedDatesNoDaysClosed");
         String clubName = "Vogue";
         String daysClosed = "";
+        String originalDaysClosed= new NightClubDao().getNightClubDataByClubName(clubName).getDaysClosed();
         SetNightClubDaysClosedController instance = new SetNightClubDaysClosedController();
         Nightclub expResult = new Nightclub(daysClosed);
         Nightclub result = instance.setClubClosedDates(clubName, daysClosed);
+        instance.setClubClosedDates(clubName, originalDaysClosed);
         assertEquals(expResult.getDaysClosed(), result.getDaysClosed());
         // TODO review the generated test code and remove the default call to fail.
     }
