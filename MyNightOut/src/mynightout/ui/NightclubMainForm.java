@@ -57,7 +57,6 @@ public class NightclubMainForm extends javax.swing.JFrame {
         setDaysClosedButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         setClosedDatesButton = new javax.swing.JButton();
-        showCellarForm = new javax.swing.JButton();
         showSuppliersButton = new javax.swing.JButton();
         displayCellarButton = new javax.swing.JButton();
         changeNightClubTableProfileButton = new javax.swing.JButton();
@@ -118,14 +117,6 @@ public class NightclubMainForm extends javax.swing.JFrame {
         setClosedDatesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 setClosedDatesButtonActionPerformed(evt);
-            }
-        });
-
-        showCellarForm.setText("Εμφάνιση κελαριού");
-        showCellarForm.setEnabled(false);
-        showCellarForm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showCellarFormActionPerformed(evt);
             }
         });
 
@@ -201,7 +192,6 @@ public class NightclubMainForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(displayCellarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(showCellarForm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(changeNightClubTableProfileButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
                             .addComponent(setClosedDatesButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -224,9 +214,7 @@ public class NightclubMainForm extends javax.swing.JFrame {
                     .addComponent(setDaysClosedButton)
                     .addComponent(setClosedDatesButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkFullnessButton)
-                    .addComponent(showCellarForm))
+                .addComponent(checkFullnessButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(deleteButton)
@@ -239,7 +227,7 @@ public class NightclubMainForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(exitButton)
                     .addComponent(logoutButton))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         pack();
@@ -307,13 +295,6 @@ public class NightclubMainForm extends javax.swing.JFrame {
         this.dispose();
         snccdf.setVisible(true);
     }//GEN-LAST:event_setClosedDatesButtonActionPerformed
-
-    private void showCellarFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCellarFormActionPerformed
-        ShowCellarForm showCellarFrame = new ShowCellarForm(currentClubName);
-        this.dispose();
-        showCellarFrame.setLocationRelativeTo(this);
-        showCellarFrame.setVisible(true);
-    }//GEN-LAST:event_showCellarFormActionPerformed
 
     private void showSuppliersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showSuppliersButtonActionPerformed
         ShowSupplierForm showSuppliersFrame = new ShowSupplierForm(currentClubName);
@@ -484,7 +465,6 @@ public class NightclubMainForm extends javax.swing.JFrame {
     private javax.swing.JLabel messageLabel;
     private javax.swing.JButton setClosedDatesButton;
     private javax.swing.JButton setDaysClosedButton;
-    private javax.swing.JButton showCellarForm;
     private javax.swing.JButton showReservationHistoryButton;
     private javax.swing.JButton showSuppliersButton;
     // End of variables declaration//GEN-END:variables

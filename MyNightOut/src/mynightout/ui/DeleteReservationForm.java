@@ -6,15 +6,11 @@
 package mynightout.ui;
 
 import java.text.SimpleDateFormat;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import mynightout.controllers.DeleteReservationController;
 import mynightout.dao.NightClubDao;
 import mynightout.dao.ReservationDao;
-import mynightout.dao.ReservationDaoDelete;
 import mynightout.dao.UserDao;
 import mynightout.entity.Reservation;
-import mynightout.entity.ReservationPk;
 
 /**
  *

@@ -20,7 +20,7 @@ public class SetNightClubDaysClosedController {
         NightClubDao nightClub = new NightClubDao();
         try {
             return nightClub.updateNightClubDaysClosed(clubId, daysClosed);
-        } catch (Exception e) {
+        } catch (Exception exception) {
             throw new IllegalArgumentException("Πρόβλημα στην βάση.");
         }
 

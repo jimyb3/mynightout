@@ -50,7 +50,6 @@ public class UserMainForm extends javax.swing.JFrame {
     private void initComponents() {
 
         userNameLabel = new javax.swing.JLabel();
-        reservationEditButton = new javax.swing.JButton();
         cancelReservationButton = new javax.swing.JButton();
         createReservationButton = new javax.swing.JButton();
         confirmReservationButton = new javax.swing.JButton();
@@ -67,14 +66,6 @@ public class UserMainForm extends javax.swing.JFrame {
         });
 
         userNameLabel.setText("jLabel1");
-
-        reservationEditButton.setText("Επεξεργασία κράτησης");
-        reservationEditButton.setEnabled(false);
-        reservationEditButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reservationEditButtonActionPerformed(evt);
-            }
-        });
 
         cancelReservationButton.setText("Ακύρωση κράτησης");
         cancelReservationButton.setFocusPainted(false);
@@ -150,8 +141,7 @@ public class UserMainForm extends javax.swing.JFrame {
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(reservationEditButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(147, 147, 147)
                                 .addComponent(createReservationButton))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(confirmReservationButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -174,10 +164,8 @@ public class UserMainForm extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addComponent(userNameLabel)
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(reservationEditButton)
-                    .addComponent(createReservationButton))
-                .addGap(11, 11, 11)
+                .addComponent(createReservationButton)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(confirmReservationButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cancelReservationButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -198,13 +186,6 @@ public class UserMainForm extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         userNameLabel.setText(currentUserName);
     }//GEN-LAST:event_formWindowActivated
-
-    private void reservationEditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationEditButtonActionPerformed
-        EditReservationForm editReservationFrame = new EditReservationForm(currentUserName);
-        this.dispose();
-        editReservationFrame.setLocationRelativeTo(this);
-        editReservationFrame.setVisible(true);
-    }//GEN-LAST:event_reservationEditButtonActionPerformed
 
     private void cancelReservationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelReservationButtonActionPerformed
         CancelBookForm cancelBookFrame = new CancelBookForm(currentUserName);
@@ -343,7 +324,6 @@ public class UserMainForm extends javax.swing.JFrame {
     private javax.swing.JButton editUserInformationButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton logOutButton;
-    private javax.swing.JButton reservationEditButton;
     private javax.swing.JButton showStoresButton;
     private javax.swing.JLabel userNameLabel;
     // End of variables declaration//GEN-END:variables

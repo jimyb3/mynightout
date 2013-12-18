@@ -139,7 +139,7 @@ public class CheckFullnessForm extends javax.swing.JFrame {
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         // TODO add your handling code here:
-        CheckFullnessController controller = new CheckFullnessController(new NightClubDao());
+        CheckFullnessController controller = new CheckFullnessController();
 
         try {
             Nightclub clubName = controller.checkFullness(currentClubName);

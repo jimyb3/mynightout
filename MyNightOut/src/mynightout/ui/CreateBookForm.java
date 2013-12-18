@@ -5,13 +5,7 @@
  */
 package mynightout.ui;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import mynightout.controllers.CreateBookController;
-import mynightout.dao.ReservationDaoCreate;
-import mynightout.entity.Reservation;
 
 /**
  *
