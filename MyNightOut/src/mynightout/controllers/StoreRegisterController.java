@@ -6,8 +6,6 @@
 
 package mynightout.controllers;
 
-import mynightout.model.StoreRegister;
-
 /**
  *
  * @author Mustaine

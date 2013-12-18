@@ -18,11 +18,11 @@ public class DisplayCellarController {
     public Cellar displayCellar(String clubName) {
         int clubId = new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
 
-        CellarDao cd = new CellarDao();
+        CellarDao cellar = new CellarDao();
 
         try {
-            return cd.getNightClubCellarByClubName(clubId);
-        } catch (Exception e) {
+            return cellar.getNightClubCellarByClubName(clubId);
+        } catch (Exception exception) {
             throw new IllegalArgumentException("Πρόβλημα στην βάση.");
         }
     }

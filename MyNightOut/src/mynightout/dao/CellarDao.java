@@ -28,14 +28,14 @@ public class CellarDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            String hqlNightClub = "from Cellar cl where cl.clubId='" + clubId + "'";
-            Query w = session.createQuery(hqlNightClub);
-            List resultList = w.list();
+            String mysqlQuery = "from Cellar cl where cl.clubId='" + clubId + "'";
+            Query getCellar = session.createQuery(mysqlQuery);
+            List resultList = getCellar.list();
             session.getTransaction().commit();
             session.close();
             Cellar cellar = new Cellar();
-            for (Object o : resultList) {
-                cellar = (Cellar) o;
+            for (Object infoCellar : resultList) {
+                cellar = (Cellar) infoCellar;
             }
             return cellar;
         } catch (HibernateException he) {
@@ -50,11 +50,10 @@ public class CellarDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-
-            String hql = "update Cellar cl set vodka='" + vodka + "', whiskey='" + whiskey + "',"
+            String mysqlQuery = "update Cellar cl set vodka='" + vodka + "', whiskey='" + whiskey + "',"
                     + " wine='" + wine + "', liqueur='" + liqueur + "', rum='" + rum + "',"
                     + " tequila='" + tequila + "', beer='" + beer + "' where clubId='" + clubId + "'";
-            Query q = session.createQuery(hql);
+            Query q = session.createQuery(mysqlQuery);
             q.executeUpdate();
             session.getTransaction().commit();
             session.close();
