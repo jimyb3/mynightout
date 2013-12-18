@@ -332,7 +332,16 @@ public class StoresForm extends javax.swing.JFrame {
                         Logger.getLogger(StoresForm.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     
-                   
+                    
+                    String storeTel = null;
+                    try {
+                        
+                        storeTel = new NightClubDao().getNightClubDataByClubName(choice).getTelephoneNum();
+                        
+                    } catch (Exception ex) {
+                        Logger.getLogger(StoresForm.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                                    
                     
                     
                     
@@ -343,6 +352,7 @@ public class StoresForm extends javax.swing.JFrame {
                     storeV.storeName.setText(choice);
                     storeV.addressTOLabel.setText(storeAddress);
                     storeV.contactTOLabel.setText(storeContact);
+                    storeV.telTOLabel.setText(storeTel);
                     
                     
                 }
