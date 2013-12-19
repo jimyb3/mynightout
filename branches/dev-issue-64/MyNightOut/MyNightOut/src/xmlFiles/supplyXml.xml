@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <supply Supplier_id="1" Club_id="1"/>
+  <supply Supplier_id="1" Club_id="3"/>
+  <supply Supplier_id="2" Club_id="4"/>
+  <supply Supplier_id="4" Club_id="1"/>
+  <supply Supplier_id="4" Club_id="2"/>
+  <supply Supplier_id="4" Club_id="5"/>
+  <supply Supplier_id="6" Club_id="5"/>
+  <supply Supplier_id="9" Club_id="2"/>
+  <supply Supplier_id="10" Club_id="4"/>
+</dataset>

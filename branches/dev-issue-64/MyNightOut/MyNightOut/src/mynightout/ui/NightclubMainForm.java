@@ -238,10 +238,10 @@ public class NightclubMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void checkFullnessButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkFullnessButtonActionPerformed
-        CheckFullnessForm checkFullnessFrame = new CheckFullnessForm(currentClubName);
+        CheckFullnessForm checkFullnessForm = new CheckFullnessForm(currentClubName);
         this.dispose();
-        checkFullnessFrame.setLocationRelativeTo(this);
-        checkFullnessFrame.setVisible(true);
+        checkFullnessForm.setLocationRelativeTo(this);
+        checkFullnessForm.setVisible(true);
     }//GEN-LAST:event_checkFullnessButtonActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -249,18 +249,18 @@ public class NightclubMainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void setDaysClosedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setDaysClosedButtonActionPerformed
-        SetNightClubDaysClosedForm sncdcf = new SetNightClubDaysClosedForm(currentClubName);
+        SetNightClubDaysClosedForm setNightClubDaysClosedForm = new SetNightClubDaysClosedForm(currentClubName);
         this.dispose();
-        sncdcf.setLocationRelativeTo(this);
-        sncdcf.setVisible(true);
+        setNightClubDaysClosedForm.setLocationRelativeTo(this);
+        setNightClubDaysClosedForm.setVisible(true);
     }//GEN-LAST:event_setDaysClosedButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        DeleteReservationForm deleteReservationFrame = new DeleteReservationForm(currentClubName);
-        deleteReservationFrame.clubNameLabel.setText(currentClubName);
+        DeleteReservationForm deleteReservationForm = new DeleteReservationForm(currentClubName);
+        deleteReservationForm.clubNameLabel.setText(currentClubName);
         this.dispose();
-        ReservationDao reservation = new ReservationDao();
-        List resultList = reservation.getClubCurrentReservations(currentClubName);
+        ReservationDao reservationDao = new ReservationDao();
+        List resultList = reservationDao.getClubCurrentReservations(currentClubName);
         Vector<String> tableHeaders = new Vector<String>();
         Vector tableData = new Vector();
         tableHeaders.add("Id κράτησης");
@@ -268,44 +268,38 @@ public class NightclubMainForm extends javax.swing.JFrame {
         tableHeaders.add("Επίθετο πελάτη");
         tableHeaders.add("Reservation Date");
         tableHeaders.add("Τραπέζι");
-        String DATE_FORMAT = "dd/MM/yyyy";
-        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+        String dateFormat = "dd/MM/yyyy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat);
 
-        for (Object o : resultList) {
-            Reservation res = (Reservation) o;
+        for (Object reservationInfo : resultList) {
+            Reservation reservation = (Reservation) reservationInfo;
             Vector<Object> oneRow = new Vector<Object>();
-            String customerName = new UserDao().getUserDataById(res.getId().getUserId()).getCustomerName();
-            String customerLastName = new UserDao().getUserDataById(res.getId().getUserId()).getCustomerLastname();
-            oneRow.add(res.getId().getReservationId());
+            String customerName = new UserDao().getUserDataById(reservation.getId().getUserId()).getCustomerName();
+            String customerLastName = new UserDao().getUserDataById(reservation.getId().getUserId()).getCustomerLastname();
+            oneRow.add(reservation.getId().getReservationId());
             oneRow.add(customerName);
             oneRow.add(customerLastName);
-            String reservationDate = sdf.format(res.getReservationDate());
+            String reservationDate = simpleDateFormat.format(reservation.getReservationDate());
             oneRow.add(reservationDate);
-            oneRow.add(res.getTrapezi());
+            oneRow.add(reservation.getTrapezi());
             tableData.add(oneRow);
         }
-        deleteReservationFrame.clubReservationsTable.setModel(new DefaultTableModel(tableData, tableHeaders));
-        deleteReservationFrame.setLocationRelativeTo(this);
-        deleteReservationFrame.setVisible(true);
+        deleteReservationForm.clubReservationsTable.setModel(new DefaultTableModel(tableData, tableHeaders));
+        deleteReservationForm.setLocationRelativeTo(this);
+        deleteReservationForm.setVisible(true);
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void setClosedDatesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setClosedDatesButtonActionPerformed
-        SetNightClubClosedDatesForm snccdf = new SetNightClubClosedDatesForm(currentClubName);
-        snccdf.setLocationRelativeTo(this);
+        SetNightClubClosedDatesForm setNightClubClosedDatesForm = new SetNightClubClosedDatesForm(currentClubName);
+        setNightClubClosedDatesForm.setLocationRelativeTo(this);
         this.dispose();
-        snccdf.setVisible(true);
+        setNightClubClosedDatesForm.setVisible(true);
     }//GEN-LAST:event_setClosedDatesButtonActionPerformed
 
     private void showSuppliersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showSuppliersButtonActionPerformed
-        ShowSupplierForm showSuppliersFrame = new ShowSupplierForm(currentClubName);
+        ShowSupplierForm showSupplierForm = new ShowSupplierForm(currentClubName);
         this.dispose();
-        //showSuppliersFrame.setLocationRelativeTo(this);
-        //showSuppliersFrame.setVisible(true);
-        
-        
-        //NightclubReservationsHistoryForm historyForm = new NightclubReservationsHistoryForm(currentClubName);
-        showSuppliersFrame.clubName.setText(currentClubName);
-        //this.dispose();
+        showSupplierForm.clubName.setText(currentClubName);
         SupplyDao supplyDao = new SupplyDao();
         NightClubDao nightClub = new NightClubDao();
         List resultList = supplyDao.getSupplyByClubId(nightClub.getNightClubDataByClubName(currentClubName).getClubId());
@@ -321,8 +315,8 @@ public class NightclubMainForm extends javax.swing.JFrame {
         tableHeaders.add("Εταιρικό τηλέφωνο");
         tableHeaders.add("e-mail");
         
-        for (Object o : resultList) {
-            Supply supply = (Supply) o;
+        for (Object supplierInfo : resultList) {
+            Supply supply = (Supply) supplierInfo;
             Vector<Object> oneRow = new Vector<Object>();
             int supplierId = supply.getId().getSupplierId();
             oneRow.add(supplierId);
@@ -337,52 +331,52 @@ public class NightclubMainForm extends javax.swing.JFrame {
             
         }
         
-        showSuppliersFrame.suppliersTable.setModel(new DefaultTableModel(tableData, tableHeaders));
-        showSuppliersFrame.suppliersTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        showSuppliersFrame.suppliersTable.sizeColumnsToFit(5);
-        showSuppliersFrame.setLocationRelativeTo(this);
+        showSupplierForm.suppliersTable.setModel(new DefaultTableModel(tableData, tableHeaders));
+        showSupplierForm.suppliersTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        showSupplierForm.suppliersTable.sizeColumnsToFit(5);
+        showSupplierForm.setLocationRelativeTo(this);
         
-        showSuppliersFrame.setVisible(true);
+        showSupplierForm.setVisible(true);
     }//GEN-LAST:event_showSuppliersButtonActionPerformed
 
     private void displayCellarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayCellarButtonActionPerformed
 
-        DisplayCellarController dcc = new DisplayCellarController();
-        Cellar cellar = dcc.displayCellar(currentClubName);
-        DisplayCellarForm dcf = new DisplayCellarForm(currentClubName);
+        DisplayCellarController displayCellarController = new DisplayCellarController();
+        Cellar cellar = displayCellarController.displayCellar(currentClubName);
+        DisplayCellarForm displayCellarForm = new DisplayCellarForm(currentClubName);
         this.dispose();
-        dcf.cellarTable.setValueAt(cellar.getVodka(), 0, 1);
-        dcf.cellarTable.setValueAt(cellar.getWhiskey(), 1, 1);
-        dcf.cellarTable.setValueAt(cellar.getWine(), 2, 1);
-        dcf.cellarTable.setValueAt(cellar.getLiqueur(), 3, 1);
-        dcf.cellarTable.setValueAt(cellar.getRum(), 4, 1);
-        dcf.cellarTable.setValueAt(cellar.getTequila(), 5, 1);
-        dcf.cellarTable.setValueAt(cellar.getBeer(), 6, 1);
-        dcf.secretClubNameLabel.setText(currentClubName);
-        dcf.setLocationRelativeTo(this);
-        dcf.setVisible(true);
+        displayCellarForm.cellarTable.setValueAt(cellar.getVodka(), 0, 1);
+        displayCellarForm.cellarTable.setValueAt(cellar.getWhiskey(), 1, 1);
+        displayCellarForm.cellarTable.setValueAt(cellar.getWine(), 2, 1);
+        displayCellarForm.cellarTable.setValueAt(cellar.getLiqueur(), 3, 1);
+        displayCellarForm.cellarTable.setValueAt(cellar.getRum(), 4, 1);
+        displayCellarForm.cellarTable.setValueAt(cellar.getTequila(), 5, 1);
+        displayCellarForm.cellarTable.setValueAt(cellar.getBeer(), 6, 1);
+        displayCellarForm.secretClubNameLabel.setText(currentClubName);
+        displayCellarForm.setLocationRelativeTo(this);
+        displayCellarForm.setVisible(true);
     }//GEN-LAST:event_displayCellarButtonActionPerformed
 
     private void changeNightClubTableProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeNightClubTableProfileButtonActionPerformed
         this.dispose();
-        ChangeNightClubTableProfileForm ctpf = new ChangeNightClubTableProfileForm(currentClubName);
-        ctpf.setLocationRelativeTo(this);
-        ctpf.setVisible(true);
+        ChangeNightClubTableProfileForm changeNightClubTableProfileForm = new ChangeNightClubTableProfileForm(currentClubName);
+        changeNightClubTableProfileForm.setLocationRelativeTo(this);
+        changeNightClubTableProfileForm.setVisible(true);
     }//GEN-LAST:event_changeNightClubTableProfileButtonActionPerformed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-        MainFrame mainForm = new MainFrame();
+        MainFrame mainFrame = new MainFrame();
         this.dispose();
-        mainForm.setLocationRelativeTo(this);
-        mainForm.setVisible(true);
+        mainFrame.setLocationRelativeTo(this);
+        mainFrame.setVisible(true);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void showReservationHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showReservationHistoryButtonActionPerformed
-        NightclubReservationsHistoryForm historyForm = new NightclubReservationsHistoryForm(currentClubName);
-        historyForm.clubName.setText(currentClubName);
+        NightclubReservationsHistoryForm nightclubReservationHistoryForm = new NightclubReservationsHistoryForm(currentClubName);
+        nightclubReservationHistoryForm.clubName.setText(currentClubName);
         this.dispose();
-        ReservationDao reservation = new ReservationDao();
-        List resultList = reservation.getClubReservations(currentClubName);
+        ReservationDao reservationDao = new ReservationDao();
+        List resultList = reservationDao.getClubReservations(currentClubName);
         Vector<String> tableHeaders = new Vector<String>();
         Vector tableData = new Vector();
         tableHeaders.add("Id κράτησης");
@@ -390,32 +384,32 @@ public class NightclubMainForm extends javax.swing.JFrame {
         tableHeaders.add("Επίθετο πελάτη");
         tableHeaders.add("Reservation Date");
         tableHeaders.add("Τραπέζι");
-        String DATE_FORMAT = "dd/MM/yyyy";
-        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+        String dateFormat = "dd/MM/yyyy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat);
 
-        for (Object o : resultList) {
-            Reservation res = (Reservation) o;
+        for (Object reservationInfo : resultList) {
+            Reservation reservation = (Reservation) reservationInfo;
             Vector<Object> oneRow = new Vector<Object>();
-            String customerName = new UserDao().getUserDataById(res.getId().getUserId()).getCustomerName();
-            String customerLastName = new UserDao().getUserDataById(res.getId().getUserId()).getCustomerLastname();
-            oneRow.add(res.getId().getReservationId());
+            String customerName = new UserDao().getUserDataById(reservation.getId().getUserId()).getCustomerName();
+            String customerLastName = new UserDao().getUserDataById(reservation.getId().getUserId()).getCustomerLastname();
+            oneRow.add(reservation.getId().getReservationId());
             oneRow.add(customerName);
             oneRow.add(customerLastName);
-            String reservationDate = sdf.format(res.getReservationDate());
+            String reservationDate = simpleDateFormat.format(reservation.getReservationDate());
             oneRow.add(reservationDate);
-            oneRow.add(res.getTrapezi());
+            oneRow.add(reservation.getTrapezi());
             tableData.add(oneRow);
         }
-        historyForm.clubReservationsTable.setModel(new DefaultTableModel(tableData, tableHeaders));
-        historyForm.setLocationRelativeTo(this);
-        historyForm.setVisible(true);
+        nightclubReservationHistoryForm.clubReservationsTable.setModel(new DefaultTableModel(tableData, tableHeaders));
+        nightclubReservationHistoryForm.setLocationRelativeTo(this);
+        nightclubReservationHistoryForm.setVisible(true);
 
     }//GEN-LAST:event_showReservationHistoryButtonActionPerformed
 
     private void editSuppliersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSuppliersButtonActionPerformed
         this.dispose();
-        EditSupplierPresenter ed = new EditSupplierPresenter();
-        ed.editSupplier(new EditSupplierForm(), currentClubName);
+        EditSupplierPresenter editSupplierPresenter = new EditSupplierPresenter();
+        editSupplierPresenter.editSupplier(new EditSupplierForm(), currentClubName);
     }//GEN-LAST:event_editSuppliersButtonActionPerformed
 
     /**

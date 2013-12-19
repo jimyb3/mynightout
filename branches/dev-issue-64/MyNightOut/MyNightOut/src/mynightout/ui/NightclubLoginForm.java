@@ -118,9 +118,9 @@ public class NightclubLoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_resetButtonActionPerformed
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
-        NightclubLoginController controller = new NightclubLoginController();
+        NightclubLoginController nightclubLoginController = new NightclubLoginController();
         try {
-            Nightclub club = controller.login(clubNameField.getText(), clubPasswordField.getText());
+            Nightclub club = nightclubLoginController.login(clubNameField.getText(), clubPasswordField.getText());
             //JOptionPane.showMessageDialog(null, "welcome", "Success", JOptionPane.INFORMATION_MESSAGE);
             NightclubMainForm nightclubMainForm = new NightclubMainForm(clubNameField.getText());
             this.dispose();

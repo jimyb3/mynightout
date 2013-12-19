@@ -144,15 +144,14 @@ public class SetNightClubDaysClosedForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        NightclubMainForm mainNightClubFrame = new NightclubMainForm(currentClubName);
+        NightclubMainForm nightclubMainForm = new NightclubMainForm(currentClubName);
         this.dispose();
-        mainNightClubFrame.setLocationRelativeTo(this);
-        mainNightClubFrame.setVisible(true);
+        nightclubMainForm.setLocationRelativeTo(this);
+        nightclubMainForm.setVisible(true);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        // TODO add your handling code here:
-        ConfirmNightClubDaysClosedForm cncdcf = new ConfirmNightClubDaysClosedForm(currentClubName);
+        ConfirmNightClubDaysClosedForm confirmNightClubDaysClosedForm = new ConfirmNightClubDaysClosedForm(currentClubName);
         String daysClosed = "";
         JCheckBox[] daysList = new JCheckBox[7];
         daysList[0] = mondayCheckBox;
@@ -162,28 +161,28 @@ public class SetNightClubDaysClosedForm extends javax.swing.JFrame {
         daysList[4] = fridayCheckBox;
         daysList[5] = saturdayCheckBox;
         daysList[6] = sundayCheckBox;
-        
-        JLabel[] daysLabelList=new JLabel[7];
-        daysLabelList[0]=cncdcf.jLabel1;
-        daysLabelList[1]=cncdcf.jLabel2;
-        daysLabelList[2]=cncdcf.jLabel3;
-        daysLabelList[3]=cncdcf.jLabel4;
-        daysLabelList[4]=cncdcf.jLabel5;
-        daysLabelList[5]=cncdcf.jLabel6;
-        daysLabelList[6]=cncdcf.jLabel7;
-        
+
+        JLabel[] daysLabelList = new JLabel[7];
+        daysLabelList[0] = confirmNightClubDaysClosedForm.jLabel1;
+        daysLabelList[1] = confirmNightClubDaysClosedForm.jLabel2;
+        daysLabelList[2] = confirmNightClubDaysClosedForm.jLabel3;
+        daysLabelList[3] = confirmNightClubDaysClosedForm.jLabel4;
+        daysLabelList[4] = confirmNightClubDaysClosedForm.jLabel5;
+        daysLabelList[5] = confirmNightClubDaysClosedForm.jLabel6;
+        daysLabelList[6] = confirmNightClubDaysClosedForm.jLabel7;
+
         for (int i = 0; i <= 6; i++) {
             if (daysList[i].isSelected()) {
                 daysClosed = daysClosed + "," + daysList[i].getName();
                 daysLabelList[i].setText(daysList[i].getText());
-            }   
+            }
         }
-        
-        cncdcf.nightClubNameLabel.setText(currentClubName);
-        cncdcf.secretLabel.setText(daysClosed);
-        cncdcf.setLocationRelativeTo(this);
+
+        confirmNightClubDaysClosedForm.nightClubNameLabel.setText(currentClubName);
+        confirmNightClubDaysClosedForm.secretLabel.setText(daysClosed);
+        confirmNightClubDaysClosedForm.setLocationRelativeTo(this);
         this.dispose();
-        cncdcf.setVisible(true);
+        confirmNightClubDaysClosedForm.setVisible(true);
     }//GEN-LAST:event_okButtonActionPerformed
 
     /**

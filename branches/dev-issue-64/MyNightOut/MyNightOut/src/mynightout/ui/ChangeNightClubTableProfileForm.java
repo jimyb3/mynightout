@@ -170,20 +170,19 @@ public class ChangeNightClubTableProfileForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void OkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkButtonActionPerformed
-        // TODO add your handling code here:
         this.dispose();
-        CreateNightClubTableProfilePresenter ctpp = new CreateNightClubTableProfilePresenter();
-        ctpp.createNightClubTableProfile(new TableProfileForm(currentClubName), Integer.parseInt(row1TextField.getText()),
+        CreateNightClubTableProfilePresenter createClubProfileTable = new CreateNightClubTableProfilePresenter();
+        createClubProfileTable.createNightClubTableProfile(new TableProfileForm(currentClubName), Integer.parseInt(row1TextField.getText()),
                 Integer.parseInt(row2TextField.getText()), Integer.parseInt(row3TextField.getText()),
                 Integer.parseInt(row4TextField.getText()), Integer.parseInt(row5TextField.getText()),
                 Integer.parseInt(row6TextField.getText()), currentClubName);
     }//GEN-LAST:event_OkButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        NightclubMainForm mainNightClubFrame = new NightclubMainForm(currentClubName);
+        NightclubMainForm nightclubMainForm = new NightclubMainForm(currentClubName);
         this.dispose();
-        mainNightClubFrame.setLocationRelativeTo(this);
-        mainNightClubFrame.setVisible(true);
+        nightclubMainForm.setLocationRelativeTo(this);
+        nightclubMainForm.setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
 
     /**
