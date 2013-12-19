@@ -7,7 +7,6 @@ package mynightout.controllers;
 
 import mynightout.dao.ReservationDao;
 import mynightout.dao.UserDao;
-import mynightout.entity.Reservation;
 import mynightout.entity.ReservationPk;
 
 /**

@@ -7,18 +7,12 @@ package mynightout.controllers;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import mynightout.dao.MockReservationDaoCreateFail;
-import mynightout.dao.MockReservationDaoCreateSuccess;
-import mynightout.entity.Reservation;
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *

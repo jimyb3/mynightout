@@ -7,7 +7,6 @@ package mynightout.controllers;
 
 import java.util.Date;
 import mynightout.entity.Reservation;
-import mynightout.exceptions.DaoException;
 import mynightout.dao.ReservationDao;
 import mynightout.entity.ReservationPk;
 
