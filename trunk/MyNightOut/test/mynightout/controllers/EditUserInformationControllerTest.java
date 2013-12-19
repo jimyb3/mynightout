@@ -46,14 +46,9 @@ public class EditUserInformationControllerTest {
     public void testSaveChangesSuccessfull() {
         System.out.println("testSaveChangesSuccessfull");
         String userName = "lalala";
-        String password = new UserDao().getUserDataByUsername(userName).getPassword();
-        String customerName = new UserDao().getUserDataByUsername(userName).getCustomerName();
-        String customerLastname = new UserDao().getUserDataByUsername(userName).getCustomerLastname();
-        String telephoneNum = new UserDao().getUserDataByUsername(userName).getTelephoneNum();
-        String email = new UserDao().getUserDataByUsername(userName).getEmail();
         EditUserInformationController instance = new EditUserInformationController();
-        User expResult = new User(userName, password, customerName, customerLastname, telephoneNum, email);
-        User result = instance.saveChanges(userName, password, customerName, customerLastname, telephoneNum, email);
+        User expResult = instance.saveChanges(userName, "123456", "testtest", "test", "9874563210", "test@yahoo.gr");
+        User result = new UserDao().getUserDataByUsername(userName);
         Assert.assertEquals(expResult, result);
     }
 
