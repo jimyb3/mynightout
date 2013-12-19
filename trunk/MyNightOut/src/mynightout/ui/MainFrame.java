@@ -145,14 +145,13 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        UserLoginForm loginFrame = new UserLoginForm();
+        UserLoginForm userLoginForm = new UserLoginForm();
         this.dispose();
-        loginFrame.setLocationRelativeTo(this);
-        loginFrame.setVisible(true);
+        userLoginForm.setLocationRelativeTo(this);
+        userLoginForm.setVisible(true);
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void createStoreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createStoreButtonActionPerformed
-        // TODO add your handling code here:
         StoreRegisterForm storeRegisterForm = new StoreRegisterForm();
         this.dispose();
         storeRegisterForm.setLocationRelativeTo(this);
@@ -160,7 +159,6 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_createStoreButtonActionPerformed
 
     private void faqButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_faqButtonActionPerformed
-        // TODO add your handling code here:
         ContactAdminForm contactAdminForm = new ContactAdminForm();
         this.dispose();
         contactAdminForm.setLocationRelativeTo(this);
@@ -168,30 +166,28 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_faqButtonActionPerformed
 
     private void nightclubLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nightclubLoginButtonActionPerformed
-        NightclubLoginForm clubLoginFrame = new NightclubLoginForm();
+        NightclubLoginForm nightclubLoginForm = new NightclubLoginForm();
         this.dispose();
-        clubLoginFrame.setLocationRelativeTo(this);
-        clubLoginFrame.setVisible(true);
+        nightclubLoginForm.setLocationRelativeTo(this);
+        nightclubLoginForm.setVisible(true);
     }//GEN-LAST:event_nightclubLoginButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
-        CreateNewUserForm newUserForm = new CreateNewUserForm();
-        newUserForm.setLocationRelativeTo(this);
-        newUserForm.setVisible(true);
+        CreateNewUserForm createNewUserForm = new CreateNewUserForm();
+        createNewUserForm.setLocationRelativeTo(this);
+        createNewUserForm.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
-        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void newUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newUserButtonActionPerformed
-        // TODO add your handling code here:
         this.dispose();
-        CreateNewUserForm newUserForm = new CreateNewUserForm();
-        newUserForm.setLocationRelativeTo(this);
-        newUserForm.setVisible(true);
+        CreateNewUserForm createNewUserForm = new CreateNewUserForm();
+        createNewUserForm.setLocationRelativeTo(this);
+        createNewUserForm.setVisible(true);
     }//GEN-LAST:event_newUserButtonActionPerformed
 
     /**

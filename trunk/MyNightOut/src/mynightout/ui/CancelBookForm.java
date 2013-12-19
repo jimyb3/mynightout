@@ -140,34 +140,32 @@ public class CancelBookForm extends javax.swing.JFrame {
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         int userId = new UserDao().getUserDataByUsername(currentUserName).getUserId();
         int reservationId = Integer.parseInt(reservationIdTextField.getText());
-        ConfirmCancelReservationForm ccrf = new ConfirmCancelReservationForm();
-        ccrf.userNameLabel.setText(currentUserName);
+        ConfirmCancelReservationForm confirmCancelForm = new ConfirmCancelReservationForm();
+        confirmCancelForm.userNameLabel.setText(currentUserName);
         try {
             Reservation reservation = new ReservationDao().getReservationDataByReservationIdAndUserId(reservationId, userId);
-            String DATE_FORMAT = "dd/MM/yyyy";
-            SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
-            String reservationDate = sdf.format(reservation.getReservationDate());
-            ccrf.clubNameDataLabel.setText(new NightClubDao().getNightClubDataByClubId(reservation.getId().getClubId()).getClubName());
-            ccrf.reservationDateDataLabel.setText(reservationDate);
-            ccrf.reservationIdDataLabel.setText(Integer.toString(reservation.getId().getReservationId()));
-            ccrf.trapeziDataLabel.setText(reservation.getTrapezi());
-            ccrf.setLocationRelativeTo(this);
+            String dateFormat = "dd/MM/yyyy";
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat);
+            String reservationDate = simpleDateFormat.format(reservation.getReservationDate());
+            confirmCancelForm.clubNameDataLabel.setText(new NightClubDao().getNightClubDataByClubId(reservation.getId().getClubId()).getClubName());
+            confirmCancelForm.reservationDateDataLabel.setText(reservationDate);
+            confirmCancelForm.reservationIdDataLabel.setText(Integer.toString(reservation.getId().getReservationId()));
+            confirmCancelForm.trapeziDataLabel.setText(reservation.getTrapezi());
+            confirmCancelForm.setLocationRelativeTo(this);
             this.dispose();
-            ccrf.setVisible(true);
-        } catch (Exception e) {
+            confirmCancelForm.setVisible(true);
+        } catch (Exception exception) {
             JOptionPane.showMessageDialog(null, "Έδωσες λάθος id κράτησης!", "Failure", JOptionPane.INFORMATION_MESSAGE);
         }
 
     }//GEN-LAST:event_okButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        // TODO add your handling code here:
-
         reservationIdTextField.setText("");
-        UserMainForm mainUserFrame = new UserMainForm(currentUserName);
+        UserMainForm userMainForm = new UserMainForm(currentUserName);
         this.dispose();
-        mainUserFrame.setLocationRelativeTo(this);
-        mainUserFrame.setVisible(true);
+        userMainForm.setLocationRelativeTo(this);
+        userMainForm.setVisible(true);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void reservationIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationIdTextFieldActionPerformed

@@ -118,22 +118,21 @@ public class SetNightClubClosedDatesForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        NightclubMainForm mainNightClubFrame = new NightclubMainForm(currentClubName);
+        NightclubMainForm nightclubMainForm = new NightclubMainForm(currentClubName);
         this.dispose();
-        mainNightClubFrame.setLocationRelativeTo(this);
-        mainNightClubFrame.setVisible(true);
+        nightclubMainForm.setLocationRelativeTo(this);
+        nightclubMainForm.setVisible(true);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        // TODO add your handling code here:
         this.dispose();
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        ConfirmNightClubClosedDatesForm cnccdf = new ConfirmNightClubClosedDatesForm(currentClubName);
-        cnccdf.nightClubNameLabel.setText(currentClubName);
-        cnccdf.closedFromDateLabel.setText(df.format(closedFromDateChooser.getDate()));
-        cnccdf.closedThroughDateLabel.setText(df.format(closedThroughDateChooser.getDate()));
-        cnccdf.setLocationRelativeTo(this);
-        cnccdf.setVisible(true);
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        ConfirmNightClubClosedDatesForm confirmNightClubClosedDatesForm = new ConfirmNightClubClosedDatesForm(currentClubName);
+        confirmNightClubClosedDatesForm.nightClubNameLabel.setText(currentClubName);
+        confirmNightClubClosedDatesForm.closedFromDateLabel.setText(dateFormat.format(closedFromDateChooser.getDate()));
+        confirmNightClubClosedDatesForm.closedThroughDateLabel.setText(dateFormat.format(closedThroughDateChooser.getDate()));
+        confirmNightClubClosedDatesForm.setLocationRelativeTo(this);
+        confirmNightClubClosedDatesForm.setVisible(true);
     }//GEN-LAST:event_okButtonActionPerformed
 
     /**

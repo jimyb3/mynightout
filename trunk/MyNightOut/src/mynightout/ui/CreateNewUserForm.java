@@ -88,12 +88,6 @@ public class CreateNewUserForm extends javax.swing.JFrame {
         getContentPane().add(customerLastNameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 70, 107, -1));
         getContentPane().add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 146, 107, -1));
         getContentPane().add(telephoneNumField, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 184, 107, -1));
-
-        eMailField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eMailFieldActionPerformed(evt);
-            }
-        });
         getContentPane().add(eMailField, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 107, -1));
 
         backButton.setText("Πίσω");
@@ -140,35 +134,29 @@ public class CreateNewUserForm extends javax.swing.JFrame {
     }//GEN-LAST:event_resetButtonActionPerformed
 
     private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createUserButtonActionPerformed
-       try {
-        CreateNewUserFormController controller = new CreateNewUserFormController();
-        User newUser = controller.createUser(userNameField.getText(), passwordField.getText(), customerNameField.getText(),
-                customerLastNameField.getText(), telephoneNumField.getText(), eMailField.getText());
-        JOptionPane.showMessageDialog(null, "ο λογαριαμός δημιουργήθηκε", "Καλώς ήρθατε στο my night out", JOptionPane.INFORMATION_MESSAGE);
-        MainFrame mainFrame = new MainFrame();
-        this.dispose();
-        mainFrame.setLocationRelativeTo(this);
-        mainFrame.setVisible(true);
-       }catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
+        try {
+            CreateNewUserFormController createNewUserFormController = new CreateNewUserFormController();
+            User user = createNewUserFormController.createUser(userNameField.getText(), passwordField.getText(), customerNameField.getText(),
+                    customerLastNameField.getText(), telephoneNumField.getText(), eMailField.getText());
+            JOptionPane.showMessageDialog(null, "ο λογαριαμός δημιουργήθηκε", "Καλώς ήρθατε στο my night out", JOptionPane.INFORMATION_MESSAGE);
+            MainFrame mainFrame = new MainFrame();
+            this.dispose();
+            mainFrame.setLocationRelativeTo(this);
+            mainFrame.setVisible(true);
+        } catch (Exception exception) {
+            JOptionPane.showMessageDialog(null, exception.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_createUserButtonActionPerformed
 
     private void userNameFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userNameFieldFocusLost
         UserDao userDao = new UserDao();
         User user = userDao.getUserDataByUsername(userNameField.getText());
-        if(user.getUsername().compareTo(userNameField.getText())==0){
+        if (user.getUsername().compareTo(userNameField.getText()) == 0) {
             userNameField.setText("");
-            JOptionPane.showMessageDialog(null, "Το συγκεκριμένο username υπάρχει ήδη. Παρακαλώ διαλέξτε διαφορετικό","Error", JOptionPane.INFORMATION_MESSAGE);
-              
+            JOptionPane.showMessageDialog(null, "Το συγκεκριμένο username υπάρχει ήδη. Παρακαλώ διαλέξτε διαφορετικό", "Error", JOptionPane.INFORMATION_MESSAGE);
         }
-            
-        
-    }//GEN-LAST:event_userNameFieldFocusLost
 
-    private void eMailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eMailFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_eMailFieldActionPerformed
+    }//GEN-LAST:event_userNameFieldFocusLost
 
     /**
      * @param args the command line arguments

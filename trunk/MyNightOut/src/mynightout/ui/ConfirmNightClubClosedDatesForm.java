@@ -153,11 +153,10 @@ public class ConfirmNightClubClosedDatesForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void noButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noButtonActionPerformed
-        // TODO add your handling code here:
         this.dispose();
-        SetNightClubClosedDatesForm snccdf = new SetNightClubClosedDatesForm(currentClubName);
-        snccdf.setLocationRelativeTo(this);
-        snccdf.setVisible(true);
+        SetNightClubClosedDatesForm setNightclubClosedDatesForm = new SetNightClubClosedDatesForm(currentClubName);
+        setNightclubClosedDatesForm.setLocationRelativeTo(this);
+        setNightclubClosedDatesForm.setVisible(true);
     }//GEN-LAST:event_noButtonActionPerformed
 
     private void yesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesButtonActionPerformed
@@ -168,19 +167,19 @@ public class ConfirmNightClubClosedDatesForm extends javax.swing.JFrame {
         try {
             closedFromDate = (Date) formatter.parseObject(closedFromDateLabel.getText());
             closedThroughDate = (Date) formatter.parseObject(closedThroughDateLabel.getText());
-        } catch (ParseException ex) {
-            Logger.getLogger(ConfirmNightClubClosedDatesForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException exception) {
+            Logger.getLogger(ConfirmNightClubClosedDatesForm.class.getName()).log(Level.SEVERE, null, exception);
         }
         try {
-            SetNightClubClosedDatesController snccdc = new SetNightClubClosedDatesController();
-            snccdc.setClubClosedDates(nightClubNameLabel.getText(), closedFromDate, closedThroughDate);
+            SetNightClubClosedDatesController setNightClubClosedDatesController = new SetNightClubClosedDatesController();
+            setNightClubClosedDatesController.setClubClosedDates(nightClubNameLabel.getText(), closedFromDate, closedThroughDate);
             JOptionPane.showMessageDialog(null, "Ορίστηκαν σωστά οι νέες ημερομηνίες!", "Success", JOptionPane.INFORMATION_MESSAGE);
-            NightclubMainForm mainNightClubFrame = new NightclubMainForm(currentClubName);
+            NightclubMainForm nightclubMainForm = new NightclubMainForm(currentClubName);
             this.dispose();
-            mainNightClubFrame.setLocationRelativeTo(this);
-            mainNightClubFrame.setVisible(true);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
+            nightclubMainForm.setLocationRelativeTo(this);
+            nightclubMainForm.setVisible(true);
+        } catch (Exception exception) {
+            JOptionPane.showMessageDialog(null, exception.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
         }
 
     }//GEN-LAST:event_yesButtonActionPerformed

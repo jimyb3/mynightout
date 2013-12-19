@@ -14,10 +14,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-/**
- *
- * @author Dimitris
- */
 public class TablesDao {
 
     public Tables getClubsTables(String clubName) {
@@ -25,22 +21,23 @@ public class TablesDao {
         try {
             session.beginTransaction();
             int clubId = new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
-            String hql = "from Tables tables where tables.clubId='" + clubId + "'";
-            Query q = session.createQuery(hql);
-            List resultList = q.list();
+            String mysqlQuery = "from Tables tables where tables.clubId='" + clubId + "'";
+            Query getTables = session.createQuery(mysqlQuery);
+            List resultList = getTables.list();
             session.getTransaction().commit();
             session.close();
             Tables tables = new Tables();
-            for (Object o : resultList) {
-                tables = (Tables) o;
+            for (Object tablesInfo : resultList) {
+                tables = (Tables) tablesInfo;
             }
             return tables;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return null;
         }
     }
+//den xreazetai
 
     public Tables insertClubsTables(String clubName, int firstRow, int secondRow, int thirdRow, int fourthRow, int fifthRow, int sixthRow) {
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -52,8 +49,8 @@ public class TablesDao {
             session.flush();
             session.getTransaction().commit();
             return tables;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return null;
         }
@@ -64,17 +61,17 @@ public class TablesDao {
         try {
             session.beginTransaction();
             int clubId = new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
-            String hql = "update Tables set firstRow = '" + firstRow + "', secondRow = '" + secondRow + "',"
+            String mysqlQuery = "update Tables set firstRow = '" + firstRow + "', secondRow = '" + secondRow + "',"
                     + " thirdRow = '" + thirdRow + "', fourthRow = '" + fourthRow + "', fifthRow='" + fifthRow + "',"
                     + " sixthRow='" + sixthRow + "'  where clubId='" + clubId + "'";
-            Query q = session.createQuery(hql);
-            q.executeUpdate();
+            Query updateTables = session.createQuery(mysqlQuery);
+            updateTables.executeUpdate();
             session.getTransaction().commit();
             session.close();
             Tables tables = new Tables(clubId, firstRow, secondRow, thirdRow, fourthRow, fifthRow, sixthRow);
             return tables;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return null;
         }
@@ -85,21 +82,19 @@ public class TablesDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-
-            String hql = "from Tables ta where ta.clubId='" + clubId + "'";
-            Query w = session.createQuery(hql);
-            List resultList = w.list();
+            String mysqlQuery = "from Tables ta where ta.clubId='" + clubId + "'";
+            Query getTables = session.createQuery(mysqlQuery);
+            List resultList = getTables.list();
             session.getTransaction().commit();
             session.close();
-
-            Tables ta = new Tables();
-            for (Object o : resultList) {
-                ta = (Tables) o;
-                numberOfTables = ta.getFirstRow() + ta.getSecondRow() + ta.getThirdRow() + ta.getFourthRow() + ta.getFifthRow() + ta.getSixthRow();
+            Tables tables = new Tables();
+            for (Object tablesInfo : resultList) {
+                tables = (Tables) tablesInfo;
+                numberOfTables = tables.getFirstRow() + tables.getSecondRow() + tables.getThirdRow() + tables.getFourthRow() + tables.getFifthRow() + tables.getSixthRow();
             }
             return numberOfTables;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return numberOfTables;
         }

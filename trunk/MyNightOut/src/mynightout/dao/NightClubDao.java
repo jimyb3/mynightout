@@ -17,11 +17,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-/**
- *
- * @author panos
- */
-public class NightClubDao{
+public class NightClubDao {
 //ΕΜΦΑΝΙΣΗ ΚΑΤΑΣΤΗΜΑΤΟΣ
 //επιστρέφει List με clubName, seatNumber, telephoneNum για όλα τα καταστήματα της βάσης
     //αν κάτι πάει στραβα επιστρέφει null
@@ -29,14 +25,15 @@ public class NightClubDao{
     public List getAllNightClubs() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            String hql = "from Nightclub";
+            String mysqlQuery = "from Nightclub";
             session.beginTransaction();
-            Query q = session.createQuery(hql);
-            List nightclubsList = q.list();
+            Query getNightclubs = session.createQuery(mysqlQuery);
+            List resultList = getNightclubs.list();
             session.getTransaction().commit();
-            return nightclubsList;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+            session.close();
+            return resultList;
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return null;
         }
@@ -48,18 +45,18 @@ public class NightClubDao{
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            String hqlNightClub = "from Nightclub cl where cl.clubName='" + clubName + "'";
-            Query w = session.createQuery(hqlNightClub);
-            List resultList = w.list();
+            String mysqlQuery = "from Nightclub cl where cl.clubName='" + clubName + "'";
+            Query getNightclubData = session.createQuery(mysqlQuery);
+            List resultList = getNightclubData.list();
             session.getTransaction().commit();
             session.close();
             Nightclub nightClub = new Nightclub();
-            for (Object o : resultList) {
-                nightClub = (Nightclub) o;
+            for (Object nightclubInfo : resultList) {
+                nightClub = (Nightclub) nightclubInfo;
             }
             return nightClub;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return null;
         }
@@ -70,18 +67,18 @@ public class NightClubDao{
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            String hqlNightClub = "from Nightclub cl where cl.clubId='" + clubId + "'";
-            Query w = session.createQuery(hqlNightClub);
-            List resultList = w.list();
+            String mysqlQuery = "from Nightclub cl where cl.clubId='" + clubId + "'";
+            Query getNightclubData = session.createQuery(mysqlQuery);
+            List resultList = getNightclubData.list();
             session.getTransaction().commit();
             session.close();
             Nightclub nightClub = new Nightclub();
-            for (Object o : resultList) {
-                nightClub = (Nightclub) o;
+            for (Object nightclubInfo : resultList) {
+                nightClub = (Nightclub) nightclubInfo;
             }
             return nightClub;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return null;
         }
@@ -102,17 +99,17 @@ public class NightClubDao{
         try {
             session.beginTransaction();
             int clubId = new NightClubDao().getNightClubDataByClubName(clubName).getClubId();
-            String hql = "update Nightclub set clubPassword = '" + clubPassword + "', "
+            String mysqlQuery = "update Nightclub set clubPassword = '" + clubPassword + "', "
                     + " telephoneNum = '" + telephoneNum + "', address='" + address + "', email='" + email + "', category='" + category + "',"
                     + " clubImage='" + clubImage + "'  where clubId='" + clubId + "'";
-            Query q = session.createQuery(hql);
-            q.executeUpdate();
+            Query updateNightclub = session.createQuery(mysqlQuery);
+            updateNightclub.executeUpdate();
             session.getTransaction().commit();
             session.close();
             Nightclub nightClub = new Nightclub(clubName, clubPassword, address, email, telephoneNum, category, clubImage);
             return nightClub;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return null;
         }
@@ -124,18 +121,19 @@ public class NightClubDao{
     public Nightclub isNightClubDataValid(String clubName, String clubPassWord) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            String hql = "from Nightclub nclub where nclub.clubName='" + clubName + "' and nclub.clubPassword='" + clubPassWord + "'";
+            String mysqlQuery = "from Nightclub nclub where nclub.clubName='" + clubName + "' and nclub.clubPassword='" + clubPassWord + "'";
             session.beginTransaction();
-            Query q = session.createQuery(hql);
-            List resultList = q.list();
+            Query getNightclub = session.createQuery(mysqlQuery);
+            List resultList = getNightclub.list();
             session.getTransaction().commit();
+            session.close();
             Nightclub nightClub = new Nightclub();
-            for (Object o : resultList) {
-                nightClub = (Nightclub) o;
+            for (Object nightclubInfo : resultList) {
+                nightClub = (Nightclub) nightclubInfo;
             }
             return nightClub;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return null;
         }
@@ -144,18 +142,19 @@ public class NightClubDao{
     public boolean isNightClubOpenByDate(String clubName, Date reservationDate) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            String hql = "from Nightclub nclub where nclub.clubName='" + clubName + "'";
+            String mysqlQuery = "from Nightclub nclub where nclub.clubName='" + clubName + "'";
             session.beginTransaction();
-            Query q = session.createQuery(hql);
-            List resultList = q.list();
+            Query getNightclub = session.createQuery(mysqlQuery);
+            List resultList = getNightclub.list();
             session.getTransaction().commit();
+            session.close();
             Nightclub nightClub = new Nightclub();
-            for (Object o : resultList) {
-                nightClub = (Nightclub) o;
+            for (Object nightclubInfo : resultList) {
+                nightClub = (Nightclub) nightclubInfo;
             }
             return reservationDate.before(nightClub.getClosedFrom()) || reservationDate.after(nightClub.getClosedThrough());
-        } catch (HibernateException he) {
-            he.printStackTrace();
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return false;
         }
@@ -164,28 +163,29 @@ public class NightClubDao{
     public boolean isNightClubOpenByWeekDay(String clubName, Date reservationDate) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            boolean open = true;
-            String hql = "from Nightclub nclub where nclub.clubName='" + clubName + "'";
+            boolean isOpen = true;
+            String mysqlQuery = "from Nightclub nclub where nclub.clubName='" + clubName + "'";
             session.beginTransaction();
-            Query q = session.createQuery(hql);
-            List resultList = q.list();
+            Query getNightclub = session.createQuery(mysqlQuery);
+            List resultList = getNightclub.list();
             session.getTransaction().commit();
+            session.close();
             Nightclub nightClub = new Nightclub();
-            for (Object o : resultList) {
-                nightClub = (Nightclub) o;
+            for (Object nightclubInfo : resultList) {
+                nightClub = (Nightclub) nightclubInfo;
             }
             String[] daysClosedArray = nightClub.getDaysClosed().split(",");
-            Calendar c = Calendar.getInstance();
-            c.setTime(reservationDate);
-            int dayOfReservation = c.get(Calendar.DAY_OF_WEEK);
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(reservationDate);
+            int dayOfReservation = calendar.get(Calendar.DAY_OF_WEEK);
             for (int i = 1; i < daysClosedArray.length; i++) {
                 if (Integer.toString(dayOfReservation).equals(daysClosedArray[i])) {
-                    open = false;
+                    isOpen = false;
                 }
             }
-            return open;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+            return isOpen;
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return false;
         }
@@ -193,21 +193,21 @@ public class NightClubDao{
 
     public Nightclub updateNightClubClosedDates(int clubId, Date closedFrom, Date closedThrough) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
-        String closedFromDate = df.format(closedFrom);
-        String closedThroughDate = df.format(closedThrough);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        String closedFromDate = dateFormat.format(closedFrom);
+        String closedThroughDate = dateFormat.format(closedThrough);
         try {
             session.beginTransaction();
-            String hql = "update Nightclub set closedFrom='" + closedFromDate + "',  closedThrough='" + closedThroughDate + "'"
+            String mysqlQuery = "update Nightclub set closedFrom='" + closedFromDate + "',  closedThrough='" + closedThroughDate + "'"
                     + "  where clubId='" + clubId + "'";
-            Query q = session.createQuery(hql);
-            q.executeUpdate();
+            Query getNightclub = session.createQuery(mysqlQuery);
+            getNightclub.executeUpdate();
             session.getTransaction().commit();
             session.close();
             Nightclub nightClub = new Nightclub(closedFrom, closedThrough);
             return nightClub;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return null;
         }
@@ -217,16 +217,16 @@ public class NightClubDao{
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            String hql = "update Nightclub set daysClosed='" + daysClosed + "'"
+            String mysqlQuery = "update Nightclub set daysClosed='" + daysClosed + "'"
                     + "  where clubId='" + clubId + "'";
-            Query q = session.createQuery(hql);
-            q.executeUpdate();
+            Query updateNightclub = session.createQuery(mysqlQuery);
+            updateNightclub.executeUpdate();
             session.getTransaction().commit();
             session.close();
             Nightclub nightClub = new Nightclub(daysClosed);
             return nightClub;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return null;
         }

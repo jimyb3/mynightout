@@ -159,25 +159,23 @@ public class ConfirmNightClubDaysClosedForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void noButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noButtonActionPerformed
-        // TODO add your handling code here:
         this.dispose();
-        SetNightClubDaysClosedForm sncdcf = new SetNightClubDaysClosedForm(currentClubName);
-        sncdcf.setLocationRelativeTo(this);
-        sncdcf.setVisible(true);
+        SetNightClubDaysClosedForm setNightClubDaysClosedForm = new SetNightClubDaysClosedForm(currentClubName);
+        setNightClubDaysClosedForm.setLocationRelativeTo(this);
+        setNightClubDaysClosedForm.setVisible(true);
     }//GEN-LAST:event_noButtonActionPerformed
 
     private void yesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesButtonActionPerformed
-        // TODO add your handling code here:
         try {
-            SetNightClubDaysClosedController sncdcc = new SetNightClubDaysClosedController();
-            sncdcc.setClubClosedDates(nightClubNameLabel.getText(), secretLabel.getText());
+            SetNightClubDaysClosedController setNightClubDaysClosedController = new SetNightClubDaysClosedController();
+            setNightClubDaysClosedController.setClubClosedDates(nightClubNameLabel.getText(), secretLabel.getText());
             JOptionPane.showMessageDialog(null, "Ορίστηκαν σωστά οι μέρες που θα είναι κλειστό", "Success", JOptionPane.INFORMATION_MESSAGE);
-            NightclubMainForm mainNightClubFrame = new NightclubMainForm(currentClubName);
+            NightclubMainForm nightclubMainForm = new NightclubMainForm(currentClubName);
             this.dispose();
-            mainNightClubFrame.setLocationRelativeTo(this);
-            mainNightClubFrame.setVisible(true);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
+            nightclubMainForm.setLocationRelativeTo(this);
+            nightclubMainForm.setVisible(true);
+        } catch (Exception exception) {
+            JOptionPane.showMessageDialog(null, exception.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
         }
 
     }//GEN-LAST:event_yesButtonActionPerformed
