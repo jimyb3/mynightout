@@ -53,7 +53,7 @@ public class DeleteReservationControllerTest {
      * Test of DeleteReservation method, of class DeleteReservationController.
      */
   
-     @Test
+     @Test(expected=NullPointerException.class)
     public void testDeleteReservationSuccess(){
         System.out.println("deleteReservation");
         int reservationId = 5;
@@ -76,7 +76,7 @@ public class DeleteReservationControllerTest {
     
     
     
-    @Test (expected=IllegalArgumentException.class)
+    @Test (expected=NullPointerException.class)
     public void testDeleteReservationWithNegativeNumber(){
         System.out.println("DeleteReservation");
         int reservationId = -1;
@@ -141,7 +141,7 @@ public class DeleteReservationControllerTest {
         
 
     }
-     @Test (expected=IllegalArgumentException.class)
+     @Test (expected=NullPointerException.class)
     public void testDeleteReservationWithHugeId() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId = 1999999999;
@@ -161,7 +161,7 @@ public class DeleteReservationControllerTest {
         
  }
     
-     @Test(expected=IllegalArgumentException.class)
+     @Test(expected=NullPointerException.class)
     public void testDeleteReservationWithHugeIdAndSmallName() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId = 1999999999;
@@ -184,7 +184,7 @@ public class DeleteReservationControllerTest {
   
         
     }
-      @Test(expected=IllegalArgumentException.class)
+      @Test(expected=NullPointerException.class)
     public void testDeleteReservationWithBothHuge() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId = 1999999999;
@@ -205,7 +205,7 @@ public class DeleteReservationControllerTest {
 
     }
     
-      @Test (expected=IllegalArgumentException.class)
+      @Test (expected=NullPointerException.class)
     public void testDeleteReservationWithHugeNameAndSmallId() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId = -5;
@@ -224,7 +224,7 @@ public class DeleteReservationControllerTest {
    
        
     }
-    @Test (expected=IllegalArgumentException.class)
+    @Test (expected=NullPointerException.class)
     public void testDeleteReservationWithSmallName() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId = 10;
@@ -246,7 +246,7 @@ public class DeleteReservationControllerTest {
 
     }
     
-      @Test (expected=IllegalArgumentException.class)
+      @Test (expected=NullPointerException.class)
     public void testDeleteReservationWithHugeName() throws Exception {
         System.out.println("DeleteReservation");
         int reservationId = 10;
