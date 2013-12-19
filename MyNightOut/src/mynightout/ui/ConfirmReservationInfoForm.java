@@ -165,29 +165,24 @@ public class ConfirmReservationInfoForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        
         this.dispose();
-       
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        // TODO add your handling code here:
         int clubId = new NightClubDao().getNightClubDataByClubName(nightClubNameLabel.getText()).getClubId();
         int userId = new UserDao().getUserDataByUsername(currentUserName).getUserId();
-
         String date = reservationDateLabel.getText();
-
         Format formatter = new SimpleDateFormat("dd/MM/yyyy");
         try {
             Date reservationDate = (Date) formatter.parseObject(date);
-            CreateBookController cbc = new CreateBookController();
-            cbc.createReservationNew(userId, clubId, reservationDate, reservationTableLabel.getText());
+            CreateBookController createBookController = new CreateBookController();
+            createBookController.createReservationNew(userId, clubId, reservationDate, reservationTableLabel.getText());
             JOptionPane.showMessageDialog(null, "Έγινε η καταχώρηση της νέας κράτησης", "Success", JOptionPane.INFORMATION_MESSAGE);
             this.dispose();
-        } catch (ParseException ex) {
-            Logger.getLogger(ConfirmReservationInfoForm.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(ConfirmReservationInfoForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException exception) {
+            Logger.getLogger(ConfirmReservationInfoForm.class.getName()).log(Level.SEVERE, null, exception);
+        } catch (Exception exception) {
+            Logger.getLogger(ConfirmReservationInfoForm.class.getName()).log(Level.SEVERE, null, exception);
         }
 
 

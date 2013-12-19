@@ -120,18 +120,17 @@ public class UserLoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
-        UserLoginController controller = new UserLoginController();
+        UserLoginController userLoginController = new UserLoginController();
         try {
-            User user = controller.login(userNameField.getText(), passWordField.getText());
-            //JOptionPane.showMessageDialog(null, "welcome", "Success", JOptionPane.INFORMATION_MESSAGE);
+            User user = userLoginController.login(userNameField.getText(), passWordField.getText());
             String cUserName = userNameField.getText();
-            UserMainForm userMain = new UserMainForm(cUserName);
+            UserMainForm userMainForm = new UserMainForm(cUserName);
             this.dispose();
-            userMain.setLocationRelativeTo(this);
-            userMain.setVisible(true);
+            userMainForm.setLocationRelativeTo(this);
+            userMainForm.setVisible(true);
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception exception) {
+            JOptionPane.showMessageDialog(null, exception.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_enterButtonActionPerformed
 

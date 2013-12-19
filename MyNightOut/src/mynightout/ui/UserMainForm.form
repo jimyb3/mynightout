@@ -121,9 +121,6 @@
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&#x395;&#x3c0;&#x3b9;&#x3b2;&#x3b5;&#x3b2;&#x3b1;&#x3af;&#x3c9;&#x3c3;&#x3b7; &#x3c4;&#x3c9;&#x3bd; &lt;br&gt;&lt;/br&gt;&#xa;&#x3c3;&#x3c4;&#x3bf;&#x3b9;&#x3c7;&#x3b5;&#x3b9;&#x3c9;&#x3bd; &#x3c4;&#x3b7;&#x3c2; &#x3ba;&#x3c1;&#x3ac;&#x3c4;&#x3b7;&#x3c3;&#x3b7;&#x3c2;&lt;/html&gt;"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmReservationButtonActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="showStoresButton">
       <Properties>

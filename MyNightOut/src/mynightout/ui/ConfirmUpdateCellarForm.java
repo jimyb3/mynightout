@@ -190,35 +190,32 @@ public ConfirmUpdateCellarForm(String nightClubName) {
     }// </editor-fold>//GEN-END:initComponents
 
     private void noButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noButtonActionPerformed
-
         this.dispose();
-        DisplayCellarForm dcf=new DisplayCellarForm(currentClubName);
-        dcf.cellarTable.setValueAt(vodkaValueLabel.getText(), 0, 1);
-        dcf.cellarTable.setValueAt(whiskeyValueLabel.getText(), 1, 1);
-        dcf.cellarTable.setValueAt(wineValueLabel.getText(), 2, 1);
-        dcf.cellarTable.setValueAt(liqueurValueLabel.getText(), 3, 1);
-        dcf.cellarTable.setValueAt(rumValueLabel.getText(), 4, 1);
-        dcf.cellarTable.setValueAt(tequilaValueLabel.getText(), 5, 1);
-        dcf.cellarTable.setValueAt(beerValueLabel.getText(), 6, 1);
-        dcf.secretClubNameLabel.setText(nightClubNameLabel.getText());
-        dcf.setLocationRelativeTo(this);
-        dcf.setVisible(true);
+        DisplayCellarForm displayCellarForm=new DisplayCellarForm(currentClubName);
+        displayCellarForm.cellarTable.setValueAt(vodkaValueLabel.getText(), 0, 1);
+        displayCellarForm.cellarTable.setValueAt(whiskeyValueLabel.getText(), 1, 1);
+        displayCellarForm.cellarTable.setValueAt(wineValueLabel.getText(), 2, 1);
+        displayCellarForm.cellarTable.setValueAt(liqueurValueLabel.getText(), 3, 1);
+        displayCellarForm.cellarTable.setValueAt(rumValueLabel.getText(), 4, 1);
+        displayCellarForm.cellarTable.setValueAt(tequilaValueLabel.getText(), 5, 1);
+        displayCellarForm.cellarTable.setValueAt(beerValueLabel.getText(), 6, 1);
+        displayCellarForm.secretClubNameLabel.setText(nightClubNameLabel.getText());
+        displayCellarForm.setLocationRelativeTo(this);
+        displayCellarForm.setVisible(true);
         
     }//GEN-LAST:event_noButtonActionPerformed
 
     private void yesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesButtonActionPerformed
-        // TODO add your handling code here:
-        UpdateCellarController ucc=new UpdateCellarController();
-        
+        UpdateCellarController updateCellarController=new UpdateCellarController();        
         try{        
-            ucc.updateCellar(nightClubNameLabel.getText(), Integer.parseInt(vodkaValueLabel.getText()), Integer.parseInt(whiskeyValueLabel.getText()), Integer.parseInt(wineValueLabel.getText()), Integer.parseInt(liqueurValueLabel.getText()), Integer.parseInt(rumValueLabel.getText()), Integer.parseInt(tequilaValueLabel.getText()), Integer.parseInt(beerValueLabel.getText()));
+            updateCellarController.updateCellar(nightClubNameLabel.getText(), Integer.parseInt(vodkaValueLabel.getText()), Integer.parseInt(whiskeyValueLabel.getText()), Integer.parseInt(wineValueLabel.getText()), Integer.parseInt(liqueurValueLabel.getText()), Integer.parseInt(rumValueLabel.getText()), Integer.parseInt(tequilaValueLabel.getText()), Integer.parseInt(beerValueLabel.getText()));
             JOptionPane.showMessageDialog(null, "Η ενημέρωση έγινε με επιτυχία.", "Success",JOptionPane.INFORMATION_MESSAGE);
-            NightclubMainForm mainNightClubFrame=new NightclubMainForm(currentClubName);
+            NightclubMainForm nightclubMainForm=new NightclubMainForm(currentClubName);
             this.dispose();
-            mainNightClubFrame.setLocationRelativeTo(this);
-            mainNightClubFrame.setVisible(true);
-        } catch(Exception e){
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure",JOptionPane.INFORMATION_MESSAGE);
+            nightclubMainForm.setLocationRelativeTo(this);
+            nightclubMainForm.setVisible(true);
+        } catch(Exception exception){
+            JOptionPane.showMessageDialog(null, exception.getMessage(), "Failure",JOptionPane.INFORMATION_MESSAGE);
         }   
     }//GEN-LAST:event_yesButtonActionPerformed
 

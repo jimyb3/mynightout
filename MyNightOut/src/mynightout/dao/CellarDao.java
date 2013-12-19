@@ -6,24 +6,14 @@
 package mynightout.dao;
 
 import java.util.List;
-import mynightout.exceptions.DaoException;
 import mynightout.entity.Cellar;
-
 import mynightout.util.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-/**
- *
- * @author Maria
- */
 public class CellarDao {
 
-    /*@Override
-     public Cellar selectCellar(String NameOfBottle, int NumOfBottles) throws DaoException {
-     return new Cellar(NameOfBottle, NumOfBottles);
-     }*/
     public Cellar getNightClubCellarByClubName(int clubId) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
@@ -34,12 +24,12 @@ public class CellarDao {
             session.getTransaction().commit();
             session.close();
             Cellar cellar = new Cellar();
-            for (Object infoCellar : resultList) {
-                cellar = (Cellar) infoCellar;
+            for (Object cellarInfo : resultList) {
+                cellar = (Cellar) cellarInfo;
             }
             return cellar;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return null;
         }
@@ -53,15 +43,15 @@ public class CellarDao {
             String mysqlQuery = "update Cellar cl set vodka='" + vodka + "', whiskey='" + whiskey + "',"
                     + " wine='" + wine + "', liqueur='" + liqueur + "', rum='" + rum + "',"
                     + " tequila='" + tequila + "', beer='" + beer + "' where clubId='" + clubId + "'";
-            Query q = session.createQuery(mysqlQuery);
-            q.executeUpdate();
+            Query updateCellar = session.createQuery(mysqlQuery);
+            updateCellar.executeUpdate();
             session.getTransaction().commit();
             session.close();
             Cellar cellar = new Cellar(clubId, vodka, whiskey, wine,
                     liqueur, rum, tequila, beer);
             return cellar;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return null;
         }

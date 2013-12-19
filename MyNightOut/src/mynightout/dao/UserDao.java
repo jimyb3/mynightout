@@ -5,40 +5,31 @@
  */
 package mynightout.dao;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import mynightout.exceptions.DaoException;
 import mynightout.entity.User;
 import mynightout.util.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-/**
- *
- * @author ioanna
- */
 public class UserDao {
 
-    
 //εισαγωγή νέου χρήστη στη βάση
     //ορίσματα :userName, passWord, customerName, customerLastname, telephoneNum
     //επιστρέφει αντικείμενο user με τα χαρακτηριστικά του νέου χρήστη, εαν προστέθηκε στη βάση η εγγραφή
     //απιστρέφει null αν δεν έγινε η εισαγωγη στη βάση
     //TODO : θα προστεθούν νέα χαρακτηριστικά για το χρήστη
-
     public User insertNewUserData(String username, String password, String customerName, String customerLastname, String telephoneNum, String emailAddress) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            User newUser = new User(username, password, customerName, customerLastname, telephoneNum, emailAddress);
-            session.save(newUser);
-            session.flush();
+            User user = new User(username, password, customerName, customerLastname, telephoneNum, emailAddress);
+            session.save(user);
+            session.close();
             session.getTransaction().commit();
-            return newUser;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+            return user;
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return null;
         }
@@ -50,19 +41,19 @@ public class UserDao {
     public User isUserDataValid(String userName, String passWord) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            String hql = "from User user where user.username='" + userName + "' and user.password='" + passWord + "'";
+            String mysqlQuery = "from User user where user.username='" + userName + "' and user.password='" + passWord + "'";
             session.beginTransaction();
-            Query q = session.createQuery(hql);
-            List resultList = q.list();
+            Query getUser = session.createQuery(mysqlQuery);
+            List resultList = getUser.list();
             session.getTransaction().commit();
             session.close();
             User user = new User();
-            for (Object o : resultList) {
-                user = (User) o;
+            for (Object userInfo : resultList) {
+                user = (User) userInfo;
             }
             return user;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return null;
         }
@@ -78,18 +69,18 @@ public class UserDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            String hql = "from User user where user.username='" + userName + "'";
-            Query q = session.createQuery(hql);
-            List userDataList = q.list();
+            String mysqlQuery = "from User user where user.username='" + userName + "'";
+            Query getUser = session.createQuery(mysqlQuery);
+            List resultList = getUser.list();
             session.getTransaction().commit();
             session.close();
             User user = new User();
-            for (Object o : userDataList) {
-                user = (User) o;
+            for (Object userInfo : resultList) {
+                user = (User) userInfo;
             }
             return user;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return null;
         }
@@ -100,18 +91,18 @@ public class UserDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            String hql = "from User user where user.userId='" + userId + "'";
-            Query q = session.createQuery(hql);
-            List userDataList = q.list();
+            String mysqlQuery = "from User user where user.userId='" + userId + "'";
+            Query getUser = session.createQuery(mysqlQuery);
+            List resultList = getUser.list();
             session.getTransaction().commit();
             session.close();
             User user = new User();
-            for (Object o : userDataList) {
-                user = (User) o;
+            for (Object userInfo : resultList) {
+                user = (User) userInfo;
             }
             return user;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return null;
         }
@@ -127,16 +118,16 @@ public class UserDao {
         try {
             session.beginTransaction();
             int userId = new UserDao().getUserDataByUsername(userName).getUserId();
-            String hql = "update User set password = '" + password + "', customerName = '" + customerName + "',"
-                    + " customerLastname = '" + customerLastname + "', telephoneNum = '" + telephoneNum + "'  where userId='" + userId + "'";
-            Query q = session.createQuery(hql);
-            q.executeUpdate();
+            String mysqlQuery = "update User set password = '" + password + "', customerName = '" + customerName + "',"
+                    + " customerLastname = '" + customerLastname + "', telephoneNum = '" + telephoneNum + "', email = '" + email + "'  where userId='" + userId + "'";
+            Query updateUser = session.createQuery(mysqlQuery);
+            updateUser.executeUpdate();
             session.getTransaction().commit();
             session.close();
             User user = new User(userName, password, customerName, customerLastname, telephoneNum, email);
             return user;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return null;
         }

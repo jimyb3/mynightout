@@ -160,76 +160,72 @@ public class ConfirmCancelReservationForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void yesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yesButtonActionPerformed
-        // TODO add your handling code here:
-        CancelBookController controller = new CancelBookController();
+        CancelBookController cancelBookController = new CancelBookController();
         int reservationId = Integer.parseInt(reservationIdDataLabel.getText());
-
         try {
-            ReservationPk cancelReservation = controller.cancelReservation(userNameLabel.getText(), reservationId);
+            ReservationPk reservationPk = cancelBookController.cancelReservation(userNameLabel.getText(), reservationId);
             JOptionPane.showMessageDialog(null, "Reservation canceled with id: " + reservationId, "Success", JOptionPane.INFORMATION_MESSAGE);
-            CancelBookForm cancelBookFrame = new CancelBookForm(userNameLabel.getText());
-            cancelBookFrame.userNameLabel.setText(userNameLabel.getText());
+            CancelBookForm cancelBookForm = new CancelBookForm(userNameLabel.getText());
+            cancelBookForm.userNameLabel.setText(userNameLabel.getText());
             this.dispose();
-            ReservationDao reservation = new ReservationDao();
-            List resultList = reservation.getUserCurrentReservations(userNameLabel.getText());
+            ReservationDao reservationDao = new ReservationDao();
+            List resultList = reservationDao.getUserCurrentReservations(userNameLabel.getText());
             Vector<String> tableHeaders = new Vector<String>();
             Vector tableData = new Vector();
             tableHeaders.add("Id κράτησης");
             tableHeaders.add("Club Name");
             tableHeaders.add("Reservation Date");
             tableHeaders.add("Τραπέζι");
-            String DATE_FORMAT = "dd/MM/yyyy";
-            SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
-
-            for (Object o : resultList) {
-                Reservation res = (Reservation) o;
+            String dateFormat = "dd/MM/yyyy";
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat);
+            for (Object reservationInfo : resultList) {
+                Reservation reservation = (Reservation) reservationInfo;
                 Vector<Object> oneRow = new Vector<Object>();
-                String clubName = new NightClubDao().getNightClubDataByClubId(res.getId().getClubId()).getClubName();
-                oneRow.add(res.getId().getReservationId());
+                String clubName = new NightClubDao().getNightClubDataByClubId(reservation.getId().getClubId()).getClubName();
+                oneRow.add(reservation.getId().getReservationId());
                 oneRow.add(clubName);
-                String reservationDate = sdf.format(res.getReservationDate());
+                String reservationDate = simpleDateFormat.format(reservation.getReservationDate());
                 oneRow.add(reservationDate);
-                oneRow.add(res.getTrapezi());
+                oneRow.add(reservation.getTrapezi());
                 tableData.add(oneRow);
             }
-            cancelBookFrame.userReservationsTable.setModel(new DefaultTableModel(tableData, tableHeaders));
-            cancelBookFrame.setLocationRelativeTo(this);
-            cancelBookFrame.setVisible(true);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
+            cancelBookForm.userReservationsTable.setModel(new DefaultTableModel(tableData, tableHeaders));
+            cancelBookForm.setLocationRelativeTo(this);
+            cancelBookForm.setVisible(true);
+        } catch (Exception exception) {
+            JOptionPane.showMessageDialog(null, exception.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_yesButtonActionPerformed
 
     private void noButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noButtonActionPerformed
-        // TODO add your handling code here:
-        CancelBookForm cancelBookFrame = new CancelBookForm(userNameLabel.getText());
-        cancelBookFrame.userNameLabel.setText(userNameLabel.getText());
+        CancelBookForm cancelBookForm = new CancelBookForm(userNameLabel.getText());
+        cancelBookForm.userNameLabel.setText(userNameLabel.getText());
         this.dispose();
-        ReservationDao reservation = new ReservationDao();
-        List resultList = reservation.getUserReservations(userNameLabel.getText());
+        ReservationDao reservationDao = new ReservationDao();
+        List resultList = reservationDao.getUserReservations(userNameLabel.getText());
         Vector<String> tableHeaders = new Vector<String>();
         Vector tableData = new Vector();
         tableHeaders.add("Id κράτησης");
         tableHeaders.add("Club Name");
         tableHeaders.add("Reservation Date");
         tableHeaders.add("Τραπέζι");
-        String DATE_FORMAT = "dd/MM/yyyy";
-        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+        String dateFormat = "dd/MM/yyyy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat);
         
-        for (Object o : resultList) {
-            Reservation res = (Reservation) o;
+        for (Object reservationInfo : resultList) {
+            Reservation reservation = (Reservation) reservationInfo;
             Vector<Object> oneRow = new Vector<Object>();
-            String clubName = new NightClubDao().getNightClubDataByClubId(res.getId().getClubId()).getClubName();
-            oneRow.add(res.getId().getReservationId());
+            String clubName = new NightClubDao().getNightClubDataByClubId(reservation.getId().getClubId()).getClubName();
+            oneRow.add(reservation.getId().getReservationId());
             oneRow.add(clubName);
-            String reservationDate = sdf.format(res.getReservationDate());
+            String reservationDate = simpleDateFormat.format(reservation.getReservationDate());
             oneRow.add(reservationDate);
-            oneRow.add(res.getTrapezi());
+            oneRow.add(reservation.getTrapezi());
             tableData.add(oneRow);
         }
-        cancelBookFrame.userReservationsTable.setModel(new DefaultTableModel(tableData, tableHeaders));
-        cancelBookFrame.setLocationRelativeTo(this);
-        cancelBookFrame.setVisible(true);
+        cancelBookForm.userReservationsTable.setModel(new DefaultTableModel(tableData, tableHeaders));
+        cancelBookForm.setLocationRelativeTo(this);
+        cancelBookForm.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_noButtonActionPerformed
 
