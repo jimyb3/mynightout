@@ -48,7 +48,7 @@ public class SelectTableProfilePresenter {
         int tableNumber = row1 + row2 + row3 + row4 + row5 + row6 + 1;
         JButton[] table = new JButton[tableNumber];
         String freeTableImage = "/images/freeTable.png";
-        String noFreeTableImage = "/images/NoFreeTable.png";
+        String noFreeTableImage = "/images/noFreeTable.png";
         URL url = getClass().getResource(freeTableImage);
 
         ImageIcon icon = new ImageIcon(url);
