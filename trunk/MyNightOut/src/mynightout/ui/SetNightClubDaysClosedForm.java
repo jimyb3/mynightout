@@ -6,7 +6,7 @@
 package mynightout.ui;
 
 import javax.swing.JCheckBox;
-import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 /**
  *
@@ -152,50 +152,33 @@ public class SetNightClubDaysClosedForm extends javax.swing.JFrame {
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         // TODO add your handling code here:
-        String daysClosed = "";
-        JCheckBox[] dayList = new JCheckBox[7];
-        dayList[0] = mondayCheckBox;
-        dayList[1] = tuesdayCheckBox;
-        dayList[2] = wednesdayCheckBox;
-        dayList[3] = thursdayCheckBox;
-        dayList[4] = fridayCheckBox;
-        dayList[5] = saturdayCheckBox;
-        dayList[6] = sundayCheckBox;
         ConfirmNightClubDaysClosedForm cncdcf = new ConfirmNightClubDaysClosedForm(currentClubName);
-
+        String daysClosed = "";
+        JCheckBox[] daysList = new JCheckBox[7];
+        daysList[0] = mondayCheckBox;
+        daysList[1] = tuesdayCheckBox;
+        daysList[2] = wednesdayCheckBox;
+        daysList[3] = thursdayCheckBox;
+        daysList[4] = fridayCheckBox;
+        daysList[5] = saturdayCheckBox;
+        daysList[6] = sundayCheckBox;
+        
+        JLabel[] daysLabelList=new JLabel[7];
+        daysLabelList[0]=cncdcf.jLabel1;
+        daysLabelList[1]=cncdcf.jLabel2;
+        daysLabelList[2]=cncdcf.jLabel3;
+        daysLabelList[3]=cncdcf.jLabel4;
+        daysLabelList[4]=cncdcf.jLabel5;
+        daysLabelList[5]=cncdcf.jLabel6;
+        daysLabelList[6]=cncdcf.jLabel7;
+        
         for (int i = 0; i <= 6; i++) {
-            if (dayList[i].isSelected()) {
-                daysClosed = daysClosed + "," + dayList[i].getName();
-            }
+            if (daysList[i].isSelected()) {
+                daysClosed = daysClosed + "," + daysList[i].getName();
+                daysLabelList[i].setText(daysList[i].getText());
+            }   
         }
-
-        if (mondayCheckBox.isSelected()) {
-            cncdcf.jLabel1.setText(mondayCheckBox.getText());
-        }
-
-        if (tuesdayCheckBox.isSelected()) {
-            cncdcf.jLabel2.setText(tuesdayCheckBox.getText());
-        }
-
-        if (wednesdayCheckBox.isSelected()) {
-            cncdcf.jLabel3.setText(wednesdayCheckBox.getText());
-        }
-
-        if (thursdayCheckBox.isSelected()) {
-            cncdcf.jLabel4.setText(thursdayCheckBox.getText());
-        }
-
-        if (fridayCheckBox.isSelected()) {
-            cncdcf.jLabel5.setText(fridayCheckBox.getText());
-        }
-
-        if (saturdayCheckBox.isSelected()) {
-            cncdcf.jLabel6.setText(saturdayCheckBox.getText());
-        }
-
-        if (sundayCheckBox.isSelected()) {
-            cncdcf.jLabel7.setText(sundayCheckBox.getText());
-        }
+        
         cncdcf.nightClubNameLabel.setText(currentClubName);
         cncdcf.secretLabel.setText(daysClosed);
         cncdcf.setLocationRelativeTo(this);
