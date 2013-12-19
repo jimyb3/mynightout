@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 import javax.swing.JFrame;
@@ -13,17 +12,21 @@ import javax.swing.JFrame;
  * @author Dimitris
  */
 public class DisplayCellarForm extends javax.swing.JFrame {
-private String currentClubName;
+
+    private String currentClubName;
+
     /**
      * Creates new form DisplayCellarForm
      */
     public DisplayCellarForm() {
         initComponents();
     }
-public DisplayCellarForm(String nightClubName) {
-    currentClubName = nightClubName;
+
+    public DisplayCellarForm(String nightClubName) {
+        currentClubName = nightClubName;
         initComponents();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -121,26 +124,25 @@ public DisplayCellarForm(String nightClubName) {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        NightclubMainForm mainNightClubFrame=new NightclubMainForm(currentClubName);
-            this.dispose();
-            mainNightClubFrame.setLocationRelativeTo(this);
-            mainNightClubFrame.setVisible(true);
+        NightclubMainForm nightclubMainForm = new NightclubMainForm(currentClubName);
+        this.dispose();
+        nightclubMainForm.setLocationRelativeTo(this);
+        nightclubMainForm.setVisible(true);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void updateCellarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCellarButtonActionPerformed
-        // TODO add your handling code here:
-        ConfirmUpdateCellarForm cucf=new ConfirmUpdateCellarForm(currentClubName);
-        cucf.vodkaValueLabel.setText(cellarTable.getValueAt(0, 1).toString());
-        cucf.whiskeyValueLabel.setText(cellarTable.getValueAt(1, 1).toString());
-        cucf.wineValueLabel.setText(cellarTable.getValueAt(2, 1).toString());
-        cucf.liqueurValueLabel.setText(cellarTable.getValueAt(3, 1).toString());
-        cucf.rumValueLabel.setText(cellarTable.getValueAt(4, 1).toString());
-        cucf.tequilaValueLabel.setText(cellarTable.getValueAt(5, 1).toString());
-        cucf.beerValueLabel.setText(cellarTable.getValueAt(6, 1).toString());
-        cucf.nightClubNameLabel.setText(secretClubNameLabel.getText());
+        ConfirmUpdateCellarForm confirmUpdateCellarForm = new ConfirmUpdateCellarForm(currentClubName);
+        confirmUpdateCellarForm.vodkaValueLabel.setText(cellarTable.getValueAt(0, 1).toString());
+        confirmUpdateCellarForm.whiskeyValueLabel.setText(cellarTable.getValueAt(1, 1).toString());
+        confirmUpdateCellarForm.wineValueLabel.setText(cellarTable.getValueAt(2, 1).toString());
+        confirmUpdateCellarForm.liqueurValueLabel.setText(cellarTable.getValueAt(3, 1).toString());
+        confirmUpdateCellarForm.rumValueLabel.setText(cellarTable.getValueAt(4, 1).toString());
+        confirmUpdateCellarForm.tequilaValueLabel.setText(cellarTable.getValueAt(5, 1).toString());
+        confirmUpdateCellarForm.beerValueLabel.setText(cellarTable.getValueAt(6, 1).toString());
+        confirmUpdateCellarForm.nightClubNameLabel.setText(secretClubNameLabel.getText());
         this.dispose();
-        cucf.setLocationRelativeTo(this);
-        cucf.setVisible(true);
+        confirmUpdateCellarForm.setLocationRelativeTo(this);
+        confirmUpdateCellarForm.setVisible(true);
     }//GEN-LAST:event_updateCellarButtonActionPerformed
 
     /**

@@ -204,10 +204,10 @@ public class EditUserInformationForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        UserMainForm mainUserFrame = new UserMainForm(currentUserName);
+        UserMainForm userMainForm = new UserMainForm(currentUserName);
         this.dispose();
-        mainUserFrame.setLocationRelativeTo(this);
-        mainUserFrame.setVisible(true);
+        userMainForm.setLocationRelativeTo(this);
+        userMainForm.setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void enableInformationEditingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enableInformationEditingButtonActionPerformed
@@ -219,25 +219,25 @@ public class EditUserInformationForm extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         currentUserNameLabel.setText(currentUserName);
-        EditUserInformationController controller = new EditUserInformationController();
+        EditUserInformationController editUserInformationController = new EditUserInformationController();
         try {
-            UserDao currentUser = new UserDao();
-            User user = currentUser.getUserDataByUsername(currentUserName);
+            UserDao userDao = new UserDao();
+            User user = userDao.getUserDataByUsername(currentUserName);
             userNameField.setText(user.getUsername());
             passwordField.setText(user.getPassword());
             customerNameField.setText(user.getCustomerName());
             customerLastNameField.setText(user.getCustomerLastname());
             telephoneNumField.setText(user.getTelephoneNum());
             eMailField.setText(user.getEmail());
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception exception) {
+            JOptionPane.showMessageDialog(null, exception.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_formWindowOpened
 
     private void saveChangesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveChangesButtonActionPerformed
-        EditUserInformationController controller = new EditUserInformationController();
+        EditUserInformationController editUserInformationController = new EditUserInformationController();
         try {
-            User user = controller.saveChanges(userNameField.getText(), passwordField.getText(), customerNameField.getText(),
+            User user = editUserInformationController.saveChanges(userNameField.getText(), passwordField.getText(), customerNameField.getText(),
                     customerLastNameField.getText(), telephoneNumField.getText(), eMailField.getText());
             JOptionPane.showMessageDialog(null, "οι αλλαγές αποθηκεύτηκαν", "Success", JOptionPane.INFORMATION_MESSAGE);
             userNameField.setEditable(false);
@@ -247,8 +247,8 @@ public class EditUserInformationForm extends javax.swing.JFrame {
             telephoneNumField.setEditable(false);
             eMailField.setEditable(false);
             saveChangesButton.setEnabled(false);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception exception) {
+            JOptionPane.showMessageDialog(null, exception.getMessage(), "Failure", JOptionPane.INFORMATION_MESSAGE);
 
         }
     }//GEN-LAST:event_saveChangesButtonActionPerformed

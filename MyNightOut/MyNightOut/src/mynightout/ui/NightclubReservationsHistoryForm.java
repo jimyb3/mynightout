@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package mynightout.ui;
 
 /**
@@ -11,18 +10,21 @@ package mynightout.ui;
  * @author ioanna
  */
 public class NightclubReservationsHistoryForm extends javax.swing.JFrame {
-private String currentClubName;
+
+    private String currentClubName;
+
     /**
      * Creates new form NightclubReservationsHistoryForm
      */
     public NightclubReservationsHistoryForm() {
         initComponents();
     }
-public NightclubReservationsHistoryForm(String nightClubName) {
+
+    public NightclubReservationsHistoryForm(String nightClubName) {
         currentClubName = nightClubName;
-        //clubName.setText(currentClubName);
         initComponents();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -101,10 +103,10 @@ public NightclubReservationsHistoryForm(String nightClubName) {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        NightclubMainForm clubMainForm = new NightclubMainForm(currentClubName);
+        NightclubMainForm nightclubMainForm = new NightclubMainForm(currentClubName);
         this.dispose();
-        clubMainForm.setLocationRelativeTo(this);
-        clubMainForm.setVisible(true);
+        nightclubMainForm.setLocationRelativeTo(this);
+        nightclubMainForm.setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
 
     /**

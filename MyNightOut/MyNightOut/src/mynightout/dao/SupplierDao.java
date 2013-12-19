@@ -14,26 +14,19 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-
-/**
- *
- * @author Maria
- */
-public class SupplierDao{
-  
-   
+public class SupplierDao{ 
     
     public List getAllSuppliers() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            String hql = "from Supplier";
+            String mysqlQuery = "from Supplier";
             session.beginTransaction();
-            Query q = session.createQuery(hql);
-            List supplierList = q.list();
+            Query getSupplier = session.createQuery(mysqlQuery);
+            List resultList = getSupplier.list();
             session.getTransaction().commit();
-            return supplierList;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+            return resultList;
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return null;
         }
@@ -43,18 +36,18 @@ public class SupplierDao{
          Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             session.beginTransaction();
-            String hql = "from Supplier sup where sup.supplierId='" + supplierId + "'";
-            Query w = session.createQuery(hql);
-            List resultList = w.list();
+            String mysqlQuery = "from Supplier sup where sup.supplierId='" + supplierId + "'";
+            Query getSupplier = session.createQuery(mysqlQuery);
+            List resultList = getSupplier.list();
             session.getTransaction().commit();
             session.close();
             Supplier supplier = new Supplier();
-            for (Object o : resultList) {
-                supplier = (Supplier) o;
+            for (Object supplierInfo : resultList) {
+                supplier = (Supplier) supplierInfo;
             }
             return supplier;
-        } catch (HibernateException he) {
-            he.printStackTrace();
+        } catch (HibernateException exception) {
+            exception.printStackTrace();
             session.beginTransaction().rollback();
             return null;
         }

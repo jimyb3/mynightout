@@ -147,30 +147,28 @@ public class TableProfileForm extends javax.swing.JFrame implements ISelectTable
     }// </editor-fold>//GEN-END:initComponents
 
     private void noButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noButtonActionPerformed
-
         this.dispose();
-        ChangeNightClubTableProfileForm ctpf = new ChangeNightClubTableProfileForm(currentClubName);
-        ctpf.setLocationRelativeTo(this);
-        ctpf.setVisible(true);
+        ChangeNightClubTableProfileForm changeNightClubTableProfileForm = new ChangeNightClubTableProfileForm(currentClubName);
+        changeNightClubTableProfileForm.setLocationRelativeTo(this);
+        changeNightClubTableProfileForm.setVisible(true);
     }//GEN-LAST:event_noButtonActionPerformed
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        // TODO add your handling code here:
-        TablesDao td = new TablesDao();
+        TablesDao tableDao = new TablesDao();
         int clubId = new NightClubDao().getNightClubDataByClubName(jLabel8.getText()).getClubId();
-        Tables t = new Tables(clubId, Integer.parseInt(jLabel2.getText()),
+        Tables tables = new Tables(clubId, Integer.parseInt(jLabel2.getText()),
                 Integer.parseInt(jLabel3.getText()), Integer.parseInt(jLabel4.getText()),
                 Integer.parseInt(jLabel5.getText()), Integer.parseInt(jLabel6.getText()),
                 Integer.parseInt(jLabel7.getText()));
-        if (t.equals(td.updateClubsTables(jLabel8.getText(), Integer.parseInt(jLabel2.getText()),
+        if (tables.equals(tableDao.updateClubsTables(jLabel8.getText(), Integer.parseInt(jLabel2.getText()),
                 Integer.parseInt(jLabel3.getText()), Integer.parseInt(jLabel4.getText()),
                 Integer.parseInt(jLabel5.getText()), Integer.parseInt(jLabel6.getText()),
                 Integer.parseInt(jLabel7.getText())))) {
             this.dispose();
             JOptionPane.showMessageDialog(null, "Περάστηκαν οι αλλαγές.", "Success", JOptionPane.INFORMATION_MESSAGE);
-            NightclubMainForm mainNightClubFrame = new NightclubMainForm(currentClubName);
-            mainNightClubFrame.setLocationRelativeTo(this);
-            mainNightClubFrame.setVisible(true);
+            NightclubMainForm nightclubMainForm = new NightclubMainForm(currentClubName);
+            nightclubMainForm.setLocationRelativeTo(this);
+            nightclubMainForm.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Πρόβλημα", "Failure", JOptionPane.INFORMATION_MESSAGE);
 

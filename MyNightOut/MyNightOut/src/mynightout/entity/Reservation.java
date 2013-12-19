@@ -14,20 +14,12 @@ public class Reservation  implements java.io.Serializable {
      private Date reservationDate;
      private String trapezi;
      private String reservationStatus;
-     //βοηθητικές μεταβλητές για τα test αυτά θα σταματήσουν να χρησιμοποιούνται
-    //όταν γίνει η κανονική συνδεση με τη βαση.
-        private String username;
-        private boolean cancelSuccessful;
-        private boolean successCreate;
-        private String clubName;
+   
 
     public Reservation() {
     }
     
-    public Reservation(ReservationPk id, String username){
-        this.id=id;
-        this.username=username;
-    }
+  
     public Reservation(ReservationPk id, Date reservationDate, 
             String trapezi, String reservationStatus) {
        this.id = id;
@@ -70,37 +62,7 @@ public class Reservation  implements java.io.Serializable {
         this.reservationStatus = reservationStatus;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public boolean isCancelSuccessful() {
-        return cancelSuccessful;
-    }
-
-    public void setCancelSuccessful(boolean cancelSuccessful) {
-        this.cancelSuccessful = cancelSuccessful;
-    }
-
-    public boolean isSuccessCreate() {
-        return successCreate;
-    }
-
-    public void setSuccessCreate(boolean successCreate) {
-        this.successCreate = successCreate;
-    }
-
-    public String getClubName() {
-        return clubName;
-    }
-
-    public void setClubName(String clubName) {
-        this.clubName = clubName;
-    }
+    
 
     @Override
     public int hashCode() {
@@ -109,10 +71,6 @@ public class Reservation  implements java.io.Serializable {
         hash = 31 * hash + (this.reservationDate != null ? this.reservationDate.hashCode() : 0);
         hash = 31 * hash + (this.trapezi != null ? this.trapezi.hashCode() : 0);
         hash = 31 * hash + (this.reservationStatus != null ? this.reservationStatus.hashCode() : 0);
-        hash = 31 * hash + (this.username != null ? this.username.hashCode() : 0);
-        hash = 31 * hash + (this.cancelSuccessful ? 1 : 0);
-        hash = 31 * hash + (this.successCreate ? 1 : 0);
-        hash = 31 * hash + (this.clubName != null ? this.clubName.hashCode() : 0);
         return hash;
     }
 
@@ -135,18 +93,6 @@ public class Reservation  implements java.io.Serializable {
             return false;
         }
         if ((this.reservationStatus == null) ? (other.reservationStatus != null) : !this.reservationStatus.equals(other.reservationStatus)) {
-            return false;
-        }
-        if ((this.username == null) ? (other.username != null) : !this.username.equals(other.username)) {
-            return false;
-        }
-        if (this.cancelSuccessful != other.cancelSuccessful) {
-            return false;
-        }
-        if (this.successCreate != other.successCreate) {
-            return false;
-        }
-        if ((this.clubName == null) ? (other.clubName != null) : !this.clubName.equals(other.clubName)) {
             return false;
         }
         return true;
