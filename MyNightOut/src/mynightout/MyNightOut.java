@@ -5,14 +5,8 @@
  */
 package mynightout;
 
-import java.text.Format;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.JFrame;
-import mynightout.dao.NightClubDao;
-import mynightout.dao.ReservationDao;
-import mynightout.dao.TablesDao;
 import mynightout.ui.MainFrame;
 
 /**

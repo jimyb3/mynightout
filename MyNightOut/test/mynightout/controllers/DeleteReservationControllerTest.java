@@ -5,14 +5,8 @@
  */
 package mynightout.controllers;
 
-import mynightout.dao.MockDeleteDaoFailure;
-import mynightout.dao.MockDeleteDaoSuccess;
-import mynightout.dao.NightClubDao;
-import mynightout.entity.Reservation;
-import mynightout.entity.ReservationPk;
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;

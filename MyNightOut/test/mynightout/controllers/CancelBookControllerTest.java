@@ -7,7 +7,6 @@
 package mynightout.controllers;
 
 import mynightout.dao.UserDao;
-import mynightout.entity.Reservation;
 import mynightout.entity.ReservationPk;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -63,7 +62,7 @@ public class CancelBookControllerTest {
     
     @Test(expected=NullPointerException.class)
     public void testFailedCancelNoUserName() {
-        System.out.println("cancelReservation");
+        System.out.println("FailedCancelNoUserName");
         String userName = null;
         int userId=new UserDao().getUserDataByUsername(userName).getUserId();
         int reservationId = 5;
@@ -81,7 +80,7 @@ public class CancelBookControllerTest {
     
     @Test (expected=NullPointerException.class)
     public void testFailedCancelWithBigUserName() {
-        System.out.println("cancelReservation");
+        System.out.println("FailedCancelWithBigUserName");
         String userName = "qwertyuiopasdfgh";
         int userId=new UserDao().getUserDataByUsername(userName).getUserId();
         int reservationId = 1;
@@ -98,7 +97,7 @@ public class CancelBookControllerTest {
     
     @Test (expected=IllegalArgumentException.class)
     public void testFailedCancelWithBigReservationId() {
-        System.out.println("cancelReservation");
+        System.out.println("FailedCancelWithBigReservationId");
         String userName = "user1";
         int userId=new UserDao().getUserDataByUsername(userName).getUserId();
         int reservationId = 1999999999;
@@ -116,7 +115,7 @@ public class CancelBookControllerTest {
     
     @Test (expected=NullPointerException.class)
     public void testFailedCancelWithBigReservationIdAndUserName() {
-        System.out.println("cancelReservation");
+        System.out.println("FailedCancelWithBigReservationIdAndUserName");
         String userName = "qwertyuiopasdfgh";
         int userId=new UserDao().getUserDataByUsername(userName).getUserId();
         int reservationId = 1999999999;
@@ -134,7 +133,7 @@ public class CancelBookControllerTest {
     
     @Test(expected=NullPointerException.class)
     public void testFailedCancelWithSmallReservationIdAndBigUserName() {
-        System.out.println("cancelReservation");
+        System.out.println("FailedCancelWithSmallReservationIdAndBigUserName");
         String userName = "qwertyuiopasdfgh";
         int userId=new UserDao().getUserDataByUsername(userName).getUserId();
         int reservationId = -1;
@@ -152,7 +151,7 @@ public class CancelBookControllerTest {
     
     @Test (expected=NullPointerException.class)
     public void testFailedCancelWithBigReservationIdNoUserName() {
-        System.out.println("cancelReservation");
+        System.out.println("FailedCancelWithBigReservationIdNoUserName");
         String userName = "";
         int userId=new UserDao().getUserDataByUsername(userName).getUserId();
         int reservationId = 1999999999;

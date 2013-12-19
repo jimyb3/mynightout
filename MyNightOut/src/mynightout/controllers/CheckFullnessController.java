@@ -5,8 +5,6 @@
  */
 package mynightout.controllers;
 
-import mynightout.dao.NightClubDao;
-import mynightout.exceptions.DaoException;
 import mynightout.entity.Nightclub;
 
 /**
