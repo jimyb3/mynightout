@@ -19,14 +19,13 @@ public class EditUserInformationController {
     //  public EditUserInformationController(String cUserName) {
     //    currentUserName = cUserName;
     //}
-   
-
     public User saveChanges(String userName, String password, String customerName,
             String customerLastname, String telephoneNum, String email) {
-        
+
         if (userName.isEmpty() || password.isEmpty() || customerName.isEmpty() || customerLastname.isEmpty() || telephoneNum.isEmpty() || email.isEmpty()) {
             throw new IllegalArgumentException("Έχετε κενά πεδία");
         }
+
         for (int i = 0; i < telephoneNum.length(); i++) {
             if (!Character.isDigit(telephoneNum.charAt(i))) {
                 throw new IllegalArgumentException("Παρακαλώ εισάγετε μόνο αριθμούς στο πεδίο \"Αριθμός τηλεφώνου\"");
