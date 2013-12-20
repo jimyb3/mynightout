@@ -8,6 +8,7 @@ package mynightout.ui;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Vector;
+import javax.swing.ImageIcon;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import mynightout.controllers.DisplayCellarController;
@@ -34,6 +35,7 @@ public class NightclubMainForm extends javax.swing.JFrame {
      */
     public NightclubMainForm() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 
     public NightclubMainForm(String nightClubName) {

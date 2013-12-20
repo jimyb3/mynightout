@@ -6,6 +6,7 @@
 package mynightout.ui;
 
 import java.util.Date;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -21,6 +22,7 @@ public class CreateBookForm extends javax.swing.JFrame {
     public CreateBookForm() {
 
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
         Date date = new Date();
         this.reservationDateChooser.setDate(date);
     }

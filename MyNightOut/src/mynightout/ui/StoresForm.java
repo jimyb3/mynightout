@@ -46,6 +46,7 @@ public class StoresForm extends javax.swing.JFrame {
     public StoresForm(String cUserName) {
         currentUserName = cUserName;
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 
     public StoresForm() {

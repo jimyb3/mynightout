@@ -8,6 +8,7 @@ package mynightout.ui;
 
 import java.util.List;
 import java.util.Vector;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import mynightout.dao.NightClubDao;
@@ -26,6 +27,7 @@ public class UserHistoryForm extends javax.swing.JFrame {
      */
     public UserHistoryForm() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
     public UserHistoryForm(String cUserName) {
         currentUserName = cUserName;

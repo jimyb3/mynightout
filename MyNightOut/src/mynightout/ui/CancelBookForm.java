@@ -6,6 +6,7 @@
 package mynightout.ui;
 
 import java.text.SimpleDateFormat;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.dao.NightClubDao;
@@ -26,6 +27,7 @@ public class CancelBookForm extends javax.swing.JFrame {
      */
     public CancelBookForm() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 
     public CancelBookForm(String cUserName) {

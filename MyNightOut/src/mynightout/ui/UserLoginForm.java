@@ -5,6 +5,7 @@
  */
 package mynightout.ui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.controllers.UserLoginController;
@@ -22,6 +23,7 @@ public class UserLoginForm extends javax.swing.JFrame {
      */
     public UserLoginForm() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 
     /**

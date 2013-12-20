@@ -5,6 +5,7 @@
  */
 package mynightout.ui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.dao.NightClubDao;
@@ -24,6 +25,7 @@ public class TableProfileForm extends javax.swing.JFrame implements ISelectTable
      */
     public TableProfileForm() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 
     public TableProfileForm(String nightClubName) {

@@ -5,6 +5,7 @@
  */
 package mynightout.ui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import mynightout.controllers.NightclubLoginController;
 import mynightout.entity.Nightclub;
@@ -20,6 +21,7 @@ public class NightclubLoginForm extends javax.swing.JFrame {
      */
     public NightclubLoginForm() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 
     /**

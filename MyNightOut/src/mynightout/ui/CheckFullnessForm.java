@@ -6,6 +6,7 @@
 package mynightout.ui;
 
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.controllers.CheckFullnessController;
@@ -27,6 +28,7 @@ public class CheckFullnessForm extends javax.swing.JFrame {
      */
     public CheckFullnessForm() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 
     public CheckFullnessForm(String nightClubName) {

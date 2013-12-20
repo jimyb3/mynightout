@@ -8,6 +8,7 @@ package mynightout.ui;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Vector;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import mynightout.controllers.DeleteReservationController;
@@ -28,6 +29,7 @@ public class ConfirmDeleteReservationForm extends javax.swing.JFrame {
      */
     public ConfirmDeleteReservationForm() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 
     /**

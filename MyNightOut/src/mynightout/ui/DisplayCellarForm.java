@@ -5,6 +5,7 @@
  */
 package mynightout.ui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -20,6 +21,7 @@ public class DisplayCellarForm extends javax.swing.JFrame {
      */
     public DisplayCellarForm() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 
     public DisplayCellarForm(String nightClubName) {

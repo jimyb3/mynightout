@@ -5,6 +5,7 @@
  */
 package mynightout.ui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import mynightout.controllers.CreateNewUserFormController;
 import mynightout.dao.UserDao;
@@ -22,6 +23,7 @@ public class CreateNewUserForm extends javax.swing.JFrame {
      */
     public CreateNewUserForm() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
         userNameField.setDocument(new JTextFieldLimit(15));
         passwordField.setDocument(new JTextFieldLimit(15));
         customerNameField.setDocument(new JTextFieldLimit(30));

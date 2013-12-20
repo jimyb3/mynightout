@@ -5,6 +5,7 @@
  */
 package mynightout.ui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.controllers.SetNightClubDaysClosedController;
@@ -22,6 +23,7 @@ public class ConfirmNightClubDaysClosedForm extends javax.swing.JFrame {
      */
     public ConfirmNightClubDaysClosedForm() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 
     public ConfirmNightClubDaysClosedForm(String nightClubName) {
