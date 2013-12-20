@@ -42,15 +42,6 @@ public class EditUserInformationControllerTest {
     /**
      * Test of saveChanges method, of class EditUserInformationController.
      */
-    @Test
-    public void testSaveChangesSuccessfull() {
-        System.out.println("testSaveChangesSuccessfull");
-        String userName = "lalala";
-        EditUserInformationController instance = new EditUserInformationController();
-        User expResult = instance.saveChanges(userName, "123456", "testtest", "test", "9874563210", "test@yahoo.gr");
-        User result = new UserDao().getUserDataByUsername(userName);
-        Assert.assertEquals(expResult, result);
-    }
 
     @Test(expected = NullPointerException.class)
     public void testSaveChangesWithNullUserName() {

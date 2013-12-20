@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <user User_id="1" Username="user1" Password="123456" Customer_name="Ioanna" Customer_lastname="Koufaki" Telephone_num="6908743750" Email="user1@yahoo.gr"/>
+  <user User_id="2" Username="USER2" Password="684210" Customer_name="LALAKIS" Customer_lastname="LALAKIDHS" Telephone_num="8120465320" Email="user2@yahoo.gr"/>
+  <user User_id="3" Username="lalala" Password="123456" Customer_name="testtest" Customer_lastname="test" Telephone_num="9874563210" Email="test@yahoo.gr"/>
+  <user User_id="4" Username="lalala2" Password="123456" Customer_name="test2" Customer_lastname="test2" Telephone_num="8745632999" Email="test2@yahoo.gr"/>
+  <user User_id="5" Username="user5" Password="123456" Customer_name="test" Customer_lastname="test" Telephone_num="9874567584" Email="user5@yahoo.gr"/>
+  <user User_id="6" Username="user9" Password="123456" Customer_name="test2" Customer_lastname="test2" Telephone_num="8745632109" Email="user9@yahoo.gr"/>
+  <user User_id="7" Username="teo" Password="123456" Customer_name="test2" Customer_lastname="test2" Telephone_num="8745632199" Email="teo@yahoo.gr"/>
+  <user User_id="8" Username="ioanna65" Password="124312" Customer_name="ioanna" Customer_lastname="koufaki" Telephone_num="9871236540" Email="ioanna65@yahoo.gr"/>
+  <user User_id="9" Username="testaras" Password="918273" Customer_name="testaras" Customer_lastname="testaras" Telephone_num="7419638520" Email="testaras@yahoo.gr"/>
+  <user User_id="10" Username="testaras2" Password="564783" Customer_name="testaras2" Customer_lastname="testaras2" Telephone_num="9638527410" Email="testaras2@yahoo.gr"/>
+  <user User_id="11" Username="TESTUSER" Password="TEST666" Customer_name="NAMETEST" Customer_lastname="LASTNTEST" Telephone_num="6666666666" Email="min_peira3eis_auton_ton@user.gr"/>
+</dataset>
