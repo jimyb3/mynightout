@@ -26,31 +26,38 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="messageLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="clubNameLabel" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="messageLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="clubNameLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="showReservationHistoryButton" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="checkFullnessButton" max="32767" attributes="0"/>
+                                  <Component id="setDaysClosedButton" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="showSuppliersButton" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="deleteButton" alignment="1" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="displayCellarButton" max="32767" attributes="0"/>
+                                  <Component id="changeNightClubTableProfileButton" alignment="0" pref="181" max="32767" attributes="0"/>
+                                  <Component id="setClosedDatesButton" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="editSuppliersButton" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="exitButton" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="showReservationHistoryButton" alignment="0" max="32767" attributes="0"/>
-                          <Component id="checkFullnessButton" max="32767" attributes="0"/>
-                          <Component id="setDaysClosedButton" alignment="1" max="32767" attributes="0"/>
-                          <Component id="showSuppliersButton" alignment="1" max="32767" attributes="0"/>
-                          <Component id="deleteButton" alignment="1" max="32767" attributes="0"/>
-                          <Component id="exitButton" alignment="1" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="displayCellarButton" max="32767" attributes="0"/>
-                          <Component id="changeNightClubTableProfileButton" alignment="0" pref="181" max="32767" attributes="0"/>
-                          <Component id="setClosedDatesButton" alignment="0" max="32767" attributes="0"/>
-                          <Component id="logoutButton" max="32767" attributes="0"/>
-                          <Component id="editSuppliersButton" alignment="0" max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                      <Component id="logoutButton" min="-2" pref="181" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="0" pref="40" max="32767" attributes="0"/>
@@ -76,22 +83,22 @@
                   <Component id="setClosedDatesButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="checkFullnessButton" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="checkFullnessButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="displayCellarButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="deleteButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="displayCellarButton" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="showReservationHistoryButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="editSuppliersButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="showReservationHistoryButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="exitButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="logoutButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="logoutButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="72" max="32767" attributes="0"/>
           </Group>
       </Group>
