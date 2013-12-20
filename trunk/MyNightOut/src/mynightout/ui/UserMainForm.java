@@ -53,8 +53,6 @@ public class UserMainForm extends javax.swing.JFrame {
 
         userNameLabel = new javax.swing.JLabel();
         cancelReservationButton = new javax.swing.JButton();
-        createReservationButton = new javax.swing.JButton();
-        confirmReservationButton = new javax.swing.JButton();
         showStoresButton = new javax.swing.JButton();
         logOutButton = new javax.swing.JButton();
         editUserInformationButton = new javax.swing.JButton();
@@ -72,28 +70,17 @@ public class UserMainForm extends javax.swing.JFrame {
         cancelReservationButton.setText("Ακύρωση κράτησης");
         cancelReservationButton.setFocusPainted(false);
         cancelReservationButton.setFocusable(false);
+        cancelReservationButton.setPreferredSize(new java.awt.Dimension(126, 40));
         cancelReservationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelReservationButtonActionPerformed(evt);
             }
         });
 
-        createReservationButton.setText("Δημιουργία κράτησης");
-        createReservationButton.setEnabled(false);
-        createReservationButton.setFocusPainted(false);
-        createReservationButton.setFocusable(false);
-        createReservationButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createReservationButtonActionPerformed(evt);
-            }
-        });
-
-        confirmReservationButton.setText("<html>Επιβεβαίωση των <br></br>\nστοιχειων της κράτησης</html>");
-        confirmReservationButton.setEnabled(false);
-
         showStoresButton.setText("Προβολή καταστημάτων");
         showStoresButton.setFocusPainted(false);
         showStoresButton.setFocusable(false);
+        showStoresButton.setPreferredSize(new java.awt.Dimension(149, 40));
         showStoresButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showStoresButtonActionPerformed(evt);
@@ -103,22 +90,26 @@ public class UserMainForm extends javax.swing.JFrame {
         logOutButton.setText("Αποσύνδεση");
         logOutButton.setFocusPainted(false);
         logOutButton.setFocusable(false);
+        logOutButton.setPreferredSize(new java.awt.Dimension(92, 40));
         logOutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logOutButtonActionPerformed(evt);
             }
         });
 
-        editUserInformationButton.setText("Προβολή/επεξεργασία στοιχείων");
+        editUserInformationButton.setText("<html><center>Προβολή<br>επεξεργασία στοιχείων<center></html>");
         editUserInformationButton.setFocusPainted(false);
         editUserInformationButton.setFocusable(false);
+        editUserInformationButton.setPreferredSize(new java.awt.Dimension(139, 40));
         editUserInformationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editUserInformationButtonActionPerformed(evt);
             }
         });
 
-        jButton1.setText("View User's History");
+        jButton1.setText("<html><center>Προβολή <br>ιστορικό κρατήσεων</center></html>");
+        jButton1.setFocusable(false);
+        jButton1.setPreferredSize(new java.awt.Dimension(129, 40));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -129,52 +120,44 @@ public class UserMainForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(logOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(118, 118, 118))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(userNameLabel))
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(showStoresButton, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(editUserInformationButton, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                            .addComponent(cancelReservationButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(147, 147, 147)
-                                .addComponent(createReservationButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(confirmReservationButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cancelReservationButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(editUserInformationButton))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(logOutButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(showStoresButton)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton1))))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                        .addGap(44, 44, 44)
+                        .addComponent(userNameLabel)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(9, 9, 9)
                 .addComponent(userNameLabel)
-                .addGap(30, 30, 30)
-                .addComponent(createReservationButton)
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(confirmReservationButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cancelReservationButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(showStoresButton)
-                    .addComponent(jButton1))
+                    .addComponent(showStoresButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cancelReservationButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(editUserInformationButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(editUserInformationButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
-                .addComponent(logOutButton)
-                .addGap(24, 24, 24))
+                .addComponent(logOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
         );
 
         pack();
@@ -214,13 +197,6 @@ public class UserMainForm extends javax.swing.JFrame {
         cancelBookForm.setLocationRelativeTo(this);
         cancelBookForm.setVisible(true);
     }//GEN-LAST:event_cancelReservationButtonActionPerformed
-
-    private void createReservationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createReservationButtonActionPerformed
-        CreateBookForm createBookForm = new CreateBookForm(currentUserName);
-        this.dispose();
-        createBookForm.setLocationRelativeTo(this);
-        createBookForm.setVisible(true);
-    }//GEN-LAST:event_createReservationButtonActionPerformed
 
     private void showStoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showStoresButtonActionPerformed
         StoresForm nightClubs = new StoresForm(currentUserName);
@@ -312,8 +288,6 @@ public class UserMainForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelReservationButton;
-    private javax.swing.JButton confirmReservationButton;
-    private javax.swing.JButton createReservationButton;
     private javax.swing.JButton editUserInformationButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton logOutButton;
