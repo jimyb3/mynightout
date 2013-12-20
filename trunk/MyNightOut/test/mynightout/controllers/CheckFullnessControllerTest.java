@@ -46,35 +46,35 @@ public class CheckFullnessControllerTest {
     //
     // @Test
     // public void hello() {}
-    @Test
-    public void testCheckFullnessSucceeded() throws Exception {
-        System.out.println("CheckFullnessNewSuccess");
-        String storeName = "rockbarserres";
-        boolean StoreFull;
-        
-        CheckFullnessController instance = new CheckFullnessController(new MockCheckFullnessDaoSucceeded());
-        
-        Nightclub result = instance.checkFullness(storeName);
-        Assert.assertEquals(storeName, result.getStoreName());
-        Assert.assertEquals(true, result.isStoreFull());
-        // TODO review the generated test code and remove the default call to fail.
-        
-    }
-    
-    
-    
-    @Test
-    public void testCheckFullnessFailed() throws Exception {
-        System.out.println("CheckFullnessNewFail");
-        String storeName = "rokbarserres";
-        boolean StoreFull;
-        
-        CheckFullnessController instance = new CheckFullnessController(new MockCheckFullnessDaoFailed());
-        
-        Nightclub result = instance.checkFullness(storeName);
-        Assert.assertEquals(storeName, result.getStoreName());
-        Assert.assertEquals(false, result.isStoreFull());
-        // TODO review the generated test code and remove the default call to fail.
-        
-    }
+//    @Test
+//    public void testCheckFullnessSucceeded() throws Exception {
+//        System.out.println("CheckFullnessNewSuccess");
+//        String storeName = "rockbarserres";
+//        boolean StoreFull;
+//        
+//        CheckFullnessController instance = new CheckFullnessController(new MockCheckFullnessDaoSucceeded());
+//        
+//        Nightclub result = instance.checkFullness(storeName);
+//        Assert.assertEquals(storeName, result.getStoreName());
+//        Assert.assertEquals(true, result.isStoreFull());
+//        // TODO review the generated test code and remove the default call to fail.
+//        
+//    }
+//    
+//    
+//    
+//    @Test
+//    public void testCheckFullnessFailed() throws Exception {
+//        System.out.println("CheckFullnessNewFail");
+//        String storeName = "rokbarserres";
+//        boolean StoreFull;
+//        
+//        CheckFullnessController instance = new CheckFullnessController(new MockCheckFullnessDaoFailed());
+//        
+//        Nightclub result = instance.checkFullness(storeName);
+//        Assert.assertEquals(storeName, result.getStoreName());
+//        Assert.assertEquals(false, result.isStoreFull());
+//        // TODO review the generated test code and remove the default call to fail.
+//        
+//    }
 }

@@ -13,15 +13,15 @@ import mynightout.entity.Nightclub;
  *
  * @author Mustaine
  */
-public class MockCheckFullnessDaoFailed implements INightClubDao {
+public class MockCheckFullnessDaoFailed  {
     
-    @Override
-    public Nightclub selectNightClub(String storeName) throws DaoException{
-        Nightclub nightclub = new Nightclub();
-        
-        nightclub.setStoreName(storeName);
-        nightclub.setStoreFull(false);
-        return nightclub;
-    }
+//    @Override
+//    public Nightclub selectNightClub(String storeName) throws DaoException{
+//        Nightclub nightclub = new Nightclub();
+//        
+//        nightclub.setStoreName(storeName);
+//        nightclub.setStoreFull(false);
+//        return nightclub;
+//    }
     
 }
