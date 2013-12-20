@@ -98,7 +98,7 @@ public class UserDaoTest extends DBTestCase {
     public void testIsUserDataValidFailure() throws Exception {
         String username = "userFailureTest";
         String password = "passFailureTest";
-        User actualUser = new UserDao().isUserDataValid(username, password);
+        new UserDao().isUserDataValid(username, password);
     }
 
     @Test
@@ -106,13 +106,13 @@ public class UserDaoTest extends DBTestCase {
         String username = "user1";
         User actualUser = new UserDao().getUserDataByUsername(username);
         User expectedUser = new User("user1", "123456", "Ioanna", "Koufaki", "6908743750", "user1@yahoo.gr");
-        Assert.assertEquals(expectedUser.equalsForLogin(actualUser), true);
+        Assert.assertEquals(true, expectedUser.equalsForLogin(actualUser));
     }
 
     @Test(expected = NullPointerException.class)
     public void testGetUserDataByUsernameFailure() throws Exception {
         String username = "userFailureTest";
-        User actualUser = new UserDao().getUserDataByUsername(username);
+        new UserDao().getUserDataByUsername(username);
     }
 
     @Test
@@ -120,13 +120,13 @@ public class UserDaoTest extends DBTestCase {
         int validId = 1;
         User actualUser = new UserDao().getUserDataById(validId);
         User expectedUser = new User(1, "user1", "123456", "Ioanna", "Koufaki", "6908743750", "user1@yahoo.gr");
-        Assert.assertEquals(expectedUser.equals(actualUser), true);
+        Assert.assertEquals(true, expectedUser.equals(actualUser));
     }
 
     @Test(expected = NullPointerException.class)
     public void testGetUserDataByIdFailure() throws Exception {
         int invalidId = -1;
-        User actualUser = new UserDao().getUserDataById(invalidId);
+        new UserDao().getUserDataById(invalidId);
     }
 
     @Test
