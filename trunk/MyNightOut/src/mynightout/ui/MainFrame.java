@@ -8,6 +8,7 @@ package mynightout.ui;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import mynightout.controllers.DisplayCellarController;
 import mynightout.dao.TablesDao;
@@ -27,6 +28,7 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 
     /**

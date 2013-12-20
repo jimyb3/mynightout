@@ -5,6 +5,7 @@
  */
 package mynightout.ui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import mynightout.controllers.EditUserInformationController;
 import mynightout.dao.UserDao;
@@ -24,6 +25,7 @@ public class EditUserInformationForm extends javax.swing.JFrame {
      */
     public EditUserInformationForm() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
         userNameField.setDocument(new JTextFieldLimit(15));
         passwordField.setDocument(new JTextFieldLimit(15));
         customerNameField.setDocument(new JTextFieldLimit(30));

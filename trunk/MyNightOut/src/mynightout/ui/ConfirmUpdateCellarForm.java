@@ -6,6 +6,7 @@
 
 package mynightout.ui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.controllers.UpdateCellarController;
@@ -21,6 +22,7 @@ private String currentClubName;
      */
     public ConfirmUpdateCellarForm() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 public ConfirmUpdateCellarForm(String nightClubName) {
     currentClubName = nightClubName;

@@ -5,6 +5,8 @@
  */
 package mynightout.ui;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author ioanna
@@ -18,6 +20,7 @@ public class NightclubReservationsHistoryForm extends javax.swing.JFrame {
      */
     public NightclubReservationsHistoryForm() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 
     public NightclubReservationsHistoryForm(String nightClubName) {

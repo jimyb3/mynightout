@@ -5,6 +5,7 @@
  */
 package mynightout.ui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mynightout.presenters.Presenter;
@@ -20,6 +21,7 @@ public class StoreRegisterForm extends javax.swing.JFrame implements IStoreRegis
      */
     public StoreRegisterForm() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 
     @Override
@@ -61,6 +63,7 @@ public class StoreRegisterForm extends javax.swing.JFrame implements IStoreRegis
         MobileTextField = new javax.swing.JTextField();
         EmailTextField = new javax.swing.JTextField();
         RegisterButton = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,6 +113,13 @@ public class StoreRegisterForm extends javax.swing.JFrame implements IStoreRegis
             }
         });
 
+        backButton.setText("Πίσω");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -154,8 +164,13 @@ public class StoreRegisterForm extends javax.swing.JFrame implements IStoreRegis
                             .addComponent(MobileTextField)
                             .addComponent(EmailTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(179, 179, 179))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(RegisterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(179, 179, 179))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(backButton)
+                                .addGap(40, 40, 40))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,15 +220,21 @@ public class StoreRegisterForm extends javax.swing.JFrame implements IStoreRegis
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegisterFax)
                     .addComponent(FaxTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RegisterMobile)
-                    .addComponent(MobileTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RegisterEmail)
-                    .addComponent(EmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(RegisterMobile)
+                            .addComponent(MobileTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(RegisterEmail)
+                            .addComponent(EmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(15, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(backButton)
+                        .addGap(21, 21, 21))))
         );
 
         pack();
@@ -231,6 +252,13 @@ public class StoreRegisterForm extends javax.swing.JFrame implements IStoreRegis
         mainFrame.setLocationRelativeTo(this);
         mainFrame.setVisible(true);
     }//GEN-LAST:event_RegisterButtonActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        this.dispose();
+        MainFrame main = new MainFrame();
+        main.setLocationRelativeTo(this);
+        main.setVisible(true);
+    }//GEN-LAST:event_backButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -293,6 +321,7 @@ public class StoreRegisterForm extends javax.swing.JFrame implements IStoreRegis
     private javax.swing.JLabel RegisterTitle;
     private javax.swing.JTextField Tel1TextField;
     private javax.swing.JTextField Tel2TextField;
+    private javax.swing.JButton backButton;
     // End of variables declaration//GEN-END:variables
 
     @Override

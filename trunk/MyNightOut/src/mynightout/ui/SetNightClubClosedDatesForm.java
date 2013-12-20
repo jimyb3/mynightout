@@ -7,6 +7,7 @@ package mynightout.ui;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -22,6 +23,7 @@ public class SetNightClubClosedDatesForm extends javax.swing.JFrame {
      */
     public SetNightClubClosedDatesForm() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 
     public SetNightClubClosedDatesForm(String nightClubName) {

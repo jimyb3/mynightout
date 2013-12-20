@@ -6,6 +6,7 @@
 package mynightout.ui;
 
 import java.text.SimpleDateFormat;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import mynightout.dao.NightClubDao;
 import mynightout.dao.ReservationDao;
@@ -25,6 +26,7 @@ public class DeleteReservationForm extends javax.swing.JFrame {
      */
     public DeleteReservationForm() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 
     public DeleteReservationForm(String nightClubName) {

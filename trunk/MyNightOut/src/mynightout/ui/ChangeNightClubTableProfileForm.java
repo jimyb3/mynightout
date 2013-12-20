@@ -5,6 +5,7 @@
  */
 package mynightout.ui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import mynightout.presenters.CreateNightClubTableProfilePresenter;
 
@@ -21,6 +22,7 @@ public class ChangeNightClubTableProfileForm extends javax.swing.JFrame {
      */
     public ChangeNightClubTableProfileForm() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 
     public ChangeNightClubTableProfileForm(String nightClubName) {

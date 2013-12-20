@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import mynightout.dao.NightClubDao;
 import mynightout.dao.TablesDao;
@@ -29,6 +30,7 @@ public class StoreView extends javax.swing.JFrame {
      */
     public StoreView() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 
     public StoreView(String cUserName) {

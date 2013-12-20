@@ -6,6 +6,8 @@
 
 package mynightout.ui;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Dimitris
@@ -17,6 +19,7 @@ public class EditSupplierForm extends javax.swing.JFrame {
      */
     public EditSupplierForm() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 
     /**

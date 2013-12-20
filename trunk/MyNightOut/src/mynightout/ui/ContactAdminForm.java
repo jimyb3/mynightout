@@ -5,6 +5,7 @@
  */
 package mynightout.ui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import mynightout.presenters.Presenter;
 
@@ -19,6 +20,7 @@ public class ContactAdminForm extends javax.swing.JFrame {
      */
     public ContactAdminForm() {
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
 
         this.FAQPanel.setVisible(false);
         this.SendHelpPanel.setVisible(false);

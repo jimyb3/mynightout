@@ -5,6 +5,7 @@
  */
 package mynightout.ui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -21,6 +22,7 @@ public class ShowSupplierForm extends javax.swing.JFrame {
     public ShowSupplierForm(String nightClubName) {
         currentClubName = nightClubName;
         initComponents();
+        this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 
     public ShowSupplierForm() {

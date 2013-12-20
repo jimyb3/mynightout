@@ -5,6 +5,7 @@
  */
 package mynightout.ui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 
@@ -20,7 +21,7 @@ public class SetNightClubDaysClosedForm extends javax.swing.JFrame {
      * Creates new form SetNightClubDaysClosedForm
      */
     public SetNightClubDaysClosedForm() {
-        initComponents();
+        initComponents();this.setIconImage(new ImageIcon(getClass().getResource("/images/appicon.png")).getImage());
     }
 
     public SetNightClubDaysClosedForm(String nightClubName) {
