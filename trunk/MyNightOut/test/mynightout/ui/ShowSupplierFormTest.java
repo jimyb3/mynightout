@@ -23,12 +23,12 @@ import org.uispec4j.interception.MainClassAdapter;
  *
  * @author panos
  */
-public class CreateBookFormTest extends UISpecTestCase {
+public class ShowSupplierFormTest extends UISpecTestCase {
     static {
       UISpec4J.init();
     }
     
-    public CreateBookFormTest() {
+    public ShowSupplierFormTest() {
     }
     
     @BeforeClass
@@ -41,18 +41,24 @@ public class CreateBookFormTest extends UISpecTestCase {
     
     @Before
     public void setUp() {
-        setAdapter(new MainClassAdapter(CreateBookForm.class, new String[0]));
+        setAdapter(new MainClassAdapter(ShowSupplierForm.class, new String[0]));
     }
     
     @After
     public void tearDown() {
     }
-
-   //-----------------------------GUI Testing UISPEC4J---------------------------------------//
+    
+ 
     
     
-       
-  //Γίνεται Έλεγχος εμφάνισης της φόρμας 
+    
+//-----------------------------GUI Testing UISPEC4J---------------------------------------//
+    
+    
+    
+   //Γίνεται Έλεγχος εμφάνισης της φόρμας
+    
+    
     @Test
     public void testvisibility() {
           
@@ -61,74 +67,52 @@ public class CreateBookFormTest extends UISpecTestCase {
         assertTrue(window.isVisible());         
         
         
-    }
+    } 
     
     
     
-     
-   //Έλεγχος εμφάνισης των διάφορων JLabels της φόρμας.
+    //Γίνεται Έλεγχος εμφάνισης των  JLabels της φόρμας.
     @Test
     public void testalllabels() {
           
         Window window = getMainWindow();
-
- 	assertTrue(window.containsLabel("εδώ εμφανιζει το ονομα του πελατη"));        
-	assertTrue(window.containsLabel("Επιλογή Καταστήματος"));
-        assertTrue(window.containsLabel("Αριθμός Ατόμων")); 
-	assertTrue(window.containsLabel("Επιλογή Ημερομηνίας"));
-	   
-	     
-   }
-    
-    //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel  από το κουμπί "Καταχώρηση Κράτησης" της φόρμας
-    
-    
-    @Test
-    public void testkataxkrafaqvisibility() {
         
-      Window window = getMainWindow();
-      
-      Button conFaq = window.getButton("Καταχώρηση Κράτησης");
-      Panel cpan = window.getPanel("null.contentPane");
-      
-      conFaq.click();
-      
-      assertTrue(cpan.isVisible()); 
-                   
-    }
+	assertTrue(window.containsLabel("Προμηθευτές του :"));
+        assertTrue(window.containsLabel("jLabel2")); 
     
-   
-    
+        
+   }
     
     
     
     //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel
-   @Test
-    public void testjpanelfaqvisibility() {
+      @Test
+    public void testreservationfaqvisibility() {
         
       Window window = getMainWindow();
       
       
       Panel fpan = window.getPanel("null.contentPane");
       
-      
-      
+           
       assertTrue(fpan.isVisible()); 
                    
     }
     
+   
     
     
-    
-    //Αν εμφανίζoνται κανονικά ολα τα κουμπιά.
+     //Ελενχος εμφανίζεται κανονικά το κουμπί "Πίσω".
     @Test
     public void testAllButtons() {
         System.out.println("testAllButtons");
         Window window = getMainWindow();
-        assertEquals(true, window.getButton("Καταχώρηση Κράτησης").isVisible());
-        assertEquals(true, window.getButton("Άκυρο").isVisible());
+        assertEquals(true, window.getButton("Πίσω").isVisible());
+   
+        
+        
     }
     
-    
+       
     
 }

@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.uispec4j.Panel;
 import org.uispec4j.UISpec4J;
 import org.uispec4j.UISpecTestCase;
 import org.uispec4j.Window;
@@ -48,12 +49,11 @@ public class ChangeNightClubTableProfileFormTest extends UISpecTestCase {
     
     
     
-//-----------------------------GUI Testing---------------------------------------//
+//-----------------------------GUI Testing UISPEC4J---------------------------------------//
     
     
     
-   //Έλεγχος εμφάνισης φόρμας ή αν η φόρμα εμποδίζεται δυναμικά από κάποια 
-    //κλάση και εσφαλμένως δεν εμφανίζεται γενικά.
+   //Γίνεται Έλεγχος εμφάνισης της φόρμας
     @Test
     public void testvisibility() {
           
@@ -81,6 +81,22 @@ public class ChangeNightClubTableProfileFormTest extends UISpecTestCase {
 	assertTrue(window.containsLabel("Αριθμός τραπεζιών έκτη γραμμή"));        
    }
     
+    
+    
+    //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel 
+   @Test
+    public void testjpanelfaqvisibility() {
+        
+      Window window = getMainWindow();
+      
+      
+      Panel fpan = window.getPanel("null.contentPane");
+      
+      
+      
+      assertTrue(fpan.isVisible()); 
+                   
+    }
     
     
     

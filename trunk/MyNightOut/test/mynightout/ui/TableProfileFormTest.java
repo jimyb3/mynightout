@@ -12,6 +12,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.uispec4j.Button;
+import org.uispec4j.Panel;
 import org.uispec4j.Trigger;
 import org.uispec4j.UISpec4J;
 import org.uispec4j.UISpecTestCase;
@@ -86,6 +88,24 @@ public class TableProfileFormTest extends UISpecTestCase {
 	     
    }
     
+    
+    
+    
+   
+    
+   //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel
+      @Test
+    public void testprofilfaqvisibility() {
+        
+      Window window = getMainWindow();
+      
+      
+      Panel fpan = window.getPanel("null.contentPane");
+      
+           
+      assertTrue(fpan.isVisible()); 
+                   
+    }
     
     
    

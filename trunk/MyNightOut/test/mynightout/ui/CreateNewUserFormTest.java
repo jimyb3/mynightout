@@ -12,6 +12,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.uispec4j.Button;
+import org.uispec4j.Panel;
 import org.uispec4j.UISpec4J;
 import org.uispec4j.UISpecTestCase;
 import org.uispec4j.Window;
@@ -82,6 +84,44 @@ public class CreateNewUserFormTest extends UISpecTestCase {
         
         
    }
+    
+    
+    
+    //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel  από το κουμπί "Καταχώρηση Κράτησης" της φόρμας
+    
+    
+    @Test
+    public void testdhmioyrlogkrafaqvisibility() {
+        
+      Window window = getMainWindow();
+      
+      Button conFaq = window.getButton("Δημιουργία λογαριασμού");
+      Panel cpan = window.getPanel("null.contentPane");
+      
+      conFaq.click();
+      
+      assertTrue(cpan.isVisible()); 
+                   
+    }
+    
+    
+    //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel
+   @Test
+    public void testjpanelfaqvisibility() {
+        
+      Window window = getMainWindow();
+      
+      
+      Panel fpan = window.getPanel("null.contentPane");
+      
+      
+      
+      assertTrue(fpan.isVisible()); 
+                   
+    }
+    
+    
+    
     
     
     

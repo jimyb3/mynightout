@@ -12,6 +12,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.uispec4j.Button;
+import org.uispec4j.Panel;
 import org.uispec4j.Trigger;
 import org.uispec4j.UISpec4J;
 import org.uispec4j.UISpecTestCase;
@@ -52,8 +54,7 @@ public class NightclubMainFormTest extends UISpecTestCase {
      //-----------------------------GUI Testing---------------------------------------//
     
     
-  //Έλεγχος εμφάνισης φόρμας ή αν η φόρμα εμποδίζεται δυναμικά από κάποια 
-    //κλάση και εσφαλμένως δεν εμφανίζεται γενικά.
+  //Γίνεται Έλεγχος εμφάνισης της φόρμας 
     @Test
     public void testvisibility() {
           
@@ -62,6 +63,60 @@ public class NightclubMainFormTest extends UISpecTestCase {
         assertTrue(window.isVisible());         
         
         
+    }
+    
+    
+    
+    //Έλεγχος εμφάνισης των διάφορων JLabels της φόρμας.
+    
+    @Test
+    public void testalllabels() {
+          
+        Window window = getMainWindow();
+
+ 	assertTrue(window.containsLabel("Διαχείριση καταστήματος "));        
+	assertTrue(window.containsLabel("clubName"));
+        
+   }
+    
+    
+    
+    
+    //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel  από το κουμπί "Κλείσιμο" της φόρμας
+     
+    
+    @Test
+    public void testapoxkrafaqvisibility() {
+        
+      Window window = getMainWindow();
+      
+      Button conFaq = window.getButton("Κλείσιμο");
+      Panel cpan = window.getPanel("null.contentPane");
+      
+      conFaq.click();
+      
+      assertTrue(cpan.isVisible()); 
+                   
+    }
+    
+    
+    
+    
+    
+    
+    
+     //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel
+   @Test
+    public void testjpanelfaqvisibility() {
+        
+      Window window = getMainWindow();
+      
+      
+      Panel fpan = window.getPanel("null.contentPane");
+      
+      
+      assertTrue(fpan.isVisible()); 
+                   
     }
     
     
@@ -86,6 +141,8 @@ public class NightclubMainFormTest extends UISpecTestCase {
 	assertEquals(true, window.getButton("Αποσύνδεση").isVisible());
 	
     }
+
+    
     
     
     
