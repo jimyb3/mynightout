@@ -96,21 +96,21 @@ public class StoreRegisterFormTest extends UISpecTestCase {
     
     //Έλεγχος τπυ κουμπιού "Αποστολή Αίτησης" και έλεγχος αν όντως δυναμικά 
     //ανοίγει ένα μήνυμα τύπου JOptionPane.
-    @Test
-    public void testsendMailButton() {
-        
-        Window window = getMainWindow();
-
-        WindowInterceptor.init(window.getButton("Αποστολή Αίτησης").triggerClick()).process(new WindowHandler() {
-            @Override
-            public Trigger process(Window dialog) {
-                assertTrue(dialog.titleEquals("Success")); 
-            return dialog.getButton("OK").triggerClick();
-            }
-        })
-       .run();
-  
-   }
+//    @Test
+//    public void testsendMailButton() {
+//        
+//        Window window = getMainWindow();
+//
+//        WindowInterceptor.init(window.getButton("Αποστολή Αίτησης").triggerClick()).process(new WindowHandler() {
+//            @Override
+//            public Trigger process(Window dialog) {
+//                assertTrue(dialog.titleEquals("Success")); 
+//            return dialog.getButton("OK").triggerClick();
+//            }
+//        })
+//       .run();
+//  
+//   }
     
     
     

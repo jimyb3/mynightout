@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 
+
+
+
 package mynightout.ui;
 
 import org.junit.After;
@@ -14,24 +17,21 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.uispec4j.Button;
 import org.uispec4j.Panel;
-import org.uispec4j.Trigger;
 import org.uispec4j.UISpec4J;
 import org.uispec4j.UISpecTestCase;
 import org.uispec4j.Window;
 import org.uispec4j.interception.MainClassAdapter;
-import org.uispec4j.interception.WindowHandler;
-import org.uispec4j.interception.WindowInterceptor;
 
 /**
  *
  * @author panos
  */
-public class DeleteReservationFormTest extends UISpecTestCase {
+public class StoresFormTest extends UISpecTestCase {
     static {
       UISpec4J.init();
     }
     
-    public DeleteReservationFormTest() {
+    public StoresFormTest() {
     }
     
     @BeforeClass
@@ -44,17 +44,21 @@ public class DeleteReservationFormTest extends UISpecTestCase {
     
     @Before
     public void setUp() {
-         setAdapter(new MainClassAdapter(DeleteReservationForm.class, new String[0]));
+        setAdapter(new MainClassAdapter(StoresForm.class, new String[0]));
     }
     
     @After
     public void tearDown() {
     }
-
-     //-----------------------------GUI Testing---------------------------------------//
     
     
-  //Γίνεται Έλεγχος εμφάνισης της φόρμας 
+    
+//-----------------------------GUI Testing UISPEC4J---------------------------------------//
+    
+    
+    
+   //Γίνεται Έλεγχος εμφάνισης της φόρμας  
+    
     @Test
     public void testvisibility() {
           
@@ -63,55 +67,40 @@ public class DeleteReservationFormTest extends UISpecTestCase {
         assertTrue(window.isVisible());         
         
         
-    }
+    } 
     
     
     
     
-   //Έλεγχος εμφάνισης των διάφορων JLabels της φόρμας.
-    @Test
-    public void testalllabels() {
-          
-        Window window = getMainWindow();
-
- 	assertTrue(window.containsLabel("Clubname:"));        
-	assertTrue(window.containsLabel("Δώστε το Id της κράτησης."));
-        assertTrue(window.containsLabel("Αριθμός κράτησης:"));
-        
-	     
-   }
-    
-    
-    
- //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel
+  // Γίνεται Έλεγχος σχετκά με το αν εμφανίζεται δυναμικά το αντικείμενο JPanel  από το κουμπί "Back" της φόρμας. 
    @Test
-    public void testjpanelfaqvisibility() {
+    public void testBackfaqvisibility() {
         
       Window window = getMainWindow();
       
-      
+      Button resFaq = window.getButton("Back");
       Panel fpan = window.getPanel("null.contentPane");
       
-      
+      resFaq.click();
       
       assertTrue(fpan.isVisible()); 
                    
     }
     
     
+      
+     
+    //Ελενχος εμφανίζεται κανονικά το κουμπί "Exit".
     
-    
-    
-    //Αν εμφανίζoνται κανονικά ολα τα κουμπιά.
     @Test
     public void testAllButtons() {
         System.out.println("testAllButtons");
         Window window = getMainWindow();
-        assertEquals(true, window.getButton("ΟΚ").isVisible());
-        assertEquals(true, window.getButton("Άκυρο").isVisible());
+        assertEquals(true, window.getButton("Exit").isVisible());
+   
+        
+        
     }
-    
-    
-    
+       
     
 }

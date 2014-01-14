@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.uispec4j.Panel;
 import org.uispec4j.UISpec4J;
 import org.uispec4j.UISpecTestCase;
 import org.uispec4j.Window;
@@ -74,6 +75,29 @@ public class ConfirmDeleteReservationFormTest extends UISpecTestCase {
         assertTrue(window.containsLabel("Είναι σωστά τα παραπάνω στοιχεία;"));
         
     }
+    
+    
+    
+     //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel
+    
+   @Test
+    public void testjpanelfaqvisibility() {
+        
+      Window window = getMainWindow();
+      
+      
+      Panel fpan = window.getPanel("null.contentPane");
+      
+      
+      
+      assertTrue(fpan.isVisible()); 
+                   
+    }
+    
+    
+    
+    
+    
 
     /**
      * Αν εμφανίζoνται κανονικά ολα τα κουμπιά.

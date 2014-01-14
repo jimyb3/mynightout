@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 
+
+
+
+
 package mynightout.ui;
 
 import org.junit.After;
@@ -12,7 +16,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.uispec4j.Button;
 import org.uispec4j.Panel;
 import org.uispec4j.UISpec4J;
 import org.uispec4j.UISpecTestCase;
@@ -23,17 +26,19 @@ import org.uispec4j.interception.MainClassAdapter;
  *
  * @author panos
  */
-public class CreateBookFormTest extends UISpecTestCase {
+public class UserMainFormTest extends UISpecTestCase {
     static {
       UISpec4J.init();
     }
     
-    public CreateBookFormTest() {
+    public UserMainFormTest() {
     }
+    
     
     @BeforeClass
     public static void setUpClass() {
     }
+    
     
     @AfterClass
     public static void tearDownClass() {
@@ -41,18 +46,23 @@ public class CreateBookFormTest extends UISpecTestCase {
     
     @Before
     public void setUp() {
-        setAdapter(new MainClassAdapter(CreateBookForm.class, new String[0]));
+        setAdapter(new MainClassAdapter(UserMainForm.class, new String[0]));
     }
     
     @After
     public void tearDown() {
     }
-
-   //-----------------------------GUI Testing UISPEC4J---------------------------------------//
+    
+ 
     
     
-       
-  //Γίνεται Έλεγχος εμφάνισης της φόρμας 
+    
+//-----------------------------GUI Testing UISPEC4J---------------------------------------//
+    
+    
+    
+   //Γίνεται Έλεγχος εμφάνισης της φόρμας  
+    
     @Test
     public void testvisibility() {
           
@@ -61,50 +71,25 @@ public class CreateBookFormTest extends UISpecTestCase {
         assertTrue(window.isVisible());         
         
         
-    }
+    } 
     
     
     
-     
-   //Έλεγχος εμφάνισης των διάφορων JLabels της φόρμας.
+    //Γίνεται Έλεγχος εμφάνισης των  JLabels της φόρμας.
     @Test
     public void testalllabels() {
           
         Window window = getMainWindow();
-
- 	assertTrue(window.containsLabel("εδώ εμφανιζει το ονομα του πελατη"));        
-	assertTrue(window.containsLabel("Επιλογή Καταστήματος"));
-        assertTrue(window.containsLabel("Αριθμός Ατόμων")); 
-	assertTrue(window.containsLabel("Επιλογή Ημερομηνίας"));
-	   
-	     
-   }
-    
-    //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel  από το κουμπί "Καταχώρηση Κράτησης" της φόρμας
-    
-    
-    @Test
-    public void testkataxkrafaqvisibility() {
         
-      Window window = getMainWindow();
-      
-      Button conFaq = window.getButton("Καταχώρηση Κράτησης");
-      Panel cpan = window.getPanel("null.contentPane");
-      
-      conFaq.click();
-      
-      assertTrue(cpan.isVisible()); 
-                   
-    }
+	assertTrue(window.containsLabel("jLabel1")); 
     
-   
-    
-    
+        
+   }
     
     
     //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel
-   @Test
-    public void testjpanelfaqvisibility() {
+      @Test
+    public void testjframefaqvisibility() {
         
       Window window = getMainWindow();
       
@@ -120,15 +105,23 @@ public class CreateBookFormTest extends UISpecTestCase {
     
     
     
-    //Αν εμφανίζoνται κανονικά ολα τα κουμπιά.
+    
+    //Ελενχος εμφανίσεις κουμπιών της φόρμας.
     @Test
     public void testAllButtons() {
         System.out.println("testAllButtons");
         Window window = getMainWindow();
-        assertEquals(true, window.getButton("Καταχώρηση Κράτησης").isVisible());
-        assertEquals(true, window.getButton("Άκυρο").isVisible());
+        
+        
+        assertEquals(true, window.getButton("Προβολή καταστημάτων").isVisible());
+        assertEquals(true, window.getButton("Ακύρωση κράτησης").isVisible());
+        assertEquals(true, window.getButton("<html><center>Προβολή <br>ιστορικό κρατήσεων</center></html>").isVisible());
+        assertEquals(true, window.getButton("<html><center>Προβολή<br>επεξεργασία στοιχείων<center></html>").isVisible());
+        assertEquals(true, window.getButton("Αποσύνδεση").isVisible());
+        
+        
     }
     
-    
+       
     
 }

@@ -14,24 +14,21 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.uispec4j.Button;
 import org.uispec4j.Panel;
-import org.uispec4j.Trigger;
 import org.uispec4j.UISpec4J;
 import org.uispec4j.UISpecTestCase;
 import org.uispec4j.Window;
 import org.uispec4j.interception.MainClassAdapter;
-import org.uispec4j.interception.WindowHandler;
-import org.uispec4j.interception.WindowInterceptor;
 
 /**
  *
  * @author panos
  */
-public class MainFrameTest extends UISpecTestCase {
+public class SelectTableProfileFormTest extends UISpecTestCase {
     static {
       UISpec4J.init();
     }
     
-    public MainFrameTest() {
+    public SelectTableProfileFormTest() {
     }
     
     @BeforeClass
@@ -44,17 +41,21 @@ public class MainFrameTest extends UISpecTestCase {
     
     @Before
     public void setUp() {
-         setAdapter(new MainClassAdapter(MainFrame.class, new String[0]));
+        setAdapter(new MainClassAdapter(SelectTableProfileForm.class, new String[0]));
     }
     
     @After
     public void tearDown() {
     }
-
-     //-----------------------------GUI Testing---------------------------------------//
     
     
-  //Γίνεται Έλεγχος εμφάνισης της φόρμας 
+    
+//-----------------------------GUI Testing UISPEC4J---------------------------------------//
+    
+    
+    
+   //Γίνεται Έλεγχος εμφάνισης της φόρμας  
+    
     @Test
     public void testvisibility() {
           
@@ -63,12 +64,11 @@ public class MainFrameTest extends UISpecTestCase {
         assertTrue(window.isVisible());         
         
         
-    }
+    } 
     
     
+      //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel
     
-    
-     //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel
    @Test
     public void testjpanelfaqvisibility() {
         
@@ -78,20 +78,21 @@ public class MainFrameTest extends UISpecTestCase {
       Panel fpan = window.getPanel("null.contentPane");
       
       
+      
       assertTrue(fpan.isVisible()); 
                    
     }
     
-    
-    //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel  από το κουμπί "Έξοδος" της φόρμας
-    
+  
+    //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel  από το κουμπί "Άκυρο" της φόρμας
+     
     
     @Test
-    public void testkataxkrafaqvisibility() {
+    public void testapoxkrafaqvisibility() {
         
       Window window = getMainWindow();
       
-      Button conFaq = window.getButton("Έξοδος");
+      Button conFaq = window.getButton("Άκυρο");
       Panel cpan = window.getPanel("null.contentPane");
       
       conFaq.click();
@@ -100,23 +101,18 @@ public class MainFrameTest extends UISpecTestCase {
                    
     }
     
+    //Ελενχος εμφανίζεται κανονικά το κουμπί "Άκυρο".
     
-    
-    
-    
-    
-    //Αν εμφανίζoνται κανονικά ολα τα κουμπιά.
     @Test
     public void testAllButtons() {
         System.out.println("testAllButtons");
         Window window = getMainWindow();
-        assertEquals(true, window.getButton("Είσοδος χρήστη").isVisible());
-        assertEquals(true, window.getButton("Είσοδος επιχειρηματία").isVisible());
-	assertEquals(true, window.getButton("Δημιουργία Καταστήματος").isVisible());
-	assertEquals(true, window.getButton("FAQ/Help").isVisible());
+        assertEquals(true, window.getButton("Άκυρο").isVisible());
+   
+        
+        
     }
     
-    
-    
+       
     
 }

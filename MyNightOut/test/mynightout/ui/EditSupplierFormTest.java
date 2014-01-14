@@ -26,12 +26,12 @@ import org.uispec4j.interception.WindowInterceptor;
  *
  * @author panos
  */
-public class EditUserInformationFormTest extends UISpecTestCase {
+public class EditSupplierFormTest extends UISpecTestCase {
     static {
       UISpec4J.init();
     }
     
-    public EditUserInformationFormTest() {
+    public EditSupplierFormTest() {
     }
     
     @BeforeClass
@@ -44,14 +44,15 @@ public class EditUserInformationFormTest extends UISpecTestCase {
     
     @Before
     public void setUp() {
-         setAdapter(new MainClassAdapter(EditUserInformationForm.class, new String[0]));
+                setAdapter(new MainClassAdapter(EditSupplierForm.class, new String[0]));
+
     }
     
     @After
     public void tearDown() {
     }
 
-     //-----------------------------GUI Testing---------------------------------------//
+  //-----------------------------GUI Testing UISPEC4J---------------------------------------//
     
     
   //Γίνεται Έλεγχος εμφάνισης της φόρμας 
@@ -68,25 +69,19 @@ public class EditUserInformationFormTest extends UISpecTestCase {
     
     
     
-   //Έλεγχος εμφάνισης των διάφορων JLabels της φόρμας.
+   //Έλεγχος εμφάνισης  JLabels της φόρμας.
     @Test
     public void testalllabels() {
           
         Window window = getMainWindow();
-
- 	assertTrue(window.containsLabel("Username"));        
-	assertTrue(window.containsLabel("Password"));
-	assertTrue(window.containsLabel("Όνομα"));
-	assertTrue(window.containsLabel("Επώνυμο"));
-	assertTrue(window.containsLabel("Τηλέφωνο"));
-	assertTrue(window.containsLabel("E-mail"));
-	
         
-	     
+        assertTrue(window.containsLabel("Επέλεξε τους προμηθευτές με τους οποίους θα συνεργάζεσαι.")); 
+        
+        
+       
    }
-    
-    
    
+    
     
     //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel
    @Test
@@ -105,37 +100,7 @@ public class EditUserInformationFormTest extends UISpecTestCase {
     
     
     
-    //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel  από το κουμπί "Αλλαγή στοιχείων χρήστη" της φόρμας
-     
     
-    @Test
-    public void testkataxkrafaqvisibility() {
-        
-      Window window = getMainWindow();
-      
-      Button conFaq = window.getButton("Αλλαγή στοιχείων χρήστη");
-      Panel cpan = window.getPanel("null.contentPane");
-      
-      conFaq.click();
-      
-      assertTrue(cpan.isVisible()); 
-                   
-    }
-    
-    
-    
-    
-    
-    //Αν εμφανίζoνται κανονικά ολα τα κουμπιά.
-    @Test
-    public void testAllButtons() {
-        System.out.println("testAllButtons");
-        Window window = getMainWindow();
-        assertEquals(true, window.getButton("Αλλαγή στοιχείων χρήστη").isVisible());
-        assertEquals(true, window.getButton("Πίσω").isVisible());
-    }
-    
-    
-    
+       
     
 }
