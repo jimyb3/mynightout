@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.uispec4j.Panel;
 import org.uispec4j.UISpec4J;
 import org.uispec4j.UISpecTestCase;
 import org.uispec4j.Window;
@@ -76,20 +77,19 @@ public class StoreViewtest extends UISpecTestCase {
     
     
     
+//Έλεγχος αν εμφανίζεται δυναμικά το  JPanel
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+      @Test
+    public void testjframefaqvisibility() {
+        
+      Window window = getMainWindow();
+      
+      Panel fpan = window.getPanel("null.contentPane");
+      
+      assertTrue(fpan.isVisible()); 
+                   
+      
+    }    
     
     
     

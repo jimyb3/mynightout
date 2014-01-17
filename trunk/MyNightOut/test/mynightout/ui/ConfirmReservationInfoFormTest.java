@@ -10,6 +10,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.uispec4j.Button;
+import org.uispec4j.Panel;
 import org.uispec4j.UISpec4J;
 import org.uispec4j.UISpecTestCase;
 import org.uispec4j.Window;
@@ -85,4 +87,44 @@ public class ConfirmReservationInfoFormTest extends UISpecTestCase {
         assertEquals(true, window.getButton("Ναι").isVisible());
         assertEquals(true, window.getButton("Όχι").isVisible());
     }
+    
+    
+    
+     /**
+ *
+ * @author panos
+ */
+    
+    
+    //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel
+   @Test
+    public void testjpanelfaqvisibility() {
+        
+      Window window = getMainWindow();
+     
+      Panel fpan = window.getPanel("null.contentPane");
+      
+     
+      assertTrue(fpan.isVisible()); 
+                   
+    }
+    
+    
+    //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel  από το κουμπί "Ναι" της φόρμας
+    
+    @Test
+    public void testnaifaqvisibility() {
+        
+      Window window = getMainWindow();
+      
+      Button conFaq = window.getButton("Όχι");
+      Panel cpan = window.getPanel("null.contentPane");
+      
+      conFaq.click();
+      
+      assertTrue(cpan.isVisible()); 
+                   
+    }
+    
+    
 }

@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.uispec4j.Panel;
 import org.uispec4j.Trigger;
 import org.uispec4j.UISpec4J;
 import org.uispec4j.UISpecTestCase;
@@ -78,4 +79,29 @@ public class CancelBookFormTest extends UISpecTestCase {
         assertEquals(true,window.getButton("ΟΚ").isVisible());
         assertEquals(true,window.getButton("Άκυρο").isVisible());
     }
+    
+    
+    
+      /**
+ *
+ * @author Mustaine
+ */
+    
+
+    //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel
+   @Test
+    public void testjpanelfaqvisibility() {
+        
+      Window window = getMainWindow();
+      
+      Panel fpan = window.getPanel("null.contentPane");
+      
+      assertTrue(fpan.isVisible()); 
+                   
+    }
+    
+    
+    
+    
+    
 }

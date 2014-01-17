@@ -24,7 +24,7 @@ import org.uispec4j.interception.WindowInterceptor;
 
 /**
  *
- * @author Mustaine
+ * @author panos
  */
 public class ContactAdminFormTest extends UISpecTestCase {
     static {
@@ -118,6 +118,23 @@ public class ContactAdminFormTest extends UISpecTestCase {
     }
     
     
+    //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel
+    
+   @Test
+    public void testjpanelfaqvisibility() {
+        
+      Window window = getMainWindow();
+      
+      
+      Panel fpan = window.getPanel("null.contentPane");
+      
+      
+      assertTrue(fpan.isVisible()); 
+                   
+    }
+    
+    
+    
     
     
    //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel  από το κουμπί "Άλλο" της φόρμας.
@@ -157,28 +174,6 @@ public class ContactAdminFormTest extends UISpecTestCase {
    }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
 }
