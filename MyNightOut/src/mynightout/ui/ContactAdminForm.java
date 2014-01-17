@@ -26,6 +26,8 @@ public class ContactAdminForm extends javax.swing.JFrame {
         this.SendHelpPanel.setVisible(false);
     }
 
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -236,6 +238,9 @@ public class ContactAdminForm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_SendHelpActionPerformed
 
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -270,6 +275,9 @@ public class ContactAdminForm extends javax.swing.JFrame {
             }
         });
     }
+    
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackButton;

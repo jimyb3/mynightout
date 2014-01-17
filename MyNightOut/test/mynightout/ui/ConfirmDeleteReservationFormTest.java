@@ -20,7 +20,7 @@ import org.uispec4j.interception.MainClassAdapter;
 
 /**
  *
- * @author panos
+ * @author Mustaine
  */
 public class ConfirmDeleteReservationFormTest extends UISpecTestCase {
     
@@ -47,6 +47,8 @@ public class ConfirmDeleteReservationFormTest extends UISpecTestCase {
     @After
     public void tearDown() {
     }
+    
+    
 
     /**
      * Αν εμφανίζεται κανονικά η φόρμα.

@@ -19,6 +19,14 @@ import mynightout.ui.StoreRegisterForm;
 public class Presenter implements IPresenter{
     
     
+    
+  /**
+ *
+ * @author panos
+ */
+    
+    
+    
      @Override
     public void sendHelp(ContactAdminForm form, String msgtosend){
          String userMessage=msgtosend;
@@ -42,6 +50,12 @@ public class Presenter implements IPresenter{
         
     }
     
+  
+    
+    /**
+ *
+ * @author Mustaine
+ */
     
     
     

@@ -16,8 +16,25 @@ import mynightout.ui.StoreRegisterForm;
  * @author Mustaine
  */
 public interface IPresenter {
+    
+    
+    
+    
+  /**
+ *
+ * @author panos
+ */
+    
+    
    
      public void sendHelp(ContactAdminForm form, String msgtosend);
+     
+     
+     
+  /**
+ *
+ * @author Mustaine
+ */
      
      public void sendEmail(StoreRegisterForm form, String DesiredUsername, String DesiredPassword,
             String CompanyName, String Street, String Postcode, String Telephone1, String Telephone2,

@@ -10,6 +10,8 @@ import org.junit.AfterClass;
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.uispec4j.Button;
+import org.uispec4j.Panel;
 import org.uispec4j.UISpec4J;
 import org.uispec4j.UISpecTestCase;
 import org.uispec4j.Window;
@@ -73,5 +75,52 @@ public class UserLoginFormTest extends UISpecTestCase {
         assertEquals(true, window.getButton("Enter").isVisible());
         assertEquals(true, window.getButton("Reset").isVisible());
     }
-
+    
+    
+    
+    /**
+ *
+ * @author panos
+ */
+    
+    
+    
+    
+    //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel
+      @Test
+    public void testjframefaqvisibility() {
+        
+      Window window = getMainWindow();
+      
+      
+      Panel fpan = window.getPanel("null.contentPane");
+      
+      
+      
+      assertTrue(fpan.isVisible()); 
+                   
+    }
+  
+    
+    
+    
+    
+     @Test
+    public void testkataxkrafaqvisibility() {
+        
+      Window window = getMainWindow();
+      
+      Button conFaq = window.getButton("Enter");
+      Panel cpan = window.getPanel("null.contentPane");
+      
+      conFaq.click();
+      
+      assertTrue(cpan.isVisible()); 
+                   
+    }
+    
+    
+    
+    
+    
 }

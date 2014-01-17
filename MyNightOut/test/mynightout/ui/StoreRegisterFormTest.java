@@ -11,6 +11,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.uispec4j.Panel;
 import org.uispec4j.Trigger;
 import org.uispec4j.UISpec4J;
 import org.uispec4j.UISpecTestCase;
@@ -90,6 +91,39 @@ public class StoreRegisterFormTest extends UISpecTestCase {
         assertTrue(window.containsLabel("Email")); 
        
    }
+    
+    
+    
+    
+    
+    /**
+     * Αν εμφανίζoνται κανονικά ολα τα κουμπιά.
+     */
+    @Test
+    public void testAllButtons() {
+        Window window = getMainWindow();
+        assertEquals(true, window.getButton("Αποστολή Αίτησης").isVisible());
+        assertEquals(true, window.getButton("Πίσω").isVisible());
+    }
+    
+    
+    
+     //Έλεγχος αν εμφανίζεται δυναμικά το αντικείμενο JPanel
+    
+    
+      @Test
+    public void testjframefaqvisibility() {
+        
+      Window window = getMainWindow();
+      
+      
+      Panel fpan = window.getPanel("null.contentPane");
+      
+      
+      
+      assertTrue(fpan.isVisible()); 
+                   
+    }
     
     
     

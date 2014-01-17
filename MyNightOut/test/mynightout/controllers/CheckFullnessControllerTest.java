@@ -18,7 +18,7 @@ import org.junit.Test;
 
 /**
  *
- * @author Mustaine
+ * @author panos
  */
 public class CheckFullnessControllerTest {
     

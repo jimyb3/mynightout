@@ -11,7 +11,7 @@ import mynightout.entity.Nightclub;
 
 /**
  *
- * @author Mustaine
+ * @author panos
  */
 public class MockCheckFullnessDaoSucceeded {
     
